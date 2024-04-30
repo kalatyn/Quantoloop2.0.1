@@ -483,16 +483,31 @@ body {
   box-sizing: border-box;
   /* overflow-y: scroll; */
 }
+/* .container-fluid{
+  max-width: 1920px;
+} */
 .navbar {
-  position: fixed;
-  width : 100px;
+  /* position: fixed; */
+  /* max-width : 1920px; */
   background-color: rgb(255, 255, 255);
+  z-index: 1000;
   
+  
+}
+.navbar-collapse {
+  display: flex;
+  justify-content: center;
 }
 .nav-link {
   color: rgb(0, 0, 0);
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
+}
+.nav-item {
+  margin-right: 40px;
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .scroll-lock {
@@ -509,8 +524,14 @@ body {
 #hero_section{
   width: 100vw;
   overflow: hidden;
-  /* background: url("../video/back_video.mp4") no-repeat center center/cover; */
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+#hero_section video{
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .content {
@@ -562,6 +583,8 @@ body {
   overflow-x: hidden;
   position: relative;
   padding-left: 10%;
+  overflow: scroll;
+  
 }
 
 
