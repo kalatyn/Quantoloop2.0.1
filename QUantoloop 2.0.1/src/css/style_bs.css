@@ -582,7 +582,7 @@ body {
   align-items: center;
   overflow-x: hidden;
   position: relative;
-  padding-left: 10%;
+  padding: 0% 10%;
   overflow: scroll;
   
 }
@@ -592,14 +592,31 @@ body {
   width: 405px;
   height: 704px;
   border-radius: 20px;
-  background-color: white;
   display: flex;
   flex-direction: column-reverse;
   background: url("../img/nasa-NuE8Nu3otjo-unsplash.jpg") no-repeat center center/cover;
   overflow: hidden;
   transition: all 0.7s ease 0s;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   margin-right: 70px;
+}
+.card__header{
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  transition: all 0.7s ease 0s;
+}
+.card__header h3{
+  font-size: 1.5em;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+  transition: all 0.7s ease 0s;
+}
+.card__header p{
+  color: white;
+  font-size: 1em;
+  transition: all 0.7s ease 0s;
 }
 .cards{
   display: flex;
@@ -625,11 +642,11 @@ body {
 
 }
 .card__bottom{
-  width: 101%;
+  width: 100%;
   height: 66%;
   padding: 70px 40px;
   background-color: rgba(255, 255, 255, 0.6);
-  position:absolute;
+  position:relative;
   bottom: -100%;
   transition: all 0.7s ease 0s;
   
@@ -637,8 +654,8 @@ body {
 }
 
 .card:hover{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  overflow: hidden;
   scale: 1.04;
   .card__circle{
     top: calc(33.33% - 50px);
@@ -655,6 +672,18 @@ body {
   .card__bottom{
     bottom: 0;
   }
+  .card__header{
+    top: 25px;
+  }
+  /* .card__header h3{
+    font-size: 1.2em;
+    
+    margin-bottom: 17px;
+  }
+  .card__header p{
+    color: white;
+    font-size: 0.8em;
+  } */
 }
 .card__bottom i{
   position: absolute;
