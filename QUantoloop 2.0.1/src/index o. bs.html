@@ -1,124 +1,39 @@
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quantoloop m. BS</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style_bs.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantoloop</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <nav class=" navbar-expand-lg ">
-      <div class="container-fluid navbar" style="width: 100vw;">
-        <a class="navbar-brand" href="#"><img src="img/output2.png" alt="" style="height: 35px; position: relative; left: 20px;"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="nav nav-underline">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#hero_section" > Video</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#cardfield" >Cards</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#timeline__area" >Timeline</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#cardfield">link4</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#cardfield" >link5</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#cardfield" >link6</a>
-            </li>
-          </ul>
-          
-        </div>
+    <div class="hero_section section">
+      <div class="video_wrapper">
+        <video
+          class="video_background"
+          src="video/back_video.mp4"
+          autoplay
+          muted
+          loop
+        ></video>
+        <div class="layout"></div>
+        <img class="main_logo" src="img/output2.png" alt="" />
+        <h1 class="slogen">Ready for your <br />next step?</h1>
       </div>
-    </nav>
-    <div  id="logo_slogan">
-      <!-- <div class="container content"> -->
-          
-          <img class="main_logo" src="img/output2.png" alt="">
-          <h1 class="slogen">Ready for your <br>next step?</h1>
-          
-        <!-- </div> -->
     </div>
-    
-    <div class="container-fluid sections" id="hero_section" style="padding: 0;">
-        <video src="video/back_video.mp4" autoplay loop muted plays-inline class="back_video"></video>
-    </div>
-    <div class="container-fluid sections" id="card_section">
-      <div class="scroll__buttons">
-        <div class="scroll__button" onclick="scrollLeft()"><i class="bi bi-arrow-left-circle-fill"></i></div>
-        <div class="scroll__button" onclick="scrollRight()"><i class="bi bi-arrow-right-circle-fill"></i></div>
-      </div>
-      <div id="cardfield" >
-        <div class="card border-0">
-          <div class="card__top"></div>
-          <div class="card__circle">
-            <i class="bi bi-briefcase"></i>
-          </div>
-          <div class="card__bottom">
-            <h3 style="font-size: 26px; text-align: center; line-height: 1.3; font-weight: 500;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum beatae debitis provident explicabo error officiis molestias, fugiat amet necessitatibus officia!</h3>
-            <i class="bi bi-plus-circle-fill more__about" ></i>
-          </div>
-        </div>
 
-        <div class="card border-0">
-          <div class="card__top"></div>
-          <div class="card__circle">
-            <i class="bi bi-graph-up-arrow"></i>
-          </div>
-          <div class="card__bottom">
-            <h3 style="font-size: 26px; text-align: center; line-height: 1.3; font-weight: 500;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum beatae debitis provident explicabo error officiis molestias, fugiat amet necessitatibus officia</h3>
-            <i class="bi bi-plus-circle-fill more__about2"></i>
-          </div>
-        </div>
-
-        <div class="card border-0">
-          <div class="card__top"></div>
-          <div class="card__circle">
-            <i class="bi bi-check2-circle"></i>
-          </div>
-          <div class="card__bottom">
-            <h3 style="font-size: 26px; text-align: center; line-height: 1.3; font-weight: 500;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum beatae debitis provident explicabo error officiis molestias, fugiat amet necessitatibus officia!</h3>
-            <i class="bi bi-plus-circle-fill more__about3"></i>
-          </div>
-        </div>
-
-        <div class="card border-0">
-          <div class="card__top"></div>
-          <div class="card__circle">
-            <i class="bi bi-briefcase"></i>
-          </div>
-          <div class="card__bottom">
-            <h3 style="font-size: 26px; text-align: center; line-height: 1.3; font-weight: 500;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum beatae debitis provident explicabo error officiis molestias, fugiat amet necessitatibus officia!</h3>
-            <i class="bi bi-plus-circle-fill more__about" ></i>
-          </div>
-        </div>  
-
-        <div class="card border-0">
-          <div class="card__top"></div>
-          <div class="card__circle">
-            <i class="bi bi-graph-up-arrow"></i>
-          </div>
-          <div class="card__bottom">
-            <h3 style="font-size: 26px; text-align: center; line-height: 1.3; font-weight: 500;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum beatae debitis provident explicabo error officiis molestias, fugiat amet necessitatibus officia</h3>
-            <i class="bi bi-plus-circle-fill more__about2"></i>
-          </div>  
-        </div>
-      </div>
-
-      <div class="card__disc" id="card__disc">
-        <div class="about">
-          <i class="bi bi-x-circle-fill exit__button"></i>
-          <p>
+    <div class="cardfield section">
+        <div class="card__disc" id="card__disc">
+          <div class="about">
+            <div class="exit__button" id="exit__button"><i class="bi bi-x" style="font-size: 2em;"></i></div>
+            <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
             maxime quos corporis! Laborum, ipsa beatae nam veritatis facere
             aliquam dolorem magni vitae iste numquam sint tenetur quisquam
@@ -129,44 +44,122 @@
             Voluptatibus quod modi maxime esse dolor eius, voluptas nemo quos
             ipsam at provident corrupti. Qui atque saepe ipsa odit iste omnis
             pariatur esse! Reiciendis illo voluptate sed. Iure, cumque sint?
-          </p>
-        </div>
+            </p>
+          </div>
       </div>
       <div class="card__disc" id="card__disc2">
         <div class="about">
-          <i class="bi bi-x-circle-fill exit__button2"></i>
+          <div class="exit__button" id="exit__button2"><i class="bi bi-x" style="font-size: 2em;"></i></div>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            maxime 
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+          maxime quos corporis! Laborum, ipsa beatae nam veritatis facere
+          aliquam dolorem magni vitae iste numquam sint tenetur quisquam
+          <!-- officiis ab excepturi? Dolor alias numquam asperiores vero
+          reiciendis veritatis. Architecto nobis natus eius quam officiis
+          error molestiae adipisci dicta doloribus quae, temporibus deleniti?
+          Fugit, impedit veniam? Esse eveniet iste nesciunt obcaecati facere?
+          Voluptatibus quod modi maxime esse dolor eius, voluptas nemo quos
+          ipsam at provident corrupti. Qui atque saepe ipsa odit iste omnis
+          pariatur esse! Reiciendis illo voluptate sed. Iure, cumque sint? -->
           </p>
         </div>
+    </div>
+    <div class="card__disc" id="card__disc3">
+      <div class="about">
+        <div class="exit__button" id="exit__button3"><i class="bi bi-x" style="font-size: 2em;"></i></div>
+        <p>
+        <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+        maxime quos corporis! Laborum, ipsa beatae nam veritatis facere
+        aliquam dolorem magni vitae iste numquam sint tenetur quisquam
+        officiis ab excepturi? Dolor alias numquam asperiores vero
+        reiciendis veritatis. Architecto nobis natus eius quam officiis
+        error molestiae adipisci dicta doloribus quae, temporibus deleniti?
+        Fugit, impedit veniam? Esse eveniet iste nesciunt obcaecati facere?
+        Voluptatibus quod modi maxime esse dolor eius, voluptas nemo quos -->
+        ipsam at provident corrupti. Qui atque saepe ipsa odit iste omnis
+        pariatur esse! Reiciendis illo voluptate sed. Iure, cumque sint?
+        </p>
       </div>
-      <div class="card__disc" id="card__disc3">
-        <div class="about">
-          <i class="bi bi-x-circle-fill exit__button3"></i>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            maxime quos corporis! Laborum, ipsa beatae nam veritatis facere
-            aliquam dolorem magni vitae iste numquam sint tenetur quisquam
-            officiis ab excepturi? Dolor alias numquam asperiores vero
-            reiciendis
-          </p>
-        </div>
-      </div>
-      
-    
+  </div>
 
-      
-      
-      <div class="fixed-element" id="myFixedElement" >
-        <i class="bi bi-info-circle-fill" style="font-size: 2.5em;"></i>
-        <p>Derzeit wird erklärt,<br> wie es funktioniert</p>
+      <div class="card">
+        <img class="card__pic" src="img/nasa-NuE8Nu3otjo-unsplash.jpg" alt="" />
+        <div class="card__circle">
+          <svg
+            class="circle__logo"
+            c
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"
+            />
+          </svg>
+        </div>
+        <div class="card__bottom">
+          <div class="more__about" id="more__about">+</div>
+          <p class="card__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
+            dolorem iste. Voluptatibus natus laboriosam expedita eo.
+          </p>
+        </div>
       </div>
-      
-      
+      <div class="card">
+        <img class="card__pic" src="img/nasa-NuE8Nu3otjo-unsplash.jpg" alt="" />
+        <div class="card__circle">
+          <svg
+            class="circle__logo"
+            c
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"
+            />
+          </svg>
+        </div>
+        <div class="card__bottom">
+          <div class="more__about" id="more__about2">+</div>
+          <p class="card__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
+            dolorem iste. Voluptatibus natus laboriosam expedita eo.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card__pic" src="img/nasa-NuE8Nu3otjo-unsplash.jpg" alt="" />
+        <div class="card__circle">
+          <svg
+            class="circle__logo"
+            c
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"
+            />
+          </svg>
+        </div>
+        <div class="card__bottom">
+          <div class="more__about" id="more__about3">+</div>
+          <p class="card__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
+            dolorem iste. Voluptatibus natus laboriosam expedita eo.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="timeline__area" id="timeline__area">
+    <div class="timeline__area">
       <div class="timeline__container section">
         <div class="timeline__items">
           <div class="timeline__arrow"></div>
@@ -406,37 +399,33 @@
         <i class="bi bi-info-circle-fill"></i>
       </div>
     </div>
+
+    <div class="radar__area container-fluid section">
+      <div class="section">
+        <div class="radar__area__left">
+          
+        </div>
+        <div class="radar__area__right">
+          <div class="radar">
+            <img class="radar__sweep" src="img/radar-sweep.png" alt="" />
+            <div class="circle__l"></div>
+            <div class="circle__m"></div>
+            <div class="circle__s"></div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  -->
     <script>
- window.addEventListener('scroll', function() {
-    let scrollPosition = window.scrollY; 
-    let element = document.querySelector('#hero_section'); 
-
-    let newSize = 106 - scrollPosition * 0.01; 
-    element.style.width = newSize + '%';
-    
-});
-    </script>
-    <script>
-      function scrollLeft() {
-  var element = document.getElementById("cardfield");
-  element.scrollLeft -= 475;
-
-}
-function scrollRight() {
-  var element = document.getElementById("card_section");
-  element.scrollLeft += 475;
-
-}
-    </script>
-
-    <script>
-      const moreAbout = document.querySelectorAll(".more__about");
+      const moreAbout = document.querySelectorAll("#more__about");
       const discription = document.querySelectorAll("#card__disc");
-      const exit = document.querySelectorAll(".exit__button");
+      const exit = document.querySelectorAll("#exit__button");
     
       moreAbout.forEach((element) => {
         element.addEventListener("click", () => {
-          discription.forEach((element) =>  {
+          discription.forEach((element) => {
             element.classList.toggle("show");
           });
           // Добавляем класс блокировки прокрутки к body
@@ -455,9 +444,9 @@ function scrollRight() {
       });
     </script>
     <script>
-      const moreAbout2 = document.querySelectorAll(".more__about2");
+      const moreAbout2 = document.querySelectorAll("#more__about2");
       const discription2 = document.querySelectorAll("#card__disc2");
-      const exit2 = document.querySelectorAll(".exit__button2");
+      const exit2 = document.querySelectorAll("#exit__button2");
     
       moreAbout2.forEach((element) => {
         element.addEventListener("click", () => {
@@ -480,9 +469,9 @@ function scrollRight() {
       });
     </script>
     <script>
-      const moreAbout3 = document.querySelectorAll(".more__about3");
+      const moreAbout3 = document.querySelectorAll("#more__about3");
       const discription3 = document.querySelectorAll("#card__disc3");
-      const exit3 = document.querySelectorAll(".exit__button3");
+      const exit3 = document.querySelectorAll("#exit__button3");
     
       moreAbout3.forEach((element) => {
         element.addEventListener("click", () => {
@@ -504,43 +493,49 @@ function scrollRight() {
         });
       });
     </script>
-    
     <script>
-      var element = document.getElementById("myFixedElement");
-      var scrollStart = 800; // Начало диапазона
-      var scrollEnd = 1900; // Конец диапазона
+      var element = document.getElementById("timeline__info");
+      var scrollStart = 1500; // Начало диапазона
+      var scrollEnd = 2250; // Конец диапазона
 
       window.onscroll = function() {scrollFunction()};
 
       function scrollFunction() {
       var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > scrollStart && currentScroll < scrollEnd) {
+        if (currentScroll > scrollStart && currentScroll < scrollEnd) {
     // Если скролл находится в диапазоне, показываем элемент
-    element.style.bottom = "20px";
-    setTimeout(function()  {
-    let circle = document.getElementById('myFixedElement');
-    circle.classList.add('fixed-element-text');
-    }, 2000); // Позиция появления элемента 
-    } else {
+          element.style.bottom = "20px"; // Позиция появления элемента
+        } else {
     // Если скролл вне диапазона, скрываем элемент
-    element.style.bottom = "-100px"; // Скрываем элемент
-    }
-    }
+          element.style.bottom = "-100px"; // Скрываем элемент
+        }
+}
     </script>
+    
     <script>
-      setTimeout(function()  {
-    let circle = document.getElementById('myFixedElement');
-    circle.classList.add('fixed-element-text');
-}, 2000);
-    </script>
-    <script>
-      const timeline__item_hidden = document.getElementById("timeline__item_hidden");
-      const timeline__item_main = document.getElementById("timeline__item_main");
-      timeline__item_main.addEventListener("click", () => {
-        timeline__item_hidden.style.display = "block";
+      const sections = document.querySelectorAll(".section");
+
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.6, // Порог появления на экране
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("transform");
+          } else {
+            entry.target.classList.remove("transform");
+          }
+        });
+      }, options);
+
+      sections.forEach((section) => {
+        observer.observe(section);
       });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
   </body>
 </html>
