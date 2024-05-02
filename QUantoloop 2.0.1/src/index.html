@@ -12,11 +12,11 @@
   <body>
     <nav class=" navbar-expand-lg ">
       <div class="container-fluid navbar" style="width: 100vw;">
-        <a class="navbar-brand" href="#"><img src="img/output2.png" alt="" style="height: 35px; position: relative; left: 20px;"></a>
+        <a class="navbar-brand" href="#"><img src="img/output2.png" alt="" style="height: 35px; position: absolute; left: 20px;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 100vw;">
           <ul class="nav nav-underline">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="#hero_section" > Video</a>
@@ -50,8 +50,8 @@
         <!-- </div> -->
     </div>
     
-    <div class="container-fluid sections" id="hero_section" style="padding: 0;">
-        <video src="video/back_video.mp4" autoplay loop muted plays-inline class="back_video"></video>
+    <div class="container-fluid sections" id="hero_section" style="padding: 0; margin: 0;">
+        <video src="video/back_video.mp4" autoplay loop muted plays-inline class="back_video" id="back_video"></video>
     </div>
     <div class="container-fluid sections" id="card_section">
       <div class="scroll__buttons">
@@ -407,13 +407,22 @@
       </div>
     </div>
     <script>
- window.addEventListener('scroll', function() {
-    let scrollPosition = window.scrollY; 
-    let element = document.querySelector('#hero_section'); 
+    window.addEventListener('scroll', function() {
+    let element = document.querySelector('#back_video'); 
+    let bounding = element.getBoundingClientRect();
+    let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    let newSize = 106 - scrollPosition * 0.01; 
-    element.style.width = newSize + '%';
-    
+    if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
+        element.style.borderRadius = '0px';
+    } else if (bounding.bottom < 1000) {
+
+        let scrollPosition = Math.abs(bounding.top); 
+        let newSize = 100 - scrollPosition * 0.01; 
+        element.style.width = newSize + '%'; 
+
+        let borderRadius = Math.min(40, scrollPosition * 0.04); 
+        element.style.borderRadius = borderRadius + 'px'; 
+    }
 });
     </script>
     <script>
