@@ -477,15 +477,12 @@ body {
   scroll-snap-type: y mandatory;
   transition: all 0.7s ease 0s;
   box-sizing: border-box;
-  /* overflow-y: scroll; */
+  scroll-snap-type: y mandatory;
 }
-.container-fluid{
-  width: 99vw;
-}
+
   
 .navbar {
   position: fixed;
-  width : 100px;
   background-color: rgb(255, 255, 255);
   z-index: 100;
   
@@ -512,11 +509,11 @@ body {
   width: 100vw;
   overflow: hidden;
   /* transition: all 0.5s ease 0s; */
-  scroll-snap-align: start;
+  
   
 }
 #hero_section{
-  width:100vw;
+  max-width: 100vw;
   overflow: hidden;
   /* background: url("../video/back_video.mp4") no-repeat center center/cover; */
   pointer-events: none;
@@ -524,7 +521,9 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  
+  scroll-snap-align: start;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 .back_video{
   width: 100%;
@@ -547,7 +546,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 100px 10%;
-  background-color: rgb(249, 249, 249)
+  background-color: rgb(249, 249, 249);
+  scroll-snap-align: start;
 }
 .slogen {
   font-size: 5rem;
@@ -576,17 +576,26 @@ body {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  overflow:visible;
   margin: 0;
+  scroll-snap-align: start;
+  
 }  
 #card_section{
-  width: 100vw;
+  max-width: 100vw;
   display: flex;
   align-items: center;
   overflow-x: hidden;
   position: relative;
   padding-left: 10%;
+  padding-right: 0;
   margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  
+
+    &::-webkit-scrollbar{
+      display: none;
+    }
 }
 
 
@@ -598,10 +607,26 @@ body {
   display: flex;
   flex-direction: column-reverse;
   background: url("../img/nasa-NuE8Nu3otjo-unsplash.jpg") no-repeat center center/cover;
-  overflow: hidden;
+  overflow-x: hidden !important;
   transition: all 0.7s ease 0s;
   /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   margin-right: 70px;
+}
+.card__top{
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+.card__top h1{
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  transition: all 0.7s ease 0s;
+}
+.card__top p {
+  color: white;
+  font-size: 1rem;
+  transition: all 0.7s ease 0s;
 }
 .cards{
   display: flex;
@@ -627,7 +652,7 @@ body {
 
 }
 .card__bottom{
-  width: 101%;
+  width: 100%;
   height: 66%;
   padding: 70px 40px;
   background-color: rgba(255, 255, 255, 0.6);
@@ -656,6 +681,12 @@ body {
   }
   .card__bottom{
     bottom: 0;
+  }
+  .card__top h1 {
+    font-size: 1.5rem;
+  }
+  .card__top p {
+    font-size: 0.8rem;
   }
 }
 .card__bottom i{
@@ -765,7 +796,6 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0px auto;
-  margin-top: 50px;
 }
 
 .timeline__items__container {
@@ -1014,3 +1044,73 @@ body {
     margin-top: 4px;
   }
 }
+.info__section {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(249, 249, 249);
+
+}
+.info {
+  width : 15%;
+  height: auto;
+  margin-right: 100px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.info h3{
+  font-size: 2rem;
+  font-weight: 700;
+}
+.info p{
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 30px;
+}
+.scrolling__container {
+  display: flex;
+  justify-content:center ;
+  background-color: rgb(249, 249, 249);
+}
+  
+.scrolling__info{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/bg\ Logistic.png);
+  background-color: rgb(249, 249, 249);
+  background-position: center;
+  position: relative;
+}
+
+.animated__info {
+  width: 25vw;
+  height: 300px;
+  color: white;
+  position: relative;
+  top: 30%;
+  left:  25%;
+  
+  & h3 {
+    font-size: 4rem;
+    
+    }
+    & p {
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+}
+.animated__info h3::before{
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -25px;
+  width: 7px;
+  height: 35px;
+  border-radius: 8px;
+  background-color: white;
+}
+
