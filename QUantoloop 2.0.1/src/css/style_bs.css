@@ -660,9 +660,7 @@ body {
     top: -5%;
     min-width: 283px !important;
     height: 493px !important;
-    &:last-child {
-      margin-right: 25px !important;
-    }
+    
   }
   .card__bottom {
     padding: 50px 10px 10px 10px !important;
