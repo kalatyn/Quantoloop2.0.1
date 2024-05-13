@@ -657,7 +657,7 @@ body {
   }
   .card {
     position: relative;
-    top: -10%;
+    top: -5%;
     min-width: 283px !important;
     height: 493px !important;
     &:last-child {
