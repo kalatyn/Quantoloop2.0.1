@@ -656,6 +656,8 @@ body {
     height: 100vh !important;
   }
   .card {
+    position: relative;
+    top: -10%;
     min-width: 283px !important;
     height: 493px !important;
     &:last-child {
@@ -668,6 +670,7 @@ body {
   .scroll__buttons {
     position: fixed;
     bottom: 90px !important;
+    font-size: 40px !important;
   }
   .card__bottom h3 {
     font-size: 4vw !important;
