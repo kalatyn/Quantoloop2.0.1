@@ -9,7 +9,7 @@ window.addEventListener("scroll", function () {
     element.style.width = "100%";
   } else if (bounding.top <= 0) {
     let scrollPosition = Math.abs(bounding.top);
-    let newSize = 100 - scrollPosition * 0.01;
+    let newSize = 100 - scrollPosition * 0.015;
     element.style.width = newSize + "%";
 
     let borderRadius = Math.min(40, scrollPosition * 0.04);
@@ -61,7 +61,7 @@ window.addEventListener("scroll", function () {
     element.style.width = "100%";
   } else if (bounding.top <= 0) {
     let scrollPosition = Math.abs(bounding.top);
-    let newSize = 100 - scrollPosition * 0.01;
+    let newSize = 100 - scrollPosition * 0.015;
     element.style.width = newSize + "%";
 
     let borderRadius = Math.min(40, scrollPosition * 0.04);
