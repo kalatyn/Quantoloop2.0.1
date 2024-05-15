@@ -773,6 +773,7 @@ body {
   transition: all 0.7s ease 0s;
   /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   margin-left: 5%;
+  scroll-snap-align: center;
 }
 .card:last-child{
   margin-right: 5%;
@@ -796,6 +797,7 @@ body {
 .cards{
   display: flex;
   justify-content: space-between;
+  scroll-snap-type: x mandatory;
 }
 .card__circle{
   width: 160px;
@@ -1261,9 +1263,11 @@ body {
   background-position: center;
   position: relative;
   background-size: cover;
+  display: flex;
+  justify-content: center;
 }
 .scrolling__info{
-  width: 50vw;
+  width: 50vw !important;
   height: 400px;
   position: relative;
   top: 200px;
@@ -1275,7 +1279,7 @@ body {
 }
 }
 .animated__info {
-  width:350px;
+  width:350px ;
   max-width: 80%;
   height: 200px;
   color: white;
@@ -1283,7 +1287,7 @@ body {
   scroll-snap-align: center;
   padding-top: 50px;
   top: 30%;
-  left:  25%;
+  left:  0;
   & h3 {
     font-size: 4rem;
     
