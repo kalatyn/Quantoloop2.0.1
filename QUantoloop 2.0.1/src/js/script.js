@@ -6,13 +6,16 @@ window.addEventListener("scroll", function () {
 
   if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
     element.style.borderRadius = "0px";
-  } else if (bounding.bottom < 1000) {
+    element.style.width = "100%";
+  } else if (bounding.top <= 0) {
     let scrollPosition = Math.abs(bounding.top);
     let newSize = 100 - scrollPosition * 0.01;
     element.style.width = newSize + "%";
 
     let borderRadius = Math.min(40, scrollPosition * 0.04);
     element.style.borderRadius = borderRadius + "px";
+  } if (bounding.top > 1) {
+    element.style.width = "100%";
   }
 });
 
@@ -55,33 +58,20 @@ window.addEventListener("scroll", function () {
 
   if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
     element.style.borderRadius = "0px";
-    element.style.width = "80%";
-  } else if (bounding.bottom < 1000) {
+    element.style.width = "100%";
+  } else if (bounding.top <= 0) {
     let scrollPosition = Math.abs(bounding.top);
     let newSize = 100 - scrollPosition * 0.01;
     element.style.width = newSize + "%";
+
     let borderRadius = Math.min(40, scrollPosition * 0.04);
     element.style.borderRadius = borderRadius + "px";
+  } if (bounding.top > 1) {
+    element.style.width = "100%";
   }
 });
 
-window.addEventListener("scroll", function () {
-  let element = document.querySelector("#scrolling__container");
-  let bounding = element.getBoundingClientRect();
-  let viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
 
-  if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
-    element.style.borderRadius = "0px";
-    element.style.width = "80%";
-  } else if (bounding.bottom < 1000) {
-    let scrollPosition = Math.abs(bounding.top);
-    let newSize = 100 - scrollPosition * 0.01;
-    element.style.width = newSize + "%";
-    let borderRadius = Math.min(40, scrollPosition * 0.04);
-    element.style.borderRadius = borderRadius + "px";
-  }
-});
 
 const moreAbout = document.querySelectorAll(".more__about");
 const discription = document.querySelectorAll("#card__disc");
@@ -201,8 +191,8 @@ window.addEventListener("scroll", function () {
   }
 });
 
-const timeline__item_hidden = document.getElementById("timeline__item_hidden");
-const timeline__item_main = document.getElementById("timeline__item_main");
-timeline__item_main.addEventListener("click", () => {
-  timeline__item_hidden.style.display = "block";
-});
+// const timeline__item_hidden = document.getElementById("timeline__item_hidden");
+// const timeline__item_main = document.getElementById("timeline__item_main");
+// timeline__item_main.addEventListener("click", () => {
+//   timeline__item_hidden.style.display = "block";
+// });
