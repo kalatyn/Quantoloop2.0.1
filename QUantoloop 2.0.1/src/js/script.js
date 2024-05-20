@@ -191,8 +191,58 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// const timeline__item_hidden = document.getElementById("timeline__item_hidden");
-// const timeline__item_main = document.getElementById("timeline__item_main");
-// timeline__item_main.addEventListener("click", () => {
-//   timeline__item_hidden.style.display = "block";
-// });
+let currentlyOpenContainer = null;
+
+function toggleContainer(container, button) {
+  button.addEventListener("click", () => {
+    if (currentlyOpenContainer && currentlyOpenContainer !== container) {
+      currentlyOpenContainer.style.width = "33%";
+      currentlyOpenContainer.previousButton.style.transform = "rotate(0deg)";
+    }
+    
+    if (container.style.width === "100%") {
+      container.style.width = "33%";
+      button.style.transform = "rotate(0deg)";
+      currentlyOpenContainer = null;
+      
+    } else {
+      container.style.width = "100%";
+      button.style.transform = "rotate(45deg)";
+      currentlyOpenContainer = container;
+      currentlyOpenContainer.previousButton = button;
+    }
+  });
+}
+
+const pairs = [
+  { container: "#content_item_wrapper1", button: "#open1" },
+  { container: "#content_item_wrapper2", button: "#open2" },
+  { container: "#content_item_wrapper3", button: "#open3" },
+  { container: "#content_item_wrapper4", button: "#open4" },
+  { container: "#content_item_wrapper5", button: "#open5" },
+];
+
+pairs.forEach(pair => {
+  const container = document.querySelector(pair.container);
+  const button = document.querySelector(pair.button);
+  toggleContainer(container, button);
+});
+
+window.addEventListener("scroll", function () {
+  let mainContainer = document.querySelector("#main__scrolling__container");
+  let mainContainerTop = mainContainer.getBoundingClientRect().top;
+  let contentContainer = document.querySelector("#content_container");
+  let content = document.querySelector(".content_container_item") 
+
+
+  if (mainContainerTop <= 0) {
+    document.body.classList.add("scroll-lock");
+    mainContainer.style.position = "fixed";
+    mainContainer.style.top = "0";
+    mainContainer.style.width = "100%";
+    mainContainer.style.zIndex = "1";
+    contentContainer.style.overflowY = "scroll";
+
+  }
+});
+

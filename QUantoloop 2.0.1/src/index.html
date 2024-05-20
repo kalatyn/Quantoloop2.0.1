@@ -27,16 +27,16 @@
               <a class="nav-link" href="#cardfield" >Cards</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#timeline__area" >Timeline</a>
+              <a class="nav-link" href="#info__section" >info</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#info__section">info</a>
+              <a class="nav-link" href="#info__section">timeline</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#scrolling__info" >SCroll</a>
+              <a class="nav-link" href="#scrolling__container" >SCroll</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#cardfield" >link6</a>
+              <a class="nav-link" href="#trendradar" >link6</a>
             </li>
           </ul>
           
@@ -44,12 +44,10 @@
       </div>
     </nav>
     <div  id="logo_slogan">
-      <!-- <div class="container content"> -->
           
-          <img class="main_logo" src="icons/QL-Logo-Farbe.svg" alt="">
-          <h1 class="slogen">Ready for your <br>next step?</h1>
+      <img class="main_logo" src="icons/QL-Logo-Farbe.svg" alt="">
+      <h1 class="slogen">Ready for your <br>next step?</h1>
           
-        <!-- </div> -->
     </div>
     
     <div class="sections" id="hero_section" >
@@ -97,7 +95,8 @@
         </p>
       </div>
       </div>
-        <div class="horizontal-scroll-section cards" id="cardfield" >
+      
+      <div class="horizontal-scroll-section cards" id="cardfield" >
           <div class="card border-0">
             <div class="card__top">
               <h1>Lorem</h1>
@@ -169,38 +168,19 @@
           </div>
           
       </div>
-        
+
       <div class="scroll__buttons">
         <span class="arrow scroll__button" onclick="scrollleft()"><i class="bi bi-arrow-left-circle-fill"></i></span>
           <span class="arrow scroll__button" onclick="scrollright()"><i class="bi bi-arrow-right-circle-fill"></i></span>
       </div>
-      
-      
-    
 
-      
-      
       <div class="fixed-element" id="myFixedElement" >
         <i class="bi bi-info-circle-fill" style="font-size: 2.5em;"></i>
         <p>Derzeit wird erklärt,<br> wie es funktioniert</p>
       </div>
       
-      
     </div>
-    <!-- <div class="cards__containeer" style="position:relative; height: 100vh; display: flex; justify-content: center; align-items: center ">
-      
-        <div class="cards__section" style="display: flex; overflow-x: scroll; white-space: nowrap; -webkit-scrollbar-display: none">
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-        </div>
-        <div class="scroll__buttons">
-          <div class="scroll__button" onclick="scrollLeft()"><i class="bi bi-arrow-left-circle-fill"></i></div>
-          <div class="scroll__button" onclick="scrollRight()"><i class="bi bi-arrow-right-circle-fill"></i></div>
-        </div>
-    </div> -->
+
     <div class="info__section container-fluid" id="info__section">
       <div class="info">
         <h3>Lorem</h3>
@@ -215,50 +195,194 @@
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
     </div>
-    <div class="scrolling__container" id="123">
+    <div class="scrolling__container" id="main__scrolling__container">
       <div id="scrolling__container">
-        <div class="scrolling__info" id="scrolling__info"> 
-        <div class="animated__info">
-          <h3>Lorem</h3>
-          <i class="bi bi-plus-circle-fill" ></i>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="animated__info">
-          <h3>Lorem</h3>
-          <i class="bi bi-plus-circle-fill" ></i>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="animated__info">
-          <h3>Lorem</h3>
-          <i class="bi bi-plus-circle-fill" ></i>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="animated__info">
-          <h3>Lorem</h3>
-          <i class="bi bi-plus-circle-fill" ></i>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="animated__info">
-          <h3>Lorem</h3>
-          <i class="bi bi-plus-circle-fill" ></i>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="animated__info"></div>
-
-      </div>
-      </div>
+        <div id="content_container">
+          <div id="content_item_wrapper1" class ="content_item_wrapper">
+              <div class="content_container_item">
+                  <div class="left_side">
+                    <h3>Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    <i class="bi bi-plus-circle-fill" id="open1"></i>
+                  </div>
+                  <div class="right_side">
+                    <div class="timeline__item">
+                      <img
+                        class="timeline__item__logo"
+                        src="icons/check-circle.svg"
+                        alt=""
+                      />
+        
+                      <div>
+                        <h3 class="timeline__item__h">Title</h3>
+                        
+                        <p class="timeline__item__p">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                          autem!
+                        </p>
+                      </div>
+                    </div>
+                    <div class="timeline__item">
+                      <img
+                        class="timeline__item__logo"
+                        src="icons/check-circle.svg"
+                        alt=""
+                      />
+        
+                      <div>
+                        <h3 class="timeline__item__h">Title</h3>
+                        
+                        <p class="timeline__item__p">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                          autem!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+              </div>
+          </div>
+          
+          <div id="content_item_wrapper2" class ="content_item_wrapper">
+            <div class="content_container_item">
+                <div class="left_side">
+                  <h3>Title</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <i class="bi bi-plus-circle-fill" id="open2"></i>
+                </div>
+                <div class="right_side">
+                  <div class="timeline__item">
+                    <img
+                      class="timeline__item__logo"
+                      src="icons/check-circle.svg"
+                      alt=""
+                    />
       
-    </div>
-    
-
-    <div class="timeline__area" id="timeline__area">
-      <div class="timeline__container section">
-        <div class="timeline__items">
-          <div class="timeline__arrow"></div>
-          <div class="timeline__items__container">
-            <div class="time__point1 timeline__point">
-              <img class="point__logo" src="icons/check-lg.svg" alt="" />
+                    <div>
+                      <h3 class="timeline__item__h">Title</h3>
+                      
+                      <p class="timeline__item__p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                        autem!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="timeline__item">
+                    <img
+                      class="timeline__item__logo"
+                      src="icons/check-circle.svg"
+                      alt=""
+                    />
+      
+                    <div>
+                      <h3 class="timeline__item__h">Title</h3>
+                      
+                      <p class="timeline__item__p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                        autem!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
             </div>
+        </div>
+        <div id="content_item_wrapper3" class ="content_item_wrapper">
+          <div class="content_container_item">
+              <div class="left_side">
+                <h3>Title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <i class="bi bi-plus-circle-fill" id="open3"></i>
+              </div>
+              <div class="right_side">
+                <div class="timeline__item">
+                  <img
+                    class="timeline__item__logo"
+                    src="icons/check-circle.svg"
+                    alt=""
+                  />
+    
+                  <div>
+                    <h3 class="timeline__item__h">Title</h3>
+                    
+                    <p class="timeline__item__p">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                      autem!
+                    </p>
+                  </div>
+                </div>
+                <div class="timeline__item">
+                  <img
+                    class="timeline__item__logo"
+                    src="icons/check-circle.svg"
+                    alt=""
+                  />
+    
+                  <div>
+                    <h3 class="timeline__item__h">Title</h3>
+                    
+                    <p class="timeline__item__p">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                      autem!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+          </div>
+      </div>
+      <div id="content_item_wrapper4" class ="content_item_wrapper">
+        <div class="content_container_item">
+            <div class="left_side">
+              <h3>Title</h3>
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
+              <i class="bi bi-plus-circle-fill" id="open4"></i>
+            </div>
+            <div class="right_side">
+              <div class="timeline__item">
+                <img
+                  class="timeline__item__logo"
+                  src="icons/check-circle.svg"
+                  alt=""
+                />
+  
+                <div>
+                  <h3 class="timeline__item__h">Title</h3>
+                  
+                  <p class="timeline__item__p">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                    autem!
+                  </p>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <img
+                  class="timeline__item__logo"
+                  src="icons/check-circle.svg"
+                  alt=""
+                />
+  
+                <div>
+                  <h3 class="timeline__item__h">Title</h3>
+                  
+                  <p class="timeline__item__p">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
+                    autem!
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="content_item_wrapper5" class ="content_item_wrapper">
+      <div class="content_container_item">
+          <div class="left_side">
+            <h3>Title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <i class="bi bi-plus-circle-fill" id="open5"></i>
+          </div>
+          <div class="right_side">
             <div class="timeline__item">
               <img
                 class="timeline__item__logo"
@@ -284,21 +408,7 @@
 
               <div>
                 <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
+                
                 <p class="timeline__item__p">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
                   autem!
@@ -306,194 +416,16 @@
               </div>
             </div>
           </div>
-          <div class="timeline__items__container">
-            <div class="time__point2 timeline__point">
-              <img class="point__logo" src="icons/check-lg.svg" alt="" />
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-            <!-- <div class="timeline__item">
-                            <img class="timeline__item__logo" src="icons/check-circle.svg" alt="">
-                            
-                            <div>
-                                <h3 class="timeline__item__h">Title</h3>
-                                <p class="timeline__item__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, autem!</p>
-                            </div>
-                        
-                        
-                        </div> -->
-          </div>
-          <div class="timeline__items__container">
-            <div class="time__point3 timeline__point">
-              <img class="point__logo" src="icons/check-lg.svg" alt="" />
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="timeline__items__container">
-            <div class="time__point4 timeline__point">
-              <img class="point__logo" src="icons/check-lg.svg" alt="" />
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-            <!-- <div class="timeline__item">
-                            <img class="timeline__item__logo" src="icons/check-circle.svg" alt="">
-                            
-                            <div>
-                                <h3 class="timeline__item__h">Title</h3>
-                                <p class="timeline__item__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, autem!</p>
-                            </div>
-                        
-                        
-                        </div> -->
-          </div>
-          <div class="timeline__items__container">
-            <div class="time__point5 timeline__point">
-              <img class="point__logo" src="icons/check-lg.svg" alt="" />
-            </div>
-            <div class="timeline__item">
-              <img
-                class="timeline__item__logo"
-                src="icons/check-circle.svg"
-                alt=""
-              />
-
-              <div>
-                <h3 class="timeline__item__h">Title</h3>
-                <p class="timeline__item__p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  autem!
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-                            <img class="timeline__item__logo" src="icons/check-circle.svg" alt="">
-                            
-                            <div>
-                                <h3 class="timeline__item__h">Title</h3>
-                                <p class="timeline__item__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, autem!</p>
-                            </div>
-                        
-                        
-                        </div>
-                        <!-- <div class="timeline__item">
-                            <img class="timeline__item__logo" src="icons/check-circle.svg" alt="">
-                            
-                            <div>
-                                <h3 class="timeline__item__h">Title</h3>
-                                <p class="timeline__item__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, autem!</p>
-                            </div>
-                        
-                        
-                        </div> -->
-          </div>
-        </div>
+          
       </div>
-      <div class="timeline__info" id="timeline__info">
-        <i class="bi bi-info-circle-fill"></i>
+  </div>
+
+      </div>
+        
       </div>
     </div>
-    <!-- <div class="radar__area">
-      
+  
+    <div class="radar__area">
       <div class="radar">
         
         <div class="circle__l"><img class="radar__sweep" src="img/radar-sweep.png" alt="" /></div>
@@ -509,208 +441,7 @@
     </div>
     <div id="rechner__area">
       <div id="rechner"></div>
-    </div> -->
-    
-
-    <!-- <script>
-    window.addEventListener('scroll', function() {
-    let element = document.querySelector('#back_video'); 
-    let bounding = element.getBoundingClientRect();
-    let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-
-    if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
-        element.style.borderRadius = '0px';
-    } else if (bounding.bottom < 1000) {
-
-        let scrollPosition = Math.abs(bounding.top); 
-        let newSize = 100 - scrollPosition * 0.01; 
-        element.style.width = newSize + '%'; 
-
-        let borderRadius = Math.min(40, scrollPosition * 0.04); 
-        element.style.borderRadius = borderRadius + 'px'; 
-    }
-});
-    </script>
-  <script>
-    var scrollSection = document.querySelector('.horizontal-scroll-section');
-
-    function scrollleft() {
-        var scrollAmount = Math.max(scrollSection.scrollLeft - getElementWidthWithMargin(), 0);
-        scrollSection.scrollTo({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    }
-
-    function scrollright() {
-        var scrollAmount = Math.min(scrollSection.scrollLeft + getElementWidthWithMargin(), scrollSection.scrollWidth - scrollSection.clientWidth);
-        scrollSection.scrollTo({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    }
-
-    function getElementWidthWithMargin() {
-        var element = scrollSection.firstElementChild; // Assuming the first child is the element you want to scroll
-        var style = getComputedStyle(element);
-        var width = element.offsetWidth;
-        var margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-        return width + margin;
-    }
-</script>
-    <script>
-
-window.addEventListener('scroll', function() {
-      let element = document.querySelector('#scrolling__container'); 
-      let bounding = element.getBoundingClientRect();
-      let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-  
-      if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
-          element.style.borderRadius = '0px';
-          element.style.width = '80%';
-      } else if (bounding.bottom < 1000) {
-  
-          let scrollPosition = Math.abs(bounding.top); 
-          let newSize = 100 - scrollPosition * 0.01; 
-          element.style.width = newSize + '%';   
-          let borderRadius = Math.min(40, scrollPosition * 0.04); 
-          element.style.borderRadius = borderRadius + 'px'; 
-      }
-  });
-    </script>
-
-
-
-    <script>
-      const moreAbout = document.querySelectorAll(".more__about");
-      const discription = document.querySelectorAll("#card__disc");
-      const exit = document.querySelectorAll(".exit__button");
-    
-      moreAbout.forEach((element) => {
-        element.addEventListener("click", () => {
-          discription.forEach((element) =>  {
-            element.classList.toggle("show");
-          });
-          // Добавляем класс блокировки прокрутки к body
-          document.body.classList.add("scroll-lock");
-        });
-      });
-    
-      exit.forEach((element) => {
-        element.addEventListener("click", () => {
-          discription.forEach((element) => {
-            element.classList.toggle("show");
-          });
-          // Убираем класс блокировки прокрутки у body
-          document.body.classList.remove("scroll-lock");
-        });
-      });
-    </script>
-    <script>
-      const moreAbout2 = document.querySelectorAll(".more__about2");
-      const discription2 = document.querySelectorAll("#card__disc2");
-      const exit2 = document.querySelectorAll(".exit__button2");
-    
-      moreAbout2.forEach((element) => {
-        element.addEventListener("click", () => {
-          discription2.forEach((element) => {
-            element.classList.toggle("show");
-          });
-          // Добавляем класс блокировки прокрутки к body
-          document.body.classList.add("scroll-lock");
-        });
-      });
-    
-      exit2.forEach((element) => {
-        element.addEventListener("click", () => {
-          discription2.forEach((element) => {
-            element.classList.toggle("show");
-          });
-          // Убираем класс блокировки прокрутки у body
-          document.body.classList.remove("scroll-lock");
-        });
-      });
-    </script>
-    <script>
-      const moreAbout3 = document.querySelectorAll(".more__about3");
-      const discription3 = document.querySelectorAll("#card__disc3");
-      const exit3 = document.querySelectorAll(".exit__button3");
-    
-      moreAbout3.forEach((element) => {
-        element.addEventListener("click", () => {
-          discription3.forEach((element) => {
-            element.classList.toggle("show");
-          });
-          // Добавляем класс блокировки прокрутки к body
-          document.body.classList.add("scroll-lock");
-        });
-      });
-    
-      exit3.forEach((element) => {
-        element.addEventListener("click", () => {
-          discription3.forEach((element) => {
-            element.classList.toggle("show");
-          });
-          // Убираем класс блокировки прокрутки у body
-          document.body.classList.remove("scroll-lock");
-        });
-      });
-    </script>
-    
-    <script>
-      var element = document.getElementById("myFixedElement");
-      var scrollStart = 3500; // Начало диапазона
-      var scrollEnd = 4500; // Конец диапазона
-
-      window.onscroll = function() {scrollFunction()};
-
-      function scrollFunction() {
-      var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > scrollStart && currentScroll < scrollEnd) {
-    // Если скролл находится в диапазоне, показываем элемент
-    element.style.bottom = "20px";
-    setTimeout(function()  {
-    let circle = document.getElementById('myFixedElement');
-    circle.classList.add('fixed-element-text');
-    }, 2000); // Позиция появления элемента 
-    } else {
-    // Если скролл вне диапазона, скрываем элемент
-    element.style.bottom = "-100px"; // Скрываем элемент
-    }
-    }
-    </script>
-    <script>
-      setTimeout(function()  {
-    let circle = document.getElementById('myFixedElement');
-    circle.classList.add('fixed-element-text');
-}, 2000);
-    </script>
-    <script>
-      window.addEventListener('scroll', function() {
-      let element = document.querySelector('#scrolling__info'); 
-      let bounding = element.getBoundingClientRect();
-      let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-  
-      if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
-          element.style.borderRadius = '0px';
-      } else if (bounding.bottom < 1000) {
-  
-          let scrollPosition = Math.abs(bounding.top); 
-          let newSize = 100 - scrollPosition * 0.01; 
-          element.style.width = newSize + '%';   
-          let borderRadius = Math.min(40, scrollPosition * 0.04); 
-          element.style.borderRadius = borderRadius + 'px'; 
-      }
-  });
-      </script>
-    <script>
-      const timeline__item_hidden = document.getElementById("timeline__item_hidden");
-      const timeline__item_main = document.getElementById("timeline__item_main");
-      timeline__item_main.addEventListener("click", () => {
-        timeline__item_hidden.style.display = "block";
-      });
-    </script> -->
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
