@@ -539,6 +539,7 @@ body {
   padding-top: 48px;
   background-color: rgb(249, 249, 249);
   scroll-snap-align: start;
+
 }
 
 .slogen {
@@ -559,8 +560,8 @@ body {
     min-height: 930px;
   }
   .card {
-    min-width: 365px !important;
-    height: 634px !important;
+    width: 365px;
+    height: 634px;
 
   }
 }
@@ -569,9 +570,10 @@ body {
   #card_section {
     height: 100vh !important;
     padding: 0%;
+    padding-left: 183px;
   }
   .card {
-    min-width: 365px !important;
+    width: 365px !important;
     height: 634px !important;
   }
 }
@@ -637,8 +639,8 @@ body {
   .card {
     position: relative;
     top: -5%;
-    width: 283px !important;
-    height: 493px !important;
+    max-width: 283px;
+    max-height: 493px ;
     &:last-child {
       margin-right: 20% !important;
     };
@@ -649,7 +651,7 @@ body {
   }
   .scroll__buttons {
     position: relative;
-    bottom: 90px !important;
+    bottom: 140px !important;
     font-size: 40px !important;
     left: calc(50% - 50) !important;
 
@@ -687,6 +689,8 @@ body {
   }  
   .content_item_wrapper {
     width: 100% !important;
+    display: flex;
+    flex-direction: column;
   }
 }
 
