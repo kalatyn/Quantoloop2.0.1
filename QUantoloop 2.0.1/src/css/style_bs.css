@@ -632,12 +632,12 @@ body {
   }
   #card_section {
     height: 100vh;
-    min-width: 930px;
+    min-height: 930px;
   }
   .card {
     position: relative;
     top: -5%;
-    min-width: 283px !important;
+    width: 283px !important;
     height: 493px !important;
     &:last-child {
       margin-right: 20% !important;
@@ -648,9 +648,11 @@ body {
     padding: 50px 10px 10px 10px !important;
   }
   .scroll__buttons {
-    position: fixed;
+    position: relative;
     bottom: 90px !important;
     font-size: 40px !important;
+    left: calc(50% - 50) !important;
+
   }
   .card__bottom h3 {
     font-size: 4vw !important;
@@ -678,10 +680,14 @@ body {
     margin-bottom: 100px;
     box-sizing: border-box;
     margin-right: 0px !important;
+    margin-left: 0px !important;
     &:last-child{
       margin-bottom: 0px !important;
     }
   }  
+  .content_item_wrapper {
+    width: 100% !important;
+  }
 }
 
 #cardfield{ 
