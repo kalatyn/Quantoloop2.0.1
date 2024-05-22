@@ -174,22 +174,23 @@ setTimeout(function () {
   circle.classList.add("fixed-element-text");
 }, 2000);
 
-window.addEventListener("scroll", function () {
-  let element = document.querySelector("#scrolling__info");
-  let bounding = element.getBoundingClientRect();
-  let viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
+// window.addEventListener("scroll", function () {
+//   let element = document.querySelector("#scrolling__info");
+//   let boundingTop = element.getBoundingClientRect().top;
+//   let boundingBottom = element.getBoundingClientRect().bottom;
+//   let viewportHeight =
+//     window.innerHeight || document.documentElement.clientHeight;
 
-  if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
-    element.style.borderRadius = "0px";
-  } else if (bounding.bottom < 1000) {
-    let scrollPosition = Math.abs(bounding.top);
-    let newSize = 100 - scrollPosition * 0.01;
-    element.style.width = newSize + "%";
-    let borderRadius = Math.min(40, scrollPosition * 0.04);
-    element.style.borderRadius = borderRadius + "px";
-  }
-});
+//   if (boundingTop >= 0 && boundingBottom <= viewportHeight) {
+//     element.style.borderRadius = "0px";
+//   } else if (boundingBottom < 1000) {
+//     let scrollPosition = Math.abs(bounding.top);
+//     let newSize = 100 - scrollPosition * 0.01;
+//     element.style.width = newSize + "%";
+//     let borderRadius = Math.min(40, scrollPosition * 0.04);
+//     element.style.borderRadius = borderRadius + "px";
+//   }
+// });
 
 let currentlyOpenContainer = null;
 
@@ -228,21 +229,41 @@ pairs.forEach(pair => {
   toggleContainer(container, button);
 });
 
+
 window.addEventListener("scroll", function () {
   let mainContainer = document.querySelector("#main__scrolling__container");
   let mainContainerTop = mainContainer.getBoundingClientRect().top;
+  let mainContainerBottom = mainContainer.getBoundingClientRect().bottom;
   let contentContainer = document.querySelector("#content_container");
-  let content = document.querySelector(".content_container_item") 
-
-
-  if (mainContainerTop <= 0) {
-    document.body.classList.add("scroll-lock");
-    mainContainer.style.position = "fixed";
-    mainContainer.style.top = "0";
-    mainContainer.style.width = "100%";
-    mainContainer.style.zIndex = "1";
+  let windowHeight = window.innerHeight;
+  
+  if (mainContainerTop <= 50 && mainContainerBottom >= windowHeight) { 
     contentContainer.style.overflowY = "scroll";
-
+  } else {
+    contentContainer.style.overflowY = "hidden";
   }
-});
+  });
 
+// let container = document.querySelector("#content_item_wrapper5");
+
+// function position() {
+  
+//   let containerPosition = container.getBoundingClientRect().top + window.scrollY;
+
+//   console.log(containerPosition);
+//   requestAnimationFrame(position);
+// };
+// requestAnimationFrame(position);
+
+// 2300
+
+// function position() {
+  
+//   let containerPosition = container.getBoundingClientRect().top + window.scrollY;
+
+//   console.log(containerPosition);
+//   requestAnimationFrame(position);
+// };
+// requestAnimationFrame(position);
+
+// 2556
