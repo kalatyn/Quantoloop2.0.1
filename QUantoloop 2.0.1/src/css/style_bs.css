@@ -481,7 +481,9 @@ body {
     display: none;
 }
 }
-
+.container-fluid {
+  max-width: 100vw;
+}
   
 .navbar {
   position: fixed !important;
@@ -569,7 +571,7 @@ body {
   }
   #card_section {
     height: 100vh;
-    min-height: 930px;
+    
   }
   #content_container{
     width: 1000px !important;
@@ -620,8 +622,15 @@ body {
     position: relative;
     
   }
-}
 
+  .info{
+    margin: 7% !important;
+  }
+ 
+  /* .info h3{
+    font-size: 2rem !important; */
+
+}
 @media screen and (max-width: 576px) {
   .navbar{
     padding-right: 20px;
@@ -980,6 +989,7 @@ body {
 .info__section {
   height: 36vh;
   min-height: 330px;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;

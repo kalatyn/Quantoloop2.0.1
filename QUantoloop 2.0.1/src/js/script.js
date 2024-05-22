@@ -237,7 +237,8 @@ window.addEventListener("scroll", function () {
   let contentContainer = document.querySelector("#content_container");
   let windowHeight = window.innerHeight;
   
-  if (mainContainerTop <= 50 && mainContainerBottom >= windowHeight) { 
+  if (mainContainerTop <= 10 && mainContainerBottom >= windowHeight) {
+    
     contentContainer.style.overflowY = "scroll";
   } else {
     contentContainer.style.overflowY = "hidden";
