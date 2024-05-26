@@ -192,79 +192,129 @@ setTimeout(function () {
 //   }
 // });
 
-let currentlyOpenContainer = null;
+// let currentlyOpenContainer = null;
 
-function toggleContainer(container, button) {
-  button.addEventListener("click", () => {
-    if (currentlyOpenContainer && currentlyOpenContainer !== container) {
-      currentlyOpenContainer.style.width = "33%";
-      currentlyOpenContainer.previousButton.style.transform = "rotate(0deg)";
-    }
+// function toggleContainer(container, button) {
+//   button.addEventListener("click", () => {
+//     if (currentlyOpenContainer && currentlyOpenContainer !== container) {
+//       currentlyOpenContainer.style.width = "40%";
+//       currentlyOpenContainer.previousButton.style.transform = "rotate(0deg)";
+//     }
     
-    if (container.style.width === "100%") {
-      container.style.width = "33%";
-      button.style.transform = "rotate(0deg)";
-      currentlyOpenContainer = null;
+//     if (container.style.width === "100%") {
+//       container.style.width = "40%";
+//       button.style.transform = "rotate(0deg)";
+//       currentlyOpenContainer = null;
       
-    } else {
-      container.style.width = "100%";
-      button.style.transform = "rotate(45deg)";
-      currentlyOpenContainer = container;
-      currentlyOpenContainer.previousButton = button;
-    }
+//     } else {
+//       container.style.width = "100%";
+//       button.style.transform = "rotate(45deg)";
+//       currentlyOpenContainer = container;
+//       currentlyOpenContainer.previousButton = button;
+//     }
+//   });
+// }
+
+// const pairs = [
+//   { container: "#content_item_wrapper1", button: "#open1" },
+//   { container: "#content_item_wrapper2", button: "#open2" },
+//   { container: "#content_item_wrapper3", button: "#open3" },
+//   { container: "#content_item_wrapper4", button: "#open4" },
+//   { container: "#content_item_wrapper5", button: "#open5" },
+// ];
+
+// pairs.forEach(pair => {
+//   const container = document.querySelector(pair.container);
+//   const button = document.querySelector(pair.button);
+//   toggleContainer(container, button);
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+  for (let i = 1; i <= 5; i++) {
+    const openBtn = document.querySelector(`#open${i}`);
+    const rightWrapper = document.querySelector(`#right_side_wrapper${i}`);
+    openBtn.addEventListener("click", function () {
+      // Закрываем все контейнеры перед открытием нового
+      for (let j = 1; j <= 5; j++) {
+        if (j !== i) {
+          const otherRightWrapper = document.querySelector(`#right_side_wrapper${j}`);
+          otherRightWrapper.style.width = "0%";
+          const otherOpenBtn = document.querySelector(`#open${j}`);
+          otherOpenBtn.style.transform = "rotate(0deg)";
+        }
+      }
+      
+      // Преобразуем значение ширины из строки в число
+      const width = parseInt(rightWrapper.style.width);
+      
+      if (width === 67) {
+        rightWrapper.style.width = "0%";
+        openBtn.style.transform = "rotate(0deg)";
+      } else {
+        rightWrapper.style.width = "67%";
+        openBtn.style.transform = "rotate(45deg)";
+      }
+    });
+  }
+});
+  
+document.addEventListener("DOMContentLoaded", function () {
+  const mainContainer = document.querySelector("#main__scrolling__container");
+  const contentContainer = document.querySelector("#content_container");
+  
+
+  let lastScrollTop = 0; // Для отслеживания направления прокрутки
+
+  window.addEventListener("scroll", function () {
+      const mainContainerTop = mainContainer.getBoundingClientRect().top;
+      const contentScrollHeight = contentContainer.scrollHeight;
+      const contentScrollTop = contentContainer.scrollTop;
+      const mainContainerHeight = mainContainer.clientHeight;
+      const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
+      const isContentAtTop = contentScrollTop === 0;
+
+      let currentScrollTop = window.scrollY;
+
+      if (mainContainerTop <= 10 && !isContentFullyScrolled) {
+          mainContainer.classList.add('fixed');
+          document.body.classList.add("scroll-lock");
+          contentContainer.style.overflowY = "scroll";
+      } else if (isContentFullyScrolled && mainContainerTop <= 10) {
+          mainContainer.classList.remove('fixed');
+          contentContainer.style.overflowY = "hidden";
+          document.body.classList.remove("scroll-lock");
+      } else if (mainContainerTop > 10 && isContentAtTop) {
+          mainContainer.classList.remove('fixed');
+          contentContainer.style.overflowY = "hidden";
+          document.body.classList.remove("scroll-lock");
+      } else if (currentScrollTop < lastScrollTop && mainContainerTop <= 10 && !isContentAtTop) {
+          mainContainer.classList.add('fixed');
+          document.body.classList.add("scroll-lock");
+          contentContainer.style.overflowY = "scroll";
+      }
+
+      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Для Firefox
   });
-}
 
-const pairs = [
-  { container: "#content_item_wrapper1", button: "#open1" },
-  { container: "#content_item_wrapper2", button: "#open2" },
-  { container: "#content_item_wrapper3", button: "#open3" },
-  { container: "#content_item_wrapper4", button: "#open4" },
-  { container: "#content_item_wrapper5", button: "#open5" },
-];
+  contentContainer.addEventListener("scroll", function () {
+      const contentScrollHeight = contentContainer.scrollHeight;
+      const contentScrollTop = contentContainer.scrollTop;
+      const mainContainerHeight = contentContainer.clientHeight;
 
-pairs.forEach(pair => {
-  const container = document.querySelector(pair.container);
-  const button = document.querySelector(pair.button);
-  toggleContainer(container, button);
+      const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
+
+      if (isContentFullyScrolled) {
+          contentContainer.style.overflowY = "hidden";
+          mainContainer.classList.remove('fixed');
+          document.body.classList.remove("scroll-lock");
+      } else if (contentScrollTop && window.scrollY <= lastScrollTop) {
+          mainContainer.classList.add('fixed');
+          document.body.classList.add("scroll-lock");
+          contentContainer.style.overflowY = "scroll";
+      }
+      
+  });
+
 });
 
 
-window.addEventListener("scroll", function () {
-  let mainContainer = document.querySelector("#main__scrolling__container");
-  let mainContainerTop = mainContainer.getBoundingClientRect().top;
-  let mainContainerBottom = mainContainer.getBoundingClientRect().bottom;
-  let contentContainer = document.querySelector("#content_container");
-  let windowHeight = window.innerHeight;
-  
-  if (mainContainerTop <= 10 && mainContainerBottom >= windowHeight) {
-    
-    contentContainer.style.overflowY = "scroll";
-  } else {
-    contentContainer.style.overflowY = "hidden";
-  }
-  });
-
-// let container = document.querySelector("#content_item_wrapper5");
-
-// function position() {
-  
-//   let containerPosition = container.getBoundingClientRect().top + window.scrollY;
-
-//   console.log(containerPosition);
-//   requestAnimationFrame(position);
-// };
-// requestAnimationFrame(position);
-
-// 2300
-
-// function position() {
-  
-//   let containerPosition = container.getBoundingClientRect().top + window.scrollY;
-
-//   console.log(containerPosition);
-//   requestAnimationFrame(position);
-// };
-// requestAnimationFrame(position);
-
-// 2556
