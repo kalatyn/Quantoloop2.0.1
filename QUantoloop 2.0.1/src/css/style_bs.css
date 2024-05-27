@@ -905,7 +905,7 @@ body {
 }
 
 .card:last-child{
-  margin-right: 5%;
+  margin-right: 5vh;
 }
 
 .card__top{
