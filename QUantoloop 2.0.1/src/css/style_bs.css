@@ -855,7 +855,7 @@ body {
     position: absolute !important;
     top: 50%;
     left: 50%;
-    transform: translate(50%, 100%);
+    transform: translate(12%, 60%);
     z-index: 2 !important;
   }
 }
