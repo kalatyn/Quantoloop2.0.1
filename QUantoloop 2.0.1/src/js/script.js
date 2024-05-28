@@ -175,69 +175,133 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const mainContainer = document.querySelector("#main__scrolling__container");
-  const contentContainer = document.querySelector("#content_container");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const mainContainer = document.querySelector("#main__scrolling__container");
+//   const contentContainer = document.querySelector("#content_container");
 
-  const links = document.querySelectorAll(".nav-link");
+//   const links = document.querySelectorAll(".nav-link");
   
 
-  let lastScrollTop = 0; // Для отслеживания направления прокрутки
+//   let lastScrollTop = 0; // Для отслеживания направления прокрутки
+
+//   window.addEventListener("scroll", function () {
+//       const mainContainerTop = mainContainer.getBoundingClientRect().top;
+//       const contentScrollHeight = contentContainer.scrollHeight;
+//       const contentScrollTop = contentContainer.scrollTop;
+//       const mainContainerHeight = mainContainer.clientHeight;
+//       const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
+//       const isContentAtTop = contentScrollTop === 0;
+
+//       let currentScrollTop = window.scrollY;
+
+//       if (mainContainerTop <= 10 && !isContentFullyScrolled) {
+//         mainContainer.classList.add('fixed');
+//         document.body.classList.add("scroll-lock");
+//         contentContainer.style.overflowY = "scroll";
+//       } else if (isContentFullyScrolled && mainContainerTop <= 10) {
+//         mainContainer.classList.remove('fixed');
+//         contentContainer.style.overflowY = "hidden";
+//         document.body.classList.remove("scroll-lock");
+//       } else if (mainContainerTop > 10 && isContentAtTop) {
+//         mainContainer.classList.remove('fixed');
+//         contentContainer.style.overflowY = "hidden";
+//         document.body.classList.remove("scroll-lock");
+//       } else if (currentScrollTop < lastScrollTop && mainContainerTop <= 10 && !isContentAtTop) {
+//         mainContainer.classList.add('fixed');
+//         document.body.classList.add("scroll-lock");
+//         contentContainer.style.overflowY = "scroll";
+//       }
+
+//   });
+
+//   contentContainer.addEventListener("scroll", function (event) {
+//       const contentScrollHeight = contentContainer.scrollHeight;
+//       const contentScrollTop = contentContainer.scrollTop;
+//       const mainContainerHeight = contentContainer.clientHeight;
+
+//       const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
+
+//       if (isContentFullyScrolled) {
+//         contentContainer.style.overflowY = "hidden";
+//         mainContainer.classList.remove('fixed');
+//         document.body.classList.remove("scroll-lock");
+//       } else if (contentScrollTop && window.scrollY <= lastScrollTop) {
+//         mainContainer.classList.add('fixed');
+//         document.body.classList.add("scroll-lock");
+//         contentContainer.style.overflowY = "scroll";
+//       }
+      
+//   });
+//   links.forEach(link => {
+//         link.addEventListener("click", function () {
+//           mainContainer.classList.remove("fixed");
+//           document.body.classList.remove("scroll-lock");
+//           contentContainer.style.overflow = "hidden";
+//         });
+//       });
+
+// });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mainContainer = document.querySelector("#main__scrolling__container");
+  contentContainer = document.querySelector("#content_container");
+  const initialOffsetTop = mainContainer.offsetTop;
 
   window.addEventListener("scroll", function () {
-      const mainContainerTop = mainContainer.getBoundingClientRect().top;
-      const contentScrollHeight = contentContainer.scrollHeight;
-      const contentScrollTop = contentContainer.scrollTop;
-      const mainContainerHeight = mainContainer.clientHeight;
-      const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
-      const isContentAtTop = contentScrollTop === 0;
+    const mainContainerTop = mainContainer.getBoundingClientRect().top;
 
-      let currentScrollTop = window.scrollY;
-
-      if (mainContainerTop <= 10 && !isContentFullyScrolled) {
-        mainContainer.classList.add('fixed');
-        document.body.classList.add("scroll-lock");
-        contentContainer.style.overflowY = "scroll";
-      } else if (isContentFullyScrolled && mainContainerTop <= 10) {
-        mainContainer.classList.remove('fixed');
-        contentContainer.style.overflowY = "hidden";
-        document.body.classList.remove("scroll-lock");
-      } else if (mainContainerTop > 10 && isContentAtTop) {
-        mainContainer.classList.remove('fixed');
-        contentContainer.style.overflowY = "hidden";
-        document.body.classList.remove("scroll-lock");
-      } else if (currentScrollTop < lastScrollTop && mainContainerTop <= 10 && !isContentAtTop) {
-        mainContainer.classList.add('fixed');
-        document.body.classList.add("scroll-lock");
-        contentContainer.style.overflowY = "scroll";
-      }
-
-  });
-
-  contentContainer.addEventListener("scroll", function (event) {
-      const contentScrollHeight = contentContainer.scrollHeight;
-      const contentScrollTop = contentContainer.scrollTop;
-      const mainContainerHeight = contentContainer.clientHeight;
-
-      const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
-
-      if (isContentFullyScrolled) {
-        contentContainer.style.overflowY = "hidden";
-        mainContainer.classList.remove('fixed');
-        document.body.classList.remove("scroll-lock");
-      } else if (contentScrollTop && window.scrollY <= lastScrollTop) {
-        mainContainer.classList.add('fixed');
-        document.body.classList.add("scroll-lock");
-        contentContainer.style.overflowY = "scroll";
-      }
+    if (mainContainerTop <= 10) {
+      mainContainer.classList.add('fixed');
+      contentContainer.style.overflowY = "scroll";
+      mainContainer.classList.remove('fixed');
       
+    } else if (window.pageYOffset = initialOffsetTop) {
+      mainContainer.classList.remove('fixed');
+    }
   });
-  links.forEach(link => {
-        link.addEventListener("click", function () {
-          mainContainer.classList.remove("fixed");
-          document.body.classList.remove("scroll-lock");
-          contentContainer.style.overflow = "hidden";
-        });
-      });
+});
+
+
+
+// radar
+
+document.addEventListener('DOMContentLoaded', function() {
+  const radarArea = document.querySelector('.radar__area');
+  const radar = document.querySelector('.radar');
+  const popUp = document.querySelector('.popup');
+  const closePopup = document.querySelector('.close-popup');
+  const btn = document.querySelector('#displayBtn');
+  const popUpTitel = document.querySelector('.popup__title');
+  const popUpText = document.querySelector('.popup__text');
+
+
+  const linesData = [
+    { angle: 0, info: 'Information 1', titel: 'Titel 1' },
+    { angle: 72, info: 'Information 2', titel: 'Titel 2' },
+    { angle: 144, info: 'Information 3', titel: 'Titel 3' },
+    { angle: 216, info: 'Information 4', titel: 'Titel 4' },
+    { angle: 288, info: 'Information 5', titel: 'Titel 5' },
+  ];
+
+  linesData.forEach(line => {
+    const lineElem = document.createElement('div');
+    lineElem.classList.add('line');
+    // line.innerText = line.titel;
+    lineElem.style.transform = `rotate(${line.angle}deg)`;
+    lineElem.setAttribute('data-titel', line.titel);
+    lineElem.addEventListener('click', () => {
+      popUp.style.display = 'block';
+      popUpTitel.textContent = line.titel;
+      popUpTitel.classList.add('popup__title');
+      popUpText.textContent = line.info;
+      popUpText.classList.add('popup__text');
+    })
+
+    radar.appendChild(lineElem);
+  });
+  closePopup.addEventListener('click', () => {
+    popUp.style.display = 'none';
+  });
 
 });

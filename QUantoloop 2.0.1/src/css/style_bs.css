@@ -847,6 +847,17 @@ body {
   .left_side i {
     visibility: hidden;
   }
+  .radar {
+    height: 80vw !important;
+    width: 80vw !important;
+  }
+  .popup {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 100%);
+    z-index: 2 !important;
+  }
 }
 
 #cardfield{ 
@@ -904,7 +915,7 @@ body {
   scroll-snap-align: center;
 }
 
-.card:last-child{
+.last-child{
   margin-right: 5vh;
 }
 
@@ -952,10 +963,12 @@ body {
   width: 100%;
   height: 66%;
   padding: 70px 40px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.3);
   position:relative;
   bottom: -100%;
   transition: all 0.7s ease 0s;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 .card__bottom h3 {
   font-size: 2.5vh; 
@@ -1030,11 +1043,13 @@ body {
     align-items: center;
     visibility: hidden;
     background-color: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     transition: all 0,5s;
 }
 .card__disc.show{
   visibility: visible;
+  
 }
     
 .about{
@@ -1327,12 +1342,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.5s ease;
+  position: relative;
 
 }
 .radar {
-  height: 50vw;
-  width: 50vw;
-  
+  height: 80vh;
+  width: 80vh;
+  transition: all 0.7s ease;
   
   position: relative;
   display: flex;
@@ -1390,15 +1407,73 @@ body {
 }
 .radar__area{
   position:relative;
+  display: flex;
 }
-.radar__area p {
+
+.line{
+  position: absolute;
+  width: 0px;
+  height: 40%;
+  top : 10%;
+  left: 50% +10px;
+  border-right: 2px dotted rgb(255, 255, 255);
+  transform-origin:50% 100%;
+  cursor: pointer;
+  transition: border-right-color 0.3s;
+  z-index: 1;
+}
+.line::before{
+  content: attr(data-titel);
+  width: 100px;
+  position: absolute;
   font-size: 1.5rem;
+  font-weight: 500;
   text-align: center;
-  
-  
+  top: -2.5rem;
+  left: -50px;
+  cursor: pointer;
 }
+.line:hover {
+  border-right-color: #6baffc;
+}
+.popup{
+  width: 300px;
+  height: 300px;
+  background-color: #fefefe;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: display 0.5s ease;
+  border-radius: 15px;
+  display: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.close-popup{
+  font-size: 2rem;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  cursor: pointer;
+  color: #6baffc;
+  transition: scale 0.5s ease;
+  z-index: 2;
+}
+.close-popup:hover{
+  scale: 1.1;
+}
+.popup__title{
+  position: relative;
+  font-size: 2em;
+  text-align: center;
+  top: 1rem;
+}
+.popup__text{
+  position: relative;
+  top: 3rem;
+  text-align: center;
+  font-size: 1em;
 
-
+}
 
 
 
