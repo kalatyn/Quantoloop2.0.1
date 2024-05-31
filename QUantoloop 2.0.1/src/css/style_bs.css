@@ -1095,6 +1095,7 @@ body {
 
 .fixed-element p{
   display: none;
+  
 }
 .fixed-element-text{
   width: 150px;
@@ -1166,7 +1167,7 @@ body {
   position: fixed;
   top: 0px;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .scrolling__info{
@@ -1344,6 +1345,7 @@ body {
   align-items: center;
   transition: transform 0.5s ease;
   position: relative;
+  
 
 }
 .radar {
@@ -1390,7 +1392,7 @@ body {
 .circle__m {
   height: 55%;
   width: 55%;
-  border: 3px solid rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 50%;
   position: absolute;
 }
@@ -1398,12 +1400,14 @@ body {
 .circle__s {
   height: 27%;
   width: 27%;
-  border: 3px solid rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 50%;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+  background-color: #5589c8;
 }
 .radar__area{
   position:relative;
@@ -1413,10 +1417,22 @@ body {
 .line{
   position: absolute;
   width: 0px;
+  height: 39%;
+  top : 11%;
+  left: 50% +10px;
+  border-right: 4px dotted rgb(255, 255, 255);
+  transform-origin:50% 100%;
+  cursor: pointer;
+  transition: border-right-color 0.3s;
+  z-index: 1;
+}
+.border-line{
+  position: absolute;
+  width: 0px;
   height: 40%;
   top : 10%;
   left: 50% +10px;
-  border-right: 2px dotted rgb(255, 255, 255);
+  border-right: 1px solid rgb(255, 255, 255);
   transform-origin:50% 100%;
   cursor: pointer;
   transition: border-right-color 0.3s;
@@ -1443,10 +1459,16 @@ body {
   position: relative;
   top: 0;
   left: 0;
-  transition: display 0.5s ease;
+  opacity: 0;
+  transition: opacity 0.5s ease;
   border-radius: 15px;
-  display: none;
+  visibility: hidden;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.popup-show{
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0,5s ease;
 }
 .close-popup{
   font-size: 2rem;

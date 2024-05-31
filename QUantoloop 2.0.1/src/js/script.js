@@ -1,3 +1,6 @@
+
+
+
 window.addEventListener("scroll", function () {
   let element = document.querySelector("#back_video");
   let bounding = element.getBoundingClientRect();
@@ -175,92 +178,99 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const mainContainer = document.querySelector("#main__scrolling__container");
-//   const contentContainer = document.querySelector("#content_container");
-
-//   const links = document.querySelectorAll(".nav-link");
-  
-
-//   let lastScrollTop = 0; // Для отслеживания направления прокрутки
-
-//   window.addEventListener("scroll", function () {
-//       const mainContainerTop = mainContainer.getBoundingClientRect().top;
-//       const contentScrollHeight = contentContainer.scrollHeight;
-//       const contentScrollTop = contentContainer.scrollTop;
-//       const mainContainerHeight = mainContainer.clientHeight;
-//       const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
-//       const isContentAtTop = contentScrollTop === 0;
-
-//       let currentScrollTop = window.scrollY;
-
-//       if (mainContainerTop <= 10 && !isContentFullyScrolled) {
-//         mainContainer.classList.add('fixed');
-//         document.body.classList.add("scroll-lock");
-//         contentContainer.style.overflowY = "scroll";
-//       } else if (isContentFullyScrolled && mainContainerTop <= 10) {
-//         mainContainer.classList.remove('fixed');
-//         contentContainer.style.overflowY = "hidden";
-//         document.body.classList.remove("scroll-lock");
-//       } else if (mainContainerTop > 10 && isContentAtTop) {
-//         mainContainer.classList.remove('fixed');
-//         contentContainer.style.overflowY = "hidden";
-//         document.body.classList.remove("scroll-lock");
-//       } else if (currentScrollTop < lastScrollTop && mainContainerTop <= 10 && !isContentAtTop) {
-//         mainContainer.classList.add('fixed');
-//         document.body.classList.add("scroll-lock");
-//         contentContainer.style.overflowY = "scroll";
-//       }
-
-//   });
-
-//   contentContainer.addEventListener("scroll", function (event) {
-//       const contentScrollHeight = contentContainer.scrollHeight;
-//       const contentScrollTop = contentContainer.scrollTop;
-//       const mainContainerHeight = contentContainer.clientHeight;
-
-//       const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
-
-//       if (isContentFullyScrolled) {
-//         contentContainer.style.overflowY = "hidden";
-//         mainContainer.classList.remove('fixed');
-//         document.body.classList.remove("scroll-lock");
-//       } else if (contentScrollTop && window.scrollY <= lastScrollTop) {
-//         mainContainer.classList.add('fixed');
-//         document.body.classList.add("scroll-lock");
-//         contentContainer.style.overflowY = "scroll";
-//       }
-      
-//   });
-//   links.forEach(link => {
-//         link.addEventListener("click", function () {
-//           mainContainer.classList.remove("fixed");
-//           document.body.classList.remove("scroll-lock");
-//           contentContainer.style.overflow = "hidden";
-//         });
-//       });
-
-// });
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const mainContainer = document.querySelector("#main__scrolling__container");
-  contentContainer = document.querySelector("#content_container");
-  const initialOffsetTop = mainContainer.offsetTop;
+  const contentContainer = document.querySelector("#content_container");
+  const links = document.querySelectorAll(".nav-link");
+  let lastScrollTop = 0;
 
   window.addEventListener("scroll", function () {
-    const mainContainerTop = mainContainer.getBoundingClientRect().top;
+    const mainContainerRect = mainContainer.getBoundingClientRect();
+    const contentScrollHeight = contentContainer.scrollHeight;
+    const contentScrollTop = contentContainer.scrollTop;
+    const mainContainerHeight = mainContainer.clientHeight;
+    const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
+    const isContentAtTop = contentScrollTop === 0;
+    const currentScrollTop = window.scrollY;
 
-    if (mainContainerTop <= 10) {
+    if (mainContainerRect.top <= 0 && currentScrollTop > lastScrollTop && !isContentFullyScrolled) {
+      // Прокрутка вниз: фиксируем контейнер и разрешаем прокрутку внутри него
       mainContainer.classList.add('fixed');
+      document.body.classList.add("scroll-lock");
       contentContainer.style.overflowY = "scroll";
+    } else if (isContentFullyScrolled && mainContainerRect.top <= 0) {
+      // Конец содержимого контейнера при прокрутке вниз
       mainContainer.classList.remove('fixed');
-      
-    } else if (window.pageYOffset = initialOffsetTop) {
+      contentContainer.style.overflowY = "hidden";
+      document.body.classList.remove("scroll-lock");
+    } else if (mainContainerRect.top > 0 && isContentAtTop) {
+      // Начало содержимого контейнера при прокрутке вверх
       mainContainer.classList.remove('fixed');
+      contentContainer.style.overflowY = "hidden";
+      document.body.classList.remove("scroll-lock");
+    } else if (currentScrollTop < lastScrollTop && mainContainerRect.bottom >= window.innerHeight) {
+      // Прокрутка вверх: фиксируем контейнер и разрешаем прокрутку внутри него
+      mainContainer.classList.add('fixed');
+      document.body.classList.add("scroll-lock");
+      contentContainer.style.overflowY = "scroll";
+    } else if (mainContainerRect.bottom < window.innerHeight) {
+      // Открепляем контейнер, когда его нижняя граница выше видимой области
+      mainContainer.classList.remove('fixed');
+      contentContainer.style.overflowY = "hidden";
+      document.body.classList.remove("scroll-lock");
+    }
+
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+  });
+
+  contentContainer.addEventListener("scroll", function () {
+    const contentScrollHeight = contentContainer.scrollHeight;
+    const contentScrollTop = contentContainer.scrollTop;
+    const mainContainerHeight = contentContainer.clientHeight;
+    const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
+    const isContentAtTop = contentScrollTop === 0;
+
+    if (isContentFullyScrolled) {
+      contentContainer.style.overflowY = "hidden";
+      mainContainer.classList.remove('fixed');
+      document.body.classList.remove("scroll-lock");
+    } else if (isContentAtTop && window.scrollY <= lastScrollTop) {
+      mainContainer.classList.add('fixed');
+      document.body.classList.add("scroll-lock");
+      contentContainer.style.overflowY = "scroll";
     }
   });
+
+  links.forEach(link => {
+    link.addEventListener("click", function () {
+      mainContainer.classList.remove("fixed");
+      document.body.classList.remove("scroll-lock");
+      contentContainer.style.overflow = "hidden";
+    });
+  });
 });
+
+
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const mainContainer = document.querySelector("#main__scrolling__container");
+//   contentContainer = document.querySelector("#content_container");
+//   const initialOffsetTop = mainContainer.offsetTop;
+
+//   window.addEventListener("scroll", function () {
+//     const mainContainerTop = mainContainer.getBoundingClientRect().top;
+
+//     if (mainContainerTop <= 10) {
+//       mainContainer.classList.add('fixed');
+//       contentContainer.style.overflowY = "scroll";
+//       mainContainer.classList.remove('fixed');
+      
+//     } else {
+//       contentContainer.style.overflowY = "hidden";
+//     }
+//   });
+// });
 
 
 
@@ -277,12 +287,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   const linesData = [
-    { angle: 0, info: 'Information 1', titel: 'Titel 1' },
-    { angle: 72, info: 'Information 2', titel: 'Titel 2' },
-    { angle: 144, info: 'Information 3', titel: 'Titel 3' },
-    { angle: 216, info: 'Information 4', titel: 'Titel 4' },
-    { angle: 288, info: 'Information 5', titel: 'Titel 5' },
+    { angle: 0, info: 'Information 2', titel: 'Titel 1' },
+    { angle: 24, info: 'Information 3', titel: '' },
+    { angle: 48, info: 'Information 4', titel: '' },
+    { angle: 72, info: 'Information 5', titel: 'Titel 2' },
+    { angle: 96, info: 'Information 6', titel: '' },
+    { angle: 120, info: 'Information 7', titel: '' },
+    { angle: 144, info: 'Information 8', titel: 'Titel 3' },
+    { angle: 168, info: 'Information 9', titel: '' },
+    { angle: 192, info: 'Information 10', titel: '' },
+    { angle: 216, info: 'Information 11', titel: 'Titel 4' },
+    { angle: 240, info: 'Information 12', titel: '' },
+    { angle: 264, info: 'Information 13', titel: '' },
+    { angle: 288, info: 'Information 14', titel: 'Titel 5' },
+    { angle: 312, info: 'Information 15', titel: '' },
+    { angle: 336, info: 'Information 1', titel: '' },
+    
   ];
+
+  
 
   linesData.forEach(line => {
     const lineElem = document.createElement('div');
@@ -291,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     lineElem.style.transform = `rotate(${line.angle}deg)`;
     lineElem.setAttribute('data-titel', line.titel);
     lineElem.addEventListener('click', () => {
-      popUp.style.display = 'block';
+      popUp.classList.add('popup-show');
       popUpTitel.textContent = line.titel;
       popUpTitel.classList.add('popup__title');
       popUpText.textContent = line.info;
@@ -301,7 +324,8 @@ document.addEventListener('DOMContentLoaded', function() {
     radar.appendChild(lineElem);
   });
   closePopup.addEventListener('click', () => {
-    popUp.style.display = 'none';
+    popUp.classList.remove('popup-show');
   });
 
 });
+
