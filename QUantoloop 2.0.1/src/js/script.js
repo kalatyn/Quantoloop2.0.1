@@ -1,4 +1,9 @@
-
+document.querySelector('#back_video').addEventListener('click', function (event) {
+  event.preventDefault();
+});
+document.querySelector('#back_video').addEventListener('play', function() {
+  this.currentTime = 0;
+});
 
 
 window.addEventListener("scroll", function () {
@@ -178,77 +183,77 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const mainContainer = document.querySelector("#main__scrolling__container");
-  const contentContainer = document.querySelector("#content_container");
-  const links = document.querySelectorAll(".nav-link");
-  let lastScrollTop = 0;
+// document.addEventListener("DOMContentLoaded", function () {
+//   const mainContainer = document.querySelector("#main__scrolling__container");
+//   const contentContainer = document.querySelector("#content_container");
+//   const links = document.querySelectorAll(".nav-link");
+//   let lastScrollTop = 0;
 
-  window.addEventListener("scroll", function () {
-    const mainContainerRect = mainContainer.getBoundingClientRect();
-    const contentScrollHeight = contentContainer.scrollHeight;
-    const contentScrollTop = contentContainer.scrollTop;
-    const mainContainerHeight = mainContainer.clientHeight;
-    const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
-    const isContentAtTop = contentScrollTop === 0;
-    const currentScrollTop = window.scrollY;
+//   window.addEventListener("scroll", function () {
+//     const mainContainerRect = mainContainer.getBoundingClientRect();
+//     const contentScrollHeight = contentContainer.scrollHeight;
+//     const contentScrollTop = contentContainer.scrollTop;
+//     const mainContainerHeight = mainContainer.clientHeight;
+//     const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
+//     const isContentAtTop = contentScrollTop === 0;
+//     const currentScrollTop = window.scrollY;
 
-    if (mainContainerRect.top <= 0 && currentScrollTop > lastScrollTop && !isContentFullyScrolled) {
-      // Прокрутка вниз: фиксируем контейнер и разрешаем прокрутку внутри него
-      mainContainer.classList.add('fixed');
-      document.body.classList.add("scroll-lock");
-      contentContainer.style.overflowY = "scroll";
-    } else if (isContentFullyScrolled && mainContainerRect.top <= 0) {
-      // Конец содержимого контейнера при прокрутке вниз
-      mainContainer.classList.remove('fixed');
-      contentContainer.style.overflowY = "hidden";
-      document.body.classList.remove("scroll-lock");
-    } else if (mainContainerRect.top > 0 && isContentAtTop) {
-      // Начало содержимого контейнера при прокрутке вверх
-      mainContainer.classList.remove('fixed');
-      contentContainer.style.overflowY = "hidden";
-      document.body.classList.remove("scroll-lock");
-    } else if (currentScrollTop < lastScrollTop && mainContainerRect.bottom >= window.innerHeight) {
-      // Прокрутка вверх: фиксируем контейнер и разрешаем прокрутку внутри него
-      mainContainer.classList.add('fixed');
-      document.body.classList.add("scroll-lock");
-      contentContainer.style.overflowY = "scroll";
-    } else if (mainContainerRect.bottom < window.innerHeight) {
-      // Открепляем контейнер, когда его нижняя граница выше видимой области
-      mainContainer.classList.remove('fixed');
-      contentContainer.style.overflowY = "hidden";
-      document.body.classList.remove("scroll-lock");
-    }
+//     if (mainContainerRect.top <= 0 && currentScrollTop > lastScrollTop && !isContentFullyScrolled) {
+//       // Прокрутка вниз: фиксируем контейнер и разрешаем прокрутку внутри него
+//       mainContainer.classList.add('fixed');
+//       document.body.classList.add("scroll-lock");
+//       contentContainer.style.overflowY = "scroll";
+//     } else if (isContentFullyScrolled && mainContainerRect.top <= 0) {
+//       // Конец содержимого контейнера при прокрутке вниз
+//       mainContainer.classList.remove('fixed');
+//       contentContainer.style.overflowY = "hidden";
+//       document.body.classList.remove("scroll-lock");
+//     } else if (mainContainerRect.top > 0 && isContentAtTop) {
+//       // Начало содержимого контейнера при прокрутке вверх
+//       mainContainer.classList.remove('fixed');
+//       contentContainer.style.overflowY = "hidden";
+//       document.body.classList.remove("scroll-lock");
+//     } else if (currentScrollTop < lastScrollTop && mainContainerRect.bottom >= window.innerHeight) {
+//       // Прокрутка вверх: фиксируем контейнер и разрешаем прокрутку внутри него
+//       mainContainer.classList.add('fixed');
+//       document.body.classList.add("scroll-lock");
+//       contentContainer.style.overflowY = "scroll";
+//     } else if (mainContainerRect.bottom < window.innerHeight) {
+//       // Открепляем контейнер, когда его нижняя граница выше видимой области
+//       mainContainer.classList.remove('fixed');
+//       contentContainer.style.overflowY = "hidden";
+//       document.body.classList.remove("scroll-lock");
+//     }
 
-    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-  });
+//     lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+//   });
 
-  contentContainer.addEventListener("scroll", function () {
-    const contentScrollHeight = contentContainer.scrollHeight;
-    const contentScrollTop = contentContainer.scrollTop;
-    const mainContainerHeight = contentContainer.clientHeight;
-    const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
-    const isContentAtTop = contentScrollTop === 0;
+//   contentContainer.addEventListener("scroll", function () {
+//     const contentScrollHeight = contentContainer.scrollHeight;
+//     const contentScrollTop = contentContainer.scrollTop;
+//     const mainContainerHeight = contentContainer.clientHeight;
+//     const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
+//     const isContentAtTop = contentScrollTop === 0;
 
-    if (isContentFullyScrolled) {
-      contentContainer.style.overflowY = "hidden";
-      mainContainer.classList.remove('fixed');
-      document.body.classList.remove("scroll-lock");
-    } else if (isContentAtTop && window.scrollY <= lastScrollTop) {
-      mainContainer.classList.add('fixed');
-      document.body.classList.add("scroll-lock");
-      contentContainer.style.overflowY = "scroll";
-    }
-  });
+//     if (isContentFullyScrolled) {
+//       contentContainer.style.overflowY = "hidden";
+//       mainContainer.classList.remove('fixed');
+//       document.body.classList.remove("scroll-lock");
+//     } else if (isContentAtTop && window.scrollY <= lastScrollTop) {
+//       mainContainer.classList.add('fixed');
+//       document.body.classList.add("scroll-lock");
+//       contentContainer.style.overflowY = "scroll";
+//     }
+//   });
 
-  links.forEach(link => {
-    link.addEventListener("click", function () {
-      mainContainer.classList.remove("fixed");
-      document.body.classList.remove("scroll-lock");
-      contentContainer.style.overflow = "hidden";
-    });
-  });
-});
+//   links.forEach(link => {
+//     link.addEventListener("click", function () {
+//       mainContainer.classList.remove("fixed");
+//       document.body.classList.remove("scroll-lock");
+//       contentContainer.style.overflow = "hidden";
+//     });
+//   });
+// });
 
 
 
