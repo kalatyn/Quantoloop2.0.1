@@ -324,22 +324,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const linesData = [
     { angle: 0, info: 'Information 2', titel: 'Titel 1' },
-    { angle: 24, info: 'Information 3', titel: '' },
-    { angle: 48, info: 'Information 4', titel: '' },
+    { angle: 18, info: 'Information 3', titel: '' },
+    { angle: 54, info: 'Information 4', titel: '' },
     { angle: 72, info: 'Information 5', titel: 'Titel 2' },
-    { angle: 96, info: 'Information 6', titel: '' },
-    { angle: 120, info: 'Information 7', titel: '' },
+    { angle: 90, info: 'Information 6', titel: '' },
+    { angle: 126, info: 'Information 7', titel: '' },
     { angle: 144, info: 'Information 8', titel: 'Titel 3' },
-    { angle: 168, info: 'Information 9', titel: '' },
-    { angle: 192, info: 'Information 10', titel: '' },
+    { angle: 162, info: 'Information 9', titel: '' },
+    { angle: 198, info: 'Information 10', titel: '' },
     { angle: 216, info: 'Information 11', titel: 'Titel 4' },
-    { angle: 240, info: 'Information 12', titel: '' },
-    { angle: 264, info: 'Information 13', titel: '' },
+    { angle: 234, info: 'Information 12', titel: '' },
+    { angle: 270, info: 'Information 13', titel: '' },
     { angle: 288, info: 'Information 14', titel: 'Titel 5' },
-    { angle: 312, info: 'Information 15', titel: '' },
-    { angle: 336, info: 'Information 1', titel: '' },
+    { angle: 306, info: 'Information 15', titel: '' },
+    { angle: 342, info: 'Information 1', titel: '' },
     
   ];
+
+
 
   
 
@@ -363,5 +365,19 @@ document.addEventListener('DOMContentLoaded', function() {
     popUp.classList.remove('popup-show');
   });
 
+  const borderLinesData = [
+    { angle: 36},
+    { angle: 108 },
+    { angle: 180 },
+    { angle: 252 },
+    { angle: 324 },
+  ]
+
+  borderLinesData.forEach(line => {
+    const lineElem = document.createElement('div');
+    lineElem.classList.add('border-line');
+    lineElem.style.transform = `rotate(${line.angle}deg)`;
+    radar.append(lineElem);
+  });
 });
 
