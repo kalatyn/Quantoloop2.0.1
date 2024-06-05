@@ -563,7 +563,9 @@ body {
 }
 
 .main_logo {
-  height: 70%;
+  height: 70%; 
+  object-fit: contain;
+  
 }
 @media screen and (max-width: 1400px) {
   #content_container{
@@ -849,6 +851,9 @@ body {
 @media screen and (max-width: 576px) {
   .navbar{
     padding-right: 20px;
+  }
+  .nav-link-first{
+    margin-left: 0;
   }
   .nav {
     display: grid;
