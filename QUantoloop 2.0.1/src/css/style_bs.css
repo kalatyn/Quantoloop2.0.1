@@ -1627,24 +1627,22 @@ body {
   overflow: hidden;
   padding: 5%;
   z-index: 4;
+  
+  
+  
   & h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 1rem;
   }
-  & p{
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 1rem;
-    line-height: 1.5rem;
-  }
+  
   & i{
     position: absolute;
     top: 30px;
     right: 30px;
     font-size: 2rem;
     cursor: pointer;
-    transition: transform 0.7s ease;
+    transition: scale 0.7s ease;
     color: #5598c8af;
     cursor: pointer;
     
@@ -1652,8 +1650,29 @@ body {
   & i:hover{
     scale: 1.1;
     color: #5598c8;
+    
   }
 
+}
+.window_par{
+  width: 85%;
+  height: 70%;
+  overflow: scroll;
+  scrollbar-width: none;
+  background-color: #5598c823;;
+  border-radius: 0.8rem;
+  padding: 3%;
+  position: absolute;
+  bottom: 5%;
+  left: calc(50% - 42.5%);
+  -webkit-overflow-scrolling: touch;
+  
+  & p{
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 1rem;
+    line-height: 2rem;
+  }
 }
 
 .radar__area {  
