@@ -5,8 +5,8 @@ document.querySelector('#back_video').addEventListener('play', function() {
   this.currentTime = 0;
 });
 
-
-window.addEventListener("scroll", function () {
+document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("scroll", function () {
   let element = document.querySelector("#back_video");
   let bounding = element.getBoundingClientRect();
   let viewportHeight =
@@ -25,6 +25,8 @@ window.addEventListener("scroll", function () {
   } if (bounding.top > 1) {
     element.style.width = "100%";
   }
+});
+
 });
 
 let scrollSection = document.querySelector(".horizontal-scroll-section");
@@ -365,19 +367,6 @@ document.addEventListener('DOMContentLoaded', function() {
     popUp.classList.remove('popup-show');
   });
 
-  const borderLinesData = [
-    { angle: 36},
-    { angle: 108 },
-    { angle: 180 },
-    { angle: 252 },
-    { angle: 324 },
-  ]
-
-  borderLinesData.forEach(line => {
-    const lineElem = document.createElement('div');
-    lineElem.classList.add('border-line');
-    lineElem.style.transform = `rotate(${line.angle}deg)`;
-    radar.append(lineElem);
-  });
+  
 });
 
