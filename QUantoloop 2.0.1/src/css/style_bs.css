@@ -748,9 +748,6 @@ body {
     
   }
   
-  .main_logo {
-
-  }
   .navbar-brand img{
     position: absolute;
     top: 5px;
@@ -1178,9 +1175,9 @@ body {
     justify-content: center;
     align-items: center;
     visibility: hidden;
-    background-color: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
     transition: all 0,5s;
 }
 .card__disc.show{
@@ -1482,7 +1479,6 @@ body {
   position: relative;
   flex-direction: row;
   background-color: rgb(249, 249, 249);
-  /* border: 1px solid rgb(0, 0, 0); */
   scroll-snap-type: y mandatory;
 }
 .growth_left{
@@ -1522,6 +1518,10 @@ body {
   margin-bottom: 2%;
   /* border: 1px solid black; */
   min-width: 660px;
+  border-top: 1px solid rgba(187, 187, 187, 0.634);
+}
+.growth_item:first-child{
+  border-top: none;
 }
 .growth_item_full{
   height: 30vh;
@@ -1549,7 +1549,7 @@ body {
     right: 2%;
     font-size: 2.5rem;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: transform 0.7s ease;
     color: #5598c8af;
     &:hover{
       scale: 1.1;
@@ -1571,13 +1571,63 @@ body {
   align-items: center;
 }
 .item_bottom_item{
-  width: 95%;
-  height: 80%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: white;
-  border-radius: 10px;
-  margin-left: 2%;
+  width: 100%;
+  height: 100%;
   & h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1rem;
+  }
+  & p{
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 1rem;
+    line-height: 1.2rem;
+  }
+}
+.plus_btn{
+  position: absolute;
+  bottom:0;
+  left : calc(50% - 1rem);
+  font-size: 2rem;
+  width: 2rem;
+  color: #5598c8b9;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+  &:hover{
+    color: #5598c8;
+  }
+}
+.plus_info{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: absolute;
+  z-index: 3;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+
+}
+.plus_info.show{
+  visibility: visible;
+}
+.window_info{
+  position: relative;
+  width: 60%;
+  height: 60%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1rem;
+  border: 1px solid rgb(187, 187, 187);
+  overflow: hidden;
+  padding: 5%;
+  z-index: 4;
+  & h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 1rem;
@@ -1586,7 +1636,24 @@ body {
     font-size: 1rem;
     font-weight: 500;
     margin: 1rem;
+    line-height: 1.5rem;
   }
+  & i{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.7s ease;
+    color: #5598c8af;
+    cursor: pointer;
+    
+  }
+  & i:hover{
+    scale: 1.1;
+    color: #5598c8;
+  }
+
 }
 
 .radar__area {  

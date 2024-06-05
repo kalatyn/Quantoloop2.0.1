@@ -291,20 +291,37 @@ document.addEventListener('DOMContentLoaded', function() {
         if (i !== j) {
           const otherBtn = document.querySelector(`#open${j}`);
           const otherItem = document.querySelector(`#growth_item${j}`);
-          otherBtn.style.transform = 'rotate(0deg)';
+          otherBtn.style.transform = 'scale(1)';
           otherItem.classList.remove('growth_item_full');
         }
       }
     item.classList.toggle('growth_item_full');
 
     if (item.classList.contains('growth_item_full')) {
-      btn.style.transform = 'rotate(45deg)';
+      btn.style.transform = 'scale(-1)';
     } else {
-      btn.style.transform = 'rotate(0deg)';
+      btn.style.transform = 'scale(1)';
     }
   });
   }
   
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  for (let i = 1; i <= 5; i++) {
+    const btn = document.querySelector(`#plus${i}`);
+    const window = document.querySelector(`#plus_info${i}`);
+    btn.addEventListener('click', function() {
+      window.classList.add('show');
+      document.body.classList.add("scroll-lock");
+    });
+    const close = document.querySelector(`#wClose${i}`);
+    close.addEventListener('click', function() {
+      window.classList.remove('show');
+      document.body.classList.remove("scroll-lock");
+    });
+  }
 });
 
 
