@@ -972,7 +972,7 @@ body {
   }
   .item_top{
     & h3{
-      font-size: 2.2rem !important;
+      font-size: 2rem !important;
     } 
   }
   
@@ -1542,7 +1542,6 @@ body {
     height: 2.5rem;
     position: absolute;
     right: 2%;
-    
     font-size: 2.5rem;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -1567,12 +1566,12 @@ body {
   align-items: center;
 }
 .item_bottom_item{
-  width: 73%;
+  width: 95%;
   height: 80%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
   border-radius: 10px;
-  margin-left: 7%;
+  margin-left: 2%;
   & h2{
     font-size: 1.5rem;
     font-weight: 600;
