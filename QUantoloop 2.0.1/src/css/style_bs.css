@@ -993,7 +993,13 @@ body {
   .plus_btn{
     font-size: 0.7rem !important;
   }
-  
+  .window_info{
+    width: 80% !important; ;
+  }
+  .window_info p{
+    font-size: 0.8rem !important;
+    line-height: 1.4rem !important;
+  }
 
   .radar {
     height: 80vw !important;
