@@ -996,6 +996,9 @@ body {
   .window_info{
     width: 80% !important; ;
   }
+  .window_info h2{
+    font-size: 2rem !important;
+  }
   .window_info p{
     font-size: 0.8rem !important;
     line-height: 1.4rem !important;

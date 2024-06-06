@@ -313,15 +313,23 @@ document.addEventListener('DOMContentLoaded', function() {
   for (let i = 1; i <= 5; i++) {
     const btn = document.querySelector(`#plus${i}`);
     const window = document.querySelector(`#plus_info${i}`);
+
     btn.addEventListener('click', function() {
       window.classList.add('show');
       document.body.classList.add("scroll-lock");
     });
     const close = document.querySelector(`#wClose${i}`);
+
     close.addEventListener('click', function() {
       window.classList.remove('show');
       document.body.classList.remove("scroll-lock");
     });
+    window.addEventListener('click', function(event) {
+      if (event.target === window) {
+        window.classList.remove('show');
+        document.body.classList.remove("scroll-lock");
+      }
+    })
   }
 
 });
