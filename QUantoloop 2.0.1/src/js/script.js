@@ -284,8 +284,9 @@ setTimeout(function () {
 document.addEventListener('DOMContentLoaded', function() {
   
   for (let i = 1; i <= 5; i++) {
-    const btn = document.querySelector(`#open${i}`);
+    const btn = document.querySelector(`#top${i}`);
     const item = document.querySelector(`#growth_item${i}`);
+    const icon = document.querySelector(`#open${i}`);
     btn.addEventListener('click', function() {
       for (let j = 1; j <= 5; j++) {
         if (i !== j) {
@@ -298,9 +299,9 @@ document.addEventListener('DOMContentLoaded', function() {
     item.classList.toggle('growth_item_full');
 
     if (item.classList.contains('growth_item_full')) {
-      btn.style.transform = 'scale(-1)';
+      icon.style.transform = 'scale(-1)';
     } else {
-      btn.style.transform = 'scale(1)';
+      icon.style.transform = 'scale(1)';
     }
   });
   }
@@ -322,6 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.classList.remove("scroll-lock");
     });
   }
+
 });
 
 
