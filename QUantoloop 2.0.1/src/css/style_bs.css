@@ -988,6 +988,7 @@ body {
   .item_bottom_item p{
     font-size: 0.7rem !important;
     line-height: 1rem !important;
+    margin-bottom: 0.2rem !important;
   }
   .plus_btn{
     font-size: 0.7rem !important;
