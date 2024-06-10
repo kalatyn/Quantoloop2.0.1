@@ -252,10 +252,10 @@
                 <span class="arrow scroll__button" onclick="scrollright()"><i class="bi bi-arrow-right-circle-fill"></i></span>
             </div>
 
-            <div class="fixed-element" id="myFixedElement" >
+            <!-- <div class="fixed-element" id="myFixedElement" >
               <i class="bi bi-info-circle-fill" style="font-size: 2.5em;"></i>
               <p>Derzeit wird erklärt,<br> wie es funktioniert</p>
-            </div>
+            </div> -->
             
           </div>
 
@@ -266,15 +266,15 @@
       
     <div class="info__section container-fluid" id="info__section">
       <div class="info">
-        <h3>1. Lorem</h3>
+        <div data-max="100">0</div>
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
       <div class="info">
-        <h3>2. Lorem</h3>
+        <div  data-max="200">0</div>
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
       <div class="info">
-        <h3>3. Lorem</h3>
+        <div data-max="300">0</div>
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
     </div>
@@ -673,16 +673,55 @@
       </div>
       <div class="popup">
         <div class="close-popup"><i class="bi bi-x-circle-fill exit__button1"></i></div>
-        <img class="popup__img" src="" alt="">
-        <h2 class="popup__titleS"></h2>
-        <h2 class="popup__titleL"></h2>
-        <p class="popup__text"></p>
+        <img class="popup__img" src="img/bg Logistic.png" alt="">
+        <div class="popupContent">
+          <h2 class="popup__titleS"></h2>
+          <h2 class="popup__titleL"></h2>
+          <p class="popup__text"></p>
+        </div>
+        
       </div>
     </div>
-    <div id="rechner__area">
-      <div id="rechner"></div>
+    <div class="software_info">
+      <h2>Was unsere Software exklusiv macht</h2>
+      <div class="software_cards">
+        <div class="software_card">
+          <img class="software_card_img" src="icons/archive.svg" alt="">
+          <h3 class="software_card_title">Individuell</h3>
+          <p class="software_card_text">Wir passen Software an Ihre Wünsche und Ziele an.</p>
+        </div>
+        <div class="software_card">
+          <img class="software_card_img" src="icons/archive.svg" alt="">
+          <h3 class="software_card_title">Optimal</h3>
+          <p class="software_card_text">Wir optimieren Ihre Software passend zur Anwendung.</p>
+        </div>
+        <div class="software_card">
+          <img class="software_card_img" src="icons/archive.svg" alt="">
+          <h3 class="software_card_title">Innovativ</h3>
+          <p class="software_card_text">Unsere Algorithmen sind für die Zukunft gemacht.</p>
+        </div>
+      </div>
     </div>
-    
+    <div id="contact_us">
+      <h4>Danke, dass Sie uns begleiten.</h4>
+      <h2>Willkommen bei Quantoloop!</h2>
+      <h3>Kontaktieren Sie uns gerne heute noch.</h3>
+      
+      <form id="form"  action="/">
+        <label for="name" >Ihre Name</label>
+        <input required type="text" name="name" placeholder="Ihr Name" >
+        <label for="email" >Ihre Email</label>
+        <input required type="email" placeholder="Ihre Email">        
+        <label for="message">Ihre Nachricht</label>
+        <textarea required name="message" id="message" placeholder="Ihre Nachricht"></textarea>
+        <button type="submit">Senden</button>
+      </form>
+    </div>
+    <footer>
+      <a href="#">© Quantoloop 2024</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
