@@ -489,9 +489,15 @@ body {
 } */
 .navbar {
   position: fixed !important;
-  background-color: rgb(255, 255, 255);
-  z-index: 100;
-
+  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  
 }
 .nav{
   margin: auto;
@@ -505,7 +511,7 @@ body {
 }
 .nav-link {
   color: rgb(0, 0, 0);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   margin-right: 40px;
   text-transform: uppercase;
@@ -1182,7 +1188,7 @@ body {
   font-size: 25px;
   color: #3366af;
   border-radius: 50px;
-  left: calc(50% - 50px);
+  left: calc(80% - 50px);
   bottom: 3%;
 }
 
@@ -1195,7 +1201,7 @@ body {
     height: 100vh;
     position: absolute;
     left: 0;
-    z-index: 4;
+    z-index: 11;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1284,7 +1290,7 @@ body {
 }
 
 .info h3{
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   text-align: center;
 }
@@ -1626,13 +1632,13 @@ body {
   }
 }
 .plus_info{
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   position: absolute;
-  z-index: 3;
+  z-index: 11;
   visibility: hidden;
   display: flex;
   justify-content: center;
@@ -1684,14 +1690,17 @@ body {
   width: 85%;
   height: 70%;
   overflow: scroll;
-  scrollbar-width: none;
+  scrollbar-width: none !important;
   background-color: #5598c823;;
   border-radius: 0.8rem;
   padding: 3%;
   position: absolute;
   bottom: 5%;
   left: calc(50% - 42.5%);
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch !important;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   
   & p{
     font-size: 1rem;
@@ -1723,12 +1732,12 @@ body {
   justify-content: center;
   align-items: center;
   transition-property: property;
-  margin: 10% 0;
+  margin: 10% 10% 10% 0;
 }
 
 .circle__l {
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
   border: 3px solid rgb(255, 255, 255);
   background-color: #5589c8;
   border-radius: 50%;
@@ -1736,13 +1745,16 @@ body {
   padding: none;
   display: flex;
   overflow: hidden;
+  z-index: 0;
 }
 
 .radar__sweep {
   position: absolute;
   animation: spin 8s linear infinite;
   height: 100%;
-  scale: 1.1;
+  scale: 1.05;
+  z-index: 10;
+  pointer-events: none;
 }
 
 @keyframes spin {
@@ -1754,24 +1766,44 @@ body {
   }
 }
 
-.circle__m {
-  height: 55%;
-  width: 55%;
+.circle__l2 {
+  height: 80%;
+  width: 80%;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 50%;
   position: absolute;
+  z-index: 2;
+  background-color: #5589c8;
+}
+.circle__m {
+  height: 60%;
+  width: 60%;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 4;
+  background-color: #5589c8;
+}
+.circle__m2 {
+  height: 40%;
+  width: 40%;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 6;
+  background-color: #5589c8;
 }
 
 .circle__s {
-  height: 27%;
-  width: 27%;
+  height: 20%;
+  width: 20%;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 50%;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 8;
   background-color: #5589c8;
 }
 .radar__area{
@@ -1782,40 +1814,43 @@ body {
 .line{
   position: absolute;
   width: 0px;
-  height: 39%;
-  top : 11%;
+  height: 49.7%;
+  top : 0.2%;
   left: 50% +10px;
-  border-right: 4px dotted rgb(255, 255, 255);
+  border-right: 2px dotted rgb(255, 255, 255);
   transform-origin:100% 100%;
   cursor: pointer;
-  transition: border-right-color 0.3s;
+  transition: border-right-color 0.1s;
   z-index: 1;
 }
-.border-line{
-  position: absolute;
-  width: 0px;
-  height: 40%;
-  top : 10%;
-  left: 50.2% ;
-  border-right: 1px solid rgb(255, 255, 255);
-  transform-origin:50% 100%;
-  cursor: pointer;
-  transition: border-right-color 0.3s;
-  z-index: 1;
-}
+
 .line::before{
   content: attr(data-titel);
   width: 100px;
   position: absolute;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   text-align: center;
-  top: -2.5rem;
+  top: -4rem;
   left: -50px;
   cursor: pointer;
+  rotate: -90deg;
+  
 }
 .line:hover {
   border-right-color: #6baffc;
+  &::before{
+    color: #6baffc;
+  }
+}
+.line:after {
+  content: "";
+  position: absolute;
+  top: -15px; /* Увеличенная зона */
+  left: -15px; /* Увеличенная зона */
+  right: -15px; /* Увеличенная зона */
+  bottom: -15px; /* Увеличенная зона */
+  background: transparent;
 }
 .popup{
   width: 300px;
@@ -1861,6 +1896,14 @@ body {
   font-size: 1em;
 
 }
+.popup__img{
+  position: relative;
+  width: 80%;
+  height: 30%;
+  overflow: hidden;
+
+}
+
 
 
 

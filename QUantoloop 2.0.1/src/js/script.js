@@ -82,7 +82,6 @@ function getElementWidthWithMargin() {
 // });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll(".nav-link");
 
   for (let i = 1; i <= 5; i++) {
     const moreAbout = document.querySelectorAll(`.more__about${i}`); 
@@ -110,17 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  links.forEach(link => {
-    link.addEventListener("click", function () {
-      document.body.classList.remove("scroll-lock");
-      discription.forEach((element) => {
-        if(element.classList.contains("show")) {
-          element.classList.remove("show");
-        }
-        
-      });
-    });
-  });
+  
 });
 
 
@@ -342,32 +331,42 @@ document.addEventListener('DOMContentLoaded', function() {
 // radar
 
 document.addEventListener('DOMContentLoaded', function() {
-  const radarArea = document.querySelector('.radar__area');
   const radar = document.querySelector('.radar');
   const popUp = document.querySelector('.popup');
   const closePopup = document.querySelector('.close-popup');
-  const btn = document.querySelector('#displayBtn');
+  const popUpImg = document.querySelector('.popup__img');
   const popUpTitel = document.querySelector('.popup__title');
   const popUpText = document.querySelector('.popup__text');
+  const links = document.querySelectorAll(".nav-link");
+  
 
 
   const linesData = [
-    { angle: 0, info: 'Information 2', titel: 'Titel 1' },
-    { angle: 18, info: 'Information 3', titel: '' },
-    { angle: 54, info: 'Information 4', titel: '' },
-    { angle: 72, info: 'Information 5', titel: 'Titel 2' },
-    { angle: 90, info: 'Information 6', titel: '' },
-    { angle: 126, info: 'Information 7', titel: '' },
-    { angle: 144, info: 'Information 8', titel: 'Titel 3' },
-    { angle: 162, info: 'Information 9', titel: '' },
-    { angle: 198, info: 'Information 10', titel: '' },
-    { angle: 216, info: 'Information 11', titel: 'Titel 4' },
-    { angle: 234, info: 'Information 12', titel: '' },
-    { angle: 270, info: 'Information 13', titel: '' },
-    { angle: 288, info: 'Information 14', titel: 'Titel 5' },
-    { angle: 306, info: 'Information 15', titel: '' },
-    { angle: 342, info: 'Information 1', titel: '' },
-    
+    { angle: 0, bild: 'img/mainLogo.png', info: 'Information 2', titel: 'Titel 1', zIndex: '5', textRot: '-90deg' },
+    { angle: 12, info: 'Information 3', titel: 'Titel 1', zIndex: '7', textRot: '-90deg' },
+    { angle: 24, info: 'Information 4', titel: 'Titel 1', zIndex: '7', textRot: '-90deg' },
+    { angle: 48, info: 'Information 5', titel: 'Titel 2', zIndex: '1', textRot: '-90deg'  },
+    { angle: 60, info: 'Information 6', titel: 'Titel 2', zIndex: '3', textRot: '-90deg' },
+    { angle: 72, info: 'Information 7', titel: 'Titel 2', zIndex: '5', textRot: '-90deg' },
+    { angle: 84, info: 'Information 8', titel: 'Titel 2', zIndex: '7', textRot: '-90deg' },
+    { angle: 96, info: 'Information 9', titel: 'Titel 2', zIndex: '7', textRot: '-90deg' },
+    { angle: 120, info: 'Information 10', titel: 'Titel 3', zIndex: '1', textRot: '-90deg' },
+    { angle: 132, info: 'Information 11', titel: 'Titel 3', zIndex: '3', textRot: '-90deg' },
+    { angle: 144, info: 'Information 12', titel: 'Titel 3', zIndex: '5', textRot: '-90deg' },
+    { angle: 156, info: 'Information 13', titel: 'Titel 3', zIndex: '7', textRot: '-90deg' },
+    { angle: 168, info: 'Information 14', titel: 'Titel 3', zIndex: '7', textRot: '-90deg' },
+    { angle: 192, info: 'Information 15', titel: 'Titel 4', zIndex: '1', textRot: '90deg' },
+    { angle: 204, info: 'Information 16', titel: 'Titel 4', zIndex: '3', textRot: '90deg' },
+    { angle: 216, info: 'Information 17', titel: 'Titel 4', zIndex: '5', textRot: '90deg' },
+    { angle: 228, info: 'Information 18', titel: 'Titel 4', zIndex: '7', textRot: '90deg' },
+    { angle: 240, info: 'Information 19', titel: 'Titel 4', zIndex: '7', textRot: '90deg' },
+    { angle: 264, info: 'Information 20', titel: 'Titel 5', zIndex: '1', textRot: '90deg' },
+    { angle: 276, info: 'Information 21', titel: 'Titel 5', zIndex: '3', textRot: '90deg' },
+    { angle: 288, info: 'Information 22', titel: 'Titel 5', zIndex: '5', textRot: '90deg' },
+    { angle: 300, info: 'Information 23', titel: 'Titel 5', zIndex: '7', textRot: '90deg' },
+    { angle: 312, info: 'Information 24', titel: 'Titel 5', zIndex: '7', textRot: '90deg' },
+    { angle: 336, info: 'Information 25', titel: 'Titel 1', zIndex: '1', textRot: '90deg' },
+    { angle: 348, info: 'Information 1', titel: 'Titel 1', zIndex: '3', textRot: '90deg' },
   ];
 
 
@@ -377,15 +376,18 @@ document.addEventListener('DOMContentLoaded', function() {
   linesData.forEach(line => {
     const lineElem = document.createElement('div');
     lineElem.classList.add('line');
-    // line.innerText = line.titel;
     lineElem.style.transform = `rotate(${line.angle}deg)`;
+    lineElem.style.zIndex = `${line.zIndex}`;
+    // lineTitel.style.rotate = `${line.textRot}`;
     lineElem.setAttribute('data-titel', line.titel);
+    
     lineElem.addEventListener('click', () => {
       popUp.classList.add('popup-show');
       popUpTitel.textContent = line.titel;
       popUpTitel.classList.add('popup__title');
       popUpText.textContent = line.info;
       popUpText.classList.add('popup__text');
+      popUpImg.src = line.bild;
     })
 
     radar.appendChild(lineElem);
@@ -394,6 +396,10 @@ document.addEventListener('DOMContentLoaded', function() {
     popUp.classList.remove('popup-show');
   });
 
-  
+  links.forEach(link => {
+    link.addEventListener("click", function () {
+      popUp.classList.remove("popup-show");
+    });
+  });
 });
 
