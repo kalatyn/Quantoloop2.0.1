@@ -85,12 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for (let i = 1; i <= 5; i++) {
     const moreAbout = document.querySelectorAll(`.more__about${i}`); 
-    const description = document.querySelectorAll(`#card__disc${i}`);
-    const exit = document.querySelectorAll(`.exit__button${i}`);
+    const descriptions = document.querySelectorAll(`#card__disc${i}`);
+    const exits = document.querySelectorAll(`.exit__button${i}`);
 
     moreAbout.forEach((element) => {
       element.addEventListener("click", () => {
-        description.forEach((desc) => {
+        descriptions.forEach((desc) => {
           desc.classList.toggle("show");
         });
         // Добавляем класс блокировки прокрутки к body
@@ -98,20 +98,27 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    exit.forEach((element) => {
+    exits.forEach((element) => {
       element.addEventListener("click", () => {
-        description.forEach((desc) => {
+        descriptions.forEach((desc) => {
           desc.classList.toggle("show");
         });
         // Убираем класс блокировки прокрутки у body
         document.body.classList.remove("scroll-lock");
       });
     });
+
+    descriptions.forEach((desc) => {
+      desc.addEventListener("click", (event) => {
+        if (event.target === desc) {
+          desc.classList.toggle("show");
+          document.body.classList.remove("scroll-lock");
+        }
+      });
+    });
   }
 
-  
 });
-
 
 
 var element = document.getElementById("myFixedElement");
@@ -276,13 +283,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const btn = document.querySelector(`#top${i}`);
     const item = document.querySelector(`#growth_item${i}`);
     const icon = document.querySelector(`#open${i}`);
+    const img = document.querySelector('#growth_img');
+    
     btn.addEventListener('click', function() {
       for (let j = 1; j <= 5; j++) {
         if (i !== j) {
           const otherBtn = document.querySelector(`#open${j}`);
           const otherItem = document.querySelector(`#growth_item${j}`);
+          
           otherBtn.style.transform = 'scale(1)';
           otherItem.classList.remove('growth_item_full');
+          img.setAttribute('src', `img/number-${i}.png`);
         }
       }
     item.classList.toggle('growth_item_full');
@@ -291,6 +302,8 @@ document.addEventListener('DOMContentLoaded', function() {
       icon.style.transform = 'scale(-1)';
     } else {
       icon.style.transform = 'scale(1)';
+      img.setAttribute('src', 'icons/QL-Logo-Farbe.svg');
+
     }
   });
   }
@@ -302,6 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
   for (let i = 1; i <= 5; i++) {
     const btn = document.querySelector(`#plus${i}`);
     const window = document.querySelector(`#plus_info${i}`);
+
 
     btn.addEventListener('click', function() {
       window.classList.add('show');
