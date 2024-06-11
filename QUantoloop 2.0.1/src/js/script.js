@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
     element.style.width = "100%";
   } else if (bounding.top <= 0) {
     let scrollPosition = Math.abs(bounding.top);
-    let newSize = 100 - scrollPosition * 0.015;
+    let newSize = 100 - scrollPosition * 0.03;
     element.style.width = newSize + "%";
 
-    let borderRadius = Math.min(40, scrollPosition * 0.04);
+    let borderRadius = Math.min(40, scrollPosition * 0.05);
     element.style.borderRadius = borderRadius + "px";
   } if (bounding.top > 1) {
     element.style.width = "100%";

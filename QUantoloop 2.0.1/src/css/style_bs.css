@@ -928,7 +928,8 @@ body {
   .software_info {
   width: 100vw !important;
   & h2 {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
+    text-align: center !important;
   }
 }
   
@@ -1863,10 +1864,10 @@ body {
 
 }
 .radar {
-  height: 70vh;
-  width: 70vh;
+  height: 50vh;
+  width: 50vh;
   transition: all 0.7s ease;
-  
+  float: left;
   position: relative;
   display: flex;
   justify-content: center;
@@ -1948,15 +1949,15 @@ body {
 }
 .radar__area{
   position:relative;
-  display: flex;
+  
 }
 
 .line{
   position: absolute;
   width: 0px;
-  height: 49.7%;
-  top : 0.2%;
-  left: 50% +10px;
+  height: 49.1%;
+  top : 1%;
+  left: 49.5%;
   border-right: 2px dotted rgb(255, 255, 255);
   transform-origin:100% 100%;
   cursor: pointer;
@@ -1993,12 +1994,13 @@ body {
   background: transparent;
 }
 .popup{
-  width: 500px;
-  height: 800px;
+  width: 30vw;
+  max-width: 400px;
+  height: 80vh;
   background-color: #fefefe;
   position: relative;
   top: 0;
-  left: 0;
+  right: -5%;
   opacity: 0;
   transition: opacity 0.5s ease;
   border-radius: 15px;
@@ -2075,11 +2077,12 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgb(249, 249, 249);
-  border: 1px solid rgb(0, 0, 0);
+  /* border: 1px solid rgb(0, 0, 0); */
   & h2{
     margin-bottom: 5rem;
     font-size: 4rem;
     font-weight: 500;
+    
   }
 }
 .software_cards{
@@ -2135,6 +2138,7 @@ body {
   & h2{
     margin-bottom: 3rem;
     font-size: 3rem;
+    text-align: center;
   }
   & h3{
     margin-bottom: 1rem;
