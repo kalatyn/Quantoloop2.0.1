@@ -390,6 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   linesData.forEach(line => {
     const lineElem = document.createElement('div');
+    const radar = document.querySelector('.radar');
     lineElem.classList.add('line');
     lineElem.style.transform = `rotate(${line.angle}deg)`;
     lineElem.style.zIndex = `${line.zIndex}`;
@@ -398,6 +399,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     lineElem.addEventListener('click', () => {
       popUp.classList.add('popup-show');
+      radar.style.scale = '2';
+      radar.style.transition = 'scale 0.5s ease';
       popUpTitleS.textContent = line.titel;
       
       popUpTitleL.textContent = line.titelS;
@@ -410,7 +413,10 @@ document.addEventListener('DOMContentLoaded', function() {
     radar.appendChild(lineElem);
   });
   closePopup.addEventListener('click', () => {
+
     popUp.classList.remove('popup-show');
+      radar.style.scale = '1';
+      radar.style.transition = 'scale 0.5s ease';
   });
 
   links.forEach(link => {

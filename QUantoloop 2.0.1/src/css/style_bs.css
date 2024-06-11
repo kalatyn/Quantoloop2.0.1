@@ -1860,7 +1860,7 @@ body {
   align-items: center;
   transition: transform 0.5s ease;
   position: relative;
-  
+  overflow: hidden;
 
 }
 .radar {
