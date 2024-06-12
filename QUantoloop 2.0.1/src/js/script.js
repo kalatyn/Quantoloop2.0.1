@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     element.style.borderRadius = "0px";
     element.style.width = "100%";
   } else if (bounding.top <= 0) {
-    let scrollPosition = Math.abs(bounding.top);
-    let newSize = 100 - scrollPosition * 0.03;
+    let scrollPosition = Math.abs(bounding.top );
+    let newSize = 100 - scrollPosition * 0.01;
     element.style.width = newSize + "%";
 
     let borderRadius = Math.min(40, scrollPosition * 0.05);
@@ -423,7 +423,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
     radar.appendChild(lineElem);
-  });
   closePopup.addEventListener('click', () => {
 
     popUp.classList.remove('popup-show');
@@ -440,6 +439,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+
+});
 
 let numbers = document.querySelectorAll('.info div');
 
