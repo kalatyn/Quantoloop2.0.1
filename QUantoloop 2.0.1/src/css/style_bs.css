@@ -1863,6 +1863,16 @@ body {
   overflow: hidden;
 
 }
+.radar_border{
+  height: 80%;
+  width: 100%;
+  position: relative;
+  /* border: 1px solid black; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .radar {
   height: 50vh;
   width: 50vh;
@@ -1873,7 +1883,7 @@ body {
   justify-content: center;
   align-items: center;
   transition-property: property;
-  margin: 10% 10% 10% 0;
+  
 }
 
 .circle__l {
@@ -1947,10 +1957,8 @@ body {
   z-index: 10;
   background-color: #5589c8;
 }
-.radar__area{
-  position:relative;
-  
-}
+
+
 
 .line{
   position: absolute;
@@ -1984,6 +1992,12 @@ body {
     color: #6baffc;
   }
 }
+.selected{
+  border-right-color: #6baffc;
+  &::before{
+    color: #6baffc;
+  }
+}
 .line:after {
   content: "";
   position: absolute;
@@ -1996,11 +2010,11 @@ body {
 .popup{
   width: 30vw;
   max-width: 400px;
-  height: 80vh;
+  height: 100%;
   background-color: #fefefe;
-  position: relative;
-  top: 0;
-  right: -5%;
+  position: absolute;
+  top: calc(50% - 50%);
+  right: 5%;
   opacity: 0;
   transition: opacity 0.5s ease;
   border-radius: 15px;

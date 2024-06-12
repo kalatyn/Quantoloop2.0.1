@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.classList.remove('show');
         document.body.classList.remove("scroll-lock");
       }
-    })
+    });
   }
 
 });
@@ -351,61 +351,76 @@ document.addEventListener('DOMContentLoaded', function() {
   const popUpTitleS = document.querySelector('.popup__titleS');
   const popUpTitleL = document.querySelector('.popup__titleL');
   const popUpText = document.querySelector('.popup__text');
-  const links = document.querySelectorAll(".nav-link");
 
   const linesData = [
-    { angle: 0, info: 'Information 2', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '5', textRot: '-90deg' },
-    { angle: 12, info: 'Information 3', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
-    { angle: 24, info: 'Information 4', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
-    { angle: 48, info: 'Information 5', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '1', textRot: '-90deg' },
-    { angle: 60, info: 'Information 6', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '3', textRot: '-90deg' },
-    { angle: 72, info: 'Information 7', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '5', textRot: '-90deg' },
-    { angle: 84, info: 'Information 8', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
-    { angle: 96, info: 'Information 9', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
-    { angle: 120, info: 'Information 10', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '1', textRot: '-90deg' },
-    { angle: 132, info: 'Information 11', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '3', textRot: '-90deg' },
-    { angle: 144, info: 'Information 12', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '5', textRot: '-90deg' },
-    { angle: 156, info: 'Information 13', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
-    { angle: 168, info: 'Information 14', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
-    { angle: 192, info: 'Information 15', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '1', textRot: '90deg' },
-    { angle: 204, info: 'Information 16', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '3', textRot: '90deg' },
-    { angle: 216, info: 'Information 17', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '5', textRot: '90deg' },
-    { angle: 228, info: 'Information 18', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '7', textRot: '90deg' },
-    { angle: 240, info: 'Information 19', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '7', textRot: '90deg' },
-    { angle: 264, info: 'Information 20', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '1', textRot: '90deg' },
-    { angle: 276, info: 'Information 21', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '3', textRot: '90deg' },
-    { angle: 288, info: 'Information 22', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '5', textRot: '90deg' },
-    { angle: 300, info: 'Information 23', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '7', textRot: '90deg' },
-    { angle: 312, info: 'Information 24', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '7', textRot: '90deg' },
-    { angle: 336, info: 'Information 25', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '1', textRot: '90deg' },
-    { angle: 348, info: 'Information 1', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '3', textRot: '90deg' },
+      { angle: 0, info: 'Information 2', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '5', textRot: '-90deg' },
+      { angle: 12, info: 'Information 3', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
+      { angle: 24, info: 'Information 4', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
+      { angle: 48, info: 'Information 5', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '1', textRot: '-90deg' },
+      { angle: 60, info: 'Information 6', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '3', textRot: '-90deg' },
+      { angle: 72, info: 'Information 7', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '5', textRot: '-90deg' },
+      { angle: 84, info: 'Information 8', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
+      { angle: 96, info: 'Information 9', titel: 'Titel 2', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
+      { angle: 120, info: 'Information 10', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '1', textRot: '-90deg' },
+      { angle: 132, info: 'Information 11', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '3', textRot: '-90deg' },
+      { angle: 144, info: 'Information 12', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '5', textRot: '-90deg' },
+      { angle: 156, info: 'Information 13', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
+      { angle: 168, info: 'Information 14', titel: 'Titel 3', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
+      { angle: 192, info: 'Information 15', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '1', textRot: '90deg' },
+      { angle: 204, info: 'Information 16', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '3', textRot: '90deg' },
+      { angle: 216, info: 'Information 17', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '5', textRot: '90deg' },
+      { angle: 228, info: 'Information 18', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '7', textRot: '90deg' },
+      { angle: 240, info: 'Information 19', titel: 'Titel 4', titelS: 'Titel 1', zIndex: '7', textRot: '90deg' },
+      { angle: 264, info: 'Information 20', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '1', textRot: '90deg' },
+      { angle: 276, info: 'Information 21', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '3', textRot: '90deg' },
+      { angle: 288, info: 'Information 22', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '5', textRot: '90deg' },
+      { angle: 300, info: 'Information 23', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '7', textRot: '90deg' },
+      { angle: 312, info: 'Information 24', titel: 'Titel 5', titelS: 'Titel 1', zIndex: '7', textRot: '90deg' },
+      { angle: 336, info: 'Information 25', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '1', textRot: '90deg' },
+      { angle: 348, info: 'Information 1', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '3', textRot: '90deg' },
   ];
-
-  let currentAngle = 0; // Инициализируем текущий угол
+  let selectedLine = null;
+  let currentRotation = 0; // Текущий угол поворота
 
   linesData.forEach(line => {
-    const lineElem = document.createElement('div');
-    const radar = document.querySelector('.radar');
-    lineElem.classList.add('line');
-    lineElem.style.transform = `rotate(${line.angle}deg)`;
-    lineElem.style.zIndex = `${line.zIndex}`;
-    lineElem.setAttribute('data-titel', line.titel);
-    
-    lineElem.addEventListener('click', () => {
-      popUp.classList.add('popup-show');
-      lineElem.style.borderRightColor = '#6baffc';
-      radar.style.scale = '2';
-      radar.style.left = '-35%';
-
-      const rotationAngle = line.angle + (90 - line.angle) ; // Вычисляем угол поворота относительно текущего угла
-      currentAngle = rotationAngle - currentAngle; // Обновляем текущий угол
-      radar.style.rotate = `${currentAngle}deg`;
+      const lineElem = document.createElement('div');
+      lineElem.classList.add('line');
+      lineElem.style.transform = `rotate(${line.angle}deg)`;
+      lineElem.style.zIndex = `${line.zIndex}`;
+      lineElem.setAttribute('data-titel', line.titel);
       
+      lineElem.addEventListener('click', () => {
+          popUp.classList.add('popup-show');
+          if (selectedLine) {
+            selectedLine.classList.remove('selected');
+        }
+          lineElem.classList.add('selected');
+          selectedLine = lineElem
+          radar.style.scale = '2';
+          radar.style.left = '-50%';
+
+          // Вычисление угла поворота относительно текущего угла
+          const targetAngle = 90;
+          const additionalRotation = targetAngle - (line.angle + currentRotation) % 360;
+          currentRotation += additionalRotation; // Обновляем текущий угол
+          radar.style.transform = `rotate(${currentRotation}deg)`;
+          
+          radar.style.transition = 'all 0.5s ease';
+          popUpTitleS.textContent = line.titel;
+          popUpTitleL.textContent = line.titelS;
+          popUpText.textContent = line.info;
+      });
+
+      radar.appendChild(lineElem);
+  });
+
+  closePopup.addEventListener('click', () => {
+      popUp.classList.remove('popup-show');
+      
+      radar.style.scale = '1';
+      radar.style.left = '0';
       radar.style.transition = 'all 0.5s ease';
-      popUpTitleS.textContent = line.titel;
-      popUpTitleL.textContent = line.titelS;
-      popUpText.textContent = line.info;
-    });
+  });
 
     radar.appendChild(lineElem);
   });
@@ -415,14 +430,16 @@ document.addEventListener('DOMContentLoaded', function() {
       radar.style.scale = '1';
       radar.style.transition = 'scale 0.5s ease';
       radar.style.left = '0';
+      lineElem.classList.remove('selected');
   });
 
   links.forEach(link => {
     link.addEventListener("click", function () {
       popUp.classList.remove("popup-show");
+      
     });
   });
-});
+
 
 let numbers = document.querySelectorAll('.info div');
 
