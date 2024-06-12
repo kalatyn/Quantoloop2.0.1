@@ -7,26 +7,31 @@ document.querySelector('#back_video').addEventListener('play', function() {
 
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
-  let element = document.querySelector("#back_video");
-  let bounding = element.getBoundingClientRect();
-  let viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
+    let element = document.querySelector("#back_video");
+    let bounding = element.getBoundingClientRect();
+    let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    let triggerHeight = viewportHeight * 0.3;
 
-  if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
-    element.style.borderRadius = "0px";
-    element.style.width = "100%";
-  } else if (bounding.top <= 0) {
-    let scrollPosition = Math.abs(bounding.top );
-    let newSize = 100 - scrollPosition * 0.01;
-    element.style.width = newSize + "%";
+    // Проверяем, если верх элемента на расстоянии 30% от верхнего края окна
+    if (bounding.top >= triggerHeight && bounding.bottom <= viewportHeight) {
+      element.style.borderRadius = "0px";
+      element.style.width = "100%";
+    } 
+    // Проверяем, если верх элемента выше триггерной высоты
+    else if (bounding.top < triggerHeight) {
+      let scrollPosition = triggerHeight - bounding.top;
+      let newSize = Math.max(50, 100 - scrollPosition * 0.01); // Ограничиваем минимальный размер до 50%
+      element.style.width = newSize + "%";
 
-    let borderRadius = Math.min(40, scrollPosition * 0.05);
-    element.style.borderRadius = borderRadius + "px";
-  } if (bounding.top > 1) {
-    element.style.width = "100%";
-  }
-});
-
+      let borderRadius = Math.min(40, scrollPosition * 0.05);
+      element.style.borderRadius = borderRadius + "px";
+    } 
+    // Восстанавливаем размер, если элемент ниже триггерной высоты
+    else if (bounding.top > triggerHeight) {
+      element.style.width = "100%";
+      element.style.borderRadius = "0px"; // Устанавливаем borderRadius для консистентности
+    }
+  });
 });
 
 let scrollSection = document.querySelector(".horizontal-scroll-section");
@@ -389,6 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
       lineElem.style.zIndex = `${line.zIndex}`;
       lineElem.setAttribute('data-titel', line.titel);
       
+      
       lineElem.addEventListener('click', () => {
           popUp.classList.add('popup-show');
           if (selectedLine) {
@@ -409,27 +415,30 @@ document.addEventListener('DOMContentLoaded', function() {
           popUpTitleS.textContent = line.titel;
           popUpTitleL.textContent = line.titelS;
           popUpText.textContent = line.info;
+
+        
+      });
+      closePopup.addEventListener('click', () => {
+        popUp.classList.remove('popup-show');
+        lineElem.classList.remove('selected');
+        radar.style.scale = '1';
+        radar.style.left = '0';
+        radar.style.transition = 'all 0.5s ease';
       });
 
       radar.appendChild(lineElem);
   });
 
-  closePopup.addEventListener('click', () => {
-      popUp.classList.remove('popup-show');
-      
-      radar.style.scale = '1';
-      radar.style.left = '0';
-      radar.style.transition = 'all 0.5s ease';
-  });
+  radar.appendChild(lineElem);
 
-    radar.appendChild(lineElem);
   closePopup.addEventListener('click', () => {
-
+    selectedLine = null;
+    lineElem.classList.remove('selected');
     popUp.classList.remove('popup-show');
-      radar.style.scale = '1';
-      radar.style.transition = 'scale 0.5s ease';
-      radar.style.left = '0';
-      lineElem.classList.remove('selected');
+    radar.style.scale = '1';
+    radar.style.transition = 'scale 0.5s ease';
+    radar.style.left = '0';
+    lineElem.classList.remove('selected');
   });
 
   links.forEach(link => {
