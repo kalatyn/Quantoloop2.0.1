@@ -157,130 +157,7 @@ setTimeout(function () {
 
 
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   for (let i = 1; i <= 5; i++) {
-//     const openBtn = document.querySelector(`#open${i}`);
-//     const rightWrapper = document.querySelector(`#right_side_wrapper${i}`);
-//     openBtn.addEventListener("click", function () {
-//       // Закрываем все контейнеры перед открытием нового
-//       for (let j = 1; j <= 5; j++) {
-//         if (j !== i) {
-//           const otherRightWrapper = document.querySelector(`#right_side_wrapper${j}`);
-//           otherRightWrapper.style.width = "0%";
-//           const otherOpenBtn = document.querySelector(`#open${j}`);
-//           otherOpenBtn.style.transform = "rotate(0deg)";
-//         }
-//       }
-      
-//       // Преобразуем значение ширины из строки в число
-//       const width = parseInt(rightWrapper.style.width);
-      
-//       if (width === 67) {
-//         rightWrapper.style.width = "0%";
-//         openBtn.style.transform = "rotate(0deg)";
-//       } else {
-//         rightWrapper.style.width = "67%";
-//         openBtn.style.transform = "rotate(45deg)";
-//       }
-//     });
-//   }
-// });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const mainContainer = document.querySelector("#main__scrolling__container");
-//   const contentContainer = document.querySelector("#content_container");
-//   const links = document.querySelectorAll(".nav-link");
-//   let lastScrollTop = 0;
-
-//   window.addEventListener("scroll", function () {
-//     const mainContainerRect = mainContainer.getBoundingClientRect();
-//     const contentScrollHeight = contentContainer.scrollHeight;
-//     const contentScrollTop = contentContainer.scrollTop;
-//     const mainContainerHeight = mainContainer.clientHeight;
-//     const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
-//     const isContentAtTop = contentScrollTop === 0;
-//     const currentScrollTop = window.scrollY;
-
-//     if (mainContainerRect.top <= 0 && currentScrollTop > lastScrollTop && !isContentFullyScrolled) {
-//       // Прокрутка вниз: фиксируем контейнер и разрешаем прокрутку внутри него
-//       mainContainer.classList.add('fixed');
-//       document.body.classList.add("scroll-lock");
-//       contentContainer.style.overflowY = "scroll";
-//     } else if (isContentFullyScrolled && mainContainerRect.top <= 0) {
-//       // Конец содержимого контейнера при прокрутке вниз
-//       mainContainer.classList.remove('fixed');
-//       contentContainer.style.overflowY = "hidden";
-//       document.body.classList.remove("scroll-lock");
-//     } else if (mainContainerRect.top > 0 && isContentAtTop) {
-//       // Начало содержимого контейнера при прокрутке вверх
-//       mainContainer.classList.remove('fixed');
-//       contentContainer.style.overflowY = "hidden";
-//       document.body.classList.remove("scroll-lock");
-//     } else if (currentScrollTop < lastScrollTop && mainContainerRect.bottom >= window.innerHeight) {
-//       // Прокрутка вверх: фиксируем контейнер и разрешаем прокрутку внутри него
-//       mainContainer.classList.add('fixed');
-//       document.body.classList.add("scroll-lock");
-//       contentContainer.style.overflowY = "scroll";
-//     } else if (mainContainerRect.bottom < window.innerHeight) {
-//       // Открепляем контейнер, когда его нижняя граница выше видимой области
-//       mainContainer.classList.remove('fixed');
-//       contentContainer.style.overflowY = "hidden";
-//       document.body.classList.remove("scroll-lock");
-//     }
-
-//     lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-//   });
-
-//   contentContainer.addEventListener("scroll", function () {
-//     const contentScrollHeight = contentContainer.scrollHeight;
-//     const contentScrollTop = contentContainer.scrollTop;
-//     const mainContainerHeight = contentContainer.clientHeight;
-//     const isContentFullyScrolled = contentScrollTop + mainContainerHeight >= contentScrollHeight;
-//     const isContentAtTop = contentScrollTop === 0;
-
-//     if (isContentFullyScrolled) {
-//       contentContainer.style.overflowY = "hidden";
-//       mainContainer.classList.remove('fixed');
-//       document.body.classList.remove("scroll-lock");
-//     } else if (isContentAtTop && window.scrollY <= lastScrollTop) {
-//       mainContainer.classList.add('fixed');
-//       document.body.classList.add("scroll-lock");
-//       contentContainer.style.overflowY = "scroll";
-//     }
-//   });
-
-//   links.forEach(link => {
-//     link.addEventListener("click", function () {
-//       mainContainer.classList.remove("fixed");
-//       document.body.classList.remove("scroll-lock");
-//       contentContainer.style.overflow = "hidden";
-//     });
-//   });
-// });
-
-
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const mainContainer = document.querySelector("#main__scrolling__container");
-//   contentContainer = document.querySelector("#content_container");
-//   const initialOffsetTop = mainContainer.offsetTop;
-
-//   window.addEventListener("scroll", function () {
-//     const mainContainerTop = mainContainer.getBoundingClientRect().top;
-
-//     if (mainContainerTop <= 10) {
-//       mainContainer.classList.add('fixed');
-//       contentContainer.style.overflowY = "scroll";
-//       mainContainer.classList.remove('fixed');
-      
-//     } else {
-//       contentContainer.style.overflowY = "hidden";
-//     }
-//   });
-// });
-
-//new section
 
 document.addEventListener('DOMContentLoaded', function() {
   for (let i = 1; i <= 5; i++) {
@@ -358,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const popUpTitleS = document.querySelector('.popup__titleS');
   const popUpTitleL = document.querySelector('.popup__titleL');
   const popUpText = document.querySelector('.popup__text');
-
+  
   const linesData = [
       { angle: 0, info: 'Information 2', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '5', textRot: '-90deg' },
       { angle: 12, info: 'Information 3', titel: 'Titel 1', titelS: 'Titel 1', zIndex: '7', textRot: '-90deg' },
@@ -390,14 +267,12 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentRotation = 0; // Текущий угол поворота
 
   function createLines() {
-
     linesData.forEach(line => {
       const lineElem = document.createElement('div');
       lineElem.classList.add('line');
       lineElem.style.transform = `rotate(${line.angle}deg)`;
       lineElem.style.zIndex = `${line.zIndex}`;
       lineElem.setAttribute('data-titel', line.titel);
-
       updateLineClass(lineElem, line.angle); // Обновляем класс линии
 
       lineElem.addEventListener('click', () => {
@@ -406,6 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (selectedLine) {
           selectedLine.classList.remove('selected');
         }
+        
         lineElem.classList.add('selected');
         selectedLine = lineElem;
         radar.style.scale = '2';
@@ -417,14 +293,13 @@ document.addEventListener('DOMContentLoaded', function() {
         currentRotation += additionalRotation; // Обновляем текущий угол
 
         radar.style.transform = `rotate(${currentRotation}deg)`;
-
         radar.style.transition = 'all 0.5s ease';
         popUpTitleS.textContent = line.titel;
         popUpTitleL.textContent = line.titelS;
         popUpText.textContent = line.info;
 
         updateAllLineClasses(); // Обновляем классы всех линий после поворота
-
+        updateStageClasses(); // Обновляем закраску элементов stage
       });
       radar.appendChild(lineElem);
     });
@@ -446,6 +321,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  function updateStageClasses() {
+    // Очистка предыдущих закрашенных элементов stage
+    const stages = document.querySelectorAll('.stage');
+    stages.forEach(stage => {
+      stage.classList.remove('colored');
+    });
+
+    // Закрашивание элементов на основе выбранной линии
+    if (selectedLine) {
+      const zIndex = parseInt(selectedLine.style.zIndex);
+      const stageNum = Math.round(zIndex / 2);
+
+      for (let i = 0; i < stageNum; i++) {
+        if (stages[i]) {
+          stages[i].classList.add('colored');
+        }
+      }
+    }
+  }
+
   createLines();
 
   closePopup.addEventListener('click', () => {
@@ -457,6 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
     radar.style.left = '0';
     radar.style.transition = 'all 0.5s ease';
     updateAllLineClasses(); // Обновляем классы всех линий после закрытия попапа
+    updateStageClasses(); // Обновляем закраску элементов stage после закрытия попапа
   });
 });
 

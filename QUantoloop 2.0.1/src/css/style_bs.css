@@ -2103,6 +2103,25 @@ body {
 
 }
 
+.popup_footer{
+  width: 80%;
+  height: 1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 0.2rem;
+  
+  position: relative;
+  bottom: 0;
+}
+.stage {
+  border: 1px solid rgb(0, 0, 0);
+  
+  
+}
+.colored{
+  background-color:#5589c8;
+}
+
 .software_info {
   height: 50vh;
   min-height: 550px;
