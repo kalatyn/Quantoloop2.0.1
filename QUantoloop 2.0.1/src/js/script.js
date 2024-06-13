@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
           img.setAttribute('src', 'icons/QL-Logo-Farbe.svg');
         }
         img.style.opacity = 1; // Показываем новое изображение
-      }, 200); // Таймаут на полсекунды для плавного перехода
+      }, 500); // Таймаут на полсекунды для плавного перехода
     });
   }
 });
