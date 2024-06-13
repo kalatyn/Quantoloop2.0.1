@@ -283,7 +283,6 @@ setTimeout(function () {
 //new section
 
 document.addEventListener('DOMContentLoaded', function() {
-  
   for (let i = 1; i <= 5; i++) {
     const btn = document.querySelector(`#top${i}`);
     const item = document.querySelector(`#growth_item${i}`);
@@ -298,21 +297,24 @@ document.addEventListener('DOMContentLoaded', function() {
           
           otherBtn.style.transform = 'scale(1)';
           otherItem.classList.remove('growth_item_full');
-          img.setAttribute('src', `img/number-${i}.png`);
         }
       }
-    item.classList.toggle('growth_item_full');
 
-    if (item.classList.contains('growth_item_full')) {
-      icon.style.transform = 'scale(-1)';
-    } else {
-      icon.style.transform = 'scale(1)';
-      img.setAttribute('src', 'icons/QL-Logo-Farbe.svg');
-
-    }
-  });
+      item.classList.toggle('growth_item_full');
+      img.style.opacity = 0; // Сначала скрываем текущее изображение
+      
+      setTimeout(() => {
+        if (item.classList.contains('growth_item_full')) {
+          icon.style.transform = 'scale(-1)';
+          img.setAttribute('src', `img/number-${i}.png`);
+        } else {
+          icon.style.transform = 'scale(1)';
+          img.setAttribute('src', 'icons/QL-Logo-Farbe.svg');
+        }
+        img.style.opacity = 1; // Показываем новое изображение
+      }, 200); // Таймаут на полсекунды для плавного перехода
+    });
   }
-  
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -387,68 +389,75 @@ document.addEventListener('DOMContentLoaded', function() {
   let selectedLine = null;
   let currentRotation = 0; // Текущий угол поворота
 
-  linesData.forEach(line => {
+  function createLines() {
+
+    linesData.forEach(line => {
       const lineElem = document.createElement('div');
       lineElem.classList.add('line');
       lineElem.style.transform = `rotate(${line.angle}deg)`;
       lineElem.style.zIndex = `${line.zIndex}`;
       lineElem.setAttribute('data-titel', line.titel);
-      
-      
+
+      updateLineClass(lineElem, line.angle); // Обновляем класс линии
+
       lineElem.addEventListener('click', () => {
-          popUp.classList.add('popup-show');
-          if (selectedLine) {
-            selectedLine.classList.remove('selected');
+        lineElem.classList.remove('leftLine');
+        popUp.classList.add('popup-show');
+        if (selectedLine) {
+          selectedLine.classList.remove('selected');
         }
-          lineElem.classList.add('selected');
-          selectedLine = lineElem
-          radar.style.scale = '2';
-          radar.style.left = '-50%';
+        lineElem.classList.add('selected');
+        selectedLine = lineElem;
+        radar.style.scale = '2';
+        radar.style.left = '-50%';
 
-          // Вычисление угла поворота относительно текущего угла
-          const targetAngle = 90;
-          const additionalRotation = targetAngle - (line.angle + currentRotation) % 360;
-          currentRotation += additionalRotation; // Обновляем текущий угол
-          radar.style.transform = `rotate(${currentRotation}deg)`;
-          
-          radar.style.transition = 'all 0.5s ease';
-          popUpTitleS.textContent = line.titel;
-          popUpTitleL.textContent = line.titelS;
-          popUpText.textContent = line.info;
+        // Вычисление угла поворота относительно текущего угла
+        const targetAngle = 90;
+        const additionalRotation = targetAngle - (line.angle + currentRotation) % 360;
+        currentRotation += additionalRotation; // Обновляем текущий угол
 
-        
-      });
-      closePopup.addEventListener('click', () => {
-        popUp.classList.remove('popup-show');
-        lineElem.classList.remove('selected');
-        radar.style.scale = '1';
-        radar.style.left = '0';
+        radar.style.transform = `rotate(${currentRotation}deg)`;
+
         radar.style.transition = 'all 0.5s ease';
+        popUpTitleS.textContent = line.titel;
+        popUpTitleL.textContent = line.titelS;
+        popUpText.textContent = line.info;
+
+        updateAllLineClasses(); // Обновляем классы всех линий после поворота
+
       });
-
       radar.appendChild(lineElem);
-  });
+    });
+  }
 
-  radar.appendChild(lineElem);
+  function updateLineClass(lineElem, angle) {
+    if ((angle + currentRotation) % 360 > 181 && (angle + currentRotation) % 360 < 360) {
+      lineElem.classList.add('leftLine');
+    } else {
+      lineElem.classList.remove('leftLine');
+    }
+  }
+
+  function updateAllLineClasses() {
+    const lineElements = radar.querySelectorAll('.line');
+    lineElements.forEach(lineElem => {
+      const angle = parseFloat(lineElem.style.transform.replace(/[^0-9.-]+/g, ''));
+      updateLineClass(lineElem, angle);
+    });
+  }
+
+  createLines();
 
   closePopup.addEventListener('click', () => {
-    selectedLine = null;
-    lineElem.classList.remove('selected');
+    if (selectedLine) {
+      selectedLine.classList.remove('selected');
+    }
     popUp.classList.remove('popup-show');
     radar.style.scale = '1';
-    radar.style.transition = 'scale 0.5s ease';
     radar.style.left = '0';
-    lineElem.classList.remove('selected');
+    radar.style.transition = 'all 0.5s ease';
+    updateAllLineClasses(); // Обновляем классы всех линий после закрытия попапа
   });
-
-  links.forEach(link => {
-    link.addEventListener("click", function () {
-      popUp.classList.remove("popup-show");
-      
-    });
-  });
-
-
 });
 
 let numbers = document.querySelectorAll('.info div');

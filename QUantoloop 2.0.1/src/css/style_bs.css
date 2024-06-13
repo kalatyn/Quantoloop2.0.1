@@ -1674,7 +1674,7 @@ body {
     
     height: 100%;
     object-fit: contain;
-    transition: all 0.5s ease;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
 
   }
@@ -1872,8 +1872,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:#5589c824
-  
+  background-color:#5589c824;
+  border-radius: 1rem;
 }
 .radar {
   height: 50vh;
@@ -1891,7 +1891,7 @@ body {
 .circle__l {
   height: 100%;
   width: 100%;
-  border: 1px solid rgb(255, 255, 255);
+  
   background-color: #5589c8;
   border-radius: 50%;
   position: absolute;
@@ -1905,7 +1905,7 @@ body {
   position: absolute;
   animation: spin 8s linear infinite;
   height: 100%;
-  scale: 1.05;
+  scale: 1.045;
   z-index: 10;
   pointer-events: none;
 }
@@ -1974,21 +1974,30 @@ body {
   cursor: pointer;
   transition: border-right-color 0.1s;
   z-index: 1;
+  &::before{
+    content: attr(data-titel);
+    width: 100px;
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    top: -4rem;
+    left: -50px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    
+  }
+}
+.leftLine{
+  
+  &::before{
+    transform: rotate(90deg);
+  }
 }
 
-.line::before{
-  content: attr(data-titel);
-  width: 100px;
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-align: center;
-  top: -4rem;
-  left: -50px;
-  cursor: pointer;
-  transform: rotate(-90deg);
-  
-}
+
+
+
 .line:hover {
   border-right-color: #6baffc;
   &::before{
