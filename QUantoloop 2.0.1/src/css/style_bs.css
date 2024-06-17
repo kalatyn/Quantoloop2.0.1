@@ -1047,10 +1047,14 @@ body {
     font-size: 0.8rem !important;
     line-height: 1.4rem !important;
   }
-
+  .radar_border{
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0px !important;
+  }
   .radar {
-    height: 60vw !important;
-    width: 60vw !important;
+    height: 70vw !important;
+    width: 70vw !important;
     margin: 0 auto !important;
   }
   .popup {
@@ -1139,10 +1143,7 @@ body {
     font-size: 1.5rem !important;
     text-align: center;
   }
-  .radar{
-    scale: 2 !important;
-    left: -50% !important;
-  }
+  
 }
 
 #cardfield{ 

@@ -329,6 +329,27 @@ document.addEventListener('DOMContentLoaded', function() {
     updateStageClasses(); // Обновляем закраску элементов stage после закрытия попапа
   });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.querySelector('.radar_border');
+  let scale = 1;
+  let lastScale = 1;
+
+  const hammer = new Hammer(content);
+  hammer.get('pinch').set({ enable: true });
+
+  hammer.on('pinchstart', function() {
+      lastScale = scale;
+  });
+
+  hammer.on('pinch', function(event) {
+      scale = Math.max(0.5, Math.min(lastScale * event.scale, 3)); // ограничение масштабирования
+      content.style.transform = `scale(${scale})`;
+  });
+
+  hammer.on('pinchend', function() {
+      lastScale = scale;
+  });
+});
 
 let numbers = document.querySelectorAll('.info div');
 
