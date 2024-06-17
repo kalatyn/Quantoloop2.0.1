@@ -1059,24 +1059,23 @@ body {
     line-height: 1.4rem !important;
   }
   .radar_border{
-    width: 100vw !important;
+    width: 100% !important;
     height: 100vh !important;
     border-radius: 0px !important;
-    overflow: scroll !important;
   }
   .radar {
-    height: 70vw !important;
-    width: 70vw !important;
+    height: 60vw !important;
+    width: 60vw !important;
     margin: 0 auto !important;
   }
   .popup {
     position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    top: 0% !important;
+    left: 0% !important;
+    border-radius: 0px !important;
     z-index: 2 !important;
-    width: 90% !important;
-    height: 90% !important;
+    width: 100vw !important;
+    height: 100% !important;
   }
   .line::before{
     font-size: smaller !important;
