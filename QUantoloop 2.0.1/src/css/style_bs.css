@@ -1051,6 +1051,7 @@ body {
     width: 100vw !important;
     height: 100vh !important;
     border-radius: 0px !important;
+    overflow: scroll !important;
   }
   .radar {
     height: 70vw !important;
