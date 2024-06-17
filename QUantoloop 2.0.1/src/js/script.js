@@ -330,24 +330,64 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 document.addEventListener('DOMContentLoaded', function() {
-  const content = document.querySelector('.radar_border');
+  const content = document.querySelector('.radar');
   let scale = 1;
   let lastScale = 1;
+  let posX = 0;
+  let posY = 0;
+  let lastPosX = 0;
+  let lastPosY = 0;
+  let maxPosX = 0;
+  let maxPosY = 0;
 
-  const hammer = new Hammer(content);
-  hammer.get('pinch').set({ enable: true });
+  function initializeHammer() {
+      const hammer = new Hammer(content);
+      hammer.get('pinch').set({ enable: true });
+      hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 
-  hammer.on('pinchstart', function() {
-      lastScale = scale;
-  });
+      hammer.on('pinchstart', function() {
+          lastScale = scale;
+      });
 
-  hammer.on('pinch', function(event) {
-      scale = Math.max(0.5, Math.min(lastScale * event.scale, 3)); // ограничение масштабирования
-      content.style.transform = `scale(${scale})`;
-  });
+      hammer.on('pinch', function(event) {
+          scale = Math.max(0.5, Math.min(lastScale * event.scale, 3)); // ограничение масштабирования
+          maxPosX = Math.max(0, (content.clientWidth * scale - window.innerWidth) / 2);
+          maxPosY = Math.max(0, (content.clientHeight * scale - window.innerHeight) / 2);
+          content.style.transform = `scale(${scale}) translate(${posX}px, ${posY}px)`;
+      });
 
-  hammer.on('pinchend', function() {
-      lastScale = scale;
+      hammer.on('pinchend', function() {
+          lastScale = scale;
+      });
+
+      hammer.on('panstart', function() {
+          lastPosX = posX;
+          lastPosY = posY;
+      });
+
+      hammer.on('pan', function(event) {
+          posX = Math.max(-maxPosX, Math.min(lastPosX + event.deltaX, maxPosX));
+          posY = Math.max(-maxPosY, Math.min(lastPosY + event.deltaY, maxPosY));
+          content.style.transform = `scale(${scale}) translate(${posX}px, ${posY}px)`;
+      });
+
+      hammer.on('panend', function() {
+          lastPosX = posX;
+          lastPosY = posY;
+      });
+  }
+
+  if (window.innerWidth < 576) {
+      initializeHammer();
+  }
+
+  window.addEventListener('resize', function() {
+      if (window.innerWidth < 576 && !Hammer.Manager) {
+          initializeHammer();
+      } else if (window.innerWidth >= 576 && Hammer.Manager) {
+          content.style.transform = 'scale(1) translate(0, 0)';
+          Hammer.Manager = null; // Отключение Hammer.js
+      }
   });
 });
 
