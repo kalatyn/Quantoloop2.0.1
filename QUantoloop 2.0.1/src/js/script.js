@@ -284,6 +284,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (selectedLine) {
           selectedLine.classList.remove('selected');
         }
+        if (navbar.style.zIndex === '0'){
+          document.body.classList.add("scroll-lock");
+        }
         
         lineElem.classList.add('selected');
         selectedLine = lineElem;
@@ -351,6 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedLine.classList.remove('selected');
     }
     popUp.classList.remove('popup-show');
+    document.body.classList.remove("scroll-lock");
     radar.style.scale = '1';
     radar.style.left = '0';
     radar.style.transition = 'all 0.5s ease';

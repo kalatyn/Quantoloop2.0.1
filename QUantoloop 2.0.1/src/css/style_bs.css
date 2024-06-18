@@ -1746,6 +1746,7 @@ body {
   transition: transform 0.5s ease;
   position: relative;
   overflow: hidden;
+  padding-top: 0 !important;
 
 }
 .radar_titel{
