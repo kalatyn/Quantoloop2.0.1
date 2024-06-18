@@ -34,6 +34,34 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('scroll', function () {
+    const container = document.querySelector('.interactive_section');
+    const cards = document.querySelectorAll('.inter_card');
+    
+    
+    let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    
+    let bounding = container.getBoundingClientRect();
+    
+    
+    const triggerHeight = viewportHeight * 0.5;
+
+    
+    if (bounding.top <= triggerHeight && bounding.bottom >= 0) {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      cards.forEach(card => {
+        
+        let offset = (bounding.top - scrollTop) * 0.6;
+        
+        
+        card.style.transform = `translateY(${offset}px)`;
+      });
+    }
+  });
+});
+
 let scrollSection = document.querySelector(".horizontal-scroll-section");
 function scrollleft() {
   let scrollAmount = Math.max(
@@ -130,30 +158,30 @@ var element = document.getElementById("myFixedElement");
 var scrollStart = 3500; // Начало диапазона
 var scrollEnd = 4500; // Конец диапазона
 
-window.onscroll = function () {
-  scrollFunction();
-};
+// window.onscroll = function () {
+//   scrollFunction();
+// };
 
-function scrollFunction() {
-  var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+// function scrollFunction() {
+//   var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-  if (currentScroll > scrollStart && currentScroll < scrollEnd) {
-    // Если скролл находится в диапазоне, показываем элемент
-    element.style.bottom = "20px";
-    setTimeout(function () {
-      let circle = document.getElementById("myFixedElement");
-      circle.classList.add("fixed-element-text");
-    }, 2000); // Позиция появления элемента
-  } else {
-    // Если скролл вне диапазона, скрываем элемент
-    element.style.bottom = "-100px"; // Скрываем элемент
-  }
-}
+//   if (currentScroll > scrollStart && currentScroll < scrollEnd) {
+//     // Если скролл находится в диапазоне, показываем элемент
+//     element.style.bottom = "20px";
+//     setTimeout(function () {
+//       let circle = document.getElementById("myFixedElement");
+//       circle.classList.add("fixed-element-text");
+//     }, 2000); // Позиция появления элемента
+//   } else {
+//     // Если скролл вне диапазона, скрываем элемент
+//     element.style.bottom = "-100px"; // Скрываем элемент
+//   }
+// }
 
-setTimeout(function () {
-  let circle = document.getElementById("myFixedElement");
-  circle.classList.add("fixed-element-text");
-}, 2000);
+// setTimeout(function () {
+//   let circle = document.getElementById("myFixedElement");
+//   circle.classList.add("fixed-element-text");
+// }, 2000);
 
 
 
@@ -235,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const popUpTitleS = document.querySelector('.popup__titleS');
   const popUpTitleL = document.querySelector('.popup__titleL');
   const popUpText = document.querySelector('.popup__text');
-  
+  const navbar = document.querySelector('#navbar')
   
   let selectedLine = null;
   let currentRotation = 0; // Текущий угол поворота
@@ -252,6 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
       lineElem.addEventListener('click', () => {
         lineElem.classList.remove('leftLine');
         popUp.classList.add('popup-show');
+        navbar.style.zIndex = '0';
         if (selectedLine) {
           selectedLine.classList.remove('selected');
         }
@@ -325,6 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
     radar.style.scale = '1';
     radar.style.left = '0';
     radar.style.transition = 'all 0.5s ease';
+    navbar.style.zIndex = '100';
     updateAllLineClasses(); // Обновляем классы всех линий после закрытия попапа
     updateStageClasses(); // Обновляем закраску элементов stage после закрытия попапа
   });
