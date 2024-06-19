@@ -548,9 +548,9 @@ body {
   float: right;
 }
 .mail_us{
-  height: 30px;
+  height: 40px;
   width: 110px;
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: #78b4f8;
   color: rgb(255, 255, 255);
   font-size: 14px;
@@ -561,7 +561,6 @@ body {
   align-items: center;
   justify-content: center;
   right: 20px;
-  top: 10px;
   margin: 0;
   padding: 0;
   float: right;
@@ -862,6 +861,7 @@ body {
   .mail_us{
     left: 50%;
     transform: translateX(-50%);
+
   }
   .slogen {
     font-size: 5vw !important;
