@@ -1,62 +1,72 @@
-document.querySelector('#back_video').addEventListener('click', function (event) {
-  event.preventDefault();
-});
-document.querySelector('#back_video').addEventListener('play', function() {
-  this.currentTime = 0;
-});
+// document.querySelector('#back_video').addEventListener('click', function (event) {
+//   event.preventDefault();
+// });
+// document.querySelector('#back_video').addEventListener('play', function() {
+//   this.currentTime = 0;
+// });
 
-document.addEventListener("DOMContentLoaded", function () {
-  window.addEventListener("scroll", function () {
-    let element = document.querySelector("#back_video");
-    let bounding = element.getBoundingClientRect();
-    let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    let triggerHeight = viewportHeight * 0.3;
+// document.addEventListener("DOMContentLoaded", function () {
+//   window.addEventListener("scroll", function () {
+//     let element = document.querySelector("#back_video");
+//     let bounding = element.getBoundingClientRect();
+//     let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+//     let triggerHeight = viewportHeight * 0.3;
 
-    // Проверяем, если верх элемента на расстоянии 30% от верхнего края окна
-    if (bounding.top >= triggerHeight && bounding.bottom <= viewportHeight) {
-      element.style.borderRadius = "0px";
-      element.style.width = "100%";
-    } 
-    // Проверяем, если верх элемента выше триггерной высоты
-    else if (bounding.top < triggerHeight) {
-      let scrollPosition = triggerHeight - bounding.top;
-      let newSize = Math.max(50, 100 - scrollPosition * 0.01); // Ограничиваем минимальный размер до 50%
-      element.style.width = newSize + "%";
+//     // Проверяем, если верх элемента на расстоянии 30% от верхнего края окна
+//     if (bounding.top >= triggerHeight && bounding.bottom <= viewportHeight) {
+//       element.style.borderRadius = "0px";
+//       element.style.width = "100%";
+//     } 
+//     // Проверяем, если верх элемента выше триггерной высоты
+//     else if (bounding.top < triggerHeight) {
+//       let scrollPosition = triggerHeight - bounding.top;
+//       let newSize = Math.max(50, 100 - scrollPosition * 0.01); // Ограничиваем минимальный размер до 50%
+//       element.style.width = newSize + "%";
 
-      let borderRadius = Math.min(40, scrollPosition * 0.05);
-      element.style.borderRadius = borderRadius + "px";
-    } 
-    // Восстанавливаем размер, если элемент ниже триггерной высоты
-    else if (bounding.top > triggerHeight) {
-      element.style.width = "100%";
-      element.style.borderRadius = "0px"; // Устанавливаем borderRadius для консистентности
-    }
-  });
-});
+//       let borderRadius = Math.min(40, scrollPosition * 0.05);
+//       element.style.borderRadius = borderRadius + "px";
+//     } 
+//     // Восстанавливаем размер, если элемент ниже триггерной высоты
+//     else if (bounding.top > triggerHeight) {
+//       element.style.width = "100%";
+//       element.style.borderRadius = "30px"; // Устанавливаем borderRadius для консистентности
+//     }
+//   });
+// });
 
 document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', function () {
     const container = document.querySelector('.interactive_section');
     const cards = document.querySelectorAll('.inter_card');
-    
-    
     let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    
-    
     let bounding = container.getBoundingClientRect();
-    
-    
     const triggerHeight = viewportHeight * 0.5;
 
-    
-    if (bounding.top <= triggerHeight && bounding.bottom >= 0) {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (bounding.top >= triggerHeight && bounding.bottom <= viewportHeight) {
+      container.style.borderRadius = "0px";
+      container.style.width = "100%";
+    } 
+    // Проверяем, если верх элемента выше триггерной высоты
+    else if (bounding.top < triggerHeight) {
+      let scrollPosition = triggerHeight - bounding.top;
+      let newSize = Math.max(50, 95 - scrollPosition * 0.01); // Ограничиваем минимальный размер до 50%
+      container.style.width = newSize + "%";
+    } 
+
+    // Проверка ширины экрана
+    if (window.innerWidth >= 576) {
+      // Восстанавливаем размер, если элемент ниже триггерной высоты
+      if (bounding.top <= triggerHeight && bounding.bottom >= 0) {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        cards.forEach(card => {
+          let offset = (bounding.top - scrollTop) * 0.6;
+          card.style.transform = `translateY(${offset}px)`;
+        });
+      }
+    } else {
+      // Сброс смещения карточек на маленьких экранах
       cards.forEach(card => {
-        
-        let offset = (bounding.top - scrollTop) * 0.6;
-        
-        
-        card.style.transform = `translateY(${offset}px)`;
+        card.style.transform = 'translateY(0px)';
       });
     }
   });
@@ -120,8 +130,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const moreAbout = document.querySelectorAll(`.more__about${i}`); 
     const descriptions = document.querySelectorAll(`#card__disc${i}`);
     const exits = document.querySelectorAll(`.exit__button${i}`);
+    const card = document.querySelectorAll(`#card${i}`);
 
-    moreAbout.forEach((element) => {
+    card.forEach((element) => {
       element.addEventListener("click", () => {
         descriptions.forEach((desc) => {
           desc.classList.toggle("show");
@@ -130,6 +141,15 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add("scroll-lock");
       });
     });
+    // moreAbout.forEach((element) => {
+    //   element.addEventListener("click", () => {
+    //     descriptions.forEach((desc) => {
+    //       desc.classList.toggle("show");
+    //     });
+    //     // Добавляем класс блокировки прокрутки к body
+    //     document.body.classList.add("scroll-lock");
+    //   });
+    // });
 
     exits.forEach((element) => {
       element.addEventListener("click", () => {
@@ -154,9 +174,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-var element = document.getElementById("myFixedElement");
-var scrollStart = 3500; // Начало диапазона
-var scrollEnd = 4500; // Конец диапазона
+// var element = document.getElementById("myFixedElement");
+// var scrollStart = 3500; // Начало диапазона
+// var scrollEnd = 4500; // Конец диапазона
 
 // window.onscroll = function () {
 //   scrollFunction();
@@ -394,7 +414,7 @@ window.addEventListener('scroll', function() {
   let laptop_info = document.querySelector('.laptop_info');
   if (laptop_area_top < window.innerHeight / 3 ) {
     let scale = 1 - (window.innerHeight / 2 - laptop_area_top) / (window.innerHeight /0.2);
-    scale = Math.max(scale, 0.5);
+    scale = Math.max(scale, 0.3);
 
     let inverseScale = 1 + (1- scale / 0.9);
 
