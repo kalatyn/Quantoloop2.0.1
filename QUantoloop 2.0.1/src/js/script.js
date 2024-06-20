@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
           img.setAttribute('src', 'icons/QL-Logo-Farbe.svg');
         }
         img.style.opacity = 1; // Показываем новое изображение
-      }, 500); // Таймаут на полсекунды для плавного перехода
+      }, 100); // Таймаут на полсекунды для плавного перехода
     });
   }
 });
@@ -268,6 +268,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 });
+
+
 
 
 
@@ -396,11 +398,11 @@ numbers.forEach(function(number) {
     if (window.pageYOffset > numberTop - window.innerHeight / 1.5) {
       this.removeEventListener('scroll', onScroll);
       let interval = setInterval(function() {
-        number.innerHTML = ++start;
+        number.innerHTML = `${++start}%`;
         if (start == end) {
           clearInterval(interval);
         }
-      }, 10);
+      }, 20);
     }
   });
 });
