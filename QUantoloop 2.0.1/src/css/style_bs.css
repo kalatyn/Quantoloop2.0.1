@@ -577,7 +577,7 @@ body {
   width: 95vw;
   background-color: #FBFBFB;
   border-radius: 30px;
-  margin: 10% auto;
+  margin: 0 auto;
   margin-bottom: 0;
   position: relative;
   overflow: hidden;
@@ -598,7 +598,7 @@ body {
   background-color: #78b4f869;
   border-radius: 20px;
   margin: 5% auto;
-  padding:2% 5%;
+  padding:5%;
   display: flex;
   flex-direction: column;
   
@@ -608,14 +608,14 @@ body {
   top: 20%;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease; 
- 
+  font-size: calc(0.5vw + 0.5vh);
 }
 .inter_card i{
   
   font-size: 3vw;  
 }
 .inter_card h3{
-  font-size: 2.3vw;
+  font-size: 2vw;
   font-weight: 400;
   margin-bottom: 5%;
   margin-top: 5%;
@@ -623,7 +623,7 @@ body {
 }
 
 .inter_card p{
-  font-size: 1rem;
+  font-size: 0.8vw;
   font-weight: 400;
 }
 
@@ -634,12 +634,14 @@ body {
   width: 50%;
   height: 100%;
   display: flex;
-
   flex-direction: column;
-  align-items: start;
-  padding: 5%;
+  align-items: center;
+  padding: 5% 5% 5% 0;
 }
-.inter_info h2{
+.inter_info_container{
+  width: 480px;
+}
+.inter_info_container h2{
   font-size: 3rem;
   font-weight: 500;
   margin-bottom: 3rem;
@@ -647,7 +649,7 @@ body {
   color:rgb(0, 0, 0);
 }
 
-.inter_info h3{
+.inter_info_container h3{
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.5;
@@ -660,9 +662,9 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-top: 48px;
+  
   scroll-snap-align: start;
-
+  
 }
 
 .slogen {
@@ -741,6 +743,12 @@ body {
   .growth_titel{
     font-size: 3rem !important;
   }
+  .info {
+    width : 300px   !important;
+    &p{
+      font-size: 0.8rem !important;
+    }
+  }
 }
 
 @media screen and (max-width: 994px) {
@@ -760,41 +768,30 @@ body {
   .nav-link-last{
     margin-right: 0;
   }
-  /* #content_container{
-    width: 768px !important;
-    margin-left: 3%   !important;
+  .inter_info{
+    padding: 5% 5% 0 0 !important;
   }
-  .left_side h3{
-    font-size: 4rem !important;
-    &::before{
-      top: 10px !important;
+  .inter_info_container{
+    width: 380px !important;
+  }
+  .inter_info_container h2{
+    font-size: 2.5rem !important;
+  }
+  .inter_info_container h3{
+    font-size: 1.2rem !important;
+  }
+  .inter_card {
+    padding:5%;
+    i{
+      font-size: 1.5rem !important;
     }
+    p{
+      font-size: 0.7rem !important;
+    }
+    h3{
+      font-size: 1.2rem !important;
   }
-  .left_side p{
-    font-size: 1.1rem !important;
-    margin-top: 15px !important;
   }
-  .left_side i{
-    top: 7%  !important;
-  }
-  .right_side{
-    width: 511px !important;
-  }
-  .timeline__item{
-    height: 105px !important;
-    width: 210px !important;
-  }
-  .timeline__item__logo{
-    width: 21px !important; 
-    height: 21px !important;
-  }
-  .timeline__item__h{
-    font-size: 1.5rem !important;
-  }
-  .timeline__item__p{
-    font-size: 0.55rem !important;
-  } */
-
   .item_top{
     
     margin: auto;
@@ -807,6 +804,16 @@ body {
       width:  1.8rem !important;
       height: 1.8rem !important;
     }
+  }
+  .info{
+    width: 250px !important;
+
+  }
+  .info div{
+    font-size: 5vw !important;
+  }
+  .info p{
+    font-size: 0.8rem !important;
   }
   .growth_item{
     width: 450px !important;
@@ -888,8 +895,9 @@ body {
   #logo_slogan {
     display: flex;
     flex-direction: column;
-    /* height: 100vh; */
-    padding: 100px 0px;
+    height: auto;
+    padding: 100px 0;
+    padding: 100px 0px ;
     
   }
   .inter_card{
@@ -905,11 +913,14 @@ body {
     margin-top: 0;
     margin-bottom: 2vw;
   }
-  .inter_info h2{
-    font-size: 5vw;
+  .inter_info_container{
+    width: 270px !important;
   }
-  .inter_info h3{
-    font-size: 2.2vw;
+  .inter_info_container h2{
+    font-size: 4vw !important;
+  }
+  .inter_info_container h3{
+    font-size: 2vw !important;
   }
   #card_section {
     height: 100vh !important;
@@ -941,8 +952,16 @@ body {
 
   .info{
     margin: 7% !important;
+    width: 180px !important;
   }
-   
+  .info div{
+    font-size: 4vw !important;
+    width: 180px !important;
+  }
+  .info p{
+    width: 180px !important;
+
+  }
   .growth_right{
     display: none !important;
   }
@@ -1064,27 +1083,32 @@ body {
   .interactive_section{
     flex-direction: column-reverse;
     align-items: center;
-    height: 1000px ;
+    height: auto ;
+    margin: 0 auto;
   }
-  .inter_info{
-    width: 100% !important;
+  .inter_info_container{
+    width: 300px !important;
+    margin-left: 12% ;
     & h2{
-      font-size: 9vw !important;
+      font-size: 6vw !important;
+      width: 300px !important;
     }
     & h3{
-      font-size: 4vw !important;
+      font-size: 3vw !important;
+      width: 300px !important;
     }
   }
+  
   .inter_cards{
     width: 100% !important;
     height: 60% !important;
 
   }
   .inter_card{
-    width: 250px ;
-    padding: 5%;
-    height: 200px;
-    top: -5% !important;
+    width: 300px ;
+    padding: 3%;
+    height: 180px !important;
+    /* top: -5% !important; */
     & h3{
       font-size: 5vw !important;
       margin-top: 5%;
@@ -1099,13 +1123,14 @@ body {
   }
 
   #card_section {
-    height: 100vh;
+    height: 100vh  !important;
     /* min-height: 930px; */
   }
   #cardfield{
     top: 9% !important;
   }
-  
+
+
   .card {
     position: relative;
     top: -5%;
@@ -1143,7 +1168,7 @@ body {
 
   }
   .card__bottom h3 {
-    font-size: 2vw !important;
+    font-size: 2.3vw !important;
   }
   .about p {
     font-size: 3vw;
@@ -1163,12 +1188,13 @@ body {
     align-items: center;
   }
   .info {
-    width :  auto !important; 
+    width :  100% !important; 
     height: auto;
     margin-bottom: 100px;
     box-sizing: border-box;
     margin-right: 0px !important;
     margin-left: 0px !important;
+    margin-top: 20% !important;
     &:last-child{
       margin-bottom: 0px !important;
     }
@@ -1176,9 +1202,12 @@ body {
 
   .info div{
     font-size: 15vw !important;
+    width :  100% !important; 
+
   }
   .info p {
     font-size: 4vw !important;
+    width :  100% !important; 
   }
 
 
@@ -1299,6 +1328,7 @@ body {
     align-items: center;
     justify-content: space-around;
   }
+
   .hero_title{
     font-size: 2rem !important;
   }
@@ -1307,16 +1337,20 @@ body {
     text-align: center;
   }
   .radar_titel{
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
+    margin-left: 6.5vw !important;
   }
   .radar_titel2 {
-    font-size: 1.8rem !important;
+    font-size: 3rem !important;
+    margin-left: 6.5vw !important;
   }
   .cardfield_titel{
-    font-size: 1.8rem !important;
+    margin-bottom: 0px !important;
+    font-size: 3rem !important;
+    margin-left: 6.5vw !important;
   }
   .growth_titel{
-    font-size: 1.8rem !important;
+    font-size: 3rem !important;
   }
 }
 
@@ -1343,7 +1377,7 @@ body {
   font-size: 4rem;
   margin-bottom: 1.5rem;
   margin-top: 200px;
-  margin-left: 6.5vw;
+  margin-left: 5vh;
   font-weight: 400;
 }
 
@@ -1580,25 +1614,25 @@ body {
   min-height: 330px;
   width: 100vw;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around
+  
 }
 
 .info {
-  width : 33%;
+  width : 350px;
   height: auto;
-  margin-right: 25px;
-  margin-left: 25px;
+  align-self: center;
+  padding: 0 20px;
 }
 
 .info div{
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 700;
   text-align: center;
 }
 
 .info p{
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 500;
   margin-top: 30px;
   text-align: center;
@@ -1616,7 +1650,7 @@ body {
   font-size: 4rem;
   margin-bottom: 1.5rem;
   margin-top: 200px;
-  margin-left: 6.5vw;
+  margin-left: 5vh;
   font-weight: 400;
 }
 #growth{
@@ -1845,13 +1879,13 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   margin-top: 200px;
-  margin-left: 5.5rem;
+  margin-left: 5vw;
   
 }
 .radar_titel2{
   font-size: 4rem;
   margin-bottom: 1.5rem;
-  margin-left: 5.5rem;
+  margin-left: 5vw;
   
 }
 .radar_border{
