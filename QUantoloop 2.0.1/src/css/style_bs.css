@@ -514,22 +514,22 @@ body {
   width: 25px;
   height: 25px;
   padding: 0%;
-  margin-right: 50px;
+  margin-right: 75px;
   padding: 0;
-  top: 5px;
+  /* top: 5px; */
   
   
 }
 
 
 .navbar-brand img{
-  width: 25px;
-  height: 25px;
+  width: 36px;
+  height: 36px;
 }
 
 .nav-link {
   color: rgb(0, 0, 0);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 300;
   margin-right: 20px;
 
@@ -547,9 +547,9 @@ body {
 }
 .mail_us{
   position: relative;
-  top: 5px;
-  font-size: 20px;
-  margin-left: 50px;
+  top: 3px;
+  font-size: 26px;
+  margin-left: 75px;
   color: #000;
 }
 
@@ -1370,11 +1370,11 @@ body {
 }  
 
 .cardfield_titel{
-  font-size: 4rem;
+  font-size: 56px;
   margin-bottom: 1.5rem;
   margin-top: 200px;
   margin-left: 5%;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 #card_section{
@@ -1405,11 +1405,13 @@ body {
   /* background: url("../img/nasa-NuE8Nu3otjo-unsplash.jpg") no-repeat center center/cover; */
   overflow: hidden !important;
   transition: all 0.7s ease 0s;
-  margin-left: 5%;
+  margin-left: 5vh;
   scroll-snap-align: center;
   cursor: pointer;
 }
-
+.card:first-child{
+  margin-left: 5%;
+}
 .last-child{
   margin-right: 5vh;
 }
@@ -1422,14 +1424,14 @@ body {
 
 .card__top h1{
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-bottom: 10px;
   transition: all 0.7s ease 0s;
 }
 
 .card__top p {
   color: white;
-  font-size: 1rem;
+  font-size: 1.3rem;
   transition: all 0.7s ease 0s;
 }
 
@@ -1494,10 +1496,10 @@ body {
     bottom: 0;
   }
   .card__top h1 {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
   }
   .card__top p {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
   
 }
@@ -1645,14 +1647,14 @@ body {
   margin-bottom: 35vh;
 } 
 .growth_titel{
-  font-size: 4rem;
+  font-size: 56px;
   margin-bottom: 1.5rem;
   margin-top: 200px;
   margin-left: 5%;
-  font-weight: 400;
+  font-weight: 600;
 }
 #growth{
-  width: 100vw;
+  width: 90%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -1660,6 +1662,9 @@ body {
   position: relative;
   flex-direction: row;
   scroll-snap-type: y mandatory;
+  border-radius: 1rem;
+  background-color: #FBFBFB;
+  margin: 0 auto;
 }
 .growth_left{
   width: 60%;
@@ -1887,13 +1892,14 @@ body {
   
 }
 .radar_titel2{
-  font-size: 4rem;
+  font-size: 56px;
   margin-bottom: 1.5rem;
   margin-left: 5%;
+  font-weight: 600;
   
 }
 .radar_border{
-  height: 80%;
+  height: 90%;
   width: 90%;
   position: relative;
   /* border: 1px solid black; */
@@ -2014,15 +2020,12 @@ body {
     left: -50px;
     cursor: pointer;
     transform: rotate(-90deg);
-    
   }
 }
-.leftLine{
-  
-  &::before{
+.leftLine::before{
     transform: rotate(90deg);
   }
-}
+
 
 
 
@@ -2050,7 +2053,7 @@ body {
 }
 .popup{
   height: 70vh;
-  width: 40vh;
+  width: 50vh;
   height: 80%;
   background-color: #fefefe;
   position: absolute;
@@ -2116,11 +2119,13 @@ body {
   height: 6px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;  
+  gap: 3px;
   position: relative;
   margin-bottom: 1rem;
 }
 .stage { 
   border-radius: 5px;
+  
   background-color: rgb(220, 220, 220)}
 .colored{
   background-color:#5589c8;
