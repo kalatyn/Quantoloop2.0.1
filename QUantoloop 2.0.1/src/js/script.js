@@ -40,17 +40,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const cards = document.querySelectorAll('.inter_card');
     let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     let bounding = container.getBoundingClientRect();
-    const triggerHeight = viewportHeight * 0.5;
+    const triggerHeight = viewportHeight * 0.2;
 
     if (bounding.top >= triggerHeight && bounding.bottom <= viewportHeight) {
       container.style.borderRadius = "0px";
-      container.style.width = "100%";
+      container.style.width = "100vw";
     } 
     // Проверяем, если верх элемента выше триггерной высоты
     else if (bounding.top < triggerHeight) {
       let scrollPosition = triggerHeight - bounding.top;
-      let newSize = Math.max(50, 95 - scrollPosition * 0.01); // Ограничиваем минимальный размер до 50%
+      let newSize = Math.max(90, 100 - scrollPosition * 0.01); 
       container.style.width = newSize + "%";
+      container.style.borderRadius = scrollPosition/50 + "px";
+      
     } 
 
     // Проверка ширины экрана
