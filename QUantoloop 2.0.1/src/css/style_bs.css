@@ -695,10 +695,10 @@ body {
       height: 2.2rem !important;
     }
   }
-  .growth_item{
+  /* .growth_item{
     width: 550px !important;
     min-width: 540px !important;
-  }
+  } */
   .software_cards{
     min-width: 800px !important;
   }
@@ -806,8 +806,8 @@ body {
     font-size: 0.8rem !important;
   }
   .growth_item{
-    width: 450px !important;
-    min-width: 440px !important;
+    /* width: 450px !important;
+    min-width: 440px !important; */
   }
   .software_cards{
     width: 100%;
@@ -983,6 +983,7 @@ body {
   }
   .growth_left{
     width: 100% !important;
+    margin-left: 0 !important;
   }
   .item_top{
     & h3{
@@ -996,8 +997,8 @@ body {
     }
   }
   .growth_item{
-    width: 70% !important;
-    min-width: 440px !important;
+    /* width: 70% !important; */
+    /* min-width: 440px !important; */
   }
   .item_bottom_item h2{
     font-size: 1.2rem !important;
@@ -1117,15 +1118,15 @@ body {
   }
   .inter_card{
     width: 300px ;
-    padding: 10% !important;
+    padding: 20px !important;
     height: 180px !important;
     /* top: -5% !important; */
     & h3{
-      font-size: 5vw !important;
+      font-size: 25px !important;
       margin-top: 5%;
     }
     & p{
-      font-size: 3vw !important;
+      font-size: 13px !important;
       margin-top: 5% !important;
     }
     & i{
@@ -1223,7 +1224,7 @@ body {
 
   .growth_item{
   
-    min-width: 370px !important;
+    width: 100% !important;
 
   }
   .item_top{
