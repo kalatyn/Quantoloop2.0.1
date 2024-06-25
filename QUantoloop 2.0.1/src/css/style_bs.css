@@ -549,6 +549,7 @@ body {
   right: 10vw;
   font-size: 26px;
   color: #000;
+  width: 50px;
 }
 
 .scroll-lock {
@@ -1240,15 +1241,18 @@ body {
   .plus_btn{
     font-size: 0.7rem !important;
   }
-  .window_info{
-    width: 80% !important; ;
-  }
   .window_info h2{
     font-size: 2rem !important;
+    margin-top: 2rem !important;
+  }
+  .window_info h3{
+    margin-top: 2rem !important;
+    font-size: 1.1rem !important;
   }
   .window_info p{
     font-size: 0.8rem !important;
     line-height: 1.4rem !important;
+    
   }
   .radar_border{
     width: 100% !important;
