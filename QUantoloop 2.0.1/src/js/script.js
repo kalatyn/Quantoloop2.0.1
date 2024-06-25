@@ -452,7 +452,7 @@ window.addEventListener('scroll', function() {
     let scale = 1 - (window.innerHeight / 2 - laptop_area_top) / (window.innerHeight /0.3);
     scale = Math.max(scale, 0.5);
 
-    let inverseScale = 1 + (1- scale / 0.8);
+    let inverseScale = 1 + (1.2- scale / 0.8);
 
     laptop.style.transform = `scale(${scale})`;
     laptop_info.style.transform = `scale(${inverseScale})`;
