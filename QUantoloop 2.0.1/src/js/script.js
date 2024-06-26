@@ -458,3 +458,14 @@ window.addEventListener('scroll', function() {
     laptop_info.style.transform = `scale(${inverseScale})`;
   }
 });
+
+
+if (window.innerWidth < 776) {
+  const navLinks = document.querySelectorAll('.nav-item');
+  const menuToggle = document.getElementById('navbarSupportedContent');
+  const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+
+  navLinks.forEach((l) => {
+      l.addEventListener('click', () => { bsCollapse.toggle() });
+  });
+}

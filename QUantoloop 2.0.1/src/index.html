@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css " />
     <link rel="stylesheet" href="css/style_bs.css" />
+    <link rel="stylesheet" href="css/custom.css">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
@@ -19,9 +20,7 @@
   <body>
     <nav class="navbar-expand-md border-0">
       <div class="container-fluid navbar" id="navbar">
-        
-        <a class="navbar-brand" href="#"
-            ><img src="icons/QL-Logo-schwarz.svg" alt=""/></a>
+
         <button
           class="navbar-toggler ms-auto"
           type="button"
@@ -29,23 +28,28 @@
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Navi schalter"
+          aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="toggler-icon top-bar"></span>
+          <span class="toggler-icon middle-bar"></span>
+          <span class="toggler-icon bottom-bar"></span>
         </button>
         <div
           class="collapse navbar-collapse"
           id="navbarSupportedContent"
           style="width: 100vw"
-        >
-        
+          >
+          
           <ul class="nav nav-underline">
-            
+            <li class="nav-item navbar-brand">
+              <a class="nav-link" href="#"
+          ><img src="icons/QL-Logo-schwarz.svg" alt=""/></a>
+            </li>
             <li class="nav-item">
               <a
                 class="nav-link nav-link-first"
                 aria-current="page"
-                href="#hero_section"
+                href="#interactive_section"
               >
               Transparenz</a>
             </li>
@@ -76,11 +80,14 @@
                 >Kontakt</a
               >
             </li>
+            <li class="nav-item">
+              <a href="mailto:office@quantoloop.com"><i class="bi bi-envelope mail_us"></i></a>
+            </li>
             
           </ul>
           
         </div>
-        <a href="mailto:office@quantoloop.com"><i class="bi bi-envelope mail_us"></i></a>
+        
       </div>
     </nav>
     <div id="logo_slogan">
@@ -88,7 +95,7 @@
       <h1 class="slogen">Driving innovation <br>in your supply chain.</h1>
     </div>
 
-    <div class="interactive_section">
+    <div class="interactive_section" id="interactive_section">
       <div class="inter_cards">
         <div class="inter_card">
           <i class="bi bi-check-circle"></i>
