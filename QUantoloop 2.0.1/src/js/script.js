@@ -460,7 +460,7 @@ window.addEventListener('scroll', function() {
 });
 
 
-if (window.innerWidth < 776) {
+if (window.innerWidth < 769) {
   const navLinks = document.querySelectorAll('.nav-item');
   const menuToggle = document.getElementById('navbarSupportedContent');
   const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
@@ -469,3 +469,4 @@ if (window.innerWidth < 776) {
       l.addEventListener('click', () => { bsCollapse.toggle() });
   });
 }
+
