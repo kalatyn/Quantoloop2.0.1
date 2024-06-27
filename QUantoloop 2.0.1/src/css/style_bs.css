@@ -971,6 +971,7 @@ body {
     padding: 100px 0px ;
     
   }
+  
   .inter_card{
     width: 80%;
     margin: 5% auto !important;
@@ -1178,14 +1179,14 @@ body {
   
   .inter_cards{
     width: 100% !important;
-    height: 60% !important;
+    height: 700px !important;
 
   }
   .inter_card{
     width: 300px ;
     padding: 20px !important;
     height: 180px !important;
-    /* top: -5% !important; */
+    top: 0 !important;
     & h3{
       font-size: 25px !important;
       margin-top: 5%;
@@ -1320,9 +1321,8 @@ body {
     
   }
   .radar_border{
-    width: 100% !important;
-    min-height: 100vh !important;
-    border-radius: 0px !important;
+    /* width: 100% !important; */
+    min-height: 80vh !important;
   }
   .radar {
     height: 60vw !important;
@@ -1428,6 +1428,7 @@ body {
     text-align: center;
   }
   .radar_titel{
+    margin-top: 100px !important;
     font-size: 1rem !important;
     margin-left: 6.5vw !important;
   }
@@ -2003,7 +2004,7 @@ body {
   transition: transform 0.5s ease;
   position: relative;
   overflow: hidden;
-  padding-top: 0 !important;
+  padding-top: 50px !important;
   
   
 
@@ -2178,12 +2179,11 @@ body {
 }
 .popup{
   height: 70vh;
-  width: 50vh;
-  height: 80%;
+  width: 45vh;
   background-color: #fefefe;
   position: absolute;
-  top: calc(50% - 40%);
-  right: 5%;
+  top: calc(50% - 35%);
+  right: 10%;
   opacity: 0;
   transition: opacity 0.5s ease;
   border-radius: 15px;

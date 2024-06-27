@@ -126,7 +126,11 @@ function getElementWidthWithMargin() {
 //   }
 // });
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
+
+  
 
   for (let i = 1; i <= 5; i++) {
     const moreAbout = document.querySelectorAll(`.more__about${i}`); 
@@ -347,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         lineElem.classList.add('selected');
         selectedLine = lineElem;
-        radar.style.scale = '2.5';
+        radar.style.scale = '1.7';
         radar.style.left = '-50%';
 
         // Вычисление угла поворота относительно текущего угла
