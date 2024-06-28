@@ -1451,7 +1451,7 @@ body {
 }
 
 #cardfield{ 
-  height: 100vh;
+  height: 100vdh;
   /* min-height: 930px; */
   width: 100vw ;
   display: flex;
@@ -1479,7 +1479,7 @@ body {
 }
 
 #card_section{
-  max-width: 100dvh;
+  max-width: 100vw ;
   height: auto;
   display: flex;
   align-items: center;
