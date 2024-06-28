@@ -1479,7 +1479,7 @@ body {
 }
 
 #card_section{
-  max-width: 100vw ;
+  max-width: 100dvh;
   height: auto;
   display: flex;
   align-items: center;
