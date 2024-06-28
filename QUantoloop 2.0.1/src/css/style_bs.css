@@ -1927,7 +1927,7 @@ body {
 .window_info{
   position: relative;
   width: 90%;
-  height: 90dvh ;
+  height: 80dvh ;
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
   border: 1px solid rgb(187, 187, 187);
