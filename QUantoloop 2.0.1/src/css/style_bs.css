@@ -845,10 +845,10 @@ body {
   .info p{
     font-size: 0.8rem !important;
   }
-  .growth_item{
-    /* width: 450px !important;
-    min-width: 440px !important; */
-  }
+  /* .growth_item{
+    width: 450px !important;
+    min-width: 440px !important;
+  } */
   .software_cards{
     width: 100%;
     min-width: 700px !important;
@@ -1058,10 +1058,10 @@ body {
       height: 1.8rem !important;
     }
   }
-  .growth_item{
-    /* width: 70% !important; */
-    /* min-width: 440px !important; */
-  }
+  /* .growth_item{
+    width: 70% !important;
+    min-width: 440px !important;
+  } */
   .item_bottom_item h2{
     font-size: 1.2rem !important;
   }
@@ -1927,7 +1927,7 @@ body {
 .window_info{
   position: relative;
   width: 90%;
-  height: 90%;
+  height: 90dvh ;
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
   border: 1px solid rgb(187, 187, 187);
