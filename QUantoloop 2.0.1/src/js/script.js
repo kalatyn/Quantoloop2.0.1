@@ -264,7 +264,73 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+window.addEventListener("scroll", function () {
+  let element = document.querySelector("#growth");
+  let bounding = element.getBoundingClientRect();
+  let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  // Определяем середину экрана
+  let middleOfViewport = viewportHeight / 2;
+
+  // Если элемент виден хотя бы частично
+  if (bounding.top < viewportHeight && bounding.bottom > 0) {
+    // Когда элемент начинает появляться снизу и верх элемента не достиг середины экрана
+    if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
+      let percentScrolled = (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
+      let newSize = 0.9 + (percentScrolled * 0.1);
+      element.style.transform = `scale(${newSize})`;
+    } 
+    // Когда верх элемента достигает середины экрана и до момента, пока низ не достиг середины экрана
+    else if (bounding.top < middleOfViewport && bounding.bottom > middleOfViewport) {
+      element.style.transform = `scale(1)`;
+    } 
+    // Когда низ элемента достигает середины экрана и верх уже выше середины экрана
+    else if (bounding.bottom <= middleOfViewport) {
+      let percentScrolled = (middleOfViewport - bounding.bottom) / middleOfViewport;
+      let newSize = 1 - (percentScrolled * 0.1);
+      element.style.transform = `scale(${newSize})`;
+    }
+  } 
+  // Когда элемент не виден, устанавливаем масштаб 90%
+  else {
+    element.style.transform = `scale(0.9)`;
+  }
+});
 // radar
+
+
+window.addEventListener("scroll", function () {
+  let element = document.querySelector("#radar_border");
+  let bounding = element.getBoundingClientRect();
+  let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  // Определяем середину экрана
+  let middleOfViewport = viewportHeight / 2;
+
+  // Если элемент виден хотя бы частично
+  if (bounding.top < viewportHeight && bounding.bottom > 0) {
+    // Когда элемент начинает появляться снизу и верх элемента не достиг середины экрана
+    if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
+      let percentScrolled = (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
+      let newSize = 0.9 + (percentScrolled * 0.1);
+      element.style.transform = `scale(${newSize})`;
+    } 
+    // Когда верх элемента достигает середины экрана и до момента, пока низ не достиг середины экрана
+    else if (bounding.top < middleOfViewport && bounding.bottom > middleOfViewport) {
+      element.style.transform = `scale(1)`;
+    } 
+    // Когда низ элемента достигает середины экрана и верх уже выше середины экрана
+    else if (bounding.bottom <= middleOfViewport) {
+      let percentScrolled = (middleOfViewport - bounding.bottom) / middleOfViewport;
+      let newSize = 1 - (percentScrolled * 0.1);
+      element.style.transform = `scale(${newSize})`;
+    }
+  } 
+  // Когда элемент не виден, устанавливаем масштаб 90%
+  else {
+    element.style.transform = `scale(0.9)`;
+  }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const radar = document.querySelector(".radar");
