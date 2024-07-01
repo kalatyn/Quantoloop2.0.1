@@ -707,7 +707,8 @@ window.addEventListener("DOMContentLoaded", function () {
     const brand = document.querySelector(".brand");
     const slogen = document.querySelector(".slogen");
     const interCards = document.querySelectorAll(".inter_card");
-    const radar = document.querySelector(".radar")
+    const radar = document.querySelector(".radar");
+    const radarArea = document.querySelector("#radar__area");
 
     
     infoSec.style.height = "25vh";
@@ -717,8 +718,9 @@ window.addEventListener("DOMContentLoaded", function () {
     form.style.width = "70vw";
     brand.style.fontSize = "60px";
     slogen.style.fontSize = "20px";
-    radar.style.width = "55vw";
-    radar.style.height = "55vw";
+    radar.style.width = "35vw";
+    radar.style.height = "35vw";
+    radarArea.style.height = "50vh"
     interCards.forEach((card) => {
       card.style.padding = "3%";
 
@@ -737,8 +739,8 @@ window.addEventListener("DOMContentLoaded", function () {
     if (window.innerHeight > window.innerWidth && window.innerWidth < 850 && window.innerWidth > 576) {
       const interSec = document.querySelector("#interactive_section");
       const radar = document.querySelector(".radar");
-      radar.style.width = "50vw";
-      radar.style.height = "50vw";
+      radar.style.width = "37vw";
+      radar.style.height = "37vw";
       interSec.style.height = "50vh";
       const items = document.querySelectorAll('.growth_item');
       items.forEach((item) => {

@@ -2178,11 +2178,11 @@ body {
   background: transparent;
 }
 .popup{
-  height: 70vh;
-  width: 35vw;
+  height: 70%;
+  width: 35%;
   background-color: #fefefe;
   position: absolute;
-  top: calc(50% - 35%);
+  
   right: 10%;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -2216,7 +2216,7 @@ body {
   position: relative !important;
   width: 80%;
   height: 100%;
-  padding-top: 10%;
+  padding-top: 5%;
   
 
 }
@@ -2225,15 +2225,15 @@ body {
   font-size: 1rem;
   text-align: start;
   color: #6baffc;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  margin-bottom: 3%;
+  font-weight: 400;
 }
 .popup__titleL{
   position: relative;
   font-size: 2em;
   text-align: start;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-weight: 400;
+  margin-bottom: 5%;
   
   
 }
@@ -2246,7 +2246,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;  
   gap: 3px;
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 100%;
 }
 .stage { 
   border-radius: 5px;
@@ -2261,9 +2261,9 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #5598c823;
-  border-radius: 1rem;
+  border-radius: 10px;
   position: absolute;
-  bottom: 5%;
+  bottom: 3%;
   overflow: hidden;
 }
 .popup__text{
