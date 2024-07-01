@@ -715,7 +715,7 @@ body {
     
   }
   
-  .item_top{
+  /* .item_top{
     & h3{
       font-size: 3rem !important;
     }
@@ -723,7 +723,7 @@ body {
       font-size: 2.2rem !important;
       width:  2.2rem !important;
       height: 2.2rem !important;
-    }
+    } */
   }
   /* .growth_item{
     width: 550px !important;
@@ -1813,8 +1813,8 @@ body {
 }
 
 .growth_item{
-  
-  width: 380px;
+  width: 30vw;
+  /* width: 380px; */
   height: 12vh;
   position: relative;
   overflow: hidden;
@@ -2179,7 +2179,7 @@ body {
 }
 .popup{
   height: 70vh;
-  width: 45vh;
+  width: 35vw;
   background-color: #fefefe;
   position: absolute;
   top: calc(50% - 35%);

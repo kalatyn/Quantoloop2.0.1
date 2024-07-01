@@ -612,9 +612,9 @@ window.addEventListener("scroll", function () {
     let scale =
       1 -
       (window.innerHeight / 2 - laptop_area_top) / (window.innerHeight / 0.3);
-    scale = Math.max(scale, 0.5);
+    scale = Math.max(scale, 0.3);
 
-    let inverseScale = 1 + (1.2 - scale / 0.8);
+    let inverseScale = 1 + (1.2 - scale / 0.6);
 
     laptop.style.transform = `scale(${scale})`;
     laptop_info.style.transform = `scale(${inverseScale})`;
@@ -641,6 +641,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const brand = document.querySelector(".brand");
     const slogen = document.querySelector(".slogen");
     const interCards = document.querySelectorAll(".inter_card");
+    const radar = document.querySelector(".radar")
 
     
     infoSec.style.height = "25vh";
@@ -650,6 +651,8 @@ window.addEventListener("DOMContentLoaded", function () {
     form.style.width = "70vw";
     brand.style.fontSize = "60px";
     slogen.style.fontSize = "20px";
+    radar.style.width = "55vw";
+    radar.style.height = "55vw";
     interCards.forEach((card) => {
       card.style.padding = "3%";
 
