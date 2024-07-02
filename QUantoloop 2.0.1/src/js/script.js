@@ -75,9 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// let scrollSection = document.querySelector(".horizontal-scroll-section");
+let scrollSection = document.querySelector(".horizontal-scroll-section");
 function scrollleft() {
-  let scrollSection = document.querySelector(".horizontal-scroll-section");
+  // let scrollSection = document.querySelector(".horizontal-scroll-section");
   let scrollAmount = Math.max(
     scrollSection.scrollLeft - getElementWidthWithMargin(),
     0
@@ -89,7 +89,7 @@ function scrollleft() {
 }
 
 function scrollright() {
-  let scrollSection = document.querySelector(".horizontal-scroll-section");
+  // let scrollSection = document.querySelector(".horizontal-scroll-section");
   let scrollAmount = Math.min(
     scrollSection.scrollLeft + getElementWidthWithMargin(),
     scrollSection.scrollWidth - scrollSection.clientWidth
@@ -687,15 +687,15 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// if (window.innerWidth < 766) {
-//   const navLinks = document.querySelectorAll('.nav-item');
-//   const menuToggle = document.getElementById('navbarSupportedContent');
-//   const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+if (window.innerWidth < 766) {
+  const navLinks = document.querySelectorAll('.nav-item');
+  const menuToggle = document.getElementById('navbarSupportedContent');
+  const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
 
-//   navLinks.forEach((l) => {
-//       l.addEventListener('click', () => { bsCollapse.toggle() });
-//   });
-// }
+  navLinks.forEach((l) => {
+      l.addEventListener('click', () => { bsCollapse.toggle() });
+  });
+}
 
 window.addEventListener("DOMContentLoaded", function () {
   if (window.innerHeight > window.innerWidth) {
