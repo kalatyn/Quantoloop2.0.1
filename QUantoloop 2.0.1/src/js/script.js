@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function (){
   const cardfield = document.querySelector('#card_section');
   const card = document.querySelector('.cards');
 
-  card.addEventListener('click', function(){
+  cardfield.addEventListener('click', function(){
     cardfield.scrollIntoView({ behavior: 'instant' });
   })
 
