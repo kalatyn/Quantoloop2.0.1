@@ -131,11 +131,15 @@ function getElementWidthWithMargin() {
 
 document.addEventListener("DOMContentLoaded", function (){
   const cardfield = document.querySelector('#card_section');
-  const card = document.querySelector('.cards');
+  const growthArea = document.querySelector('#growth_area');
+  // const card = document.querySelector('.cards');
 
   cardfield.addEventListener('click', function(){
     cardfield.scrollIntoView({ behavior: 'instant' });
-  })
+  });
+  growthArea.addEventListener('click', function(){
+    growthArea.scrollIntoView({ behavior: 'instant' });
+  });
 
 });
 
