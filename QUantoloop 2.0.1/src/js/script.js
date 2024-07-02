@@ -129,6 +129,16 @@ function getElementWidthWithMargin() {
 //   }
 // });
 
+document.addEventListener("DOMContentLoaded", function (){
+  const cardfield = document.querySelector('#card_section');
+  const card = document.querySelector('.cards');
+
+  card.addEventListener('click', function(){
+    cardfield.scrollIntoView({ behavior: 'instant' });
+  })
+
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   for (let i = 1; i <= 5; i++) {
     const moreAbout = document.querySelectorAll(`.more__about${i}`);
