@@ -717,7 +717,7 @@ if (window.innerWidth < 766) {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  if (window.innerHeight > window.innerWidth) {
+  if (window.innerHeight > window.innerWidth ) {
     
     const infoSec = document.querySelector("#info__section");
     const growthRight = document.querySelector(".growth_right");
@@ -739,7 +739,7 @@ window.addEventListener("DOMContentLoaded", function () {
     slogen.style.fontSize = "20px";
     radar.style.width = "35vw";
     radar.style.height = "35vw";
-    radarArea.style.height = "50vh"
+    radarArea.style.height = "50vh";
     interCards.forEach((card) => {
       card.style.padding = "3%";
 

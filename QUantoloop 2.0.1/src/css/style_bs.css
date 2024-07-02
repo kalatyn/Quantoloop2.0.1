@@ -1334,6 +1334,9 @@ body {
     line-height: 1.4rem !important;
     
   }
+  #radar__area{
+    height: 100vh !important;
+  }
   .radar_border{
     /* width: 100% !important; */
     min-height: 80vh !important;
@@ -1447,7 +1450,7 @@ body {
     margin-left: 6vw !important;
   }
   .radar_titel2 {
-    font-size: 1rem !important;
+    font-size: 3rem !important;
     margin-left: 6.5vw !important;
   }
   .cardfield_titel{
