@@ -1982,7 +1982,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.5s ease;
+  /* transition: opacity 0.5s ease; */
 
 }
 .plus_info.show{
