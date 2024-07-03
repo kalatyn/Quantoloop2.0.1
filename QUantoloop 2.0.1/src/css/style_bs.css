@@ -1356,7 +1356,7 @@ body {
     border-radius: 0px !important;
     z-index: 200 !important;
     width: 100% !important;
-    height: 100% !important;
+    height: 100lvh !important;
     background-color: rgb(255, 255, 255) !important;
   }
   .popup {
