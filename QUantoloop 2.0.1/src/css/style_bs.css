@@ -1346,6 +1346,9 @@ body {
     width: 60vw !important;
     margin: 0 auto !important;
   }
+  #growth_area{
+    min-height: 850px !important;
+  }
   .plus_info {
     position: fixed !important;
     top: 0% !important;
