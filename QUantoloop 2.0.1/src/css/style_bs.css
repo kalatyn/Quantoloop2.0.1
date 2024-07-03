@@ -1353,7 +1353,7 @@ body {
     border-radius: 0px !important;
     z-index: 200 !important;
     width: 100% !important;
-    height: 100% !important;
+    height: 100svh !important;
   }
   .card__disc {
     position: fixed !important;
@@ -1362,7 +1362,7 @@ body {
     border-radius: 0px !important;
     z-index: 200 !important;
     width: 100% !important;
-    height: 100% !important;
+    height: 100vh !important;
   }
   .window_info{
     position: fixed !important;
@@ -1371,7 +1371,7 @@ body {
     border-radius: 0px !important;
     z-index: 200 !important;
     width: 100% !important;
-    height: 100% !important;
+    height: 100svh !important;
   }
   .line::before{
     font-size: smaller !important;
@@ -1808,7 +1808,7 @@ body {
 .growth_area {  
   max-width: 100vw;
   height: 100vh;
-  min-height: 784px;
+  min-height: 984px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2048,7 +2048,7 @@ body {
 
 .radar__area {  
   max-width: 100vw;
-  height: 100dvh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2312,7 +2312,7 @@ body {
   height: 70%;
   display: flex;
   flex-direction: column;
-  background-color: #5598c823;
+  background-color: #fbfbfb;
   border-radius: 10px;
   position: absolute;
   bottom: 3%;
