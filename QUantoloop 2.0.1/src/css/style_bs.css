@@ -1352,8 +1352,8 @@ body {
     left: 0% !important;
     border-radius: 0px !important;
     z-index: 200 !important;
-    width: 100vw !important;
-    height: 100dvh !important;
+    width: 100% !important;
+    height: 100% !important;
   }
   .window_info{
     position: absolute !important;
@@ -1361,8 +1361,8 @@ body {
     left: 0% !important;
     border-radius: 0px !important;
     z-index: 200 !important;
-    width: 100vw !important;
-    height: 100dvh !important;
+    width: 100% !important;
+    height: 100% !important;
   }
   .line::before{
     font-size: smaller !important;
@@ -1968,7 +1968,7 @@ body {
 .window_info{
   position: relative;
   width: 90%;
-  height: 80vh ;
+  height: 80dvh ;
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
   border: 1px solid rgb(187, 187, 187);
