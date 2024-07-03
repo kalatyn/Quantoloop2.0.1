@@ -717,15 +717,17 @@ if (window.innerWidth < 766) {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  if (window.innerHeight > window.innerWidth ) {
+  if (window.innerHeight > window.innerWidth && window.innerWidth > 576 ) {
     
     const infoSec = document.querySelector("#info__section");
     const growthRight = document.querySelector(".growth_right");
+    const growthArea = document.querySelector("#growth_area");
     const growth = document.querySelector("#growth");
     const form = document.querySelector("form");
     const brand = document.querySelector(".brand");
     const slogen = document.querySelector(".slogen");
     const interCards = document.querySelectorAll(".inter_card");
+    const interSec = document.querySelector("#interactive_section")
     const radar = document.querySelector(".radar");
     const radarArea = document.querySelector("#radar__area");
 
@@ -739,7 +741,9 @@ window.addEventListener("DOMContentLoaded", function () {
     slogen.style.fontSize = "20px";
     radar.style.width = "35vw";
     radar.style.height = "35vw";
+    growthArea.style.height = "1024px";
     radarArea.style.height = "50vh";
+    interSec.style.height = "50vh";
     interCards.forEach((card) => {
       card.style.padding = "3%";
 

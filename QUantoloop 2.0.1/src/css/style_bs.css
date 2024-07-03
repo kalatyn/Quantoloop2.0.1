@@ -1277,11 +1277,11 @@ body {
   .info {
     width :  100% !important; 
     height: auto;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     box-sizing: border-box;
     margin-right: 0px !important;
     margin-left: 0px !important;
-    margin-top: 20% !important;
+    margin-top: 50px !important;
     &:last-child{
       margin-bottom: 0px !important;
     }
