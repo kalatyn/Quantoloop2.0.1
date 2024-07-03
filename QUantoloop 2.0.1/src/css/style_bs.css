@@ -1363,6 +1363,7 @@ body {
     z-index: 200 !important;
     width: 100% !important;
     height: 100vh !important;
+    background-color: rgb(255, 255, 255) !important;
   }
   .window_info{
     position: fixed !important;
