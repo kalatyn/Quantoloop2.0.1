@@ -2500,11 +2500,12 @@ body {
   align-items: center;
   justify-content: center;
   & h1{
-    margin-bottom: 3rem;
+    margin: 3rem;
     font-size: 3rem;
+    align-self: flex-start;
   }
   & h2{
-    margin-bottom: 3rem;
+    margin: 3rem;
     font-size: 1.5rem;
   }
 }
