@@ -1228,8 +1228,8 @@ body {
   .card:first-child {
     margin-left: 20%;
   }
-  .card:last-child {
-    margin-right: 20% !important;
+  .last-child{
+    margin-right: 5vh;
   }
   .card__bottom {
     visibility: hidden;
@@ -1365,7 +1365,7 @@ body {
     height: 100% !important;
   }
   .window_info{
-    position: absolute !important;
+    position: fixed !important;
     top: 0% !important;
     left: 0% !important;
     border-radius: 0px !important;
@@ -1487,7 +1487,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: start;  
-  /* overflow: scroll; */
+  overflow: scroll;
   transition: all 0.7s ease 0s;
   position: relative;
   /* scroll-snap-align: start; */
