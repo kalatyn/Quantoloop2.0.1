@@ -1862,8 +1862,6 @@ body {
   width: 700px;
   height: 80%;
   
-  /* border: 1px solid black; */
-  
   & img{
     width: 80%;
     float: right;
@@ -1991,7 +1989,7 @@ body {
 .window_info{
   position: relative;
   width: 90%;
-  height: 80dvh ;
+  height: 80vh ;
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
   border: 1px solid rgb(187, 187, 187);
