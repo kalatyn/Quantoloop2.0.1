@@ -1487,7 +1487,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: start;  
-  overflow: scroll;
+  /* overflow: scroll; */
   transition: all 0.7s ease 0s;
   position: relative;
   /* scroll-snap-align: start; */
