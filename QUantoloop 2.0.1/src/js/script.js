@@ -716,63 +716,63 @@ if (window.innerWidth < 766) {
   });
 }
 
-// window.addEventListener("DOMContentLoaded", function () {
-//   if (window.innerHeight > window.innerWidth ) {
+window.addEventListener("DOMContentLoaded", function () {
+  if (window.innerHeight > window.innerWidth ) {
     
-//     const infoSec = document.querySelector("#info__section");
-//     const growthRight = document.querySelector(".growth_right");
-//     const growth = document.querySelector("#growth");
-//     const form = document.querySelector("form");
-//     const brand = document.querySelector(".brand");
-//     const slogen = document.querySelector(".slogen");
-//     const interCards = document.querySelectorAll(".inter_card");
-//     const radar = document.querySelector(".radar");
-//     const radarArea = document.querySelector("#radar__area");
+    const infoSec = document.querySelector("#info__section");
+    const growthRight = document.querySelector(".growth_right");
+    const growth = document.querySelector("#growth");
+    const form = document.querySelector("form");
+    const brand = document.querySelector(".brand");
+    const slogen = document.querySelector(".slogen");
+    const interCards = document.querySelectorAll(".inter_card");
+    const radar = document.querySelector(".radar");
+    const radarArea = document.querySelector("#radar__area");
 
     
-//     infoSec.style.height = "25vh";
-//     growthRight.style.width = "40%";
-//     growthRight.style.float = "right";
-//     growth.style.justifyContent = "space-around";
-//     form.style.width = "70vw";
-//     brand.style.fontSize = "60px";
-//     slogen.style.fontSize = "20px";
-//     radar.style.width = "35vw";
-//     radar.style.height = "35vw";
-//     radarArea.style.height = "50vh";
-//     interCards.forEach((card) => {
-//       card.style.padding = "3%";
+    infoSec.style.height = "25vh";
+    growthRight.style.width = "40%";
+    growthRight.style.float = "right";
+    growth.style.justifyContent = "space-around";
+    form.style.width = "70vw";
+    brand.style.fontSize = "60px";
+    slogen.style.fontSize = "20px";
+    radar.style.width = "35vw";
+    radar.style.height = "35vw";
+    radarArea.style.height = "50vh";
+    interCards.forEach((card) => {
+      card.style.padding = "3%";
 
-//       const par = card.querySelector("p");
-//       const header = card.querySelector('h3');
-//       if (header){
-//         header.style.marginBottom = '5px'
-//       }
-//       if (par) {
-//         par.style.overflowWrap = "break-word";
-//       }
+      const par = card.querySelector("p");
+      const header = card.querySelector('h3');
+      if (header){
+        header.style.marginBottom = '5px'
+      }
+      if (par) {
+        par.style.overflowWrap = "break-word";
+      }
       
-//     });
+    });
     
 
-//     if (window.innerHeight > window.innerWidth && window.innerWidth < 850 && window.innerWidth > 576) {
-//       const interSec = document.querySelector("#interactive_section");
-//       const radar = document.querySelector(".radar");
-//       radar.style.width = "37vw";
-//       radar.style.height = "37vw";
-//       interSec.style.height = "50vh";
-//       const items = document.querySelectorAll('.growth_item');
-//       items.forEach((item) => {
-//         item.style.width = "300px";
-//         const num = item.querySelector('span');
-//         if (num) {
-//           num.style.fontSize = '2rem';
-//         }
-//         const titel = item.querySelector('h3');
-//         if (titel) {
-//           titel.style.setProperty('font-size', '2rem', 'important'); // Переопределение с !important
-//         }
-//       });
-//     }
-//   }
-// });
+    if (window.innerHeight > window.innerWidth && window.innerWidth < 850 && window.innerWidth > 576) {
+      const interSec = document.querySelector("#interactive_section");
+      const radar = document.querySelector(".radar");
+      radar.style.width = "37vw";
+      radar.style.height = "37vw";
+      interSec.style.height = "50vh";
+      const items = document.querySelectorAll('.growth_item');
+      items.forEach((item) => {
+        item.style.width = "300px";
+        const num = item.querySelector('span');
+        if (num) {
+          num.style.fontSize = '2rem';
+        }
+        const titel = item.querySelector('h3');
+        if (titel) {
+          titel.style.setProperty('font-size', '2rem', 'important'); // Переопределение с !important
+        }
+      });
+    }
+  }
+});
