@@ -1440,8 +1440,8 @@ body {
 }
 
 .card {
-  height: 80vh;
-  width: 40vh;
+  height: 740px;
+  width: 405px;
   flex: 0 0 auto;
   border-radius: 20px;
   background-color: white;
