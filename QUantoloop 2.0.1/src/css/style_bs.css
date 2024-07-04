@@ -1503,7 +1503,7 @@ body {
 
 .card:hover {
   
-  scale: 1.02;
+  scale: 1.01;
   .card__circle {
     top: calc(33.33% - 50px);
     left: calc(50% - 50px);
