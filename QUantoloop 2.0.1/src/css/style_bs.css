@@ -471,6 +471,7 @@ table {
 @font-face {
   font-family: "DM sans";
   src: url(../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf);
+  font-display: swap;
 }
 /* _________________________ */
 body {
