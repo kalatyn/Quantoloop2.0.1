@@ -1,39 +1,3 @@
-// document.querySelector('#back_video').addEventListener('click', function (event) {
-//   event.preventDefault();
-// });
-// document.querySelector('#back_video').addEventListener('play', function() {
-//   this.currentTime = 0;
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   window.addEventListener("scroll", function () {
-//     let element = document.querySelector("#back_video");
-//     let bounding = element.getBoundingClientRect();
-//     let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-//     let triggerHeight = viewportHeight * 0.3;
-
-//     // Проверяем, если верх элемента на расстоянии 30% от верхнего края окна
-//     if (bounding.top >= triggerHeight && bounding.bottom <= viewportHeight) {
-//       element.style.borderRadius = "0px";
-//       element.style.width = "100%";
-//     }
-//     // Проверяем, если верх элемента выше триггерной высоты
-//     else if (bounding.top < triggerHeight) {
-//       let scrollPosition = triggerHeight - bounding.top;
-//       let newSize = Math.max(50, 100 - scrollPosition * 0.01); // Ограничиваем минимальный размер до 50%
-//       element.style.width = newSize + "%";
-
-//       let borderRadius = Math.min(40, scrollPosition * 0.05);
-//       element.style.borderRadius = borderRadius + "px";
-//     }
-//     // Восстанавливаем размер, если элемент ниже триггерной высоты
-//     else if (bounding.top > triggerHeight) {
-//       element.style.width = "100%";
-//       element.style.borderRadius = "30px"; // Устанавливаем borderRadius для консистентности
-//     }
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     const container = document.querySelector(".interactive_section");
@@ -46,18 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (bounding.top >= triggerHeight && bounding.bottom <= viewportHeight) {
       container.style.borderRadius = "0px";
       container.style.width = "100vw";
-    }
-    // Проверяем, если верх элемента выше триггерной высоты
-    else if (bounding.top < triggerHeight) {
+    } else if (bounding.top < triggerHeight) {
       let scrollPosition = triggerHeight - bounding.top;
       let newSize = Math.max(90, 100 - scrollPosition * 0.01);
       container.style.width = newSize + "%";
       container.style.borderRadius = scrollPosition / 50 + "px";
     }
 
-    // Проверка ширины экрана
     if (window.innerWidth >= 576) {
-      // Восстанавливаем размер, если элемент ниже триггерной высоты
       if (bounding.top <= triggerHeight && bounding.bottom >= 0) {
         let scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
@@ -67,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     } else {
-      // Сброс смещения карточек на маленьких экранах
       cards.forEach((card) => {
         card.style.transform = "translateY(0px)";
       });
@@ -77,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let scrollSection = document.querySelector(".horizontal-scroll-section");
 function scrollleft() {
-  // let scrollSection = document.querySelector(".horizontal-scroll-section");
   let scrollAmount = Math.max(
     scrollSection.scrollLeft - getElementWidthWithMargin(),
     0
@@ -89,7 +47,6 @@ function scrollleft() {
 }
 
 function scrollright() {
-  // let scrollSection = document.querySelector(".horizontal-scroll-section");
   let scrollAmount = Math.min(
     scrollSection.scrollLeft + getElementWidthWithMargin(),
     scrollSection.scrollWidth - scrollSection.clientWidth
@@ -101,51 +58,29 @@ function scrollright() {
 }
 
 function getElementWidthWithMargin() {
-  let element = scrollSection.firstElementChild; // Assuming the first child is the element you want to scroll
+  let element = scrollSection.firstElementChild;
   let style = getComputedStyle(element);
   let width = element.offsetWidth;
   let margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
   return width + margin;
 }
 
-// window.addEventListener("scroll", function () {
-//   let element = document.querySelector("#scrolling__container");
-//   let bounding = element.getBoundingClientRect();
-//   let viewportHeight =
-//     window.innerHeight || document.documentElement.clientHeight;
+document.addEventListener("DOMContentLoaded", function () {
+  const cardfield = document.querySelector("#card_section");
+  const growthArea = document.querySelector("#growth_area");
+  const radarArea = document.querySelector("#radar__area");
 
-//   if (bounding.top >= 0 && bounding.bottom <= viewportHeight) {
-//     element.style.borderRadius = "0px";
-//     element.style.width = "100%";
-//   } else if (bounding.top <= 0) {
-//     let scrollPosition = Math.abs(bounding.top);
-//     let newSize = 100 - scrollPosition * 0.015;
-//     element.style.width = newSize + "%";
-
-//     let borderRadius = Math.min(40, scrollPosition * 0.04);
-//     element.style.borderRadius = borderRadius + "px";
-//   } if (bounding.top > 1) {
-//     element.style.width = "100%";
-//   }
-// });
-
-document.addEventListener("DOMContentLoaded", function (){
-  const cardfield = document.querySelector('#card_section');
-  const growthArea = document.querySelector('#growth_area');
-  const radarArea = document.querySelector('#radar__area');
-  
   // const card = document.querySelector('.cards');
 
-  cardfield.addEventListener('click', function(){
-    cardfield.scrollIntoView({ behavior: 'instant' });
+  cardfield.addEventListener("click", function () {
+    cardfield.scrollIntoView({ behavior: "instant" });
   });
-  growthArea.addEventListener('click', function(){
-    growthArea.scrollIntoView({ behavior: 'instant' });
+  growthArea.addEventListener("click", function () {
+    growthArea.scrollIntoView({ behavior: "instant" });
   });
-  radarArea.addEventListener('click', function(){
-    radarArea.scrollIntoView({ behavior: 'smooth' });
+  radarArea.addEventListener("click", function () {
+    radarArea.scrollIntoView({ behavior: "smooth" });
   });
-
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -160,26 +95,17 @@ document.addEventListener("DOMContentLoaded", function () {
         descriptions.forEach((desc) => {
           desc.classList.toggle("show");
         });
-        // Добавляем класс блокировки прокрутки к body
+
         document.body.classList.add("scroll-lock");
       });
     });
-    // moreAbout.forEach((element) => {
-    //   element.addEventListener("click", () => {
-    //     descriptions.forEach((desc) => {
-    //       desc.classList.toggle("show");
-    //     });
-    //     // Добавляем класс блокировки прокрутки к body
-    //     document.body.classList.add("scroll-lock");
-    //   });
-    // });
 
     exits.forEach((element) => {
       element.addEventListener("click", () => {
         descriptions.forEach((desc) => {
           desc.classList.toggle("show");
         });
-        // Убираем класс блокировки прокрутки у body
+
         document.body.classList.remove("scroll-lock");
       });
     });
@@ -195,53 +121,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// var element = document.getElementById("myFixedElement");
-// var scrollStart = 3500; // Начало диапазона
-// var scrollEnd = 4500; // Конец диапазона
-
-// window.onscroll = function () {
-//   scrollFunction();
-// };
-
-// function scrollFunction() {
-//   var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-//   if (currentScroll > scrollStart && currentScroll < scrollEnd) {
-//     // Если скролл находится в диапазоне, показываем элемент
-//     element.style.bottom = "20px";
-//     setTimeout(function () {
-//       let circle = document.getElementById("myFixedElement");
-//       circle.classList.add("fixed-element-text");
-//     }, 2000); // Позиция появления элемента
-//   } else {
-//     // Если скролл вне диапазона, скрываем элемент
-//     element.style.bottom = "-100px"; // Скрываем элемент
-//   }
-// }
-
-// setTimeout(function () {
-//   let circle = document.getElementById("myFixedElement");
-//   circle.classList.add("fixed-element-text");
-// }, 2000);
-
 document.addEventListener("DOMContentLoaded", function () {
-  let currentOpenIndex = 1; // Изначально открытый элемент
+  let currentOpenIndex = 1;
 
-  // Функция для обновления состояния
   function updateState(newIndex) {
-    // Закрываем текущий открытый элемент
     const currentBtn = document.querySelector(`#open${currentOpenIndex}`);
-    const currentItem = document.querySelector(`#growth_item${currentOpenIndex}`);
+    const currentItem = document.querySelector(
+      `#growth_item${currentOpenIndex}`
+    );
     currentBtn.style.transform = "scale(1)";
     currentItem.classList.remove("growth_item_full");
 
-    // Открываем новый элемент
     const newBtn = document.querySelector(`#open${newIndex}`);
     const newItem = document.querySelector(`#growth_item${newIndex}`);
     newBtn.style.transform = "scale(-1)";
     newItem.classList.add("growth_item_full");
 
-    // Обновляем изображение
     const img = document.querySelector("#growth_img");
     img.style.opacity = 0;
     setTimeout(() => {
@@ -249,14 +144,12 @@ document.addEventListener("DOMContentLoaded", function () {
       img.style.opacity = 1;
     }, 100);
 
-    // Обновляем индекс текущего открытого элемента
     currentOpenIndex = newIndex;
   }
 
-  // Инициализация кнопок
   for (let i = 1; i <= 5; i++) {
     const btn = document.querySelector(`#top${i}`);
-    
+
     btn.addEventListener("click", function () {
       if (i !== currentOpenIndex) {
         updateState(i);
@@ -264,7 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Изначально открываем первый элемент
   updateState(currentOpenIndex);
 });
 
@@ -295,67 +187,59 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("scroll", function () {
   let element = document.querySelector("#growth");
   let bounding = element.getBoundingClientRect();
-  let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  let viewportHeight =
+    window.innerHeight || document.documentElement.clientHeight;
 
-  // Определяем середину экрана
   let middleOfViewport = viewportHeight / 2;
 
-  // Если элемент виден хотя бы частично
   if (bounding.top < viewportHeight && bounding.bottom > 0) {
-    // Когда элемент начинает появляться снизу и верх элемента не достиг середины экрана
     if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
-      let percentScrolled = (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
-      let newSize = 0.9 + (percentScrolled * 0.1);
+      let percentScrolled =
+        (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
+      let newSize = 0.9 + percentScrolled * 0.1;
       element.style.transform = `scale(${newSize})`;
-    } 
-    // Когда верх элемента достигает середины экрана и до момента, пока низ не достиг середины экрана
-    else if (bounding.top < middleOfViewport && bounding.bottom > middleOfViewport) {
+    } else if (
+      bounding.top < middleOfViewport &&
+      bounding.bottom > middleOfViewport
+    ) {
       element.style.transform = `scale(1)`;
-    } 
-    // Когда низ элемента достигает середины экрана и верх уже выше середины экрана
-    else if (bounding.bottom <= middleOfViewport) {
-      let percentScrolled = (middleOfViewport - bounding.bottom) / middleOfViewport;
-      let newSize = 1 - (percentScrolled * 0.1);
+    } else if (bounding.bottom <= middleOfViewport) {
+      let percentScrolled =
+        (middleOfViewport - bounding.bottom) / middleOfViewport;
+      let newSize = 1 - percentScrolled * 0.1;
       element.style.transform = `scale(${newSize})`;
     }
-  } 
-  // Когда элемент не виден, устанавливаем масштаб 90%
-  else {
+  } else {
     element.style.transform = `scale(0.9)`;
   }
 });
-// radar
-
 
 window.addEventListener("scroll", function () {
   let element = document.querySelector("#radar_border");
   let bounding = element.getBoundingClientRect();
-  let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  let viewportHeight =
+    window.innerHeight || document.documentElement.clientHeight;
 
-  // Определяем середину экрана
   let middleOfViewport = viewportHeight / 2;
 
-  // Если элемент виден хотя бы частично
   if (bounding.top < viewportHeight && bounding.bottom > 0) {
-    // Когда элемент начинает появляться снизу и верх элемента не достиг середины экрана
     if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
-      let percentScrolled = (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
-      let newSize = 0.9 + (percentScrolled * 0.1);
+      let percentScrolled =
+        (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
+      let newSize = 0.9 + percentScrolled * 0.1;
       element.style.transform = `scale(${newSize})`;
-    } 
-    // Когда верх элемента достигает середины экрана и до момента, пока низ не достиг середины экрана
-    else if (bounding.top < middleOfViewport && bounding.bottom > middleOfViewport) {
+    } else if (
+      bounding.top < middleOfViewport &&
+      bounding.bottom > middleOfViewport
+    ) {
       element.style.transform = `scale(1)`;
-    } 
-    // Когда низ элемента достигает середины экрана и верх уже выше середины экрана
-    else if (bounding.bottom <= middleOfViewport) {
-      let percentScrolled = (middleOfViewport - bounding.bottom) / middleOfViewport;
-      let newSize = 1 - (percentScrolled * 0.1);
+    } else if (bounding.bottom <= middleOfViewport) {
+      let percentScrolled =
+        (middleOfViewport - bounding.bottom) / middleOfViewport;
+      let newSize = 1 - percentScrolled * 0.1;
       element.style.transform = `scale(${newSize})`;
     }
-  } 
-  // Когда элемент не виден, устанавливаем масштаб 90%
-  else {
+  } else {
     element.style.transform = `scale(0.9)`;
   }
 });
@@ -370,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector("#navbar");
 
   let selectedLine = null;
-  let currentRotation = 0; // Текущий угол поворота
+  let currentRotation = 0;
 
   const linesData = [
     {
@@ -582,7 +466,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lineElem.style.transform = `rotate(${line.angle}deg)`;
       lineElem.style.zIndex = `${line.zIndex}`;
       lineElem.setAttribute("data-titel", line.titel);
-      updateLineClass(lineElem, line.angle); // Обновляем класс линии
+      updateLineClass(lineElem, line.angle);
 
       lineElem.addEventListener("click", () => {
         lineElem.classList.remove("leftLine");
@@ -600,11 +484,10 @@ document.addEventListener("DOMContentLoaded", function () {
         radar.style.scale = "1.7";
         radar.style.left = "-50%";
 
-        // Вычисление угла поворота относительно текущего угла
         const targetAngle = 90;
         const additionalRotation =
           targetAngle - ((line.angle + currentRotation) % 360);
-        currentRotation += additionalRotation; // Обновляем текущий угол
+        currentRotation += additionalRotation;
 
         radar.style.transform = `rotate(${currentRotation}deg)`;
         radar.style.transition = "all 0.5s ease";
@@ -612,8 +495,8 @@ document.addEventListener("DOMContentLoaded", function () {
         popUpTitleL.textContent = line.titelS;
         popUpText.textContent = line.info;
 
-        updateAllLineClasses(); // Обновляем классы всех линий после поворота
-        updateStageClasses(); // Обновляем закраску элементов stage
+        updateAllLineClasses();
+        updateStageClasses();
       });
       radar.appendChild(lineElem);
     });
@@ -641,13 +524,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updateStageClasses() {
-    // Очистка предыдущих закрашенных элементов stage
     const stages = document.querySelectorAll(".stage");
     stages.forEach((stage) => {
       stage.classList.remove("colored");
     });
 
-    // Закрашивание элементов на основе выбранной линии
     if (selectedLine) {
       const zIndex = parseInt(selectedLine.style.zIndex);
       const stageNum = Math.round(zIndex / 2);
@@ -672,8 +553,8 @@ document.addEventListener("DOMContentLoaded", function () {
     radar.style.left = "0";
     radar.style.transition = "all 0.5s ease";
     navbar.style.zIndex = "100";
-    updateAllLineClasses(); // Обновляем классы всех линий после закрытия попапа
-    updateStageClasses(); // Обновляем закраску элементов stage после закрытия попапа
+    updateAllLineClasses();
+    updateStageClasses();
   });
 });
 
@@ -716,18 +597,19 @@ window.addEventListener("scroll", function () {
 });
 
 if (window.innerWidth < 766) {
-  const navLinks = document.querySelectorAll('.nav-item');
-  const menuToggle = document.getElementById('navbarSupportedContent');
+  const navLinks = document.querySelectorAll(".nav-item");
+  const menuToggle = document.getElementById("navbarSupportedContent");
   const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
 
   navLinks.forEach((l) => {
-      l.addEventListener('click', () => { bsCollapse.toggle() });
+    l.addEventListener("click", () => {
+      bsCollapse.toggle();
+    });
   });
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  if (window.innerHeight > window.innerWidth && window.innerWidth > 576 ) {
-    
+  if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
     const infoSec = document.querySelector("#info__section");
     const growthRight = document.querySelector(".growth_right");
     const growthArea = document.querySelector("#growth_area");
@@ -736,11 +618,10 @@ window.addEventListener("DOMContentLoaded", function () {
     const brand = document.querySelector(".brand");
     const slogen = document.querySelector(".slogen");
     const interCards = document.querySelectorAll(".inter_card");
-    const interSec = document.querySelector("#interactive_section")
+    const interSec = document.querySelector("#interactive_section");
     const radar = document.querySelector(".radar");
     const radarArea = document.querySelector("#radar__area");
 
-    
     infoSec.style.height = "25vh";
     growthRight.style.width = "40%";
     growthRight.style.float = "right";
@@ -757,33 +638,35 @@ window.addEventListener("DOMContentLoaded", function () {
       card.style.padding = "3%";
 
       const par = card.querySelector("p");
-      const header = card.querySelector('h3');
-      if (header){
-        header.style.marginBottom = '5px'
+      const header = card.querySelector("h3");
+      if (header) {
+        header.style.marginBottom = "5px";
       }
       if (par) {
         par.style.overflowWrap = "break-word";
       }
-      
     });
-    
 
-    if (window.innerHeight > window.innerWidth && window.innerWidth < 850 && window.innerWidth > 576) {
+    if (
+      window.innerHeight > window.innerWidth &&
+      window.innerWidth < 850 &&
+      window.innerWidth > 576
+    ) {
       const interSec = document.querySelector("#interactive_section");
       const radar = document.querySelector(".radar");
       radar.style.width = "37vw";
       radar.style.height = "37vw";
       interSec.style.height = "50vh";
-      const items = document.querySelectorAll('.growth_item');
+      const items = document.querySelectorAll(".growth_item");
       items.forEach((item) => {
         item.style.width = "300px";
-        const num = item.querySelector('span');
+        const num = item.querySelector("span");
         if (num) {
-          num.style.fontSize = '2rem';
+          num.style.fontSize = "2rem";
         }
-        const titel = item.querySelector('h3');
+        const titel = item.querySelector("h3");
         if (titel) {
-          titel.style.setProperty('font-size', '2rem', 'important'); // Переопределение с !important
+          titel.style.setProperty("font-size", "2rem", "important");
         }
       });
     }
