@@ -225,38 +225,47 @@ document.addEventListener("DOMContentLoaded", function () {
 // }, 2000);
 
 document.addEventListener("DOMContentLoaded", function () {
+  let currentOpenIndex = 1; // Изначально открытый элемент
+
+  // Функция для обновления состояния
+  function updateState(newIndex) {
+    // Закрываем текущий открытый элемент
+    const currentBtn = document.querySelector(`#open${currentOpenIndex}`);
+    const currentItem = document.querySelector(`#growth_item${currentOpenIndex}`);
+    currentBtn.style.transform = "scale(1)";
+    currentItem.classList.remove("growth_item_full");
+
+    // Открываем новый элемент
+    const newBtn = document.querySelector(`#open${newIndex}`);
+    const newItem = document.querySelector(`#growth_item${newIndex}`);
+    newBtn.style.transform = "scale(-1)";
+    newItem.classList.add("growth_item_full");
+
+    // Обновляем изображение
+    const img = document.querySelector("#growth_img");
+    img.style.opacity = 0;
+    setTimeout(() => {
+      img.setAttribute("src", `img/number-${newIndex}.png`);
+      img.style.opacity = 1;
+    }, 100);
+
+    // Обновляем индекс текущего открытого элемента
+    currentOpenIndex = newIndex;
+  }
+
+  // Инициализация кнопок
   for (let i = 1; i <= 5; i++) {
     const btn = document.querySelector(`#top${i}`);
-    const item = document.querySelector(`#growth_item${i}`);
-    const icon = document.querySelector(`#open${i}`);
-    const img = document.querySelector("#growth_img");
-
+    
     btn.addEventListener("click", function () {
-      for (let j = 1; j <= 5; j++) {
-        if (i !== j) {
-          const otherBtn = document.querySelector(`#open${j}`);
-          const otherItem = document.querySelector(`#growth_item${j}`);
-
-          otherBtn.style.transform = "scale(1)";
-          otherItem.classList.remove("growth_item_full");
-        }
+      if (i !== currentOpenIndex) {
+        updateState(i);
       }
-
-      item.classList.toggle("growth_item_full");
-      img.style.opacity = 0; // Сначала скрываем текущее изображение
-
-      setTimeout(() => {
-        if (item.classList.contains("growth_item_full")) {
-          icon.style.transform = "scale(-1)";
-          img.setAttribute("src", `img/number-${i}.png`);
-        } else {
-          icon.style.transform = "scale(1)";
-          img.setAttribute("src", "icons/QL-Logo-Farbe.svg");
-        }
-        img.style.opacity = 1; // Показываем новое изображение
-      }, 100); // Таймаут на полсекунды для плавного перехода
     });
   }
+
+  // Изначально открываем первый элемент
+  updateState(currentOpenIndex);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -739,8 +748,8 @@ window.addEventListener("DOMContentLoaded", function () {
     form.style.width = "70vw";
     brand.style.fontSize = "60px";
     slogen.style.fontSize = "20px";
-    radar.style.width = "35vw";
-    radar.style.height = "35vw";
+    radar.style.width = "30vw";
+    radar.style.height = "30vw";
     growthArea.style.height = "1024px";
     radarArea.style.height = "50vh";
     interSec.style.height = "50vh";
