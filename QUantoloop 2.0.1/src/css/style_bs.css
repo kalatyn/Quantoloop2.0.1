@@ -1776,8 +1776,8 @@ body {
   min-height: 330px;
   width: 100vw;
   display: flex;
-  justify-content: space-around
-  
+  justify-content: space-around;
+  background-color: #fbfbfb;
 }
 
 .info {
@@ -1808,16 +1808,26 @@ body {
 #content_item_wrapper5{
   margin-bottom: 35vh;
 } 
+#titel_section{
+  height:200px;
+  background-color: #fbfbfb;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
 .growth_titelM{
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  margin-top: 100px;
+  
   margin-left: 5%;
+  
 }
 .growth_titel{
   font-size: 56px;
   margin-left: 5%;
   font-weight: 600;
+  
 }
 .growth_area {  
   max-width: 100vw;
@@ -1831,7 +1841,7 @@ body {
   position: relative;
   overflow: hidden;
   padding-top: 0 !important;
-  
+  background-color: #FBFBFB;
 }
 #growth{
   width: 90vw;
