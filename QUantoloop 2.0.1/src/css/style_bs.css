@@ -1402,10 +1402,10 @@ body {
 
 #cardfield {
   height: 100vh;
-
+  padding-top: 60px;
   width: 100vw;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: start;
   overflow: scroll;
   transition: all 0.7s ease 0s;
@@ -1440,8 +1440,8 @@ body {
 }
 
 .card {
-  height: 740px;
-  width: 405px;
+  height: 90%;
+  aspect-ratio: 5/9;
   flex: 0 0 auto;
   border-radius: 20px;
   background-color: white;
@@ -1492,7 +1492,7 @@ body {
   -webkit-backdrop-filter: blur(5px);
 }
 .card__bottom h3 {
-  font-size: 1.5vh;
+  font-size: 2vh;
   text-align: start;
   overflow-wrap: break-word;
   hyphens: auto;
@@ -1502,7 +1502,7 @@ body {
 }
 
 .card:hover {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  
   scale: 1.02;
   .card__circle {
     top: calc(33.33% - 50px);
@@ -1548,7 +1548,7 @@ body {
   color: #3366af;
 
   left: calc(90% - 50px);
-  bottom: 2%;
+  bottom: 3%;
 }
 
 .scroll__button {
