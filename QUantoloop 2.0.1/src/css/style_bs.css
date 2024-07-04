@@ -1566,7 +1566,7 @@ body {
   position: relative;
   margin: auto auto;
   font-size: 1rem;
-  font-weight: 800;
+  -webkit-text-stroke: 2px;
 }
 
 .card__disc {
@@ -1686,7 +1686,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding-bottom: 100px;
 }
 .growth_titelM {
   font-size: 1.5rem;
