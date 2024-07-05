@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Network</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="network">vfdvsfv</canvas>
+    <script>
+        const canvas = document.getElementById('network');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        const mouse = { x: width / 2, y: height / 2 };
+        const points = [];
+        const numPoints = 100;
+        const pointRadius = 3;
+        const lineDistance = 150;
+
+        class Point {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, pointRadius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 128, 255, 0.8)';
+                ctx.fill();
+            }
+        }
+
+        function createPoints() {
+            for (let i = 0; i < numPoints; i++) {
+                points.push(new Point(Math.random() * width, Math.random() * height));
+            }
+        }
+
+        function drawLines() {
+            for (let i = 0; i < points.length; i++) {
+                for (let j = i + 1; j < points.length; j++) {
+                    const dist = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
+                    if (dist < lineDistance) {
+                        const alpha = 1 - dist / lineDistance;
+                        ctx.strokeStyle = `rgba(0, 128, 255, ${alpha})`;
+                        ctx.beginPath();
+                        ctx.moveTo(points[i].x, points[i].y);
+                        ctx.lineTo(points[j].x, points[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            points.forEach(point => {
+                point.update();
+                point.draw();
+            });
+
+            drawLines();
+            requestAnimationFrame(animate);
+        }
+
+        canvas.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            points.forEach(point => {
+                const dist = Math.hypot(point.x - mouse.x, point.y - mouse.y);
+                if (dist < 100) {
+                    point.vx += (mouse.x - point.x) * 0.001;
+                    point.vy += (mouse.y - point.y) * 0.001;
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        createPoints();
+        animate();
+    </script>
+</body>
+</html>
