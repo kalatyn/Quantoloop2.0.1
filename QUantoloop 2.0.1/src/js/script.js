@@ -349,7 +349,7 @@ window.addEventListener("scroll", function () {
   let windowHeight = window.innerHeight;
 
   if (bounding.top <= windowHeight / 2) {
-    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 2)) *2,
+    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 2)) *5,
       1 
     );
 

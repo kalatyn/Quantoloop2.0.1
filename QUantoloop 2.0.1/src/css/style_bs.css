@@ -587,10 +587,10 @@ body {
 }
 .inter_card {
   width: 25vw;
-  height: 22vw;
+  height: 20vw;
   background-color: white;
   border-radius: 20px;
-  margin: 5% auto;
+  margin: 1% auto;
   padding: 3%;
   display: flex;
   flex-direction: column;
