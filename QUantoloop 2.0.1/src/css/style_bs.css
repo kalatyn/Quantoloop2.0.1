@@ -567,7 +567,7 @@ body {
 }
 
 .interactive_section {
-  height: 60vh;
+  height: 70vh;
   width: 100%;
   background-color: #fbfbfb;
 
@@ -587,8 +587,8 @@ body {
 }
 .inter_card {
   width: 25vw;
-  height: 15vw;
-  background-color: var(--medium-dark-blue);
+  height: 22vw;
+  background-color: white;
   border-radius: 20px;
   margin: 5% auto;
   padding: 3%;
@@ -598,26 +598,26 @@ body {
   align-items: start;
   cursor: pointer;
   position: relative;
-  top: 100%;
+  top: 20%;
   transition: top 0.7s ease;
   font-size: calc(0.5vw + 0.5vh);
 }
 .inter_card img {
   height: 3vw;
-  color: white;
+  color: black;
 }
 .inter_card h3 {
   font-size: 2vw;
   font-weight: 400;
   margin-bottom: 5%;
   margin-top: 5%;
-  color: white;
+  color: black;
 }
 
 .inter_card p {
   font-size: 1vw;
   font-weight: 400;
-  color: white;
+  color: black;
 }
 
 .scale-up {
@@ -663,7 +663,7 @@ canvas{
   align-items: start;
   justify-content: center;
   padding: 0 10% 0 5%;
-
+  overflow: hidden;
   scroll-snap-align: start;
 }
 
@@ -674,7 +674,7 @@ canvas{
 }
 .brand {
   font-size: 64px;
-  color: #16428e;
+  color: var(--dark-blue);
   font-weight: 600;
   margin-bottom: 2%;
 }
@@ -1757,7 +1757,7 @@ canvas{
 
   & img {
     width: 80%;
-    height: 400px;
+    height: 320px;
     float: right;
     border: 1px solid black;
     object-fit: cover;
@@ -1941,6 +1941,81 @@ canvas{
     margin: 1rem;
     line-height: 1.5rem;
   }
+}
+.interactive_section2 {
+  height: 70vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.interactive_container{
+  width: 90%;
+  height: 90%;
+  background-color: #fbfbfb;
+  border-radius: 20px;
+  display: flex;
+}
+.interactive_container_left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+.icl_titel{
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+}
+.icl_btn{
+  width: 200px;
+  height: 70px;
+  border-radius: 30px;
+  border: 0;
+  background-color: var(--dark-blue);
+  color: white;
+  font-size: 1.2rem;
+  position: relative;
+  right: 100px;
+}
+.interactive_container_right{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid black; */
+  position: relative;
+  overflow: visible;
+  white-space: nowrap;
+}
+.icr_card{
+  width: 426px;
+  height: 500px;
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid rgb(187, 187, 187);
+  position: relative;
+  margin: 0 1rem;
+  flex: 0 0 auto;
+  /* transition: all 0.5s ease;
+  transform: rotate(-10deg) scale3d(0.8, 0.8, 0.8); */
+  
+
+}
+#icr_card2{
+  transition: all 0.2s ease;
+  transform: rotate(10deg) scale3d(0.9, 0.9, 0.9);
+}
+#icr_card3{
+  transition: all 0.2s ease;
 }
 
 .radar__area {

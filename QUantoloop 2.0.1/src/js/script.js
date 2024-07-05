@@ -1,94 +1,96 @@
 //canvas
-const canvas = document.getElementById('network');
-        const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("network");
+const ctx = canvas.getContext("2d");
 
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-        const mouse = { x: width / 2, y: height / 2 };
-        const points = [];
-        const numPoints = 100;
-        const pointRadius = 3;
-        const lineDistance = 150;
+let width = (canvas.width = window.innerWidth);
+let height = (canvas.height = window.innerHeight);
+const mouse = { x: width / 2, y: height / 2 };
+const points = [];
+const numPoints = 100;
+const pointRadius = 3;
+const lineDistance = 150;
 
-        class Point {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-            }
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+  }
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
 
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
+    if (this.x < 0 || this.x > width) this.vx *= -1;
+    if (this.y < 0 || this.y > height) this.vy *= -1;
+  }
 
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, pointRadius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 128, 255, 0.8)';
-                ctx.fill();
-            }
-        }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, pointRadius, 0, Math.PI * 2);
+    ctx.fillStyle = "#202e51";
+    ctx.fill();
+  }
+}
 
-        function createPoints() {
-            for (let i = 0; i < numPoints; i++) {
-                points.push(new Point(Math.random() * width, Math.random() * height));
-            }
-        }
+function createPoints() {
+  for (let i = 0; i < numPoints; i++) {
+    points.push(new Point(Math.random() * width, Math.random() * height));
+  }
+}
 
-        function drawLines() {
-            for (let i = 0; i < points.length; i++) {
-                for (let j = i + 1; j < points.length; j++) {
-                    const dist = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
-                    if (dist < lineDistance) {
-                        const alpha = 1 - dist / lineDistance;
-                        ctx.strokeStyle = `rgba(0, 128, 255, ${alpha})`;
-                        ctx.beginPath();
-                        ctx.moveTo(points[i].x, points[i].y);
-                        ctx.lineTo(points[j].x, points[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
+function drawLines() {
+  for (let i = 0; i < points.length; i++) {
+    for (let j = i + 1; j < points.length; j++) {
+      const dist = Math.hypot(
+        points[i].x - points[j].x,
+        points[i].y - points[j].y
+      );
+      if (dist < lineDistance) {
+        const alpha = 1 - dist / lineDistance;
+        ctx.strokeStyle = `rgba(32,46,81, ${alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(points[i].x, points[i].y);
+        ctx.lineTo(points[j].x, points[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
 
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
+function animate() {
+  ctx.clearRect(0, 0, width, height);
 
-            points.forEach(point => {
-                point.update();
-                point.draw();
-            });
+  points.forEach((point) => {
+    point.update();
+    point.draw();
+  });
 
-            drawLines();
-            requestAnimationFrame(animate);
-        }
+  drawLines();
+  requestAnimationFrame(animate);
+}
 
-        canvas.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-            points.forEach(point => {
-                const dist = Math.hypot(point.x - mouse.x, point.y - mouse.y);
-                if (dist < 100) {
-                    point.vx += (mouse.x - point.x) * 0.001;
-                    point.vy += (mouse.y - point.y) * 0.001;
-                }
-            });
-        });
+canvas.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+  points.forEach((point) => {
+    const dist = Math.hypot(point.x - mouse.x, point.y - mouse.y);
+    if (dist < 100) {
+      point.vx += (mouse.x - point.x) * 0.001;
+      point.vy += (mouse.y - point.y) * 0.001;
+    }
+  });
+});
 
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        });
+window.addEventListener("resize", () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+});
 
-        createPoints();
-        animate();
+createPoints();
+animate();
 //end canvas
-
 
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
@@ -105,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (bounding.top < triggerHeight) {
       let scrollPosition = triggerHeight - bounding.top;
       let newSize = Math.max(90, 100 - scrollPosition * 0.01);
-      container.style.width = newSize + "%";
+      container.style.transform = `scale(${newSize / 100})`;
       container.style.borderRadius = scrollPosition / 50 + "px";
     }
 
@@ -114,8 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
         cards.forEach((card) => {
-          let offset = (bounding.top - scrollTop) * 0.6;
-          card.style.top = '30%'
+          let offset = (bounding.top - scrollTop) * 0.3;
           card.style.transform = `translateY(${offset}px)`;
         });
       }
@@ -304,6 +305,73 @@ window.addEventListener("scroll", function () {
     }
   } else {
     element.style.transform = `scale(0.9)`;
+  }
+});
+
+// window.addEventListener('scroll', function(){
+//   const element = document.querySelector('.interactive_container');
+//   const card1= document.querySelector('#icr_card1');
+//   const card2= document.querySelector('#icr_card2');
+//   const card3= document.querySelector('#icr_card3');
+//   let bounding = element.getBoundingClientRect();
+//   let windowHeight = window.innerHeight;
+
+//   if (bounding.top <= windowHeight / 2 && bounding.top >= 0){
+//     const scrollPosition = Math.min((windowHeight / 2 - bounding.top) / (windowHeight /4), 1);
+
+//     const newScale1 = 1 - scrollPosition * 0.2;
+//     const newRotation1 = -10 * scrollPosition;
+//     const newTranslateX1 = -200 * scrollPosition;
+//     const newScale2 = 1 - scrollPosition * 0.1;
+//     const newRotation2 = 0 * scrollPosition;
+//     const newTranslateX2 = -450 * scrollPosition;
+//     const newScale3 = 1;
+//     const newRotation3 = 10 * scrollPosition;
+//     const newTranslateX3 = -550 * scrollPosition;
+//     const newTranslateY3 = 130 * scrollPosition;
+
+//     card1.style.transform = `scale3d(${newScale1},${newScale1},${newScale1}) rotate(${newRotation1}deg) translateX(${newTranslateX1}px)`;
+//     card2.style.transform = `scale3d(${newScale2},${newScale2},${newScale2}) rotate(${newRotation2}deg) translateX(${newTranslateX2}px)`;
+//     card3.style.transform = `scale3d(${newScale3},${newScale3},${newScale3}) rotate(${newRotation3}deg) translateX(${newTranslateX3}px) translateY(${newTranslateY3}px)`;
+
+//   } else if (boundimg.top > windowHeight/2) {
+//     card1.style.transform = 'scale3d(1,1,1) rotate(0deg) translateX(0)';
+//     card2.style.transform = 'rotate(10deg) scale3d(0.9, 0.9, 0.9) translateX(0)';
+//   }
+
+// })
+window.addEventListener("scroll", function () {
+  const element = document.querySelector(".interactive_container");
+  const card1 = document.querySelector("#icr_card1");
+  const card2 = document.querySelector("#icr_card2");
+  const card3 = document.querySelector("#icr_card3");
+  let bounding = element.getBoundingClientRect();
+  let windowHeight = window.innerHeight;
+
+  if (bounding.top <= windowHeight / 2) {
+    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 2)) *2,
+      1 
+    );
+
+    const newScale1 = 1 - scrollPosition * 0.2;
+    const newRotation1 = -10 * scrollPosition;
+    const newTranslateX1 = -200 * scrollPosition;
+    const newScale2 = 1 - scrollPosition * 0.1;
+    const newRotation2 = 10 -10 * scrollPosition ;
+    const newTranslateX2 = -450 * scrollPosition;
+    const newScale3 = 1;
+    const newRotation3 = 10 * scrollPosition;
+    const newTranslateX3 = -550 * scrollPosition;
+    const newTranslateY3 = 130 * scrollPosition;
+
+    card1.style.transform = `scale3d(${newScale1},${newScale1},${newScale1}) rotate(${newRotation1}deg) translateX(${newTranslateX1}px)`;
+    card2.style.transform = `scale3d(${newScale2},${newScale2},${newScale2}) rotate(${newRotation2}deg) translateX(${newTranslateX2}px)`;
+    card3.style.transform = `scale3d(${newScale3},${newScale3},${newScale3}) rotate(${newRotation3}deg) translateX(${newTranslateX3}px) translateY(${newTranslateY3}px)`;
+  } else {
+    card1.style.transform = "scale3d(1,1,1) rotate(0deg) translateX(0)";
+    card2.style.transform =
+      "rotate(10deg) scale3d(0.9, 0.9, 0.9) translateX(0)";
+    card3.style.transform = "scale3d(1,1,1) rotate(0deg) translateX(0)";
   }
 });
 
