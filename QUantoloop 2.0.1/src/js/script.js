@@ -1,95 +1,98 @@
 //canvas
-const canvas = document.getElementById("network");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById('network');
+        const ctx = canvas.getContext('2d');
 
-let width = (canvas.width = window.innerWidth);
-let height = (canvas.height = window.innerHeight);
-const mouse = { x: width / 2, y: height / 2 };
-const points = [];
-const numPoints = 100;
-const pointRadius = 3;
-const lineDistance = 150;
+        let width = canvas.width = window.innerWidth * 2;
+        let height = canvas.height = window.innerHeight * 2;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        ctx.scale(2, 2);
 
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.vx = (Math.random() - 0.5) * 0.5;
-    this.vy = (Math.random() - 0.5) * 0.5;
-  }
+        const mouse = { x: width / 2, y: height / 2 };
+        const points = [];
+        const numPoints = 200;  // Reduced number of points
+        const pointRadius = 3;
+        const lineDistance = 200;
 
-  update() {
-    this.x += this.vx;
-    this.y += this.vy;
+        class Point {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 0.7;  // Reduced speed
+                this.vy = (Math.random() - 0.5) * 0.7;  // Reduced speed
+            }
 
-    if (this.x < 0 || this.x > width) this.vx *= -1;
-    if (this.y < 0 || this.y > height) this.vy *= -1;
-  }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
 
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, pointRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "#202e51";
-    ctx.fill();
-  }
-}
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
 
-function createPoints() {
-  for (let i = 0; i < numPoints; i++) {
-    points.push(new Point(Math.random() * width, Math.random() * height));
-  }
-}
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x / 2, this.y / 2, pointRadius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 128, 255, 0.8)';
+                ctx.fill();
+            }
+        }
 
-function drawLines() {
-  for (let i = 0; i < points.length; i++) {
-    for (let j = i + 1; j < points.length; j++) {
-      const dist = Math.hypot(
-        points[i].x - points[j].x,
-        points[i].y - points[j].y
-      );
-      if (dist < lineDistance) {
-        const alpha = 1 - dist / lineDistance;
-        ctx.strokeStyle = `rgba(32,46,81, ${alpha})`;
-        ctx.beginPath();
-        ctx.moveTo(points[i].x, points[i].y);
-        ctx.lineTo(points[j].x, points[j].y);
-        ctx.stroke();
-      }
-    }
-  }
-}
+        function createPoints() {
+            for (let i = 0; i < numPoints; i++) {
+                points.push(new Point(Math.random() * width, Math.random() * height));
+            }
+        }
 
-function animate() {
-  ctx.clearRect(0, 0, width, height);
+        function drawLines() {
+            for (let i = 0; i < points.length; i++) {
+                for (let j = i + 1; j < points.length; j++) {
+                    const dist = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
+                    const alpha = 1 - dist / lineDistance;
+                    ctx.strokeStyle = `rgba(0, 128, 255, ${alpha})`;
+                    ctx.lineWidth = 0.3;
+                    ctx.beginPath();
+                    ctx.moveTo(points[i].x / 2, points[i].y / 2);
+                    ctx.lineTo(points[j].x / 2, points[j].y / 2);
+                    ctx.stroke();
+                }
+            }
+        }
 
-  points.forEach((point) => {
-    point.update();
-    point.draw();
-  });
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
 
-  drawLines();
-  requestAnimationFrame(animate);
-}
+            points.forEach(point => {
+                point.update();
+                point.draw();
+            });
 
-canvas.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-  points.forEach((point) => {
-    const dist = Math.hypot(point.x - mouse.x, point.y - mouse.y);
-    if (dist < 100) {
-      point.vx += (mouse.x - point.x) * 0.001;
-      point.vy += (mouse.y - point.y) * 0.001;
-    }
-  });
-});
+            drawLines();
+            requestAnimationFrame(animate);
+        }
 
-window.addEventListener("resize", () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-});
+        canvas.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX * 2;
+            mouse.y = e.clientY * 2;
+            points.forEach(point => {
+                const dist = Math.hypot(point.x - mouse.x, point.y - mouse.y);
+                if (dist < 100) {
+                    point.vx += (mouse.x - point.x) * 0.008;  // Reduced interaction
+                    point.vy += (mouse.y - point.y) * 0.008;  // Reduced interaction
+                }
+            });
+        });
 
-createPoints();
-animate();
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth * 2;
+            height = canvas.height = window.innerHeight * 2;
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+            ctx.scale(2, 2);
+        });
+
+        createPoints();
+        animate();
 //end canvas
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -116,8 +119,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
         cards.forEach((card) => {
-          let offset = (bounding.top - scrollTop) * 0.3;
-          card.style.transform = `translateY(${offset}px)`;
+          let offset = (bounding.top - scrollTop/100);
+          card.style.transform = `translateY(${offset - 120}px)`;
+          // console.log(offset)
         });
       }
     } else {
@@ -348,8 +352,8 @@ window.addEventListener("scroll", function () {
   let bounding = element.getBoundingClientRect();
   let windowHeight = window.innerHeight;
 
-  if (bounding.top <= windowHeight / 2) {
-    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 2)) *5,
+  if (bounding.top <= windowHeight / 4) {
+    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 2)) *3,
       1 
     );
 
@@ -387,7 +391,7 @@ window.addEventListener("scroll", function () {
     if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
       let percentScrolled =
         (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
-      let newSize = 0.9 + percentScrolled * 0.1;
+      let newSize = 0.8 + percentScrolled * 0.2;
       element.style.transform = `scale(${newSize})`;
     } else if (
       bounding.top < middleOfViewport &&
@@ -397,7 +401,7 @@ window.addEventListener("scroll", function () {
     } else if (bounding.bottom <= middleOfViewport) {
       let percentScrolled =
         (middleOfViewport - bounding.bottom) / middleOfViewport;
-      let newSize = 1 - percentScrolled * 0.1;
+      let newSize = 1 - percentScrolled * 0.2;
       element.style.transform = `scale(${newSize})`;
     }
   } else {
@@ -420,201 +424,201 @@ document.addEventListener("DOMContentLoaded", function () {
   const linesData = [
     {
       angle: 0,
-      info: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita dignissimos cum suscipit eius. Alias cupiditate sunt corporis iste dolorum, amet reiciendis. Vero delectus ab velit cum consequuntur voluptatem incidunt esse?",
-      titel: "Titel 1",
-      titelS: "Titel 1",
+      info: "Klimabilanzen werden für Transport- und Logistikdienstleister immer wichtiger, da Kunden über CO2-Emissionen informiert werden möchten, um ihre eigene Umweltbilanz zu verbessern. Emissionen sind zunehmend ein Qualitätsmerkmal in der Logistikkette, und umweltfreundliche Produkte sollen möglichst emissionsarm transportiert werden. Eine wirksame Klimaschutzstrategie beginnt im eigenen Unternehmen mit Maßnahmen zur Vermeidung und Reduktion von Treibhausgasen sowie dem Einsatz erneuerbarer Energien. Darüber hinaus tragen auch Kompensationen zu einem umfassenden Klimaschutz bei. Digitale Zwillinge können zur Bewertung und Optimierung von Routen eingesetzt werden, und Risikomanagement in Bezug auf ESG (Environmental, Social, Governance) gewinnt an Bedeutung.",
+      titel: "Carbon Footprint",
+      titelS: "Social Responsibility & Green Logistics",
       zIndex: "5",
       textRot: "-90deg",
     },
     {
       angle: 12,
-      info: "Information 3",
-      titel: "Titel 1",
-      titelS: "Titel 1",
+      info: "In der Sharing Economy erhalten Verbraucher, ob Privatpersonen oder Organisationen, temporären Zugang zu Ressourcen, Services oder Fähigkeiten, die sonst ungenutzt blieben. Dies ermöglicht eine effizientere, wirtschaftlichere und umweltfreundlichere Nutzung von Ressourcen. Die Logistik spielt eine Schlüsselrolle beim Aufbau dieser neuen Ökonomie des Teilens, da neue digitale Plattformen und Geschäftsmodelle das Prinzip „Teilen statt Besitzen“ fördern. Diese Entwicklung bietet erhebliche Möglichkeiten für die Logistikindustrie, entlang der gesamten Wertschöpfungskette nachhaltige Verbesserungen zu erzielen. Zudem schafft die Sharing Economy neue Geschäftsmöglichkeiten und transformiert den Logistikbetrieb grundlegend. ",
+      titel: "Sharing Economy",
+      titelS: "Social Responsibility & Green Logistics",
       zIndex: "7",
       textRot: "-90deg",
     },
     {
       angle: 24,
-      info: "Information 4",
-      titel: "Titel 1",
-      titelS: "Titel 1",
+      info: "Die Circular Economy zielt darauf ab, Ressourcen durch Wiederverwendung, Recycling und innovative Lösungen effizient zu nutzen. Der Einsatz von RFID-Technologie minimiert Behälterschwund, indem er eine präzise Verfolgung und Verwaltung von Behältern ermöglicht. Nachhaltige Verpackungslösungen reduzieren Abfall und Umweltbelastungen. Maschinelles Lernen (ML) optimiert die Packung von Paletten, wodurch der Platz effizienter genutzt und Transportkosten gesenkt werden. Diese Ansätze fördern eine nachhaltigere und ressourcenschonende Wirtschaft.",
+      titel: "Circular Economy",
+      titelS: "Social Responsibility & Green Logistics",
       zIndex: "7",
       textRot: "-90deg",
     },
     {
       angle: 48,
-      info: "Information 5",
-      titel: "Titel 2",
-      titelS: "Titel 1",
+      info: "Business Intelligence (BI) zielt darauf ab, das Berichtswesen durch die Nutzung von IT-generierten Daten zu standardisieren und zu optimieren. Anstatt diese Analysen direkt in ERP-Systemen durchzuführen, werden sie in einem separaten Data Warehouse (DWH) abgewickelt. Der Low Code-Ansatz ermöglicht es, BI-Prozesse effizienter zu gestalten, indem er die Entwicklung und Integration von Anwendungen erleichtert und beschleunigt. Dadurch können Unternehmen schnell und flexibel auf Daten zugreifen, um fundierte Entscheidungen zu treffen, die das gesamte Unternehmen oder einzelne Geschäftsbereiche betreffen. Mit straffen Prozessen, standardisierten Reports und vollständiger Datenintegration sorgt BI für aktuelle, verlässliche und nachvollziehbare Daten, was die Transparenz und Steuerbarkeit aller Geschäftsprozesse erheblich verbessert. ",
+      titel: "Business Intelligence",
+      titelS: "Resilienz",
       zIndex: "1",
       textRot: "-90deg",
     },
     {
       angle: 60,
-      info: "Information 6",
-      titel: "Titel 2",
-      titelS: "Titel 1",
+      info: "Mit dem Fortschritt der Digitalisierung werden Ladungsträger und Transportverpackungen zunehmend intelligenter. Sie entwickeln sich von einfachen Transportbehältern zu cyber-physischen Objekten, die mit übergeordneten IT-Systemen kommunizieren. An Kisten oder Paletten angebrachte Sensoren erfassen Daten wie Temperatur, Feuchtigkeit, Erschütterungen, Standort und entnommene Produktmengen und übermitteln diese in Echtzeit an Anwendungen auf Computern, Tablets oder Smartphones. RFID- und NFC-Chips gewährleisten einen effektiven Schutz vor Fälschung und Diebstahl. Diese intelligenten Container und Paletten verbessern die Transparenz und Effizienz in der Lieferkette erheblich, indem sie eine präzise Überwachung und Steuerung ermöglichen.",
+      titel: "Intelligent Container / Pallets",
+      titelS: "Resilienz",
       zIndex: "3",
       textRot: "-90deg",
     },
     {
       angle: 72,
-      info: "Information 7",
-      titel: "Titel 2",
-      titelS: "Titel 1",
+      info: "In der modernen Wirtschaft ist Transparenz entlang der Lieferketten entscheidend. Unternehmen müssen Herkunft, Qualität und Nachhaltigkeit ihrer Produkte offenlegen, um Vertrauen bei Verbrauchern und Regierungen zu gewinnen. Supply Chain Visibility bedeutet nicht nur die Verfolgung von Produkten, sondern auch den effektiven Informationsaustausch zwischen Partnern zur Risikominimierung und verbesserten Planung. Diese Entwicklung bietet Unternehmen nicht nur Schutz vor neuen Bedrohungen, sondern auch strategische Chancen zur Stärkung ihrer Marktstellung in einer globalisierten Welt. Der Schwerpunkt liegt auf den Track-and-Trace-Bedingungen, prädiktiven Prognosen, Nachfragedaten sowie einer verbesserten Übersicht über vor- und nachgelagerte Geschäftspartner.",
+      titel: "Supply Chain Visibility",
+      titelS: "Resilienz",
       zIndex: "5",
       textRot: "-90deg",
     },
     {
       angle: 84,
-      info: "Information 8",
-      titel: "Titel 2",
-      titelS: "Titel 1",
+      info: "Predictive Analytics nutzt historische und aktuelle Daten, um zukünftige Szenarien vorherzusagen und Handlungsempfehlungen zu geben. Diese Software basiert auf quantitativen und qualitativen Daten sowie fortschrittlichen Analyseverfahren, um den wahrscheinlichen zukünftigen Zustand eines Systems, wie z.B. Fabriken, Lager oder Lieferketten, zu simulieren. Das Ziel ist beispielsweise die effiziente Nutzung von Ressourcen wie Personal. Zukünftig wird Predictive Analytics auch verstärkt zur Vorhersage menschlichen Verhaltens genutzt, um automatisierte Entscheidungsprozesse vorzubereiten und zu unterstützen",
+      titel: "Predictive Analytics",
+      titelS: "Resilienz",
       zIndex: "7",
       textRot: "-90deg",
     },
     {
       angle: 96,
-      info: "Information 9",
-      titel: "Titel 2",
-      titelS: "Titel 1",
+      info: "Die Diversifizierung der Lieferketten umfasst die strategische Neuausrichtung, um das Netzwerk der Lieferanten zu erweitern und sowohl die Fertigungs- als auch die Vertriebskapazitäten zu stärken. Dieser Trend ist darauf ausgerichtet, die Belastbarkeit, Agilität, Reaktionsfähigkeit und Wettbewerbsfähigkeit eines Unternehmens zu erhöhen. Durch die Erweiterung des Lieferantenökosystems können Risiken diversifiziert und Engpässe minimiert werden, was essentiell ist für eine resiliente Lieferkette. Professionell gesteuerte Diversifizierungsstrategien ermöglichen es Unternehmen, flexibler auf Marktveränderungen zu reagieren und ihre globalen Lieferketten effektiver zu gestalten, um langfristig erfolgreich zu sein.",
+      titel: "Diversifizierung der Lieferketten",
+      titelS: "Resilienz",
       zIndex: "7",
       textRot: "-90deg",
     },
     {
       angle: 120,
-      info: "Information 10",
-      titel: "Titel 3",
-      titelS: "Titel 1",
+      info: "Machine Customers sind nicht-menschliche Wirtschaftsakteure, die eigenständig Waren oder Dienstleistungen gegen Bezahlung beziehen. Typische Beispiele hierfür sind IoT-verbundene Geräte oder Anlagen, die automatisch Bestellungen aufgeben, sowie intelligente Algorithmen für die Lagerhaltung und smarte Assistenten, die Verbrauchern gezielte Angebote unterbreiten. Diese Entwicklung zeigt, wie Technologie autonom Entscheidungen trifft und Transaktionen durchführt, was neue Möglichkeiten für effizientere Geschäftsprozesse und personalisierten Kundenservice eröffnet.",
+      titel: "Machine Customers / Smart Factory",
+      titelS: "Connected Logistics",
       zIndex: "1",
       textRot: "-90deg",
     },
     {
       angle: 132,
-      info: "Information 11",
-      titel: "Titel 3",
-      titelS: "Titel 1",
+      info: "Quantum Computing basiert auf den Prinzipien der Quantenmechanik und ermöglicht eine exponentielle Steigerung der Rechenleistung im Vergleich zu herkömmlichen digitalen Computern. Diese Technologie, etwa hundert Millionen Mal schneller, beschleunigt die Datenbank-Suche, ermöglicht komplexe Simulationen und birgt Potenzial zum Knacken heutiger Verschlüsselungstechnologien. Kommerzielles Quantencomputing kann zukünftig beispielsweise über Quanten-Clouds erreicht werden. Dies könnte eine neue Ära der Hypercomputing-Plattformen einläuten, bereitgestellt von großen IT-Unternehmen als Schlüssel zur Zukunft der Rechenleistung.",
+      titel: "Quantum Computing",
+      titelS: "Connected Logistics",
       zIndex: "3",
       textRot: "-90deg",
     },
     {
       angle: 144,
-      info: "Information 12",
-      titel: "Titel 3",
-      titelS: "Titel 1",
+      info: "Next-Generation Humanoid Working Robots vereinen sensorische Wahrnehmung mit mobiler Manipulation und dynamischer Fortbewegung, um komplexe Aufgaben auszuführen, die bisher menschlichen Arbeitern vorbehalten waren. Diese Roboter imitieren typischerweise den menschlichen Körper: Sie verfügen über einen kopfseitigen Sensor- und Kamerabereich zur Umgebungswahrnehmung, einen Körper für Energie und Mechanik, Arme mit Greifern zur Manipulation von Gegenständen sowie Beine für dynamische Bewegungen. Diese Technologie verspricht eine neue Ära in der Automatisierung und könnte wesentlich zur Effizienzsteigerung beispielsweise in der Kommissionierung beitragen.",
+      titel: "Next-Generation Humanoid Working Robots ",
+      titelS: "Connected Logistics",
       zIndex: "5",
       textRot: "-90deg",
     },
     {
       angle: 156,
-      info: "Information 13",
-      titel: "Titel 3",
-      titelS: "Titel 1",
+      info: "Automated Loading & Unloading, bekannt als ATLS (Automatic Truck Loading Systems), automatisiert das Be- und Entladen von LKWs durch Robotertechnik mit minimalem Bedieneraufwand. Dieses System optimiert das Handling von Paletten in Herstellungs- und Verteilungszentren entscheidend. Es minimiert Platzbedarf und Verladezeiten, was direkte Auswirkungen auf den Durchsatz und die Standzeiten der LKW hat. Konventionelle Flurförderzeuge und deren Fahrer werden durch dieses automatisierte Verfahren reduziert, was auch die Sicherheitsrisiken verringert. Die Entwicklung zielt darauf ab, das Palettenhandling an Verladerampen effizienter und sicherer zu gestalten.",
+      titel: "Automated Loading & Unloading ",
+      titelS: "Connected Logistics",
       zIndex: "7",
       textRot: "-90deg",
     },
     {
       angle: 168,
-      info: "Information 14",
-      titel: "Titel 3",
-      titelS: "Titel 1",
+      info: "Swarm Intelligence im Kontext des Internet of Things (IoT) nutzt Prinzipien aus der Natur, wie sie bei Insektenkolonien oder Schwärmen zu finden sind, um komplexe Probleme zu lösen. Die automatische Identifikation erfolgt überwiegends mittels RFID oder QR-Codes. Kleinste integrierbare Sensoren oder Machine-Sensing-Verfahren sorgen dafür, dass in Zukunft nahezu alle physischen Objekte miteinander in Verbindung stehen. Anwendungen reichen von der effizienten Logistik bis zur Überwachung großer Infrastrukturnetzwerke. Mit dem kommenden 5G-Standard wird die Echtzeitkommunikation und -steuerung dieser vernetzten Geräte weiter verbessert. So lassen sich zukünftig mehr als 200 Milliarden Geräte weltweit nicht nur vernetzen, sondern in Echtzeit steuern.",
+      titel: "Swarm Intelligence ",
+      titelS: "Connected Logistics",
       zIndex: "7",
       textRot: "-90deg",
     },
     {
       angle: 192,
-      info: "Information 15",
-      titel: "Titel 4",
-      titelS: "Titel 1",
+      info: "Ein digitaler Zwilling ist wie eine virtuelle Kopie eines physischen Objekts, die sein Verhalten in Echtzeit nachbildet. Durch ständige Updates passt er sich den Veränderungen der realen Welt an und ermöglicht präzise Vorhersagen auf Basis vergangener Daten. Diese Technologie optimiert nicht nur aktuelle Betriebsabläufe, sondern transformiert auch traditionelle Lieferketten, indem sie datengesteuerte Entscheidungen fördert und verbesserte Zusammenarbeit ermöglicht. Auf professioneller Ebene unterstützt der digitale Zwilling optimierte Geschäftsprozesse und die Entwicklung neuer Geschäftsmodelle, während er gleichzeitig zu einem tieferen Verständnis komplexer Systeme beiträgt.",
+      titel: "Digital Twin",
+      titelS: "Operational Excellence",
       zIndex: "1",
       textRot: "90deg",
     },
     {
       angle: 204,
-      info: "Information 16",
-      titel: "Titel 4",
-      titelS: "Titel 1",
+      info: "Bei Pick-by-X Systemen werden verschiedene manuelle (wie Pick-by-Voice, -Vision, -Light) und vollautomatische (Pick-by-Robot) Methoden eingesetzt, um Mitarbeiter intuitiv durch den Kommissionierprozess zu führen oder diesen durch Roboter ausführen zu lassen. Die Wahl der Methode hängt von Lagerstruktur, Branche und Temperaturbereich ab und bietet entsprechend unterschiedliche Vorteile. Häufig werden die Systeme parallel eingesetzt, um den spezifischen Anforderungen gerecht zu werden und Effizienzsteigerungen zu erzielen, indem sie die Kommissioniergeschwindigkeit und - genauigkeit verbessern.",
+      titel: "Pick-by-X",
+      titelS: "Operational Excellence",
       zIndex: "3",
       textRot: "90deg",
     },
     {
       angle: 216,
-      info: "Information 17",
-      titel: "Titel 4",
-      titelS: "Titel 1",
+      info: "Unbemannte Luftfahrzeuge (Drohnen) haben sich in den letzten zehn Jahren von einem ambitionierten Konzept zu einem Vorreiter der Logistikbranche entwickelt. Sie sind kleine, autonome Roboter, die entweder ferngesteuert oder autonom fliegen können. Trotz der Erwartungen und Zweifel, die sie wecken, bieten Drohnen das Potenzial, Gegenstände schnell zu transportieren, Lagerbestände zu überprüfen und schwer zugängliche Bereiche zu erkunden. Aktuell sind jedoch ihre Tragfähigkeit, Reichweite und Akkulaufzeit begrenzt. Wenn sich die Technologie weiterentwickelt, könnten Drohnen die Lieferkettenprozesse revolutionieren und ein neues Zeitalter der Logistik einläuten.",
+      titel: "Unmanned Aerial Vehicles",
+      titelS: "Operational Excellence",
       zIndex: "5",
       textRot: "90deg",
     },
     {
       angle: 228,
-      info: "Information 18",
-      titel: "Titel 4",
-      titelS: "Titel 1",
+      info: "Autonome Fahrzeuge und Lastwagen werden in den kommenden Jahren die Mobilität revolutionieren. Ausgestattet mit fortschrittlichen Radar-, Lidar- und Kamerasystemen erfassen sie ihre Umgebung präziser als menschliche Fahrer. Diese Technologien stärken auch autonome Drohnen und könnten ihren wirtschaftlichen Durchbruch ermöglichen. Künstliche Intelligenz spielt hierbei eine entscheidende Rolle, indem sie den Fahrzeugen durch ein umfangreiches Training basierend auf Bildmaterialdaten, die nötige Entscheidungsfähigkeit verleiht. Das Ziel ist, Maschinen eine eigene Vorstellungskraft zu geben, um auf unvorhergesehene Ereignisse reagieren zu können. Letztlich müssen autonome Fahrzeuge und Flugzeuge ihre Überlegenheit in jeder Hinsicht gegenüber menschlichen Fahrern beweisen, um gesellschaftlich akzeptiert zu werden.",
+      titel: "Autonomous Driving",
+      titelS: "Operational Excellence",
       zIndex: "7",
       textRot: "90deg",
     },
     {
       angle: 240,
-      info: "Information 19",
-      titel: "Titel 4",
-      titelS: "Titel 1",
+      info: "Digital-Marketplace Plattformen koordinieren Angebot und Nachfrage von Logistikdienstleistungen über Plattformen, was zu niedrigeren Kosten und höherer Anlagenauslastung führt. Die Datenaggregation diverser vernetzter Sensoren im Lager und an den Verkehrsträgern minimiert Ineffizienzen in aktuellen Lieferketten und ermöglicht eine intelligente Logistikinfrastruktur. Diese Entwicklung gleicht einem biologischen Nervensystem, das den Materialfluss intelligent steigert und Erfahrungen für optimierte Produkte und Dienstleistungen zurückführt.",
+      titel: "Digital Marketplace Platform",
+      titelS: "Operational Excellence",
       zIndex: "7",
       textRot: "90deg",
     },
     {
       angle: 264,
-      info: "Information 20",
-      titel: "Titel 5",
-      titelS: "Titel 1",
+      info: "Die Blockchain-Technologie bietet eine sichere Alternative zu zentralisierten Datenbanksystemen, indem sie Transaktionen wie Warenbewegungen entlang einer Lieferkette in verschlüsselten Blöcken speichert. Diese dezentrale Struktur macht sie manipulationssicher, da mehrere Teilnehmer die Blöcke verifizieren. Das Vertrauen in die Technologie reduziert die Notwendigkeit für Intermediäre wie Banken oder staatliche Institutionen erheblich. Besonders bedeutend sind Smart Contracts, digitale Anwendungen auf der Blockchain, die Vertragsbedingungen abbilden und automatisch Transaktionen auslösen können. In der Logistik können Smart Contracts Zahlungen initiieren und Leasingverträge überwachen, was zu effizienteren und transparenteren Geschäftsprozessen führt.",
+      titel: "Blockchain",
+      titelS: "Cybersecurity",
       zIndex: "1",
       textRot: "90deg",
     },
     {
       angle: 276,
-      info: "Information 21",
-      titel: "Titel 5",
-      titelS: "Titel 1",
+      info: "Der Zero-Trust-Ansatz fordert Unternehmen heraus, traditionelle Sicherheitsmodelle zu überdenken, indem er betont, dass Vertrauen weder innerhalb noch außerhalb von Unternehmensnetzwerken selbstverständlich ist. In einer Zeit, geprägt von zunehmender Geschäftskomplexität und digitaler Transformation, wird Zero Trust zu einem essentiellen Element moderner Sicherheitsstrategien. Durch strikte Zugangskontrollen und kontinuierliche Überwachung können Unternehmen potenzielle Sicherheitsbedrohungen frühzeitig erkennen und abwehren. Dies ermöglicht es, sensible Daten und Netzwerke effektiv zu schützen, während sie gleichzeitig die Flexibilität und Agilität ihrer Geschäftsprozesse bewahren.",
+      titel: "Zero-Trust-Ansatz",
+      titelS: "Cybersecurity",
       zIndex: "3",
       textRot: "90deg",
     },
     {
       angle: 288,
-      info: "Information 22",
-      titel: "Titel 5",
-      titelS: "Titel 1",
+      info: "Fuzz-Tests haben sich zu einem bedeutenden Trend in der Test- und Sicherheitslandschaft entwickelt, indem sie automatisiert ungültige oder unerwartete Eingaben in ein System einführen, um potenzielle Softwarefehler und Schwachstellen aufzudecken. Diese Methode wird zunehmend von Unternehmen übernommen, wie Forrester berichtet, wobei 65% der Sicherheitsentscheidungsträger bereits Fuzz-Tests einsetzen und weitere 16% deren Implementierung planen. Technologiegiganten wie Microsoft und Google haben diese Technologie frühzeitig eingesetzt, um ihre Systeme zu testen.",
+      titel: "Fuzz-Tests",
+      titelS: "Cybersecurity",
       zIndex: "5",
       textRot: "90deg",
     },
     {
       angle: 300,
-      info: "Information 23",
-      titel: "Titel 5",
-      titelS: "Titel 1",
+      info: "Web3 repräsentiert eine neue Ära des Internets, basierend auf Blockchain-Technologie, die Dezentralisierung und eine tokenbasierte Wirtschaft fördert. Im Gegensatz zur zentralisierten Kontrolle durch große Technologieunternehmen wird das Eigentum auf Ersteller und Nutzer verteilt, wobei allen ein gleichberechtigter Zugang gewährt wird. Transaktionen und Zahlungen erfolgen über Kryptowährungen, unabhängig von traditionellen Banken und Zahlungsdienstleistern, was eine neue, berechtigungsfreie Infrastruktur schafft. Diese Entwicklung verspricht eine revolutionäre Umgestaltung der Internetlandschaft, indem sie die Kontrolle über Daten und Transaktionen direkt in die Hände der Nutzer legt und traditionelle Vermittler überflüssig macht.",
+      titel: "Web3",
+      titelS: "Cybersecurity",
       zIndex: "7",
       textRot: "90deg",
     },
     {
       angle: 312,
-      info: "Information 24",
-      titel: "Titel 5",
-      titelS: "Titel 1",
+      info: "GenAI (Generative Artificial Intelligence) zeigt großes Potenzial, um die Cybersicherheit zu stärken, insbesondere durch innovative Anwendungen wie die Überprüfung von Lieferanten in der Logistik. Diese Technologie verspricht nicht nur Produktivitätssteigerungen und die Schließung von Qualifikationslücken, sondern auch eine verbesserte Sicherheit durch präzisere und automatisierte Prüfungen. Sicherheitsverantwortliche können durch den Einsatz von GenAI effizienter auf potenzielle Bedrohungen reagieren und gleichzeitig die Compliance und Sicherheitsstandards in komplexen Lieferkettenumgebungen erhöhen.",
+      titel: "GenAI",
+      titelS: "Cybersecurity",
       zIndex: "7",
       textRot: "90deg",
     },
     {
       angle: 336,
-      info: "Information 25",
-      titel: "Titel 1",
-      titelS: "Titel 1",
+      info: "Die steigende weltweite Gesetzgebung im Bereich der Nachhaltigkeit zwingt Unternehmen, von freiwilligen zu verpflichtenden Maßnahmen überzugehen. Gesetze wie das deutsche Lieferkettensorgfaltspflichtengesetz (LkSG) verlangen präzise Nachhaltigkeitsdaten entlang der gesamten Lieferkette, um Menschenrechte und Umweltstandards zu gewährleisten. Unternehmen müssen diese Daten auf ein Investitionsniveau anheben, um sowohl gesetzliche Anforderungen als auch die Erwartungen der Interessengruppen zu erfüllen und interne Entscheidungen zu unterstützen. Nachhaltige Lieferketten bieten zudem Vorteile wie Rechtskonformität, verbessertes Unternehmensimage, Wettbewerbsvorteile und effektiveres Risikomanagement. Eine end-to-end nachhaltige Lieferkette ist somit unerlässlich für langfristigen wirtschaftlichen Erfolg und gesellschaftliche Verantwortung.",
+      titel: "End-to-end Sustainable Supply Chains",
+      titelS: "Social Responsibility & Green Logistics",
       zIndex: "1",
       textRot: "90deg",
     },
     {
       angle: 348,
-      info: "Information 1",
-      titel: "Titel 1",
-      titelS: "Titel 1",
+      info: "Das Smart Grid wird traditionelle Stromnetze ersetzen, die bisher auf die konstante Stromversorgung aus zentralen Kraftwerken ausgerichtet waren. Mit dem Aufstieg der erneuerbaren Energien, wie Wind- und Solarkraft, die dezentral und ungleichmäßig Strom erzeugen, wird eine dynamische Netzsteuerung notwendig. Ehemalige Stromverbraucher werden zu Prosumern, die selbst erzeugte Energie ins Netz einspeisen. Intelligente Netze müssen daher die Erzeugung, den Verbrauch und die Speicherung von Energie in Echtzeit steuern. So könnten beispielsweise Elektroautos als Speicher für Haushaltsstrom dienen, was zur Stabilität des gesamten Systems beiträgt.",
+      titel: "Smart Grid",
+      titelS: "Social Responsibility & Green Logistics",
       zIndex: "3",
       textRot: "90deg",
     },
@@ -652,8 +656,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         radar.style.transform = `rotate(${currentRotation}deg)`;
         radar.style.transition = "all 0.5s ease";
-        popUpTitleS.textContent = line.titel;
-        popUpTitleL.textContent = line.titelS;
+        popUpTitleS.textContent = line.titelS;
+        popUpTitleL.textContent = line.titel;
         popUpText.textContent = line.info;
 
         updateAllLineClasses();
