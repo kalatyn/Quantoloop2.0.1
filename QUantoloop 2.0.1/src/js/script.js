@@ -12,7 +12,7 @@ const canvas = document.getElementById('network');
         const points = [];
         const numPoints = 200;  // Reduced number of points
         const pointRadius = 3;
-        const lineDistance = 200;
+        const lineDistance = 200; 
 
         class Point {
             constructor(x, y) {
@@ -150,6 +150,28 @@ function scrollright() {
     scrollSection.scrollWidth - scrollSection.clientWidth
   );
   scrollSection.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth",
+  });
+}
+let scrollSection2 = document.querySelector(".software_cards");
+function scrollleft2() {
+  let scrollAmount = Math.max(
+    scrollSection2.scrollLeft - getElementWidthWithMargin(),
+    0
+  );
+  scrollSection2.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth",
+  });
+}
+
+function scrollright2() {
+  let scrollAmount = Math.min(
+    scrollSection2.scrollLeft + getElementWidthWithMargin(),
+    scrollSection2.scrollWidth - scrollSection.clientWidth
+  );
+  scrollSection2.scrollTo({
     left: scrollAmount,
     behavior: "smooth",
   });
@@ -353,7 +375,7 @@ window.addEventListener("scroll", function () {
   let windowHeight = window.innerHeight;
 
   if (bounding.top <= windowHeight / 4) {
-    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 2)) *3,
+    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 3)) *1,
       1 
     );
 
@@ -836,4 +858,39 @@ window.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector('.latern');
+  
+  container.addEventListener('mousemove', function (event) {
+    const rect = container.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const radius = 200;
+    
+    container.style.background = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent, #000000be)`;
+
+    container.addEventListener('mouseleave', function () {
+      container.style.background = '';
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function(){
+  const buttons = document.querySelectorAll('.openForm');
+  const contactForm = document.querySelector('.contact_form');
+  const closeBtn = document.querySelector('.exit__contact');
+
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function(){
+      contactForm.classList.add('visible');
+      document.body.classList.add('scroll-lock');
+    });
+  });
+
+  closeBtn.addEventListener('click', function(){
+    contactForm.classList.remove('visible');
+    document.body.classList.remove('scroll-lock');
+  });
 });

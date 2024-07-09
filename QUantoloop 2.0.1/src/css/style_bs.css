@@ -484,7 +484,7 @@ table {
 /* _________________________ */
 body {
   font-family: "Helvatica-light", sans-serif;
-
+  cursor:default;
   box-sizing: border-box;
   scroll-snap-type: y mandatory;
   transition: all 0.7s ease 0s;
@@ -604,7 +604,7 @@ body {
   font-size: calc(0.5vw + 0.5vh);
 }
 .inter_card img {
-  height: 3vw;
+  height: 30%;
   color: black;
 }
 .inter_card h3 {
@@ -720,7 +720,7 @@ canvas{
   .growth_item {
     width: 350px !important;
   }
-  .software_cards {
+  /* .software_cards {
     min-width: 800px !important;
   }
   .software_card {
@@ -738,7 +738,7 @@ canvas{
   }
   .software_info h2 {
     font-size: 3rem !important;
-  }
+  } */
   .radar_titel {
     font-size: 1.3rem !important;
   }
@@ -826,7 +826,7 @@ canvas{
     font-size: 0.8rem !important;
   }
 
-  .software_cards {
+  /* .software_cards {
     width: 100%;
     min-width: 700px !important;
   }
@@ -854,7 +854,7 @@ canvas{
     & h2 {
       font-size: 2.5rem !important;
     }
-  }
+  } */
   .laptop_info {
     font-size: 30px !important;
   }
@@ -1045,8 +1045,10 @@ canvas{
   .line::before {
     font-size: 1.3rem !important;
   }
-
-  .software_cards {
+  .software_card{
+    transform: scale(0.9) !important;
+  }
+  /* .software_cards {
     width: 100%;
     min-width: 550px !important;
   }
@@ -1075,7 +1077,7 @@ canvas{
       font-size: 1.8rem !important;
       text-align: center !important;
     }
-  }
+  } */
   .laptop_info {
     font-size: 25px !important;
   }
@@ -1320,7 +1322,7 @@ canvas{
     top: -2rem !important;
   }
   .software_info {
-    height: auto !important;
+    
     align-items: center !important;
     padding: 30px 10px !important;
   }
@@ -1334,15 +1336,16 @@ canvas{
   .software_cards {
     width: 100% !important;
     min-width: 300px !important;
-    height: 550px !important;
+    height: 1100px !important;
   }
   .software_card {
-    height: 150px !important;
+    transform: scale(0.7) !important;
+    /* height: 150px !important;
     min-width: 350px !important;
     padding: 1rem 2rem !important;
-    justify-content: space-around !important;
+    justify-content: space-around !important; */
 
-    & img {
+    /* & img {
       width: 10% !important;
       height: 25% !important;
       margin-bottom: 0px !important;
@@ -1354,15 +1357,15 @@ canvas{
     & p {
       font-size: 0.9rem !important;
       line-height: 0.9rem !important;
-    }
+    } */
   }
-  .software_info {
+  /* .software_info {
     width: 100vw !important;
     & h2 {
       font-size: 2rem !important;
       text-align: center !important;
     }
-  }
+  } */
   #form {
     width: 80vw !important;
   }
@@ -2004,8 +2007,8 @@ canvas{
   white-space: nowrap;
 }
 .icr_card{
-  width: 426px;
-  height: 500px;
+  height: 70%;
+  aspect-ratio: 10 /13;
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -2014,15 +2017,27 @@ canvas{
   flex: 0 0 auto;
   /* transition: all 0.5s ease;
   transform: rotate(-10deg) scale3d(0.8, 0.8, 0.8); */
-  
+  padding: 5%;
 
+  & img{
+    height: 25%;
+  }
+  & h2{
+    font-size: 5rem;
+    margin-top: 20%
+  }
+  & p{
+    font-size: 1.5rem;
+    margin-top: 20%;
+    text-wrap: wrap;
+  }
 }
 #icr_card2{
   transition: all 0.2s ease;
   transform: rotate(10deg) scale3d(0.9, 0.9, 0.9);
 }
 #icr_card3{
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
 }
 
 .radar__area {
@@ -2050,7 +2065,7 @@ canvas{
   font-weight: 600;
 }
 .radar_border {
-  height: 90%;
+  height: 98%;
   width: 90%;
   position: relative;
 
@@ -2159,13 +2174,13 @@ canvas{
   z-index: 1;
   &::before {
     content: attr(data-titel);
-    width: 100px;
+    width: 150px;
     position: absolute;
     font-size: 0.9rem;
     font-weight: 400;
     text-align: center;
-    top: -5rem;
-    left: -50px;
+    top: -6rem;
+    left: -75px;
     cursor: pointer;
     transform: rotate(-90deg);
   }
@@ -2308,24 +2323,24 @@ canvas{
   margin-left: 5%;
 }
 .software_info {
-  height: 50vh;
-  min-height: 550px;
+  
+  min-height: 500px;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   overflow: hidden;
-  
+  position: relative;
   
 }
 .software_cards {
   width: 100%;
-  height: 550px;
+  height: 500px;
   display: flex;
+  position: relative;
   align-items: center;
   overflow-x: hidden;
-  position: relative;
   margin: 0;
   padding: 0 5%;
   overflow-x: scroll;
@@ -2339,6 +2354,7 @@ canvas{
   flex-direction: column;
   align-items: start;
   justify-content: space-around;
+  position: relative;
   height: 320px;
   min-width: 530px;
   margin-right: 3vh;
@@ -2346,6 +2362,7 @@ canvas{
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: normal;
   & img {
     width: 4rem;
     margin-bottom: 1rem;
@@ -2361,26 +2378,68 @@ canvas{
     line-height: 1.5rem;
   }
 }
+
 #contact_us {
-  width: 100vw;
-  height: 100vh;
+  width: 90vw;
+  height: 400px;
+  background-color: #000;
+  margin: 0 auto;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  & h4 {
-    margin-bottom: 1rem;
-    font-size: 1rem;
+  padding: 0 3rem;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 200px;
+  
+  & h3 {
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
   }
   & h2 {
-    margin-bottom: 3rem;
-    font-size: 3rem;
-    text-align: center;
-  }
-  & h3 {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 3rem;
     margin-bottom: 3rem;
+    color: white;
+  }
+  
+}
+.latern{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #000000be;
+  &:hover{
+    background-color: #00000000;
+  }
+}
+
+.contactBtn{
+  width: 200px;
+  height: 70px;
+  padding: 0 1rem;
+  border-radius: 300px;
+  border: none;
+  background-color: var(--light-blue);
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  & img{
+    width: 30px;
+  }
+  &:hover{
+    background-color: var(--light-blue);
   }
 }
 .laptop_titelM {
@@ -2417,43 +2476,121 @@ canvas{
   top: 0;
   max-width: 90vw;
 }
+.contact_form {
+  position: fixed;
+  top: 0;
+  Left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000000;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  visibility: hidden;
+}
+.contact_form.visible {
+  visibility: visible;
+}
 #form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  width: 50vw;
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  & label {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+  align-items: center;
+  width: 700px;
+  height: 550px;
+  background-color: #fbfbfb;
+  border-radius: 20px;
+  padding: 3% 5%;
+  & i {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: scale 0.7s ease;
+    color: #5598c8af;
+    cursor: pointer;
   }
-  & input {
-    width: 100%;
-    height: 2rem;
-    margin-bottom: 2rem;
-    border: 1px solid #6baffc;
-    border-radius: 5px;
-    padding-left: 1rem;
-  }
-  & textarea {
-    width: 100%;
-    height: 10rem;
+  & h2 {
+    font-size: 3rem;
+    font-weight: 400;
     margin-bottom: 1rem;
-    border: 1px solid #6baffc;
-    border-radius: 5px;
-    padding-left: 1rem;
+    color: var(--dark-blue);
   }
-
-  & button {
-    width: 100%;
-    height: 2rem;
-    border: 1px solid #6baffc;
-    border-radius: 5px;
-    background-color: #6baffc;
-    color: white;
-    font-size: 1rem;
+  & h3 {
+    margin-bottom: 3rem;
+    color: var(--dark-blue);
+  }
+  
+}
+#formular{
+  width: 100%;
+}
+.input{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  & label{
+    margin-bottom: .5rem;
+    color: var(--dark-blue);
+  }
+  & input{
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
 }
+.inputs_wrapper {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  
+}
+.input_message{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 2%;
+  & label{
+    margin-bottom: .5rem;
+    color: var(--dark-blue);
+  }
+  & textarea{
+    padding: 0.5rem;
+    border: none;
+    resize: none;
+    height: 70%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  & button{
+    position: absolute;
+    height: 40px;
+    width: 90px;
+    bottom: -10%;
+    right: 2%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--dark-blue);
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+    &:hover{
+      
+      transform: scale(1.1);
+    } 
+  }
+}
+
 
 .impressum {
   width: 100vw;

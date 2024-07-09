@@ -23,8 +23,7 @@
         <a class="nav-link navbar-brand_mini" style="padding-top: 0px" href="#"
           ><img src="icons/QL-Logo-Farbe.svg" alt=""
         /></a>
-        <a href="mailto:office@quantoloop.com"
-          ><i class="bi bi-envelope mail_us_mini"></i
+        <i class="bi bi-envelope mail_us_mini .contactBtn"></i
         ></a>
         <button
           class="navbar-toggler ms-auto collapsed"
@@ -80,10 +79,8 @@
             <!-- <li class="nav-item">
               <a class="nav-link nav-link-last" href="#contact_us">Kontakt</a>
             </li> -->
-            <li class="nav-item">
-              <a href="mailto:office@quantoloop.com"
-                ><img class="mail_us" src="icons/user.svg" alt="mail_us"
-              /></a>
+            <li class="nav-item openForm " style="color: var(--light-blue);">
+              Contact us
             </li>
           </ul>
         </div>
@@ -807,9 +804,24 @@
               </button>
             </div>
             <div class="interactive_container_right">
-              <div class="icr_card" id="icr_card1"></div>
-              <div class="icr_card" id="icr_card2"></div>
-              <div class="icr_card" id="icr_card3"></div>
+              <div class="icr_card" id="icr_card1">
+                <img src="icons/arrow-top-right-o.svg" alt="">
+                <h2>40%</h2>
+                <p>Steigerung der Produktivität wird KI bis 2035 erreichen.</p>
+              </div>
+              <div class="icr_card" id="icr_card2">
+                <img src="icons/arrow-top-right-o.svg" alt="">
+                <h2>80%</h2>
+                <p>
+                  der Lieferkette wird derzeit in digitalen Entscheidungsmodellen nicht
+                  berücksichtigt.
+                </p>
+              </div>
+              <div class="icr_card" id="icr_card3">
+                <img src="icons/arrow-top-right-o.svg" alt="">
+                <h2>40%</h2>
+                <p>haben bisher keine Strategie für Lieferkettenunterbrechungen.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -848,7 +860,7 @@
           <h3 class="software_card_title">Sensorbasierte Wareneingangsprüfung</h3>
           <p class="software_card_text">
             Eine sensorbasierte Innenbehälterprüfung soll Inventurdifferenzen vermeiden und ein höheres Qualitätsverspre-
-chen sicherstellen.
+            chen sicherstellen.
           </p>
         </div>
         <div class="software_card">
@@ -856,7 +868,7 @@ chen sicherstellen.
           <h3 class="software_card_title">Lieferkettensorgfaltspflichtengesetz</h3>
           <p class="software_card_text">
             Eine KI-basierte Risikoprüfung soll kontinuierlich Lieferantenrisiken analysieren, um frühzeitig Präventionsmaß-
-nahmen einzuleiten.
+            nahmen einzuleiten.
           </p>
         </div>
         <div class="software_card">
@@ -864,14 +876,25 @@ nahmen einzuleiten.
           <h3 class="software_card_title">Logistik-Hubs</h3>
           <p class="software_card_text">
             Ein neuronales Netzwerk soll basierend auf Transport- & Marktdaten Logistik-Hubs identifizieren, um langfristig
-Lieferzeit signifikant zu verkürzen.
+              Lieferzeit signifikant zu verkürzen.
           </p>
         </div>
+        
       </div>
+      <div class="scroll__buttons">
+          <span class="arrow scroll__button" onclick="scrollleft2()"
+            ><i class="bi bi-chevron-left type-bold"></i
+          ></span>
+          <span class="arrow scroll__button" onclick="scrollright2()"
+            ><i class="bi bi-chevron-right"></i
+          ></span>
+        </div>
     </div>
+    
     <h2 class="laptop_titelM">Digital Marketplace Plattform</h2>
+    
     <h2 class="laptop_titel">
-      Öffne deinen Vertriebskanal, um deine Betriebseffizienz zu steigern.
+      Öffne deinen Vertriebskanal, <br> um deine Betriebseffizienz zu steigern.
     </h2>
     <div class="laptop_area" id="laptop_area">
       <div class="laptop">
@@ -885,24 +908,48 @@ Lieferzeit signifikant zu verkürzen.
       </div>
     </div>
     <div id="contact_us">
-      <h4>Danke, dass Sie uns begleiten.</h4>
-      <h2>Willkommen bei Quantoloop!</h2>
-      <h3>Kontaktieren Sie uns gerne heute noch.</h3>
-
-      <form id="form" action="/">
-        <label for="name">Ihre Name</label>
-        <input required type="text" name="name" placeholder="Ihr Name" />
-        <label for="email">Ihre Email</label>
-        <input required type="email" placeholder="Ihre Email" />
-        <label for="message">Ihre Nachricht</label>
-        <textarea
-          required
-          name="message"
-          id="message"
-          placeholder="Ihre Nachricht"
-        ></textarea>
-        <button type="submit">Senden</button>
+      <div class="latern"></div>
+      <h2>Start building today!</h2>
+      <h3>Lass uns gemeinsam Licht ins Dunkle bringen! Dabei schauen wir uns in einem unverbindlichem Erstgespräch eure
+        individuelle Situation an und identifizieren gemeinsam die richtigen Maßnahmen.</h2>
+      <h3>Wir freuen uns von dir zu hören!</h3>
+      <div class="contactBtn openForm">
+        <div>Get in touch</div> 
+        <img src="icons/arrow-right.svg" alt="">
+      </div>
+    </div>
+    <div class="contact_form">
+      <div id="form">
+        <h2>Contact us!</h2>
+        <h3>Wir freuen uns von dir zu hören :)</h3>
+        <i class="bi bi-x-circle-fill exit__contact"></i>
+        <form id="formular" action="/">
+          <div class="inputs_wrapper">
+            <div class="input_name input">
+              <label for="name">Name</label>
+          <input required type="text" name="name" placeholder="Ihr Name" />
+            </div>
+            
+            <div class="input_email input">
+              <label for="email">Email Address</label>
+            <input required type="email" placeholder="Ihre Email" />
+            </div>
+            
+          </div>
+          <div class="input_message">
+            <label for="message">Message</label>
+          <textarea
+            required
+            name="message"
+            id="message"
+            placeholder="Your message"
+          ></textarea>
+          <button type="submit">Send</button>
+          </div>
+          
       </form>
+      </div>
+
     </div>
     <footer>
       <a href="#">© Quantoloop 2024</a>
