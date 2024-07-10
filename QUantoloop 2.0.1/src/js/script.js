@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const img = document.querySelector("#growth_img");
     img.style.opacity = 0;
     setTimeout(() => {
-      img.setAttribute("src", `img/useCase-${newIndex}.png`);
+      img.setAttribute("src", `img/Unser_Ansatz/${newIndex}.jpg`);
       img.style.opacity = 1;
     }, 100);
 
@@ -420,15 +420,31 @@ window.addEventListener("scroll", function () {
       bounding.bottom > middleOfViewport
     ) {
       element.style.transform = `scale(1)`;
-    } else if (bounding.bottom <= middleOfViewport) {
+    } 
+  } 
+});
+
+window.addEventListener("scroll", function () {
+  let element = document.querySelector(".interactive_container");
+  let bounding = element.getBoundingClientRect();
+  let viewportHeight =
+    window.innerHeight || document.documentElement.clientHeight;
+
+  let middleOfViewport = viewportHeight / 2;
+
+  if (bounding.top < viewportHeight && bounding.bottom > 0) {
+    if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
       let percentScrolled =
-        (middleOfViewport - bounding.bottom) / middleOfViewport;
-      let newSize = 1 - percentScrolled * 0.2;
+        (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
+      let newSize = 0.8 + percentScrolled * 0.2;
       element.style.transform = `scale(${newSize})`;
-    }
-  } else {
-    element.style.transform = `scale(0.9)`;
-  }
+    } else if (
+      bounding.top < middleOfViewport &&
+      bounding.bottom > middleOfViewport
+    ) {
+      element.style.transform = `scale(1)`;
+    } 
+  } 
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -438,6 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const popUpTitleS = document.querySelector(".popup__titleS");
   const popUpTitleL = document.querySelector(".popup__titleL");
   const popUpText = document.querySelector(".popup__text");
+  const popUpImg = document.querySelector(".popup__img");
   const navbar = document.querySelector("#navbar");
 
   let selectedLine = null;
@@ -451,6 +468,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "5",
       textRot: "-90deg",
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Carbon_Footprint.jpg",
     },
     {
       angle: 12,
@@ -459,6 +477,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "7",
       textRot: "-90deg",
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Sharing_Economy.jpg"
     },
     {
       angle: 24,
@@ -467,6 +486,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "7",
       textRot: "-90deg",
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Circular_Economy.jpg"
     },
     {
       angle: 48,
@@ -475,6 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "1",
       textRot: "-90deg",
+      img: "img/Trends/Resilienz/Business-Intelligence.jpg"
     },
     {
       angle: 60,
@@ -483,6 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "3",
       textRot: "-90deg",
+      img: "img/Trends/Resilienz/Intelligent_Container_Pallets.jpg"
     },
     {
       angle: 72,
@@ -491,6 +513,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "5",
       textRot: "-90deg",
+      img: "img/Trends/Resilienz/supply_chain_visibility.jpg"
     },
     {
       angle: 84,
@@ -499,6 +522,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "7",
       textRot: "-90deg",
+      img: "img/Trends/Resilienz/predictive_analytics.jpg"
     },
     {
       angle: 96,
@@ -507,6 +531,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "7",
       textRot: "-90deg",
+      img: "img/Trends/Resilienz/Diversifizierung_der_Lieferketten.jpg"
     },
     {
       angle: 120,
@@ -515,6 +540,8 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "1",
       textRot: "-90deg",
+      img: "img/Trends/Connected_Logistics/Machine_Customers.jpg"
+
     },
     {
       angle: 132,
@@ -523,6 +550,8 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "3",
       textRot: "-90deg",
+      img: "img/Trends/Connected_Logistics/Quantum_Computing.jpg"
+
     },
     {
       angle: 144,
@@ -531,6 +560,8 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "5",
       textRot: "-90deg",
+      img: "img/Trends/Connected_Logistics/Next-Generation_Humanoid_Working_Robots.jpg"
+
     },
     {
       angle: 156,
@@ -539,6 +570,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "7",
       textRot: "-90deg",
+      img: "img/Trends/Connected_Logistics/Automated_Loading&Unloading.jpg"
     },
     {
       angle: 168,
@@ -547,6 +579,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "7",
       textRot: "-90deg",
+      img: "img/Trends/Connected_Logistics/Swarm_Intelligence.jpg"
     },
     {
       angle: 192,
@@ -555,6 +588,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "1",
       textRot: "90deg",
+      img: "img/Trends/Operational_Excellence/Digital_Twin.jpg"
     },
     {
       angle: 204,
@@ -563,6 +597,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "3",
       textRot: "90deg",
+      img: "img/Trends/Operational_Excellence/Pick-by-X.jpg"
     },
     {
       angle: 216,
@@ -571,6 +606,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "5",
       textRot: "90deg",
+      img: "img/Trends/Operational_Excellence/Unmanned_Aerial_Vehicles.jpg"
     },
     {
       angle: 228,
@@ -579,6 +615,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "7",
       textRot: "90deg",
+      img: "img/Trends/Operational_Excellence/Autonomous_Driving.jpg"
     },
     {
       angle: 240,
@@ -587,6 +624,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "7",
       textRot: "90deg",
+      img: "img/Trends/Operational_Excellence/Digital_Marketplace_Platform.jpg"
     },
     {
       angle: 264,
@@ -595,6 +633,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "1",
       textRot: "90deg",
+      img: "img/Trends/Cybersecurity/Blockchain.jpg"
     },
     {
       angle: 276,
@@ -603,6 +642,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "3",
       textRot: "90deg",
+      img: "img/Trends/Cybersecurity/Zero-Trust-Ansatz.jpg"
     },
     {
       angle: 288,
@@ -611,6 +651,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "5",
       textRot: "90deg",
+      img: "img/Trends/Cybersecurity/Fuzz-Tests.jpg"
     },
     {
       angle: 300,
@@ -619,6 +660,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "7",
       textRot: "90deg",
+      img: "img/Trends/Cybersecurity/Web3.jpg"
     },
     {
       angle: 312,
@@ -627,6 +669,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "7",
       textRot: "90deg",
+      img: "img/Trends/Cybersecurity/GenAI.jpg"
     },
     {
       angle: 336,
@@ -635,6 +678,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "1",
       textRot: "90deg",
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/End-to-end_Sustainable_Supply_Chains.jpg"
     },
     {
       angle: 348,
@@ -643,6 +687,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "3",
       textRot: "90deg",
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Smart_Grid.jpg"
     },
   ];
 
@@ -681,6 +726,7 @@ document.addEventListener("DOMContentLoaded", function () {
         popUpTitleS.textContent = line.titelS;
         popUpTitleL.textContent = line.titel;
         popUpText.textContent = line.info;
+        popUpImg.setAttribute("src", line.img);
 
         updateAllLineClasses();
         updateStageClasses();
@@ -869,7 +915,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const y = event.clientY - rect.top;
     const radius = 200;
     
-    container.style.background = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent, #000000be)`;
+    container.style.background = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent, #00000091)`;
 
     container.addEventListener('mouseleave', function () {
       container.style.background = '';

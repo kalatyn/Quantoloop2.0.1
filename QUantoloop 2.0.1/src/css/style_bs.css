@@ -484,7 +484,7 @@ table {
 /* _________________________ */
 body {
   font-family: "Helvatica-light", sans-serif;
-  cursor:default;
+  cursor: default;
   box-sizing: border-box;
   scroll-snap-type: y mandatory;
   transition: all 0.7s ease 0s;
@@ -514,14 +514,15 @@ body {
 }
 .nav {
   margin: auto;
-  width: 1100px;
+  width: 700px;
 }
 .navbar-brand {
   position: relative;
   width: 36px;
   height: 36px;
+  margin-right: 0;
 
-  margin-right: 50px;
+  
 }
 .navbar button {
   border: none;
@@ -532,15 +533,16 @@ body {
 
 .navbar-brand img {
   position: relative;
-  top: -14px;
-  width: 36px;
-  height: 36px;
+  top: -4px;
+  width: 20px;
+  height: 20px;
   padding: 0;
+  
 }
 
 .nav-link {
   color: rgb(0, 0, 0);
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 300;
   margin-right: 15px;
 }
@@ -555,12 +557,8 @@ body {
 .navbar-toggler {
   float: right;
 }
-.mail_us {
-  position: relative;
-  margin-left: 50px;
-  height: 36px;
-  /* font-size: 26px; */
-  color: #000;
+.mail_us_mini {
+  cursor: pointer;
 }
 
 .scroll-lock {
@@ -577,17 +575,17 @@ body {
   position: relative;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 .inter_cards {
   width: 50%;
   position: relative;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
 }
 .inter_card {
-  width: 25vw;
+  width: 30vw;
   height: 20vw;
   background-color: white;
   border-radius: 20px;
@@ -599,26 +597,28 @@ body {
   align-items: start;
   cursor: pointer;
   position: relative;
-  top: 120px;
+  top: 45%;
   transition: top 0.7s ease;
   font-size: calc(0.5vw + 0.5vh);
 }
 .inter_card img {
   height: 30%;
   color: black;
+  /* margin-bottom: 2%; */
 }
 .inter_card h3 {
-  font-size: 2vw;
-  font-weight: 400;
   margin-bottom: 5%;
   margin-top: 5%;
   color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+    
 }
 
 .inter_card p {
-  font-size: 1vw;
-  font-weight: 400;
-  color: black;
+  font-size: 1rem;
+  color: #7a7a7a;
+  line-height: 1.5rem;
 }
 
 .scale-up {
@@ -650,7 +650,7 @@ body {
   margin-bottom: 3rem;
   color: rgb(0, 0, 0);
 }
-canvas{
+canvas {
   display: block;
   height: 100%;
   width: 100%;
@@ -691,25 +691,25 @@ canvas{
 }
 
 @media screen and (max-width: 1200px) {
-  .nav {
+  /* .nav {
     margin: auto;
     width: 900px;
-  }
+  } */
   .nav-link {
     margin-right: 5px;
   }
   .mail_us {
     margin-left: 20px;
   }
-  .navbar-brand {
+  /* .navbar-brand {
     margin-right: 20px;
     & img {
       top: -13px;
     }
-  }
-  .nav-link {
+  } */
+  /* .nav-link {
     font-size: 0.8rem;
-  }
+  } */
   .inter_card p {
     font-size: 0.85rem;
   }
@@ -1045,7 +1045,7 @@ canvas{
   .line::before {
     font-size: 1.3rem !important;
   }
-  .software_card{
+  .software_card {
     transform: scale(0.9) !important;
   }
   /* .software_cards {
@@ -1322,7 +1322,6 @@ canvas{
     top: -2rem !important;
   }
   .software_info {
-    
     align-items: center !important;
     padding: 30px 10px !important;
   }
@@ -1479,6 +1478,57 @@ canvas{
   scroll-snap-align: center;
   cursor: pointer;
 }
+#card3 img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Автоматический подбор ширины для сохранения пропорций */
+  height: 100%; /* Высота равна высоте карточки */
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center center;
+  translate: 100px 150px;
+}
+#card2 img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Автоматический подбор ширины для сохранения пропорций */
+  height: 100%; /* Высота равна высоте карточки */
+  transform: translate(-50%, -50%) rotate(90deg) scale(0.7);
+  transform-origin: center center;
+}
+#card1 img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Автоматический подбор ширины для сохранения пропорций */
+  height: 100%; /* Высота равна высоте карточки */
+  transform: translate(-50%, -50%) scale(1.2);
+  transform-origin: center center;
+  translate: 0px -40px;
+}
+#card4 img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Автоматический подбор ширины для сохранения пропорций */
+  height: 100%; /* Высота равна высоте карточки */
+  transform: translate(-50%, -50%) ;
+  transform-origin: center center;
+  translate: 100px 0px;
+}
+#card5 img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Автоматический подбор ширины для сохранения пропорций */
+  height: 100%; /* Высота равна высоте карточки */
+  transform: translate(-50%, -50%)   ;
+  transform-origin: center center;
+  translate: -400px 0;
+}
+
+
 .card:first-child {
   margin-left: 5%;
 }
@@ -1510,7 +1560,7 @@ canvas{
   height: 66%;
   padding: 30px 30px;
   background-color: rgba(255, 255, 255, 0.641);
-  
+
   position: relative;
   bottom: -100%;
   transition: all 0.7s ease 0s;
@@ -1520,7 +1570,7 @@ canvas{
 }
 .card__bottom h3 {
   font-size: 2vh;
-  text-align:justify;
+  text-align: justify;
   overflow-wrap: break-word;
   hyphens: auto;
 
@@ -1529,8 +1579,7 @@ canvas{
 }
 
 .card:hover {
-  
-  /* transform: scale(1.01); */
+  transform: scale(1.01);
   .card__bottom {
     bottom: 0;
   }
@@ -1545,12 +1594,14 @@ canvas{
   .card__circle i {
     font-size: 3rem;
   }
-  
+
   .card__top h1 {
-    font-size: 0.9rem;
+    transform: scale(0.9);
+    translate: -5% 0;
   }
   .card__top p {
-    font-size: 1.2rem;
+    transform: scale(0.9);
+    translate: -5% 0;
   }
 }
 
@@ -1775,6 +1826,7 @@ canvas{
     position: relative;
     top: 55%;
     transform: translateY(-37.5%);
+    border-radius: 20px;
   }
 }
 
@@ -1848,12 +1900,15 @@ canvas{
     margin: 0.5rem 1rem 0 1rem;
   }
   & p {
-    font-size: 15px;
-    font-weight: 400;
+    /* font-size: 15px; */
+    /* font-weight: 400; */
     margin: 0rem 1rem 0.5rem 1rem;
-    line-height: 1.1rem;
+    /* line-height: 1.3rem; */
     overflow-wrap: break-word;
     hyphens: auto;
+    font-size: 1rem;
+    color: #7a7a7a;
+    line-height: 1.5rem;
   }
 }
 .plus_btn {
@@ -1964,15 +2019,16 @@ canvas{
   overflow: hidden;
   display: flex;
   justify-content: center;
+  
 }
-.interactive_container{
+.interactive_container {
   width: 90%;
   height: 90%;
   background-color: #fbfbfb;
   border-radius: 20px;
   display: flex;
 }
-.interactive_container_left{
+.interactive_container_left {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1981,11 +2037,11 @@ canvas{
   height: 100%;
   position: relative;
 }
-.icl_titel{
+.icl_titel {
   font-size: 3.5rem;
   margin-bottom: 3rem;
 }
-.icl_btn{
+.icl_btn {
   width: 200px;
   height: 70px;
   border-radius: 30px;
@@ -1996,7 +2052,7 @@ canvas{
   position: relative;
   right: 100px;
 }
-.interactive_container_right{
+.interactive_container_right {
   width: 50%;
   height: 100%;
   display: flex;
@@ -2006,7 +2062,7 @@ canvas{
   overflow: visible;
   white-space: nowrap;
 }
-.icr_card{
+.icr_card {
   height: 70%;
   aspect-ratio: 10 /13;
   border-radius: 30px;
@@ -2019,24 +2075,24 @@ canvas{
   transform: rotate(-10deg) scale3d(0.8, 0.8, 0.8); */
   padding: 5%;
 
-  & img{
+  & img {
     height: 25%;
   }
-  & h2{
+  & h2 {
     font-size: 5rem;
-    margin-top: 20%
+    margin-top: 20%;
   }
-  & p{
+  & p {
     font-size: 1.5rem;
     margin-top: 20%;
     text-wrap: wrap;
   }
 }
-#icr_card2{
+#icr_card2 {
   transition: all 0.2s ease;
   transform: rotate(10deg) scale3d(0.9, 0.9, 0.9);
 }
-#icr_card3{
+#icr_card3 {
   transition: all 0.5s ease;
 }
 
@@ -2092,7 +2148,7 @@ canvas{
   height: 100%;
   width: 100%;
 
-  background-color: #5589c8;
+  background-color: #bbd2ec;
   border-radius: 50%;
   position: absolute;
   padding: none;
@@ -2126,7 +2182,7 @@ canvas{
   border-radius: 50%;
   position: absolute;
   z-index: 2;
-  background-color: #5589c8;
+  background-color: #bbd2ec;
 }
 .circle__m {
   height: 60%;
@@ -2135,7 +2191,7 @@ canvas{
   border-radius: 50%;
   position: absolute;
   z-index: 4;
-  background-color: #5589c8;
+  background-color: #bbd2ec;
 }
 .circle__m2 {
   height: 40%;
@@ -2144,7 +2200,7 @@ canvas{
   border-radius: 50%;
   position: absolute;
   z-index: 6;
-  background-color: #5589c8;
+  background-color: #bbd2ec;
 }
 
 .circle__s {
@@ -2157,7 +2213,7 @@ canvas{
   justify-content: center;
   align-items: center;
   z-index: 10;
-  background-color: #5589c8;
+  background-color:#bbd2ec
 }
 
 .line {
@@ -2166,7 +2222,7 @@ canvas{
   height: 49.9%;
   top: 0.3%;
   left: 49.64%;
-  border-right: 1px rgb(255, 255, 255);
+  border-right: 2px rgb(255, 255, 255);
   border-right-style: dotted;
   transform-origin: 100% 100%;
   cursor: pointer;
@@ -2177,7 +2233,7 @@ canvas{
     width: 150px;
     position: absolute;
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
     top: -6rem;
     left: -75px;
@@ -2211,7 +2267,7 @@ canvas{
   background: transparent;
 }
 .popup {
-  height: 70%;
+  height: 90%;
   width: 35%;
   background-color: #fefefe;
   position: absolute;
@@ -2295,15 +2351,20 @@ canvas{
   position: absolute;
   /* bottom: 3%; */
   overflow: hidden;
-  
 }
 .popup__text {
   height: 52%;
   position: relative;
-  font-size: 1em;
+  /* font-size: 1em; */
   margin: 5%;
-  font-weight: 300;
-  line-height: 1.1rem;
+  /* font-weight: 300; */
+  /* line-height: 1.1rem; */
+  font-size: 1rem;
+    color: #7a7a7a;
+    line-height: 1.5rem;
+  text-align: justify;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 .popup__img {
   position: absolute;
@@ -2323,7 +2384,6 @@ canvas{
   margin-left: 5%;
 }
 .software_info {
-  
   min-height: 500px;
   width: 100vw;
   display: flex;
@@ -2332,7 +2392,6 @@ canvas{
   justify-content: center;
   overflow: hidden;
   position: relative;
-  
 }
 .software_cards {
   width: 100%;
@@ -2393,7 +2452,7 @@ canvas{
   position: relative;
   overflow: hidden;
   margin-bottom: 200px;
-  
+
   & h3 {
     margin-bottom: 3rem;
     font-size: 1.5rem;
@@ -2405,23 +2464,24 @@ canvas{
     font-size: 3rem;
     margin-bottom: 3rem;
     color: white;
+    z-index: 2;
+    pointer-events: none;
   }
-  
 }
-.latern{
+.latern {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-color: #000000be;
-  &:hover{
+  background-color: #00000091;
+  &:hover {
     background-color: #00000000;
   }
 }
 
-.contactBtn{
+.contactBtn {
   width: 200px;
   height: 70px;
   padding: 0 1rem;
@@ -2435,11 +2495,13 @@ canvas{
   justify-content: space-around;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  & img{
+  /* pointer-events: none; */
+  & img {
     width: 30px;
   }
-  &:hover{
+  &:hover {
     background-color: var(--light-blue);
+    box-shadow: 0px 0px 20px rgb(255, 255, 255);
   }
 }
 .laptop_titelM {
@@ -2479,7 +2541,7 @@ canvas{
 .contact_form {
   position: fixed;
   top: 0;
-  Left: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 10000000;
@@ -2524,21 +2586,20 @@ canvas{
     margin-bottom: 3rem;
     color: var(--dark-blue);
   }
-  
 }
-#formular{
+#formular {
   width: 100%;
 }
-.input{
+.input {
   width: 50%;
   display: flex;
   flex-direction: column;
   padding: 2%;
-  & label{
-    margin-bottom: .5rem;
+  & label {
+    margin-bottom: 0.5rem;
     color: var(--dark-blue);
   }
-  & input{
+  & input {
     padding: 0.5rem;
     border: none;
     border-radius: 10px;
@@ -2549,20 +2610,19 @@ canvas{
   display: flex;
   height: 100px;
   width: 100%;
-  
 }
-.input_message{
+.input_message {
   width: 100%;
   height: 100%;
   display: flex;
   position: relative;
   flex-direction: column;
   padding: 2%;
-  & label{
-    margin-bottom: .5rem;
+  & label {
+    margin-bottom: 0.5rem;
     color: var(--dark-blue);
   }
-  & textarea{
+  & textarea {
     padding: 0.5rem;
     border: none;
     resize: none;
@@ -2570,7 +2630,7 @@ canvas{
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
-  & button{
+  & button {
     position: absolute;
     height: 40px;
     width: 90px;
@@ -2584,13 +2644,11 @@ canvas{
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s ease;
-    &:hover{
-      
+    &:hover {
       transform: scale(1.1);
-    } 
+    }
   }
 }
-
 
 .impressum {
   width: 100vw;
