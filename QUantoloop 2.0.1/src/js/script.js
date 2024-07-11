@@ -97,38 +97,26 @@ const canvas = document.getElementById('network');
 
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
-    const container = document.querySelector(".interactive_section");
-    const cards = document.querySelectorAll(".inter_card");
-    let viewportHeight =
-      window.innerHeight || document.documentElement.clientHeight;
-    let bounding = container.getBoundingClientRect();
-    const triggerHeight = viewportHeight * 0.2;
+      const container = document.querySelector(".interactive_section");
+      const cards = document.querySelectorAll(".inter_card");
+      let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      let bounding = container.getBoundingClientRect();
+      const triggerHeight = viewportHeight / 1.3;
 
-    if (bounding.top >= triggerHeight && bounding.bottom <= viewportHeight) {
-      container.style.borderRadius = "0px";
-      container.style.width = "100vw";
-    } else if (bounding.top < triggerHeight) {
-      let scrollPosition = triggerHeight - bounding.top;
-      let newSize = Math.max(90, 100 - scrollPosition * 0.01);
-      container.style.transform = `scale(${newSize / 100})`;
-      container.style.borderRadius = scrollPosition / 50 + "px";
-    }
-
-    if (window.innerWidth >= 576) {
-      if (bounding.top <= triggerHeight && bounding.bottom >= 0) {
-        let scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-        cards.forEach((card) => {
-          let offset = (bounding.top - scrollTop/100);
-          card.style.transform = `translateY(${offset - 120}px)`;
-          // console.log(offset)
-        });
+      if (window.innerWidth >= 576) {
+          if (bounding.top <= triggerHeight && bounding.bottom >= 0) {
+              let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              cards.forEach((card) => {
+                  let offset = triggerHeight - bounding.top;
+                  card.style.transform = `translateY(-${Math.max(offset, 0)}px)`;
+              });
+          } else {
+              // Reset cards to their original position if they are out of the trigger range
+              cards.forEach((card) => {
+                  card.style.transform = `translateY(0)`;
+              });
+          }
       }
-    } else {
-      cards.forEach((card) => {
-        card.style.transform = "translateY(0px)";
-      });
-    }
   });
 });
 
@@ -374,30 +362,31 @@ window.addEventListener("scroll", function () {
   let bounding = element.getBoundingClientRect();
   let windowHeight = window.innerHeight;
 
-  if (bounding.top <= windowHeight / 4) {
-    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 3)) *1,
-      1 
-    );
+  // Рассчитаем начальную позицию скролла относительно viewport
+  let startScrollPosition = bounding.top - windowHeight / 1.5;
+
+  // Изменим формулу расчета позиции скролла для более плавного перехода
+  if (bounding.top <= windowHeight / 1.5) {
+    const scrollPosition = Math.min(((windowHeight / 1.5 - bounding.top) / (windowHeight / 2)) * 1, 1);
 
     const newScale1 = 1 - scrollPosition * 0.2;
     const newRotation1 = -10 * scrollPosition;
-    const newTranslateX1 = -200 * scrollPosition;
+    const newTranslateX1 = -8 * scrollPosition ; // in vw
     const newScale2 = 1 - scrollPosition * 0.1;
-    const newRotation2 = 10 -10 * scrollPosition ;
-    const newTranslateX2 = -450 * scrollPosition;
+    const newRotation2 = 10 - 10 * scrollPosition;
+    const newTranslateX2 = -20 * scrollPosition; // in vw
     const newScale3 = 1;
     const newRotation3 = 10 * scrollPosition;
-    const newTranslateX3 = -550 * scrollPosition;
-    const newTranslateY3 = 130 * scrollPosition;
+    const newTranslateX3 = -28 * scrollPosition; // in vw
+    const newTranslateY3 = 11 * scrollPosition; // in vh
 
-    card1.style.transform = `scale3d(${newScale1},${newScale1},${newScale1}) rotate(${newRotation1}deg) translateX(${newTranslateX1}px)`;
-    card2.style.transform = `scale3d(${newScale2},${newScale2},${newScale2}) rotate(${newRotation2}deg) translateX(${newTranslateX2}px)`;
-    card3.style.transform = `scale3d(${newScale3},${newScale3},${newScale3}) rotate(${newRotation3}deg) translateX(${newTranslateX3}px) translateY(${newTranslateY3}px)`;
+    card1.style.transform = `scale3d(${newScale1}, ${newScale1}, ${newScale1}) rotate(${newRotation1}deg) translateX(${newTranslateX1}vw)`;
+    card2.style.transform = `scale3d(${newScale2}, ${newScale2}, ${newScale2}) rotate(${newRotation2}deg) translateX(${newTranslateX2}vw)`;
+    card3.style.transform = `scale3d(${newScale3}, ${newScale3}, ${newScale3}) rotate(${newRotation3}deg) translateX(${newTranslateX3}vw) translateY(${newTranslateY3}vh)`;
   } else {
-    card1.style.transform = "scale3d(1,1,1) rotate(0deg) translateX(0)";
-    card2.style.transform =
-      "rotate(10deg) scale3d(0.9, 0.9, 0.9) translateX(0)";
-    card3.style.transform = "scale3d(1,1,1) rotate(0deg) translateX(0)";
+    card1.style.transform = "scale3d(1, 1, 1) rotate(0deg) translateX(0)";
+    card2.style.transform = "rotate(10deg) scale3d(0.9, 0.9, 0.9) translateX(0)";
+    card3.style.transform = "scale3d(1, 1, 1) rotate(0deg) translateX(0)";
   }
 });
 
@@ -456,7 +445,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const popUpText = document.querySelector(".popup__text");
   const popUpImg = document.querySelector(".popup__img");
   const navbar = document.querySelector("#navbar");
-
+  const zoomIn = document.querySelector("#zoom_in");
+  const zoomOut = document.querySelector("#zoom_out");
+  
+  let scale = 1;
   let selectedLine = null;
   let currentRotation = 0;
 
@@ -786,8 +778,25 @@ document.addEventListener("DOMContentLoaded", function () {
     radar.style.left = "0";
     radar.style.transition = "all 0.5s ease";
     navbar.style.zIndex = "100";
+    scale = 1;
     updateAllLineClasses();
     updateStageClasses();
+  });
+  
+  function updateScale() {
+    radar.style.transform = `scale(${scale})`;
+    radar.style.transition = "all 0.5s ease";
+  }
+
+  zoomIn.addEventListener("click", () => {
+    scale += 0.2;
+    updateScale();
+    
+  });
+
+  zoomOut.addEventListener("click", () => {
+    scale -= 0.2;
+    updateScale();
   });
 });
 
