@@ -452,6 +452,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let selectedLine = null;
   let currentRotation = 0;
 
+  
+
   const linesData = [
     {
       angle: 0,
@@ -786,19 +788,33 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateScale() {
     radar.style.transform = `scale(${scale})`;
     radar.style.transition = "all 0.5s ease";
+    
   }
 
   zoomIn.addEventListener("click", () => {
     scale += 0.2;
     updateScale();
-    
+    if (scale > 1.5) {
+      zoomIn.style.visibility = "hidden";
+    } else if ( scale > 0.7) {
+      zoomOut.style.visibility = "visible";
+    }
+
   });
 
   zoomOut.addEventListener("click", () => {
     scale -= 0.2;
     updateScale();
+    if (scale < 0.7) {
+      zoomOut.style.visibility = "hidden";
+    } else if(scale < 1.5){
+      zoomIn.style.visibility = "visible";
+    }
   });
+  
+  
 });
+
 
 let numbers = document.querySelectorAll(".info div");
 
@@ -936,8 +952,15 @@ document.addEventListener('DOMContentLoaded', function(){
   const buttons = document.querySelectorAll('.openForm');
   const contactForm = document.querySelector('.contact_form');
   const closeBtn = document.querySelector('.exit__contact');
+  const startenBtns = document.querySelectorAll('.jetzt_starten')
 
   buttons.forEach(function(button) {
+    button.addEventListener('click', function(){
+      contactForm.classList.add('visible');
+      document.body.classList.add('scroll-lock');
+    });
+  });
+  startenBtns.forEach(function(button) {
     button.addEventListener('click', function(){
       contactForm.classList.add('visible');
       document.body.classList.add('scroll-lock');
