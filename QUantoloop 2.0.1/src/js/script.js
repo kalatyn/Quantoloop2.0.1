@@ -363,11 +363,11 @@ window.addEventListener("scroll", function () {
   let windowHeight = window.innerHeight;
 
   // Рассчитаем начальную позицию скролла относительно viewport
-  let startScrollPosition = bounding.top - windowHeight / 1.5;
+  let startScrollPosition = bounding.top - windowHeight / 2;
 
   // Изменим формулу расчета позиции скролла для более плавного перехода
-  if (bounding.top <= windowHeight / 1.5) {
-    const scrollPosition = Math.min(((windowHeight / 1.5 - bounding.top) / (windowHeight / 2)) * 1, 1);
+  if (bounding.top <= windowHeight / 2) {
+    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 2)) * 1, 1);
 
     const newScale1 = 1 - scrollPosition * 0.2;
     const newRotation1 = -10 * scrollPosition;

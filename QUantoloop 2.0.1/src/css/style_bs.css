@@ -574,7 +574,7 @@ body {
   background-color: #fbfbfb;
 
   margin: 0 auto;
-  margin-bottom: 0;
+  margin-bottom: 150px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -1577,8 +1577,9 @@ canvas {
   overflow-wrap: break-word;
   hyphens: auto;
   color: #3d3d3d;
-  line-height: 1.3;
+  line-height: 1.5;
   font-weight: 500;
+  
 }
 
 .card:hover {
@@ -2097,12 +2098,12 @@ canvas {
   padding: 5%;
 
   & img {
-    height: 25%;
+    height: 15%;
     margin-bottom: 15%;
   }
   & h3 {
     margin-bottom: 15%;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   & h2 {
     font-size: 5rem;
@@ -2110,7 +2111,9 @@ canvas {
   }
   & p {
     font-size: 1rem;
-    
+    font-size: 14px;
+    color: #7a7a7a;
+    line-height: 1.5rem;
     text-wrap: wrap;
     overflow-wrap: break-word;
     
@@ -2331,7 +2334,7 @@ transition: transform 0.3s ease-in-out;  float: left;
 .popupContent {
   position: relative !important;
   width: 80%;
-  height: 100%;
+  height: 90%;
   padding-top: 5%;
 }
 .popup__titleS {
@@ -2349,16 +2352,31 @@ transition: transform 0.3s ease-in-out;  float: left;
   font-weight: 400;
   margin-bottom: 5%;
 }
+.footer_titel {
+  position: relative;
+  /* top: 84%; */
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3%;
+
+
+}
 
 .popup_footer {
-  width: 100%;
+  width: 80%;
   height: 6px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 3px;
   position: relative;
-  margin-bottom: 100%;
-  top: 85%;
+  
+  /* top: 85%; */
+}
+.small_info{
+  
+  cursor: pointer;
 }
 .zoom_buttons{
   position: absolute;
@@ -2401,7 +2419,7 @@ transition: transform 0.3s ease-in-out;  float: left;
   margin: 5%;
   /* font-weight: 300; */
   /* line-height: 1.1rem; */
-  font-size: 14px;
+  font-size: 12px;
     color: #7a7a7a;
     line-height: 1.5rem;
   text-align: justify;
@@ -2422,7 +2440,14 @@ transition: transform 0.3s ease-in-out;  float: left;
   margin-bottom: 5rem;
   font-size: 4rem;
   font-weight: 500;
+  
+  margin-left: 5%;
+}
+.software_titelm{
   margin-top: 200px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+
   margin-left: 5%;
 }
 .software_info {
@@ -2484,7 +2509,7 @@ transition: transform 0.3s ease-in-out;  float: left;
 #contact_us {
   width: 90vw;
   height: 400px;
-  background-color: #000;
+  background-color: var(--dark-blue);
   margin: 0 auto;
   border-radius: 20px;
   display: flex;
@@ -2497,10 +2522,12 @@ transition: transform 0.3s ease-in-out;  float: left;
   margin-bottom: 200px;
 
   & h3 {
-    margin-bottom: 3rem;
-    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
     text-align: center;
     color: white;
+    width: 70%;
+    line-height: 1.8rem;
   }
   & h2 {
     margin-bottom: 1rem;
@@ -2509,6 +2536,7 @@ transition: transform 0.3s ease-in-out;  float: left;
     color: white;
     z-index: 2;
     pointer-events: none;
+    
   }
 }
 .latern {
@@ -2530,8 +2558,8 @@ transition: transform 0.3s ease-in-out;  float: left;
   padding: 0 1rem;
   border-radius: 300px;
   border: none;
-  background-color: var(--light-blue);
-  color: white;
+  background-color: #bbd2ec;
+  color: var(--dark-blue);
   position: relative;
   display: flex;
   align-items: center;
@@ -2543,7 +2571,7 @@ transition: transform 0.3s ease-in-out;  float: left;
     width: 30px;
   }
   &:hover {
-    background-color: var(--light-blue);
+    /* background-color: var(--light-blue); */
     box-shadow: 0px 0px 20px rgb(255, 255, 255);
   }
 }
@@ -2699,7 +2727,7 @@ transition: transform 0.3s ease-in-out;  float: left;
   position: absolute;
   cursor: pointer;
   bottom: 25%;
-  right: 5%;
+  right: 7%;
   transition: transform 0.5s ease;
   &:hover {
     transform: scale(1.1);
