@@ -521,8 +521,6 @@ body {
   width: 36px;
   height: 36px;
   margin-right: 0;
-
-  
 }
 .navbar button {
   border: none;
@@ -537,7 +535,6 @@ body {
   width: 20px;
   height: 20px;
   padding: 0;
-  
 }
 
 .nav-link {
@@ -545,10 +542,17 @@ body {
   font-size: 12px;
   font-weight: 300;
   margin-right: 15px;
+  transition: transform 0.3s ease 0s;
+  &:hover {
+    transform: scale(1.1);
+    border-bottom: none;
+    color: black;
+  }
 }
 .nav-link-last {
   margin-right: 0 !important;
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -560,7 +564,7 @@ body {
 .mail_us_mini {
   cursor: pointer;
 }
-#network{
+#network {
   left: 27%;
   display: block;
 }
@@ -601,8 +605,9 @@ body {
   cursor: pointer;
   position: relative;
   top: 50%;
-  transition: top 0.7s ease;
+  /* transition: top 0.7s ease; */
   font-size: calc(0.5vw + 0.5vh);
+  transition: transform 0.3s ease 0s;
 }
 .inter_card img {
   height: 60px;
@@ -615,7 +620,6 @@ body {
   color: black;
   font-size: 1.5rem;
   font-weight: 600;
-    
 }
 
 .inter_card p {
@@ -647,11 +651,14 @@ body {
 }
 
 .inter_info_container h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 3rem;
-  color: rgb(0, 0, 0);
+  color: #7a7a7a;
+  text-align: justify;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 canvas {
   display: block;
@@ -929,10 +936,12 @@ canvas {
     font-size: 4vw !important;
     text-align: center;
     position: relative;
+    margin-left: 5vw;
   }
   .brand {
     font-size: 12vw !important;
     margin-bottom: 2rem;
+    margin-left: 5vw;
   }
   #logo_slogan {
     display: flex;
@@ -1128,6 +1137,7 @@ canvas {
     align-items: center;
     height: auto;
     margin: 0 auto;
+    margin-bottom: 100px;
   }
   .inter_info_container {
     width: 300px !important;
@@ -1144,12 +1154,12 @@ canvas {
 
   .inter_cards {
     width: 100% !important;
-    height: 700px !important;
+    height: auto !important;
   }
   .inter_card {
     width: 300px;
     padding: 20px !important;
-    height: 180px !important;
+    height: 240px !important;
     top: 0 !important;
     & h3 {
       font-size: 25px !important;
@@ -1275,9 +1285,7 @@ canvas {
     min-height: 80vh !important;
   }
   .radar {
-    height: 60vw !important;
-    width: 60vw !important;
-    margin: 0 auto !important;
+    transform: scale(0.4) !important;
   }
   #growth_area {
     min-height: 850px !important;
@@ -1402,24 +1410,47 @@ canvas {
     margin-left: 6vw !important;
   }
   .radar_titel2 {
-    font-size: 3rem !important;
+    font-size: 1.5rem !important;
     margin-left: 6.5vw !important;
   }
   .cardfield_titel {
     margin-bottom: 0px !important;
-    margin-top: 100px !important;
-    font-size: 2.2rem !important;
-    margin-left: 6.5vw !important;
+
+    font-size: 1.5rem !important;
+    margin-left: 5vw !important;
   }
   .growth_titelM {
     font-size: 1rem !important;
-    margin-left: 6.5vw !important;
+    margin-left: 5vw !important;
   }
   .growth_titel {
-    font-size: 3rem !important;
+    font-size: 1.5rem !important;
   }
   .growth_right {
     display: none !important;
+  }
+  .interactive_section2 {
+    height: auto !important;
+    flex-direction: column;
+  }
+  .interactive_container {
+    flex-direction: column;
+    height: auto;
+  }
+  .interactive_container_right {
+    flex-direction: column;
+    padding-top: 60px;
+    width: 100% !important;
+  }
+  .icr_card {
+    width: 90% !important;
+    height: auto !important;
+    transform: rotate(0deg) scale3d(1, 1, 1) !important;
+    margin-bottom: 2rem !important;
+  }
+  .icl_titel {
+    width: 90vw !important;
+    margin-top: 10% !important;
   }
 }
 
@@ -1439,13 +1470,13 @@ canvas {
 }
 
 .cardfield_titelM {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
   margin-top: 150px;
   margin-left: 5%;
 }
 .cardfield_titel {
-  font-size: 56px;
+  font-size: 40px;
   margin-left: 5%;
   font-weight: 600;
 }
@@ -1457,7 +1488,7 @@ canvas {
   align-items: center;
   overflow-x: hidden;
   position: relative;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   padding: 0;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -1516,7 +1547,7 @@ canvas {
   left: 50%;
   width: auto; /* Автоматический подбор ширины для сохранения пропорций */
   height: 100%; /* Высота равна высоте карточки */
-  transform: translate(-50%, -50%) ;
+  transform: translate(-50%, -50%);
   transform-origin: center center;
   translate: 100px 0px;
 }
@@ -1526,11 +1557,10 @@ canvas {
   left: 50%;
   width: auto; /* Автоматический подбор ширины для сохранения пропорций */
   height: 100%; /* Высота равна высоте карточки */
-  transform: translate(-50%, -50%)   ;
+  transform: translate(-50%, -50%);
   transform-origin: center center;
   translate: -400px 0;
 }
-
 
 .card:first-child {
   margin-left: 5%;
@@ -1560,7 +1590,7 @@ canvas {
 
 .card__bottom {
   width: 100%;
-  height: 66%;
+  height: 60%;
   padding: 30px 30px;
   background-color: rgba(255, 255, 255, 0.641);
 
@@ -1572,14 +1602,13 @@ canvas {
   box-shadow: 4px 4px 4px rgb(255, 255, 255);
 }
 .card__bottom h3 {
-  font-size: 2vh;
+  font-size: 1rem;
   text-align: justify;
   overflow-wrap: break-word;
   hyphens: auto;
   color: #3d3d3d;
-  line-height: 1.5;
+  line-height: 2rem;
   font-weight: 500;
-  
 }
 
 .card:hover {
@@ -1613,9 +1642,12 @@ canvas {
   position: absolute;
   bottom: 25px;
   right: 25px;
+  border-radius: 50%;
   font-size: 2rem;
   cursor: pointer;
-  color: #ffffff;
+  color: rgb(91, 91, 91);
+  background-color: #ffffff;
+  overflow: hidden;
 }
 
 .scroll__buttons {
@@ -1771,13 +1803,13 @@ canvas {
   justify-content: end;
 }
 .growth_titelM {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
 
   margin-left: 5%;
 }
 .growth_titel {
-  font-size: 56px;
+  font-size: 40px;
   margin-left: 5%;
   font-weight: 600;
 }
@@ -1831,8 +1863,8 @@ canvas {
     top: 55%;
     transform: translateY(-37.5%);
     border-radius: 20px;
-    object-position: top right; 
-}
+    object-position: top right;
+  }
 }
 
 .growth_item {
@@ -1907,7 +1939,7 @@ canvas {
   & p {
     /* font-size: 15px; */
     /* font-weight: 400; */
-    margin: 0rem 1rem 0.5rem 1rem;
+    margin: 0rem 2rem 0.5rem 1rem;
     /* line-height: 1.3rem; */
     overflow-wrap: break-word;
     hyphens: auto;
@@ -1994,8 +2026,11 @@ canvas {
   overflow-y: scroll;
   /* scrollbar-width: none !important; */
   background-color: #fbfbfb;
-  border-radius: 0.8rem ;
+  border-radius: 0.8rem;
   border: 0;
+  text-align: justify;
+  overflow-wrap: break-word;
+  hyphens: auto;
 
   padding: 3%;
   position: relative;
@@ -2014,18 +2049,17 @@ canvas {
   & img {
     width: 100%;
     height: 50%;
-    border-radius: 20px 20px 0px 0px ;
+    border-radius: 20px 20px 0px 0px;
     object-fit: cover;
     position: relative;
     margin: 0rem auto;
-    
   }
 }
 
-.italic{
+.italic {
   font-style: italic;
 }
-.bold{
+.bold {
   font-weight: 700;
 }
 .interactive_section2 {
@@ -2040,7 +2074,6 @@ canvas {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  
 }
 .interactive_container {
   width: 90%;
@@ -2053,7 +2086,7 @@ canvas {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
   width: 50%;
   height: 100%;
   position: relative;
@@ -2061,6 +2094,7 @@ canvas {
 .icl_titel {
   font-size: 3.5rem;
   margin-bottom: 3rem;
+  margin-left: 10%;
 }
 .icl_btn {
   width: 200px;
@@ -2071,7 +2105,7 @@ canvas {
   color: white;
   font-size: 1.2rem;
   position: relative;
-  right: 100px;
+  margin-left: 10%;
 }
 .interactive_container_right {
   width: 50%;
@@ -2116,7 +2150,6 @@ canvas {
     line-height: 1.5rem;
     text-wrap: wrap;
     overflow-wrap: break-word;
-    
   }
 }
 #icr_card2 {
@@ -2140,13 +2173,13 @@ canvas {
   padding-top: 50px !important;
 }
 .radar_titel {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   margin-top: 200px;
   margin-left: 5%;
 }
 .radar_titel2 {
-  font-size: 56px;
+  font-size: 40px;
   margin-bottom: 1.5rem;
   margin-left: 5%;
   font-weight: 600;
@@ -2166,7 +2199,8 @@ canvas {
 .radar {
   height: 50vh;
   width: 50vh;
-transition: transform 0.3s ease-in-out;  float: left;
+  transition: transform 0.3s ease-in-out;
+  float: left;
   position: relative;
   display: flex;
   justify-content: center;
@@ -2243,7 +2277,7 @@ transition: transform 0.3s ease-in-out;  float: left;
   justify-content: center;
   align-items: center;
   z-index: 10;
-  background-color:#bbd2ec
+  background-color: #bbd2ec;
 }
 
 .line {
@@ -2360,25 +2394,34 @@ transition: transform 0.3s ease-in-out;  float: left;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3%;
-
-
 }
 
 .popup_footer {
   width: 80%;
   height: 6px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 3px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 2px;
   position: relative;
-  
+
   /* top: 85%; */
 }
-.small_info{
-  
+#stage1 {
+  border-radius: 5px 0px 0px 5px;
+}
+#stage5 {
+  border-radius: 0px 5px 5px 0px !important;
+}
+#stage2,
+#stage3,
+#stage4,
+#stage5 {
+  border-radius: 0px;
+}
+.small_info {
   cursor: pointer;
 }
-.zoom_buttons{
+.zoom_buttons {
   position: absolute;
   bottom: 5%;
   right: 8%;
@@ -2389,13 +2432,11 @@ transition: transform 0.3s ease-in-out;  float: left;
   align-items: center;
   color: var(--dark-blue);
   font-size: 25px;
-  & i{
+  & i {
     cursor: pointer;
   }
 }
 .stage {
-  border-radius: 5px;
-
   background-color: rgb(220, 220, 220);
 }
 .colored {
@@ -2420,8 +2461,8 @@ transition: transform 0.3s ease-in-out;  float: left;
   /* font-weight: 300; */
   /* line-height: 1.1rem; */
   font-size: 12px;
-    color: #7a7a7a;
-    line-height: 1.5rem;
+  color: #7a7a7a;
+  line-height: 1.5rem;
   text-align: justify;
   overflow-wrap: break-word;
   hyphens: auto;
@@ -2440,12 +2481,12 @@ transition: transform 0.3s ease-in-out;  float: left;
   margin-bottom: 5rem;
   font-size: 4rem;
   font-weight: 500;
-  
+
   margin-left: 5%;
 }
-.software_titelm{
+.software_titelm {
   margin-top: 200px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
 
   margin-left: 5%;
@@ -2536,7 +2577,6 @@ transition: transform 0.3s ease-in-out;  float: left;
     color: white;
     z-index: 2;
     pointer-events: none;
-    
   }
 }
 .latern {
@@ -2576,13 +2616,13 @@ transition: transform 0.3s ease-in-out;  float: left;
   }
 }
 .laptop_titelM {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
   margin-top: 200px;
   margin-left: 5%;
 }
 .laptop_titel {
-  font-size: 56px;
+  font-size: 40px;
   margin-bottom: 1.5rem;
   margin-left: 5%;
   font-weight: 600;
@@ -2634,7 +2674,7 @@ transition: transform 0.3s ease-in-out;  float: left;
   align-items: center;
   width: 700px;
   height: 550px;
-  background-color: #fbfbfb;
+  background-color: #bbd2ec;
   border-radius: 20px;
   padding: 3% 5%;
   & i {
@@ -2660,6 +2700,10 @@ transition: transform 0.3s ease-in-out;  float: left;
 }
 #formular {
   width: 100%;
+  & input {
+    background-color: #9fb7d2;
+    color: white;
+  }
 }
 .input {
   width: 50%;
@@ -2699,6 +2743,7 @@ transition: transform 0.3s ease-in-out;  float: left;
     resize: none;
     height: 70%;
     border-radius: 10px;
+    background-color: #9fb7d2;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
   & button {

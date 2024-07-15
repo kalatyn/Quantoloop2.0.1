@@ -1,122 +1,143 @@
 //canvas
-const canvas = document.getElementById('network');
-        const ctx = canvas.getContext('2d');
+// const canvas = document.getElementById("network");
+// const ctx = canvas.getContext("2d");
 
-        let width = canvas.width = window.innerWidth * 2;
-        let height = canvas.height = window.innerHeight * 2;
-        canvas.style.width = window.innerWidth + 'px';
-        canvas.style.height = window.innerHeight + 'px';
-        ctx.scale(2, 2);
+// let width = (canvas.width = window.innerWidth * 2);
+// let height = (canvas.height = window.innerHeight * 2);
+// canvas.style.width = window.innerWidth + "px";
+// canvas.style.height = window.innerHeight + "px";
+// ctx.scale(2, 2);
 
-        const mouse = { x: width / 2, y: height / 2 };
-        const points = [];
-        const numPoints = 200;  // Reduced number of points
-        const pointRadius = 3;
-        const lineDistance = 200; 
+// const mouse = { x: width / 2, y: height / 2 };
+// const points = [];
+// const numPoints = 200; // Reduced number of points
+// const pointRadius = 3;
+// const lineDistance = 200;
 
-        class Point {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.vx = (Math.random() - 0.5) * 0.7;  // Reduced speed
-                this.vy = (Math.random() - 0.5) * 0.7;  // Reduced speed
-            }
+// class Point {
+//   constructor(x, y) {
+//     this.x = x;
+//     this.y = y;
+//     this.vx = (Math.random() - 0.5) * 0.7; // Reduced speed
+//     this.vy = (Math.random() - 0.5) * 0.7; // Reduced speed
+//   }
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
+//   update() {
+//     this.x += this.vx;
+//     this.y += this.vy;
 
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
+//     if (this.x < 0 || this.x > width) this.vx *= -1;
+//     if (this.y < 0 || this.y > height) this.vy *= -1;
+//   }
 
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x / 2, this.y / 2, pointRadius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 128, 255, 0.8)';
-                ctx.fill();
-            }
-        }
+//   draw() {
+//     ctx.beginPath();
+//     ctx.arc(this.x / 2, this.y / 2, pointRadius, 0, Math.PI * 2);
+//     ctx.fillStyle = "rgba(0, 128, 255, 0.8)";
+//     ctx.fill();
+//   }
+// }
 
-        function createPoints() {
-            for (let i = 0; i < numPoints; i++) {
-                points.push(new Point(Math.random() * width, Math.random() * height));
-            }
-        }
+// function createPoints() {
+//   for (let i = 0; i < numPoints; i++) {
+//     points.push(new Point(Math.random() * width, Math.random() * height));
+//   }
+// }
 
-        function drawLines() {
-            for (let i = 0; i < points.length; i++) {
-                for (let j = i + 1; j < points.length; j++) {
-                    const dist = Math.hypot(points[i].x - points[j].x, points[i].y - points[j].y);
-                    const alpha = 1 - dist / lineDistance;
-                    ctx.strokeStyle = `rgba(0, 128, 255, ${alpha})`;
-                    ctx.lineWidth = 0.3;
-                    ctx.beginPath();
-                    ctx.moveTo(points[i].x / 2, points[i].y / 2);
-                    ctx.lineTo(points[j].x / 2, points[j].y / 2);
-                    ctx.stroke();
-                }
-            }
-        }
+// function drawLines() {
+//   for (let i = 0; i < points.length; i++) {
+//     for (let j = i + 1; j < points.length; j++) {
+//       const dist = Math.hypot(
+//         points[i].x - points[j].x,
+//         points[i].y - points[j].y
+//       );
+//       const alpha = 1 - dist / lineDistance;
+//       ctx.strokeStyle = `rgba(0, 128, 255, ${alpha})`;
+//       ctx.lineWidth = 0.3;
+//       ctx.beginPath();
+//       ctx.moveTo(points[i].x / 2, points[i].y / 2);
+//       ctx.lineTo(points[j].x / 2, points[j].y / 2);
+//       ctx.stroke();
+//     }
+//   }
+// }
 
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
+// function animate() {
+//   ctx.clearRect(0, 0, width, height);
 
-            points.forEach(point => {
-                point.update();
-                point.draw();
-            });
+//   points.forEach((point) => {
+//     point.update();
+//     point.draw();
+//   });
 
-            drawLines();
-            requestAnimationFrame(animate);
-        }
+//   drawLines();
+//   requestAnimationFrame(animate);
+// }
 
-        canvas.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX * 2;
-            mouse.y = e.clientY * 2;
-            points.forEach(point => {
-                const dist = Math.hypot(point.x - mouse.x, point.y - mouse.y);
-                if (dist < 100) {
-                    point.vx += (mouse.x - point.x) * 0.008;  // Reduced interaction
-                    point.vy += (mouse.y - point.y) * 0.008;  // Reduced interaction
-                }
-            });
-        });
+// canvas.addEventListener("mousemove", (e) => {
+//   mouse.x = e.clientX * 2;
+//   mouse.y = e.clientY * 2;
+//   points.forEach((point) => {
+//     const dist = Math.hypot(point.x - mouse.x, point.y - mouse.y);
+//     if (dist < 100) {
+//       point.vx += (mouse.x - point.x) * 0.008; // Reduced interaction
+//       point.vy += (mouse.y - point.y) * 0.008; // Reduced interaction
+//     }
+//   });
+// });
 
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth * 2;
-            height = canvas.height = window.innerHeight * 2;
-            canvas.style.width = window.innerWidth + 'px';
-            canvas.style.height = window.innerHeight + 'px';
-            ctx.scale(2, 2);
-        });
+// window.addEventListener("resize", () => {
+//   width = canvas.width = window.innerWidth * 2;
+//   height = canvas.height = window.innerHeight * 2;
+//   canvas.style.width = window.innerWidth + "px";
+//   canvas.style.height = window.innerHeight + "px";
+//   ctx.scale(2, 2);
+// });
 
-        createPoints();
-        animate();
+// createPoints();
+// animate();
 //end canvas
 
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
-      const container = document.querySelector(".interactive_section");
-      const cards = document.querySelectorAll(".inter_card");
-      let viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-      let bounding = container.getBoundingClientRect();
-      const triggerHeight = viewportHeight / 1.3;
+    const container = document.querySelector(".interactive_section");
+    const cards = document.querySelectorAll(".inter_card");
+    let viewportHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+    let bounding = container.getBoundingClientRect();
+    const triggerHeight = viewportHeight / 1.3;
+    let containerHeight = bounding.height;
 
-      if (window.innerWidth >= 576) {
-          if (bounding.top <= triggerHeight && bounding.bottom >= 0) {
-              let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              cards.forEach((card) => {
-                  let offset = triggerHeight - bounding.top;
-                  card.style.transform = `translateY(-${Math.max(offset, 0)}px)`;
-              });
+    // Определение границ для масштабирования
+    const lowerThreshold = containerHeight * 0.4;
+    const upperThreshold = containerHeight * 0.6;
+
+    if (window.innerWidth >= 576) {
+      if (bounding.top <= triggerHeight && bounding.bottom >= 0) {
+        let scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        cards.forEach((card) => {
+          let offset = triggerHeight - bounding.top;
+          let cardTop = card.getBoundingClientRect().top - bounding.top;
+          let cardBottom = card.getBoundingClientRect().bottom - bounding.top;
+
+          // Движение карточек
+          card.style.transform = `translateY(-${Math.max(offset, 0) / 1.3}px)`;
+
+          // Проверяем, находится ли карточка в заданном диапазоне для масштабирования
+          if (cardTop > lowerThreshold && cardTop < upperThreshold) {
+            card.style.transform += " scale(1.1)"; // Увеличиваем размер на 10%
           } else {
-              // Reset cards to their original position if they are out of the trigger range
-              cards.forEach((card) => {
-                  card.style.transform = `translateY(0)`;
-              });
+            card.style.transform += " scale(1.0)"; // Возвращаем к исходному размеру
           }
+        });
+      } else {
+        // Сброс позиции карточек, если они вне диапазона скроллинга
+        cards.forEach((card) => {
+          card.style.transform = `translateY(0) scale(1.0)`;
+        });
       }
+    }
   });
 });
 
@@ -366,12 +387,15 @@ window.addEventListener("scroll", function () {
   let startScrollPosition = bounding.top - windowHeight / 2;
 
   // Изменим формулу расчета позиции скролла для более плавного перехода
-  if (bounding.top <= windowHeight / 2) {
-    const scrollPosition = Math.min(((windowHeight / 2 - bounding.top) / (windowHeight / 2)) * 1, 1);
+  if (bounding.top <= windowHeight / 2 && window.innerWidth > 576) {
+    const scrollPosition = Math.min(
+      ((windowHeight / 2 - bounding.top) / (windowHeight / 2)) * 1,
+      1
+    );
 
     const newScale1 = 1 - scrollPosition * 0.2;
     const newRotation1 = -10 * scrollPosition;
-    const newTranslateX1 = -8 * scrollPosition ; // in vw
+    const newTranslateX1 = -8 * scrollPosition; // in vw
     const newScale2 = 1 - scrollPosition * 0.1;
     const newRotation2 = 10 - 10 * scrollPosition;
     const newTranslateX2 = -20 * scrollPosition; // in vw
@@ -385,7 +409,8 @@ window.addEventListener("scroll", function () {
     card3.style.transform = `scale3d(${newScale3}, ${newScale3}, ${newScale3}) rotate(${newRotation3}deg) translateX(${newTranslateX3}vw) translateY(${newTranslateY3}vh)`;
   } else {
     card1.style.transform = "scale3d(1, 1, 1) rotate(0deg) translateX(0)";
-    card2.style.transform = "rotate(10deg) scale3d(0.9, 0.9, 0.9) translateX(0)";
+    card2.style.transform =
+      "rotate(10deg) scale3d(0.9, 0.9, 0.9) translateX(0)";
     card3.style.transform = "scale3d(1, 1, 1) rotate(0deg) translateX(0)";
   }
 });
@@ -409,8 +434,8 @@ window.addEventListener("scroll", function () {
       bounding.bottom > middleOfViewport
     ) {
       element.style.transform = `scale(1)`;
-    } 
-  } 
+    }
+  }
 });
 
 window.addEventListener("scroll", function () {
@@ -432,8 +457,8 @@ window.addEventListener("scroll", function () {
       bounding.bottom > middleOfViewport
     ) {
       element.style.transform = `scale(1)`;
-    } 
-  } 
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -447,12 +472,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector("#navbar");
   const zoomIn = document.querySelector("#zoom_in");
   const zoomOut = document.querySelector("#zoom_out");
-  
+
   let scale = 1;
   let selectedLine = null;
   let currentRotation = 0;
-
-  
 
   const linesData = [
     {
@@ -471,7 +494,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "7",
       textRot: "-90deg",
-      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Sharing_Economy.jpg"
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Sharing_Economy.jpg",
     },
     {
       angle: 24,
@@ -480,7 +503,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "7",
       textRot: "-90deg",
-      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Circular_Economy.jpg"
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Circular_Economy.jpg",
     },
     {
       angle: 48,
@@ -489,7 +512,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "1",
       textRot: "-90deg",
-      img: "img/Trends/Resilienz/Business-Intelligence.jpg"
+      img: "img/Trends/Resilienz/Business-Intelligence.jpg",
     },
     {
       angle: 60,
@@ -498,7 +521,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "3",
       textRot: "-90deg",
-      img: "img/Trends/Resilienz/Intelligent_Container_Pallets.jpg"
+      img: "img/Trends/Resilienz/Intelligent_Container_Pallets.jpg",
     },
     {
       angle: 72,
@@ -507,7 +530,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "5",
       textRot: "-90deg",
-      img: "img/Trends/Resilienz/supply_chain_visibility.jpg"
+      img: "img/Trends/Resilienz/supply_chain_visibility.jpg",
     },
     {
       angle: 84,
@@ -516,7 +539,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "7",
       textRot: "-90deg",
-      img: "img/Trends/Resilienz/predictive_analytics.jpg"
+      img: "img/Trends/Resilienz/predictive_analytics.jpg",
     },
     {
       angle: 96,
@@ -525,7 +548,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Resilienz",
       zIndex: "7",
       textRot: "-90deg",
-      img: "img/Trends/Resilienz/Diversifizierung_der_Lieferketten.jpg"
+      img: "img/Trends/Resilienz/Diversifizierung_der_Lieferketten.jpg",
     },
     {
       angle: 120,
@@ -534,8 +557,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "1",
       textRot: "-90deg",
-      img: "img/Trends/Connected_Logistics/Machine_Customers.jpg"
-
+      img: "img/Trends/Connected_Logistics/Machine_Customers.jpg",
     },
     {
       angle: 132,
@@ -544,8 +566,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "3",
       textRot: "-90deg",
-      img: "img/Trends/Connected_Logistics/Quantum_Computing.jpg"
-
+      img: "img/Trends/Connected_Logistics/Quantum_Computing.jpg",
     },
     {
       angle: 144,
@@ -554,8 +575,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "5",
       textRot: "-90deg",
-      img: "img/Trends/Connected_Logistics/Next-Generation_Humanoid_Working_Robots.jpg"
-
+      img: "img/Trends/Connected_Logistics/Next-Generation_Humanoid_Working_Robots.jpg",
     },
     {
       angle: 156,
@@ -564,7 +584,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "7",
       textRot: "-90deg",
-      img: "img/Trends/Connected_Logistics/Automated_Loading&Unloading.jpg"
+      img: "img/Trends/Connected_Logistics/Automated_Loading&Unloading.jpg",
     },
     {
       angle: 168,
@@ -573,7 +593,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Connected Logistics",
       zIndex: "7",
       textRot: "-90deg",
-      img: "img/Trends/Connected_Logistics/Swarm_Intelligence.jpg"
+      img: "img/Trends/Connected_Logistics/Swarm_Intelligence.jpg",
     },
     {
       angle: 192,
@@ -582,7 +602,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "1",
       textRot: "90deg",
-      img: "img/Trends/Operational_Excellence/Digital_Twin.jpg"
+      img: "img/Trends/Operational_Excellence/Digital_Twin.jpg",
     },
     {
       angle: 204,
@@ -591,7 +611,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "3",
       textRot: "90deg",
-      img: "img/Trends/Operational_Excellence/Pick-by-X.jpg"
+      img: "img/Trends/Operational_Excellence/Pick-by-X.jpg",
     },
     {
       angle: 216,
@@ -600,7 +620,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "5",
       textRot: "90deg",
-      img: "img/Trends/Operational_Excellence/Unmanned_Aerial_Vehicles.jpg"
+      img: "img/Trends/Operational_Excellence/Unmanned_Aerial_Vehicles.jpg",
     },
     {
       angle: 228,
@@ -609,7 +629,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "7",
       textRot: "90deg",
-      img: "img/Trends/Operational_Excellence/Autonomous_Driving.jpg"
+      img: "img/Trends/Operational_Excellence/Autonomous_Driving.jpg",
     },
     {
       angle: 240,
@@ -618,7 +638,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Operational Excellence",
       zIndex: "7",
       textRot: "90deg",
-      img: "img/Trends/Operational_Excellence/Digital_Marketplace_Platform.jpg"
+      img: "img/Trends/Operational_Excellence/Digital_Marketplace_Platform.jpg",
     },
     {
       angle: 264,
@@ -627,7 +647,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "1",
       textRot: "90deg",
-      img: "img/Trends/Cybersecurity/Blockchain.jpg"
+      img: "img/Trends/Cybersecurity/Blockchain.jpg",
     },
     {
       angle: 276,
@@ -636,7 +656,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "3",
       textRot: "90deg",
-      img: "img/Trends/Cybersecurity/Zero-Trust-Ansatz.jpg"
+      img: "img/Trends/Cybersecurity/Zero-Trust-Ansatz.jpg",
     },
     {
       angle: 288,
@@ -645,7 +665,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "5",
       textRot: "90deg",
-      img: "img/Trends/Cybersecurity/Fuzz-Tests.jpg"
+      img: "img/Trends/Cybersecurity/Fuzz-Tests.jpg",
     },
     {
       angle: 300,
@@ -654,7 +674,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "7",
       textRot: "90deg",
-      img: "img/Trends/Cybersecurity/Web3.jpg"
+      img: "img/Trends/Cybersecurity/Web3.jpg",
     },
     {
       angle: 312,
@@ -663,7 +683,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Cybersecurity",
       zIndex: "7",
       textRot: "90deg",
-      img: "img/Trends/Cybersecurity/GenAI.jpg"
+      img: "img/Trends/Cybersecurity/GenAI.jpg",
     },
     {
       angle: 336,
@@ -672,7 +692,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "1",
       textRot: "90deg",
-      img: "img/Trends/Social_Responsibility_&_Green_Logistics/End-to-end_Sustainable_Supply_Chains.jpg"
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/End-to-end_Sustainable_Supply_Chains.jpg",
     },
     {
       angle: 348,
@@ -681,7 +701,7 @@ document.addEventListener("DOMContentLoaded", function () {
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "3",
       textRot: "90deg",
-      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Smart_Grid.jpg"
+      img: "img/Trends/Social_Responsibility_&_Green_Logistics/Smart_Grid.jpg",
     },
   ];
 
@@ -708,7 +728,7 @@ document.addEventListener("DOMContentLoaded", function () {
         lineElem.classList.add("selected");
         selectedLine = lineElem;
         radar.style.scale = "1.7";
-        radar.style.left = "-50%";
+        radar.style.left = "-60%";
 
         const targetAngle = 90;
         const additionalRotation =
@@ -784,37 +804,32 @@ document.addEventListener("DOMContentLoaded", function () {
     updateAllLineClasses();
     updateStageClasses();
   });
-  
-  function updateScale() {
-    radar.style.transform = `scale(${scale})`;
-    radar.style.transition = "all 0.5s ease";
-    
-  }
 
-  zoomIn.addEventListener("click", () => {
-    scale += 0.2;
-    updateScale();
-    if (scale > 1.5) {
-      zoomIn.style.visibility = "hidden";
-    } else if ( scale > 0.7) {
-      zoomOut.style.visibility = "visible";
-    }
+  // function updateScale() {
+  //   radar.style.transform = `scale(${scale})`;
+  //   radar.style.transition = "all 0.5s ease";
+  // }
 
-  });
+  // zoomIn.addEventListener("click", () => {
+  //   scale += 0.2;
+  //   updateScale();
+  //   if (scale > 1.5) {
+  //     zoomIn.style.visibility = "hidden";
+  //   } else if (scale > 0.7) {
+  //     zoomOut.style.visibility = "visible";
+  //   }
+  // });
 
-  zoomOut.addEventListener("click", () => {
-    scale -= 0.2;
-    updateScale();
-    if (scale < 0.7) {
-      zoomOut.style.visibility = "hidden";
-    } else if(scale < 1.5){
-      zoomIn.style.visibility = "visible";
-    }
-  });
-  
-  
+  // zoomOut.addEventListener("click", () => {
+  //   scale -= 0.2;
+  //   updateScale();
+  //   if (scale < 0.7) {
+  //     zoomOut.style.visibility = "hidden";
+  //   } else if (scale < 1.5) {
+  //     zoomIn.style.visibility = "visible";
+  //   }
+  // });
 });
-
 
 let numbers = document.querySelectorAll(".info div");
 
@@ -932,43 +947,43 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const container = document.querySelector('.latern');
-  
-  container.addEventListener('mousemove', function (event) {
+  const container = document.querySelector(".latern");
+
+  container.addEventListener("mousemove", function (event) {
     const rect = container.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     const radius = 200;
-    
+
     container.style.background = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent, #00000091)`;
 
-    container.addEventListener('mouseleave', function () {
-      container.style.background = '';
+    container.addEventListener("mouseleave", function () {
+      container.style.background = "";
     });
   });
 });
 
-document.addEventListener('DOMContentLoaded', function(){
-  const buttons = document.querySelectorAll('.openForm');
-  const contactForm = document.querySelector('.contact_form');
-  const closeBtn = document.querySelector('.exit__contact');
-  const startenBtns = document.querySelectorAll('.jetzt_starten')
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".openForm");
+  const contactForm = document.querySelector(".contact_form");
+  const closeBtn = document.querySelector(".exit__contact");
+  const startenBtns = document.querySelectorAll(".jetzt_starten");
 
-  buttons.forEach(function(button) {
-    button.addEventListener('click', function(){
-      contactForm.classList.add('visible');
-      document.body.classList.add('scroll-lock');
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      contactForm.classList.add("visible");
+      document.body.classList.add("scroll-lock");
     });
   });
-  startenBtns.forEach(function(button) {
-    button.addEventListener('click', function(){
-      contactForm.classList.add('visible');
-      document.body.classList.add('scroll-lock');
+  startenBtns.forEach(function (button) {
+    button.addEventListener("click", function () {
+      contactForm.classList.add("visible");
+      document.body.classList.add("scroll-lock");
     });
   });
 
-  closeBtn.addEventListener('click', function(){
-    contactForm.classList.remove('visible');
-    document.body.classList.remove('scroll-lock');
+  closeBtn.addEventListener("click", function () {
+    contactForm.classList.remove("visible");
+    document.body.classList.remove("scroll-lock");
   });
 });
