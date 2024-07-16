@@ -948,7 +948,7 @@ canvas {
 
   .slogen {
     font-size: 4vw !important;
-    text-align: center;
+    text-align: start;
     position: relative;
     margin-left: 5vw;
   }
@@ -1044,7 +1044,9 @@ canvas {
     min-width: 300px !important;
     width: 100% !important;
   }
+
   .item_top {
+    height: 80px !important;
     & i {
       font-size: 1.8rem !important;
       width: 1.8rem !important;
@@ -1058,7 +1060,21 @@ canvas {
   .item_bottom_item p {
     font-size: 0.8rem !important;
   }
-
+  .item_bottom {
+    height: 250px !important;
+  }
+  .item_bottom_img {
+    display: block !important;
+    width: 87%;
+    height: 100px;
+    object-fit: cover;
+    position: relative;
+    margin: 5% 4%;
+    border-radius: 10px;
+  }
+  .growth_item_full {
+    height: 570px !important;
+  }
   .popup__title {
     font-size: 1.3rem !important;
   }
@@ -1299,7 +1315,7 @@ canvas {
     min-height: 80vh !important;
     padding: 0px !important;
     overflow: auto !important;
-    touch-action: manipulation !important;
+    touch-action: pinch-zoom !important;
   }
   .radar {
     width: 60vw !important;
@@ -1971,6 +1987,9 @@ canvas {
     color: #7a7a7a;
     line-height: 1.5rem;
   }
+}
+.item_bottom_img {
+  display: none;
 }
 .plus_btn {
   position: absolute;

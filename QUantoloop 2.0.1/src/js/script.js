@@ -922,42 +922,8 @@ numbers.forEach(function (number) {
 });
 
 // radar mobile zoom
-window.addEventListener("DOMContentLoaded", function () {
-  var radarContainer = document.getElementById("radar_border");
-  var mc = new Hammer.Manager(radarContainer);
 
-  // Добавление распознавателя жестов увеличения
-  mc.add(new Hammer.Pinch({ threshold: 0 }));
-
-  // Добавление распознавателя жестов панорамирования
-  mc.add(new Hammer.Pan({ threshold: 10, pointers: 1 }));
-
-  var last_scale = 1;
-  var current_scale = 1;
-
-  mc.on("pinchstart pinchmove", function (e) {
-    if (e.type === "pinchstart") {
-      last_scale = current_scale || 1;
-    }
-
-    current_scale = last_scale * e.scale;
-    radarContainer.style.transform = "scale(" + current_scale + ")";
-  });
-
-  var last_pos = { x: 0, y: 0 };
-  var current_pos = { x: 0, y: 0 };
-
-  mc.on("panstart panmove", function (e) {
-    if (e.type === "panstart") {
-      last_pos.x = current_pos.x || 0;
-      last_pos.y = current_pos.y || 0;
-    }
-
-    current_pos.x = last_pos.x + e.deltaX;
-    current_pos.y = last_pos.y + e.deltaY;
-    radarContainer.style.transform = `translate(${current_pos.x}px, ${current_pos.y}px) scale(${current_scale})`;
-  });
-});
+//laptop Animation
 window.addEventListener("scroll", function () {
   let laptop_area = document.querySelector(".laptop_area");
   let laptop = document.querySelector(".laptop");
