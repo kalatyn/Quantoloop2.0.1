@@ -923,7 +923,7 @@ numbers.forEach(function (number) {
 
 // radar mobile zoom
 window.addEventListener("DOMContentLoaded", function () {
-  var radarContainer = document.getElementById("radar-container");
+  var radarContainer = document.getElementById("radar_border");
   var mc = new Hammer.Manager(radarContainer);
 
   // Добавление распознавателя жестов увеличения
