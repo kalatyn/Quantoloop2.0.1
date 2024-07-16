@@ -99,32 +99,35 @@
 //end canvas
 
 document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll(".link_section");
-  const navLinks = document.querySelectorAll(".nav-link");
+  // Проверяем, что ширина окна браузера больше или равна 768 пикселям
+  if (window.innerWidth >= 768) {
+    const sections = document.querySelectorAll(".link_section");
+    const navLinks = document.querySelectorAll(".nav-link");
 
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.6,
-  };
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.6,
+    };
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href").slice(1) === id) {
-            link.classList.add("active");
-          }
-        });
-      }
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").slice(1) === id) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => {
+      observer.observe(section);
     });
-  }, options);
-
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
