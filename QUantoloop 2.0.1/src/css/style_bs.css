@@ -1996,6 +1996,7 @@ canvas {
   justify-content: center;
   overflow-y: auto;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch !important;
   &::-webkit-scrollbar {
     display: none;
   }
