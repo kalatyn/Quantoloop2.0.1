@@ -1305,7 +1305,7 @@ canvas {
     width: 60vw !important;
     height: 60vw !important;
 
-    transform: scale(0.7) !important;
+    transform: scale(0.6) !important;
   }
   #growth_area {
     min-height: 850px !important;
