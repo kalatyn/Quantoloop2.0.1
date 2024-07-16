@@ -99,6 +99,73 @@
 //end canvas
 
 document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll(".link_section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.6,
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").slice(1) === id) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  }, options);
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const windowsInfo = document.querySelectorAll(".window_info");
+
+  // Функция для обновления высоты одного окна window_info в зависимости от его window_par
+  function updateWindowInfoHeight(windowInfo) {
+    const windowPar = windowInfo.querySelector(".window_par");
+    if (windowPar) {
+      windowInfo.style.height = `${windowPar.scrollHeight + 250}px`;
+    }
+  }
+
+  // Инициализация высоты всех окон при загрузке
+  windowsInfo.forEach((windowInfo) => {
+    updateWindowInfoHeight(windowInfo);
+  });
+
+  // Подписка на изменения размера окна
+  window.addEventListener("resize", () => {
+    windowsInfo.forEach((windowInfo) => {
+      updateWindowInfoHeight(windowInfo);
+    });
+  });
+
+  // Для более динамичного содержимого можно использовать MutationObserver
+  windowsInfo.forEach((windowInfo) => {
+    const windowPar = windowInfo.querySelector(".window_par");
+    if (windowPar) {
+      new MutationObserver(() => {
+        updateWindowInfoHeight(windowInfo);
+      }).observe(windowPar, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+      });
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     const container = document.querySelector(".interactive_section");
     const cards = document.querySelectorAll(".inter_card");
@@ -109,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let containerHeight = bounding.height;
 
     // Определение границ для масштабирования
-    const lowerThreshold = containerHeight * 0.4;
+    const lowerThreshold = containerHeight * 0.2;
     const upperThreshold = containerHeight * 0.6;
 
     if (window.innerWidth >= 576) {

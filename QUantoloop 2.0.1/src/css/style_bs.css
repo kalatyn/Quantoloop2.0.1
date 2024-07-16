@@ -542,11 +542,25 @@ body {
   font-size: 12px;
   font-weight: 300;
   margin-right: 15px;
-  transition: transform 0.3s ease 0s;
+  position: relative;
+  transition: all 0.3s ease 0s;
   &:hover {
     transform: scale(1.1);
     border-bottom: none;
     color: black;
+  }
+}
+.nav-link.active {
+  border-bottom: none;
+  font-weight: 500 !important;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: calc(50% - 7.5px);
+    width: 15px;
+    height: 2px;
+    background-color: black;
   }
 }
 .nav-link-last {
@@ -596,7 +610,7 @@ body {
   height: 20vw;
   background-color: white;
   border-radius: 20px;
-  margin: 1% auto;
+  margin: 4% auto;
   padding: 3%;
   display: flex;
   flex-direction: column;
@@ -1685,20 +1699,23 @@ canvas {
 }
 
 .card__disc {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  left: 0;
-  z-index: 110;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  transition: all 0, 5s;
-  -webkit-overflow-scrolling: auto !important;
+  position: absolute;
+  z-index: 110;
+  top: 0;
+  padding: 5% 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .card__disc.show {
   visibility: visible;
@@ -1894,7 +1911,7 @@ canvas {
   z-index: 2;
 
   & h3 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
     cursor: pointer;
     margin-left: 1rem;
@@ -1941,9 +1958,10 @@ canvas {
     /* font-weight: 400; */
     margin: 0rem 2rem 0.5rem 1rem;
     /* line-height: 1.3rem; */
+    text-align: justify;
     overflow-wrap: break-word;
     hyphens: auto;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #7a7a7a;
     line-height: 1.5rem;
   }
@@ -1971,28 +1989,35 @@ canvas {
   -webkit-backdrop-filter: blur(15px);
   position: absolute;
   z-index: 110;
+  top: 0;
+  padding: 5% 0;
   visibility: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
+  overflow-y: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .plus_info.show {
   visibility: visible;
 }
 .window_info {
   position: relative;
+  overflow: visible;
   width: 90%;
-  height: 80%;
+  height: 100%;
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
   border: 1px solid rgb(187, 187, 187);
-  overflow: hidden;
+  -webkit-overflow-scrolling: touch !important;
 
   z-index: 4;
 
   & h2 {
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 400;
     position: relative;
     left: 7.5%;
     margin-top: 5%;
@@ -2003,16 +2028,18 @@ canvas {
     position: relative;
     margin-top: 1%;
     width: 85%;
+    font-weight: 600;
   }
 
   & i {
     position: absolute;
     top: 30px;
     right: 30px;
+    border-radius: 50%;
     font-size: 2rem;
     cursor: pointer;
     transition: scale 0.7s ease;
-    color: #5598c8af;
+    color: #3e3e3eaf;
     cursor: pointer;
   }
   & i:hover {
@@ -2022,8 +2049,8 @@ canvas {
 }
 .window_par {
   width: 85%;
-  height: 70%;
-  overflow-y: scroll;
+  height: auto;
+  /* overflow-y: scroll; */
   /* scrollbar-width: none !important; */
   background-color: #fbfbfb;
   border-radius: 0.8rem;
@@ -2044,11 +2071,11 @@ canvas {
     font-size: 1rem;
     font-weight: 500;
     margin: 1rem 0;
-    line-height: 1.5rem;
+    line-height: 2rem;
   }
   & img {
     width: 100%;
-    height: 50%;
+    height: 300px;
     border-radius: 20px 20px 0px 0px;
     object-fit: cover;
     position: relative;
@@ -2175,7 +2202,7 @@ canvas {
 .radar_titel {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  margin-top: 200px;
+  margin-top: 150px;
   margin-left: 5%;
 }
 .radar_titel2 {
@@ -2702,7 +2729,6 @@ canvas {
   width: 100%;
   & input {
     background-color: #9fb7d2;
-    color: white;
   }
 }
 .input {
@@ -2720,6 +2746,12 @@ canvas {
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
+}
+input:focus {
+  outline: 1px solid var(--light-blue);
+}
+textarea:focus {
+  outline: 1px solid var(--light-blue);
 }
 .inputs_wrapper {
   display: flex;
