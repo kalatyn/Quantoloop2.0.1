@@ -1160,7 +1160,7 @@ canvas {
     max-width: 80%;
   }
   .slogen {
-    font-size: 14vw;
+    font-size: 1.1rem !important;
   }
   .interactive_section {
     flex-direction: column-reverse;
@@ -1285,19 +1285,19 @@ canvas {
   }
   .item_top {
     & h3 {
-      font-size: 0.9rem !important;
+      font-size: 1rem !important;
     }
     & i {
-      font-size: 0.8rem !important;
+      font-size: 1rem !important;
     }
   }
   .item_bottom_item p {
-    font-size: 0.6rem !important;
+    font-size: 0.7rem !important;
     line-height: 1rem !important;
     margin-bottom: 0.2rem !important;
   }
   .plus_btn {
-    font-size: 0.6rem !important;
+    font-size: 0.7rem !important;
   }
   .window_info h2 {
     font-size: 2rem !important;
@@ -1467,7 +1467,7 @@ canvas {
     margin-bottom: 0.7rem !important;
   }
   .growth_titel {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
     line-height: 1.3rem;
   }
   .growth_right {
