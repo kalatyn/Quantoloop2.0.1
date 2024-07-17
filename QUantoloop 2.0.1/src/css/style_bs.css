@@ -624,7 +624,7 @@ body {
   transition: transform 0.3s ease 0s;
 }
 .inter_card img {
-  height: 60px;
+  height: 50px;
   color: black;
   /* margin-bottom: 2%; */
 }
@@ -940,10 +940,10 @@ canvas {
   .navbar-brand_mini {
     display: block;
     position: relative;
-    top: 0;
+    top: -5px;
     left: 0;
-    width: 36px;
-    height: 36px;
+    width: 23px;
+    height: 23px;
   }
 
   .slogen {
@@ -1285,16 +1285,19 @@ canvas {
   }
   .item_top {
     & h3 {
-      font-size: 1.6rem !important;
+      font-size: 0.9rem !important;
+    }
+    & i {
+      font-size: 0.8rem !important;
     }
   }
   .item_bottom_item p {
-    font-size: 0.7rem !important;
+    font-size: 0.6rem !important;
     line-height: 1rem !important;
     margin-bottom: 0.2rem !important;
   }
   .plus_btn {
-    font-size: 0.7rem !important;
+    font-size: 0.6rem !important;
   }
   .window_info h2 {
     font-size: 2rem !important;
@@ -1309,10 +1312,9 @@ canvas {
     line-height: 1.4rem !important;
   }
   #radar__area {
-    height: 100vh !important;
+    height: 70vh !important;
   }
   .radar_border {
-    min-height: 80vh !important;
     padding: 0px !important;
     overflow: auto !important;
     touch-action: pinch-zoom !important;
@@ -1324,7 +1326,10 @@ canvas {
     transform: scale(0.6) !important;
   }
   #growth_area {
-    min-height: 850px !important;
+    min-height: 750px !important;
+  }
+  .titel_section {
+    height: 100px !important;
   }
   .plus_info {
     position: fixed !important;
@@ -1442,11 +1447,12 @@ canvas {
   }
   .radar_titel {
     margin-top: 100px !important;
-    font-size: 1rem !important;
+    font-size: 0.7rem !important;
     margin-left: 6vw !important;
   }
   .radar_titel2 {
-    font-size: 1.5rem !important;
+    font-size: 1rem !important;
+
     margin-left: 6.5vw !important;
   }
   .cardfield_titel {
@@ -1456,11 +1462,13 @@ canvas {
     margin-left: 5vw !important;
   }
   .growth_titelM {
-    font-size: 1rem !important;
+    font-size: 0.7rem !important;
     margin-left: 5vw !important;
+    margin-bottom: 0.7rem !important;
   }
   .growth_titel {
-    font-size: 1.5rem !important;
+    font-size: 1rem !important;
+    line-height: 1.3rem;
   }
   .growth_right {
     display: none !important;
@@ -1483,10 +1491,34 @@ canvas {
     height: auto !important;
     transform: rotate(0deg) scale3d(1, 1, 1) !important;
     margin-bottom: 2rem !important;
+    aspect-ratio: auto !important;
+  }
+  .icr_card h3 {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.9rem !important;
+  }
+  .icr_card h2 {
+    font-size: 2.2rem !important;
+    margin-bottom: 0.9rem !important;
+  }
+  .icr_card p {
+    font-size: 0.6rem !important;
+  }
+  .icr_card img {
+    width: 13% !important;
+    height: 13% !important;
+    margin-bottom: 0.9rem !important;
   }
   .icl_titel {
     width: 90vw !important;
     margin-top: 10% !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .icl_btn {
+    transform: scale(0.55);
+    position: relative;
+    right: 44px;
   }
 }
 
