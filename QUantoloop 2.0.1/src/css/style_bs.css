@@ -1174,6 +1174,7 @@ canvas {
     margin-left: 12%;
     & h2 {
       font-size: 6vw !important;
+      font-weight: 600;
       width: 300px !important;
     }
     & h3 {
@@ -1189,23 +1190,26 @@ canvas {
   .inter_card {
     width: 300px;
     padding: 20px !important;
-    height: 240px !important;
+    height: auto !important;
     top: 0 !important;
     & h3 {
-      font-size: 25px !important;
+      font-size: 1rem !important;
       margin-top: 5%;
     }
     & p {
-      font-size: 13px !important;
+      font-size: 0.8rem !important;
+      line-height: 1.3rem !important;
       margin-top: 5% !important;
     }
-    & i {
-      font-size: 6vw !important;
+    & img {
+      width: 20% !important;
+      height: 20% !important;
     }
   }
 
   #card_section {
     height: 100vh !important;
+    margin-bottom: 0 !important;
   }
   #cardfield {
     top: 9% !important;
@@ -1221,6 +1225,7 @@ canvas {
   }
   .card__top p {
     font-size: 0.9rem !important;
+    font-weight: 600;
   }
   .card {
     position: relative;
