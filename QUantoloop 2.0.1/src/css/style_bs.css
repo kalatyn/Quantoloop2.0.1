@@ -908,8 +908,11 @@ canvas {
     width: 100% !important;
   }
   .nav-item {
+    font-size: 1.5rem !important;
+    font-weight: 500;
     a {
-      font-size: 1rem !important;
+      font-size: 1.5rem !important;
+      font-weight: 500;
     }
   }
   .navbar {
@@ -1391,6 +1394,7 @@ canvas {
 
   .laptop_titelM {
     font-size: 0.8rem !important;
+    margin-top: 0px !important;
   }
   .laptop_titel {
     font-size: 1.2rem !important;
@@ -1420,6 +1424,7 @@ canvas {
   .software_info {
     align-items: center !important;
     padding: 30px 10px !important;
+    margin-bottom: 50px !important;
   }
   .software_cards {
     display: flex;
@@ -1530,12 +1535,7 @@ canvas {
 
     margin-left: 6.5vw !important;
   }
-  .cardfield_titel {
-    margin-bottom: 0px !important;
 
-    font-size: 1.5rem !important;
-    margin-left: 5vw !important;
-  }
   .growth_titelM {
     font-size: 0.8rem !important;
     margin-left: 5vw !important;
