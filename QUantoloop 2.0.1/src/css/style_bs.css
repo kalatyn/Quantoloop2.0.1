@@ -1210,7 +1210,18 @@ canvas {
   #cardfield {
     top: 9% !important;
   }
-
+  .cardfield_titelM {
+    font-size: 0.8rem !important;
+  }
+  .cardfield_titel {
+    font-size: 1.2rem !important;
+  }
+  .card__top h1 {
+    font-size: 0.8rem !important;
+  }
+  .card__top p {
+    font-size: 0.9rem !important;
+  }
   .card {
     position: relative;
     top: -5%;
@@ -1463,12 +1474,12 @@ canvas {
     margin-left: 5vw !important;
   }
   .growth_titelM {
-    font-size: 0.7rem !important;
+    font-size: 0.8rem !important;
     margin-left: 5vw !important;
     margin-bottom: 0.7rem !important;
   }
   .growth_titel {
-    font-size: 1.1rem !important;
+    font-size: 1.2rem !important;
     line-height: 1.3rem;
   }
   .growth_right {
@@ -1481,6 +1492,7 @@ canvas {
   .interactive_container {
     flex-direction: column;
     height: auto;
+    padding-top: 30px !important;
   }
   .interactive_container_right {
     flex-direction: column;
@@ -1515,13 +1527,13 @@ canvas {
   .icl_titel {
     width: 90vw !important;
     margin-top: 10% !important;
-    font-size: 1.6rem !important;
+    font-size: 2rem !important;
     margin-bottom: 1.5rem !important;
   }
   .icl_btn {
-    transform: scale(0.65);
+    transform: scale(0.7);
     position: relative;
-    right: 35px;
+    right: 30px;
   }
 }
 
