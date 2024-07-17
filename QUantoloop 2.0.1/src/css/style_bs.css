@@ -1313,6 +1313,7 @@ canvas {
   }
   #radar__area {
     height: 70vh !important;
+    padding-top: 0 !important;
   }
   .radar_border {
     padding: 0px !important;
@@ -1451,7 +1452,7 @@ canvas {
     margin-left: 6vw !important;
   }
   .radar_titel2 {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
 
     margin-left: 6.5vw !important;
   }
@@ -1494,31 +1495,33 @@ canvas {
     aspect-ratio: auto !important;
   }
   .icr_card h3 {
-    font-size: 0.8rem !important;
-    margin-bottom: 0.9rem !important;
+    font-size: 1rem !important;
+    margin-bottom: 1.3rem !important;
   }
   .icr_card h2 {
-    font-size: 2.2rem !important;
-    margin-bottom: 0.9rem !important;
+    font-size: 3rem !important;
+    margin-bottom: 1.3rem !important;
   }
   .icr_card p {
-    font-size: 0.6rem !important;
+    font-size: 0.8rem !important;
+    line-height: 1.2rem !important;
+    letter-spacing: 0.02rem !important;
   }
   .icr_card img {
     width: 13% !important;
     height: 13% !important;
-    margin-bottom: 0.9rem !important;
+    margin-bottom: 1.3rem !important;
   }
   .icl_titel {
     width: 90vw !important;
     margin-top: 10% !important;
-    font-size: 1.5rem !important;
+    font-size: 1.6rem !important;
     margin-bottom: 1.5rem !important;
   }
   .icl_btn {
-    transform: scale(0.55);
+    transform: scale(0.65);
     position: relative;
-    right: 44px;
+    right: 35px;
   }
 }
 
