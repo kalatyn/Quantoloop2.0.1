@@ -1418,7 +1418,7 @@ canvas {
     border-radius: 0px !important;
     z-index: 200 !important;
     width: 100% !important;
-    height: 100svh !important;
+    height: 100vh !important;
   }
   .popup__titleS {
     font-size: 0.8rem !important;
@@ -1469,6 +1469,7 @@ canvas {
     z-index: 200 !important;
     width: 100% !important;
     height: 100svh !important;
+    overflow: scroll !important;
   }
   /* .line::before {
     font-size: smaller !important;
