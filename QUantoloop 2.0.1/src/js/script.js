@@ -587,7 +587,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       angle: 60,
       info: "Mit dem Fortschritt der Digitalisierung werden Ladungsträger und Transportverpackungen zunehmend intelligenter. Sie entwickeln sich von einfachen Transportbehältern zu cyber-physischen Objekten, die mit übergeordneten IT-Systemen kommunizieren. An Kisten oder Paletten angebrachte Sensoren erfassen Daten wie Temperatur, Feuchtigkeit, Erschütterungen, Standort und entnommene Produktmengen und übermitteln diese in Echtzeit an Anwendungen auf Computern, Tablets oder Smartphones. RFID- und NFC-Chips gewährleisten einen effektiven Schutz vor Fälschung und Diebstahl. Diese intelligenten Container und Paletten verbessern die Transparenz und Effizienz in der Lieferkette erheblich, indem sie eine präzise Überwachung und Steuerung ermöglichen.",
-      titel: "Intelligent Container / Pallets",
+      titel: "Intelligent Goods",
       titelS: "Resilienz",
       zIndex: "3",
       textRot: "-90deg",
@@ -614,7 +614,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       angle: 96,
       info: "Die Diversifizierung der Lieferketten umfasst die strategische Neuausrichtung, um das Netzwerk der Lieferanten zu erweitern und sowohl die Fertigungs- als auch die Vertriebskapazitäten zu stärken. Dieser Trend ist darauf ausgerichtet, die Belastbarkeit, Agilität, Reaktionsfähigkeit und Wettbewerbsfähigkeit eines Unternehmens zu erhöhen. Durch die Erweiterung des Lieferantenökosystems können Risiken diversifiziert und Engpässe minimiert werden, was essentiell ist für eine resiliente Lieferkette. Professionell gesteuerte Diversifizierungsstrategien ermöglichen es Unternehmen, flexibler auf Marktveränderungen zu reagieren und ihre globalen Lieferketten effektiver zu gestalten, um langfristig erfolgreich zu sein.",
-      titel: "Diversifizierung der Lieferketten",
+      titel: "Diversified Supply Chain",
       titelS: "Resilienz",
       zIndex: "7",
       textRot: "-90deg",
@@ -623,7 +623,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       angle: 120,
       info: "Machine Customers sind nicht-menschliche Wirtschaftsakteure, die eigenständig Waren oder Dienstleistungen gegen Bezahlung beziehen. Typische Beispiele hierfür sind IoT-verbundene Geräte oder Anlagen, die automatisch Bestellungen aufgeben, sowie intelligente Algorithmen für die Lagerhaltung und smarte Assistenten, die Verbrauchern gezielte Angebote unterbreiten. Diese Entwicklung zeigt, wie Technologie autonom Entscheidungen trifft und Transaktionen durchführt, was neue Möglichkeiten für effizientere Geschäftsprozesse und personalisierten Kundenservice eröffnet.",
-      titel: "Machine Customers / Smart Factory",
+      titel: "Machine Customers",
       titelS: "Connected Logistics",
       zIndex: "1",
       textRot: "-90deg",
@@ -641,7 +641,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       angle: 144,
       info: "Next-Generation Humanoid Working Robots vereinen sensorische Wahrnehmung mit mobiler Manipulation und dynamischer Fortbewegung, um komplexe Aufgaben auszuführen, die bisher menschlichen Arbeitern vorbehalten waren. Diese Roboter imitieren typischerweise den menschlichen Körper: Sie verfügen über einen kopfseitigen Sensor- und Kamerabereich zur Umgebungswahrnehmung, einen Körper für Energie und Mechanik, Arme mit Greifern zur Manipulation von Gegenständen sowie Beine für dynamische Bewegungen. Diese Technologie verspricht eine neue Ära in der Automatisierung und könnte wesentlich zur Effizienzsteigerung beispielsweise in der Kommissionierung beitragen.",
-      titel: "Next-Generation Humanoid Working Robots ",
+      titel: "Humanoid Robots ",
       titelS: "Connected Logistics",
       zIndex: "5",
       textRot: "-90deg",
@@ -650,7 +650,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       angle: 156,
       info: "Automated Loading & Unloading, bekannt als ATLS (Automatic Truck Loading Systems), automatisiert das Be- und Entladen von LKWs durch Robotertechnik mit minimalem Bedieneraufwand. Dieses System optimiert das Handling von Paletten in Herstellungs- und Verteilungszentren entscheidend. Es minimiert Platzbedarf und Verladezeiten, was direkte Auswirkungen auf den Durchsatz und die Standzeiten der LKW hat. Konventionelle Flurförderzeuge und deren Fahrer werden durch dieses automatisierte Verfahren reduziert, was auch die Sicherheitsrisiken verringert. Die Entwicklung zielt darauf ab, das Palettenhandling an Verladerampen effizienter und sicherer zu gestalten.",
-      titel: "Automated Loading & Unloading ",
+      titel: "Automated Loading",
       titelS: "Connected Logistics",
       zIndex: "7",
       textRot: "-90deg",
@@ -686,7 +686,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       angle: 216,
       info: "Unbemannte Luftfahrzeuge (Drohnen) haben sich in den letzten zehn Jahren von einem ambitionierten Konzept zu einem Vorreiter der Logistikbranche entwickelt. Sie sind kleine, autonome Roboter, die entweder ferngesteuert oder autonom fliegen können. Trotz der Erwartungen und Zweifel, die sie wecken, bieten Drohnen das Potenzial, Gegenstände schnell zu transportieren, Lagerbestände zu überprüfen und schwer zugängliche Bereiche zu erkunden. Aktuell sind jedoch ihre Tragfähigkeit, Reichweite und Akkulaufzeit begrenzt. Wenn sich die Technologie weiterentwickelt, könnten Drohnen die Lieferkettenprozesse revolutionieren und ein neues Zeitalter der Logistik einläuten.",
-      titel: "Unmanned Aerial Vehicles",
+      titel: "Unmanned Vehicles",
       titelS: "Operational Excellence",
       zIndex: "5",
       textRot: "90deg",
@@ -704,7 +704,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       angle: 240,
       info: "Digital-Marketplace Plattformen koordinieren Angebot und Nachfrage von Logistikdienstleistungen über Plattformen, was zu niedrigeren Kosten und höherer Anlagenauslastung führt. Die Datenaggregation diverser vernetzter Sensoren im Lager und an den Verkehrsträgern minimiert Ineffizienzen in aktuellen Lieferketten und ermöglicht eine intelligente Logistikinfrastruktur. Diese Entwicklung gleicht einem biologischen Nervensystem, das den Materialfluss intelligent steigert und Erfahrungen für optimierte Produkte und Dienstleistungen zurückführt.",
-      titel: "Digital Marketplace Platform",
+      titel: "Digital Marketplace",
       titelS: "Operational Excellence",
       zIndex: "7",
       textRot: "90deg",
@@ -758,7 +758,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       angle: 336,
       info: "Die steigende weltweite Gesetzgebung im Bereich der Nachhaltigkeit zwingt Unternehmen, von freiwilligen zu verpflichtenden Maßnahmen überzugehen. Gesetze wie das deutsche Lieferkettensorgfaltspflichtengesetz (LkSG) verlangen präzise Nachhaltigkeitsdaten entlang der gesamten Lieferkette, um Menschenrechte und Umweltstandards zu gewährleisten. Unternehmen müssen diese Daten auf ein Investitionsniveau anheben, um sowohl gesetzliche Anforderungen als auch die Erwartungen der Interessengruppen zu erfüllen und interne Entscheidungen zu unterstützen. Nachhaltige Lieferketten bieten zudem Vorteile wie Rechtskonformität, verbessertes Unternehmensimage, Wettbewerbsvorteile und effektiveres Risikomanagement. Eine end-to-end nachhaltige Lieferkette ist somit unerlässlich für langfristigen wirtschaftlichen Erfolg und gesellschaftliche Verantwortung.",
-      titel: "End-to-end Sustainable Supply Chains",
+      titel: "E2E Sustainability",
       titelS: "Social Responsibility & Green Logistics",
       zIndex: "1",
       textRot: "90deg",
@@ -797,8 +797,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         lineElem.classList.add("selected");
         selectedLine = lineElem;
-        radar.style.scale = "1.7";
-        radar.style.left = "-60%";
+        if (window.innerWidth >= 576) {
+          radar.style.scale = "1.7";
+          radar.style.left = "-60%";
+        }
 
         const targetAngle = 90;
         const additionalRotation =

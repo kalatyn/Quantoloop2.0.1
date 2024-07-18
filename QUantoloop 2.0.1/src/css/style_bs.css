@@ -652,9 +652,16 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 5% 5% 5% 0;
+  position: relative;
 }
 .inter_info_container {
   width: 480px;
+  position: relative;
+}
+.inter_info_container div {
+  position: relative;
+  top: 0;
+  left: 0;
 }
 .inter_info_container h2 {
   font-size: 3rem;
@@ -846,6 +853,12 @@ canvas {
   .info p {
     font-size: 0.8rem !important;
   }
+  .growth_left {
+    min-width: 300px !important;
+  }
+  .growth_item {
+    min-width: 300px !important;
+  }
 
   /* .software_cards {
     width: 100%;
@@ -908,11 +921,11 @@ canvas {
     width: 100% !important;
   }
   .nav-item {
-    font-size: 1.5rem !important;
-    font-weight: 500;
+    font-size: 1.2rem !important;
+    font-weight: 600;
     a {
-      font-size: 1.5rem !important;
-      font-weight: 500;
+      font-size: 1.2rem !important;
+      font-weight: 600;
     }
   }
   .navbar {
@@ -1044,7 +1057,12 @@ canvas {
   }
 
   .growth_left {
+    width: 100% !important;
     min-width: 300px !important;
+  }
+
+  .growth_right {
+    display: none;
   }
 
   .growth_item {
@@ -1060,7 +1078,10 @@ canvas {
       height: 1.8rem !important;
     }
   }
-
+  .radar {
+    height: 45vh !important;
+    width: 45vh !important;
+  }
   .item_bottom_item h2 {
     font-size: 1.2rem !important;
   }
@@ -1080,7 +1101,7 @@ canvas {
     border-radius: 10px;
   }
   .growth_item_full {
-    height: 570px !important;
+    height: 450px !important;
   }
   .popup__title {
     font-size: 1.3rem !important;
@@ -1138,19 +1159,23 @@ canvas {
   }
 
   .radar_titel {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
   }
   .radar_titel2 {
-    font-size: 2.5rem !important;
+    font-size: 1.2rem !important;
+  }
+  .cardfield_titelM {
+    font-size: 0.8rem !important;
   }
   .cardfield_titel {
-    font-size: 2.5rem !important;
+    font-size: 1.2rem !important;
   }
   .growth_titelM {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
   }
   .growth_titel {
-    font-size: 2.5rem !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 50px;
   }
 }
 @media screen and (max-width: 576px) {
@@ -1179,6 +1204,7 @@ canvas {
   .inter_info_container {
     width: 300px !important;
     margin-left: 12%;
+    margin-bottom: 50px;
     & h2 {
       font-size: 6vw !important;
       font-weight: 600;
@@ -1187,6 +1213,7 @@ canvas {
     & h3 {
       font-size: 3vw !important;
       width: 300px !important;
+      margin-bottom: 10px !important;
     }
   }
 
@@ -1216,11 +1243,12 @@ canvas {
   }
 
   #card_section {
-    height: 85vh !important;
+    height: auto !important;
     margin-bottom: 0 !important;
   }
   #cardfield {
     top: 9% !important;
+    height: auto !important;
   }
   .cardfield_titelM {
     font-size: 0.8rem !important;
@@ -1234,6 +1262,7 @@ canvas {
   .card__top p {
     font-size: 0.9rem !important;
     font-weight: 600;
+    line-height: 1rem !important;
   }
   .card {
     position: relative;
@@ -1243,6 +1272,9 @@ canvas {
   }
   #card3 img {
     top: 40% !important;
+  }
+  #card5 img {
+    translate: -300px 0 !important;
   }
   .card:first-child {
     margin-left: 20%;
@@ -1316,6 +1348,8 @@ canvas {
     }
     & i {
       font-size: 1rem !important;
+      width: 1rem !important;
+      height: 1rem !important;
     }
   }
   .item_bottom_item p {
@@ -1328,22 +1362,27 @@ canvas {
   }
   .window_info h2 {
     font-size: 0.8rem !important;
-    margin-top: 2rem !important;
+    margin-top: 4rem !important;
+    color: #5a5a5a;
   }
   .window_info h3 {
-    margin-top: 2rem !important;
+    margin-top: 0.5rem !important;
     font-size: 1.1rem !important;
+    line-height: 1.3rem !important;
   }
   .window_info p {
     font-size: 0.8rem !important;
     line-height: 1.2rem !important;
     color: #7a7a7a;
   }
+  .window_par {
+    margin-top: 1.2rem !important;
+  }
   .window_par img {
     height: 150px !important;
   }
   #radar__area {
-    height: 70vh !important;
+    height: 55vh !important;
     padding-top: 0 !important;
   }
   .radar_border {
@@ -1381,6 +1420,17 @@ canvas {
     width: 100% !important;
     height: 100svh !important;
   }
+  .popup__titleS {
+    font-size: 0.8rem !important;
+  }
+  .popup__titleL {
+    font-size: 1.2rem !important;
+  }
+  .popup__text {
+    font-size: 0.8rem !important;
+    line-height: 1.2rem !important;
+    color: #7a7a7a;
+  }
   .card__disc {
     position: fixed !important;
     top: 0% !important;
@@ -1407,6 +1457,9 @@ canvas {
     position: relative !important;
     top: 20px;
     left: 0px;
+    &:hover {
+      transform: none !important;
+    }
   }
   .window_info {
     position: fixed !important;
@@ -1484,6 +1537,31 @@ canvas {
   #form {
     width: 80vw !important;
   }
+  #form i {
+    font-size: 1.5rem !important;
+    top: 20px !important;
+    right: 20px !important;
+  }
+  #form h2 {
+    font-size: 2.4rem !important;
+    font-weight: 200 !important;
+    line-height: 1rem !important;
+    margin-top: 3.5rem !important;
+  }
+  #form h3 {
+    font-size: 0.8rem !important;
+    line-height: 1.2rem !important;
+    margin-bottom: 40px !important;
+    /* & span {
+      display: none !important;
+    } */
+  }
+  .inputs_wrapper {
+    flex-direction: column !important;
+    & label {
+      font-size: 0.8rem;
+    }
+  }
   #contact_us {
     padding: 50px 10px 50px 10px !important;
     height: auto !important;
@@ -1496,15 +1574,31 @@ canvas {
       font-size: 0.8rem !important;
       width: 90% !important;
       line-height: 1.3rem !important;
-      text-align: justify !important;
+      text-align: center !important;
       overflow-wrap: break-word !important;
       hyphens: auto !important;
       margin-bottom: 20px !important;
+      color: #a2a2a2 !important;
     }
+  }
+  .input_message {
+    height: 80% !important;
+    top: 35px !important;
+    & textarea {
+      margin-bottom: 10% !important;
+    }
+
+    & label {
+      font-size: 0.8rem !important;
+    }
+  }
+  .input {
+    width: 100% !important;
   }
   .contactBtn {
     width: 160px !important;
     height: 50px !important;
+    margin-top: 2.5rem !important;
   }
   .latern {
     display: none !important;
@@ -1513,7 +1607,7 @@ canvas {
     font-size: 16px !important;
   }
   .laptop_area {
-    height: 70vh;
+    height: 45vh;
     align-items: center;
     justify-content: space-around;
   }
@@ -1527,13 +1621,14 @@ canvas {
   }
   .radar_titel {
     margin-top: 100px !important;
-    font-size: 0.7rem !important;
+    font-size: 0.8rem !important;
     margin-left: 6vw !important;
+    margin-bottom: 0.7rem !important;
   }
   .radar_titel2 {
-    font-size: 1.1rem !important;
+    font-size: 1.2rem !important;
 
-    margin-left: 6.5vw !important;
+    margin-left: 6vw !important;
   }
 
   .growth_titelM {
@@ -1723,15 +1818,19 @@ canvas {
 
 .card__top h1 {
   color: white;
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-bottom: 10px;
   transition: all 0.7s ease 0s;
 }
 
 .card__top p {
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5rem;
   transition: all 0.7s ease 0s;
+  hyphens: auto;
+  width: 95%;
 }
 
 .card__bottom {
@@ -2076,11 +2175,12 @@ canvas {
   display: flex;
   justify-content: start;
   align-items: center;
-  padding-bottom: 20px;
+  /* padding-bottom: 50px; */
 }
 .item_bottom_item {
   width: 100%;
   height: auto;
+  margin-bottom: 50px;
   & h2 {
     font-size: 1.4vh;
     font-weight: 600;
@@ -2461,7 +2561,7 @@ canvas {
     content: attr(data-titel);
     width: 150px;
     position: absolute;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 300;
     text-align: center;
     top: -6rem;
@@ -2731,7 +2831,7 @@ canvas {
     margin-bottom: 2rem;
     font-size: 1.2rem;
     text-align: center;
-    color: white;
+    color: #848484;
     width: 70%;
     line-height: 1.8rem;
   }
@@ -2838,8 +2938,8 @@ canvas {
   flex-direction: column;
   align-items: center;
   width: 700px;
-  height: 550px;
-  background-color: #bbd2ec;
+  height: 650px;
+  background-color: #dfe9f5;
   border-radius: 20px;
   padding: 3% 5%;
   & i {
@@ -2849,24 +2949,27 @@ canvas {
     font-size: 2rem;
     cursor: pointer;
     transition: scale 0.7s ease;
-    color: #5598c8af;
+    color: var(--dark-blue);
     cursor: pointer;
   }
   & h2 {
     font-size: 3rem;
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color: var(--dark-blue);
   }
   & h3 {
     margin-bottom: 3rem;
-    color: var(--dark-blue);
+    color: #7d91a7;
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
   }
 }
 #formular {
   width: 100%;
   & input {
-    background-color: #9fb7d2;
+    background-color: #c5d4eb;
   }
 }
 .input {
@@ -2913,15 +3016,15 @@ textarea:focus {
     resize: none;
     height: 70%;
     border-radius: 10px;
-    background-color: #9fb7d2;
+    background-color: #c5d4eb;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
   }
   & button {
-    position: absolute;
+    position: relative;
     height: 40px;
     width: 90px;
-    bottom: -10%;
-    right: 2%;
+
     padding: 0.5rem;
     border: none;
     border-radius: 20px;
