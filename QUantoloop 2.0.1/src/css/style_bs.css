@@ -3052,22 +3052,34 @@ textarea:focus {
     transform: scale(1.1);
   }
 }
-
+.impressum_title {
+  width: 50vw;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
 .impressum {
-  width: 100vw;
-  height: calc(100vh - 50px);
+  width: 50vw;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #dfe9f5;
+  border-radius: 20px;
   & h1 {
     margin: 3rem;
-    font-size: 3rem;
+    font-size: 1.2rem;
     align-self: flex-start;
   }
   & h2 {
     margin: 3rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  & span {
+    font-size: 0.8rem;
+    font-weight: 300;
   }
 }
 footer {
