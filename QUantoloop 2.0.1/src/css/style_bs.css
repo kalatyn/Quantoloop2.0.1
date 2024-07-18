@@ -3054,12 +3054,14 @@ textarea:focus {
 }
 .impressum_title {
   width: 50vw;
+  min-width: 350px;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 .impressum {
   width: 50vw;
+  min-width: 350px;
   height: auto;
   display: flex;
   flex-direction: column;
