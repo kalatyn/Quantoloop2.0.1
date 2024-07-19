@@ -1477,7 +1477,7 @@ canvas {
     border-radius: 0px !important;
     z-index: 200 !important;
     width: 100% !important;
-    height: 100svh !important;
+    height: 100lvh !important;
     overflow: scroll !important;
   }
   /* .line::before {
