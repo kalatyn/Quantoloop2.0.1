@@ -98,6 +98,14 @@
 // animate();
 //end canvas
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  const pics = document.querySelectorAll("img");
+
+  pics.forEach((pic) => {
+    pic.setAttribute("loading", "lazy");
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   // Проверяем, что ширина окна браузера больше или равна 768 пикселям
   if (window.innerWidth >= 768) {
