@@ -747,6 +747,10 @@ canvas {
   #card_section {
     height: 100vh;
   }
+  .card__bottom h3 {
+    font-size: 0.8rem !important;
+    line-height: 1.5rem !important;
+  }
 
   .growth_item {
     width: 350px !important;
