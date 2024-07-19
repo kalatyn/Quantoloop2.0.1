@@ -1276,6 +1276,8 @@ canvas {
     max-height: 493px;
   }
   .mobile_plus {
+    width: 30px !important;
+    height: 30px !important;
     visibility: visible !important;
   }
 
