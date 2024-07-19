@@ -1276,9 +1276,7 @@ canvas {
   #card3 img {
     top: 40% !important;
   }
-  #card5 img {
-    translate: -300px 0 !important;
-  }
+
   .card:first-child {
     margin-left: 20%;
   }
@@ -1760,13 +1758,10 @@ canvas {
 }
 #card3 img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto; /* Автоматический подбор ширины для сохранения пропорций */
-  height: 100%; /* Высота равна высоте карточки */
-  transform: translate(-50%, -50%) rotate(90deg);
-  transform-origin: center center;
-  translate: 100px 150px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top left;
 }
 #card2 img {
   position: absolute;
@@ -1799,13 +1794,10 @@ canvas {
 }
 #card5 img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto; /* Автоматический подбор ширины для сохранения пропорций */
-  height: 100%; /* Высота равна высоте карточки */
-  transform: translate(-50%, -50%);
-  transform-origin: center center;
-  translate: -400px 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center right;
 }
 
 .card:first-child {
