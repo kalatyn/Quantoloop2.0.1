@@ -1383,6 +1383,7 @@ canvas {
   }
   .window_par {
     margin-top: 1.2rem !important;
+    height: 100vh !important;
   }
   .window_par img {
     height: 150px !important;
