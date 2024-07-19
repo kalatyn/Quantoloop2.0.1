@@ -1341,6 +1341,7 @@ canvas {
   }
   .growth_left {
     min-width: 90% !important;
+    height: 750px !important;
   }
 
   .growth_item {
@@ -1830,8 +1831,8 @@ canvas {
   width: 40px;
   height: 40px;
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   background-color: white;
   border-radius: 50%;
 }
@@ -2631,6 +2632,8 @@ canvas {
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
+  padding: 2.5% 0;
 }
 .popup-show {
   opacity: 1;
@@ -2653,8 +2656,10 @@ canvas {
 .popupContent {
   position: relative !important;
   width: 80%;
-  height: 90%;
-  padding-top: 5%;
+  height: 100%;
+
+  overflow: scroll;
+  scrollbar-width: none;
 }
 .popup__titleS {
   position: relative;
@@ -2672,8 +2677,8 @@ canvas {
   margin-bottom: 5%;
 }
 .footer_titel {
-  position: absolute;
-  bottom: 3%;
+  position: relative;
+  bottom: 0%;
   width: 80%;
   display: flex;
   justify-content: space-between;
@@ -2688,8 +2693,8 @@ canvas {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 2px;
-  position: absolute;
-  bottom: 2%;
+  position: relative;
+  bottom: 0%;
   margin-left: 5%;
 
   /* top: 85%; */
@@ -2732,14 +2737,17 @@ canvas {
 }
 .popup_parPic {
   width: 100%;
-  height: 95%;
+  height: auto;
+  min-height: 90%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   background-color: #fbfbfb;
   border-radius: 10px;
   position: absolute;
   /* bottom: 3%; */
   overflow: hidden;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 .popup__text {
   height: 52%;
@@ -2756,9 +2764,9 @@ canvas {
   hyphens: auto;
 }
 .popup__img {
-  position: absolute;
+  position: relative;
   width: 100%;
-  height: 40%;
+  height: 180px;
   object-fit: cover;
 
   overflow: hidden;
