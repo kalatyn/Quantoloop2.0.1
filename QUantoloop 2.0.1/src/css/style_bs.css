@@ -1367,6 +1367,7 @@ canvas {
     font-size: 0.8rem !important;
     margin-top: 4rem !important;
     color: #5a5a5a;
+    width: 200px !important;
   }
   .window_info h3 {
     margin-top: 0.5rem !important;
