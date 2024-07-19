@@ -1383,7 +1383,7 @@ canvas {
   }
   .window_par {
     margin-top: 1.2rem !important;
-    height: 100vh !important;
+    height: auto !important;
   }
   .window_par img {
     height: 150px !important;
@@ -1477,7 +1477,7 @@ canvas {
     border-radius: 0px !important;
     z-index: 200 !important;
     width: 100% !important;
-    height: 100vh !important;
+    height: 100lvh !important;
     overflow: scroll !important;
   }
   /* .line::before {
