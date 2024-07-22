@@ -330,38 +330,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   let currentOpenIndex = 1;
+  const growthItems = document.querySelectorAll(".growth_item");
+  const itemTops = document.querySelectorAll(".item_top");
+  const itemBottoms = document.querySelectorAll(".item_bottom");
+
+  // Устанавливаем начальную высоту элементов growthItems
+  growthItems.forEach((item, index) => {
+    if (itemTops[index] && itemBottoms[index]) {
+      const totalHeight = itemTops[index].offsetHeight;
+      item.style.height = totalHeight + "px";
+    }
+  });
 
   function updateState(newIndex) {
     const currentBtn = document.querySelector(`#open${currentOpenIndex}`);
     const currentItem = document.querySelector(
       `#growth_item${currentOpenIndex}`
     );
-    currentBtn.style.transform = "scale(1)";
-    currentItem.classList.remove("growth_item_full");
+    if (currentBtn && currentItem) {
+      currentBtn.style.transform = "scale(1)";
+      currentItem.classList.remove("growth_item_full");
+      currentItem.style.height =
+        itemTops[currentOpenIndex - 1].offsetHeight + "px"; // Устанавливаем высоту только для item_top
+    }
 
     const newBtn = document.querySelector(`#open${newIndex}`);
     const newItem = document.querySelector(`#growth_item${newIndex}`);
-    newBtn.style.transform = "scale(-1)";
-    newItem.classList.add("growth_item_full");
+    if (newBtn && newItem) {
+      newBtn.style.transform = "scale(-1)";
+      newItem.classList.add("growth_item_full");
+      newItem.style.height =
+        itemTops[newIndex - 1].offsetHeight +
+        itemBottoms[newIndex - 1].offsetHeight +
+        "px"; // Устанавливаем высоту для item_top и item_bottom
+    }
 
     const img = document.querySelector("#growth_img");
-    img.style.opacity = 0;
-    setTimeout(() => {
-      img.setAttribute("src", `img/Unser_Ansatz/${newIndex}.jpg`);
-      img.style.opacity = 1;
-    }, 100);
+    if (img) {
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.setAttribute("src", `img/Unser_Ansatz/${newIndex}.jpg`);
+        img.style.opacity = 1;
+      }, 100);
+    }
 
     currentOpenIndex = newIndex;
   }
 
   for (let i = 1; i <= 5; i++) {
     const btn = document.querySelector(`#top${i}`);
-
-    btn.addEventListener("click", function () {
-      if (i !== currentOpenIndex) {
-        updateState(i);
-      }
-    });
+    if (btn) {
+      btn.addEventListener("click", function () {
+        if (i !== currentOpenIndex) {
+          updateState(i);
+        }
+      });
+    }
   }
 
   updateState(currentOpenIndex);
@@ -973,6 +997,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const growth = document.querySelector("#growth");
     const growthItems = document.querySelectorAll(".growth_item");
     const growthTitle = document.querySelector(".growth_title");
+    const itemPics = document.querySelectorAll(".item_bottom_img");
     const form = document.querySelector("form");
     const brand = document.querySelector(".brand");
     const slogen = document.querySelector(".slogen");
@@ -987,6 +1012,12 @@ window.addEventListener("DOMContentLoaded", function () {
     growthRight.style.display = "none";
     growthLeft.style.width = "100%";
     growth.style.justifyContent = "space-around";
+    itemPics.forEach((pic) => {
+      pic.style.display = "block";
+      pic.style.width = "500px";
+      pic.style.height = "300px";
+      pic.style.margin = "0 auto 20px auto";
+    });
     form.style.width = "70vw";
     brand.style.fontSize = "60px";
     brand.style.marginBottom = "30px";

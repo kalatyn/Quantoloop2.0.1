@@ -752,9 +752,9 @@ canvas {
     line-height: 1.5rem !important;
   }
 
-  .growth_item {
+  /* .growth_item {
     width: 350px !important;
-  }
+  } */
   /* .software_cards {
     min-width: 800px !important;
   }
@@ -1099,9 +1099,9 @@ canvas {
   .item_bottom_img {
     display: block !important;
   }
-  .growth_item_full {
+  /* .growth_item_full {
     height: 450px !important;
-  }
+  } */
   .popup__title {
     font-size: 1.3rem !important;
   }
@@ -2134,7 +2134,7 @@ canvas {
 #growth {
   width: 90vw;
   max-width: 1680px;
-  height: 700px;
+  height: auto;
   display: flex;
   padding: 0 4% 0 4%;
   justify-content: space-around;
@@ -2178,7 +2178,6 @@ canvas {
   position: relative;
   overflow: hidden;
   transition: height 0.5s ease;
-  margin-bottom: 2%;
 
   border-top: 1px solid rgba(187, 187, 187, 0.234);
 }
@@ -2237,7 +2236,7 @@ canvas {
 .item_bottom_item {
   width: 100%;
   height: auto;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   & h2 {
     font-size: 1.4vh;
     font-weight: 600;
@@ -2275,7 +2274,7 @@ canvas {
   color: #5598c8;
   transition: all 0.5s ease;
   cursor: pointer;
-
+  margin-bottom: 10px;
   &:hover {
     scale: 1.1;
   }
