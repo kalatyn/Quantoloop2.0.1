@@ -980,6 +980,8 @@ window.addEventListener("DOMContentLoaded", function () {
     const interSec = document.querySelector("#interactive_section");
     const radar = document.querySelector(".radar");
     const radarArea = document.querySelector("#radar__area");
+    const contactLinks = document.querySelectorAll(".jetzt_starten");
+    const contactArea = document.querySelector("#contact_us");
 
     // infoSec.style.height = "25vh";
     growthRight.style.display = "none";
@@ -994,6 +996,13 @@ window.addEventListener("DOMContentLoaded", function () {
     growthArea.style.height = "1024px";
     radarArea.style.height = "50vh";
     interSec.style.height = "50vh";
+    contactLinks.forEach((link) => {
+      link.style.fontSize = "0.7rem";
+      link.style.position = "relative";
+      link.style.left = "0";
+      link.style.top = "20px";
+    });
+    contactArea.style.marginTop = "150px";
     interCards.forEach((card) => {
       card.style.padding = "3%";
 
