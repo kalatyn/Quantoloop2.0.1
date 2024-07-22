@@ -968,8 +968,11 @@ window.addEventListener("DOMContentLoaded", function () {
   if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
     const infoSec = document.querySelector("#info__section");
     const growthRight = document.querySelector(".growth_right");
+    const growthLeft = document.querySelector(".growth_left");
     const growthArea = document.querySelector("#growth_area");
     const growth = document.querySelector("#growth");
+    const growthItems = document.querySelectorAll(".growth_item");
+    const growthTitle = document.querySelector(".growth_title");
     const form = document.querySelector("form");
     const brand = document.querySelector(".brand");
     const slogen = document.querySelector(".slogen");
@@ -978,12 +981,13 @@ window.addEventListener("DOMContentLoaded", function () {
     const radar = document.querySelector(".radar");
     const radarArea = document.querySelector("#radar__area");
 
-    infoSec.style.height = "25vh";
-    growthRight.style.width = "40%";
-    growthRight.style.float = "right";
+    // infoSec.style.height = "25vh";
+    growthRight.style.display = "none";
+    growthLeft.style.width = "100%";
     growth.style.justifyContent = "space-around";
     form.style.width = "70vw";
     brand.style.fontSize = "60px";
+    brand.style.marginBottom = "30px";
     slogen.style.fontSize = "20px";
     radar.style.width = "30vw";
     radar.style.height = "30vw";

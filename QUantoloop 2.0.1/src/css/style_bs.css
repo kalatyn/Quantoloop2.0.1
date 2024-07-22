@@ -1098,12 +1098,6 @@ canvas {
   } */
   .item_bottom_img {
     display: block !important;
-    width: 87%;
-    height: 100px;
-    object-fit: cover;
-    position: relative;
-    margin: 5% 4%;
-    border-radius: 10px;
   }
   .growth_item_full {
     height: 450px !important;
@@ -2264,6 +2258,12 @@ canvas {
 }
 .item_bottom_img {
   display: none;
+  width: 87%;
+  height: 100px;
+  object-fit: cover;
+  position: relative;
+  margin: 5% 4%;
+  border-radius: 10px;
 }
 .plus_btn {
   position: relative;
