@@ -1717,7 +1717,11 @@ canvas {
   }
 
   .card:hover .card__bottom {
-    bottom: initial;
+    transform: none;
+    top: initial;
+    left: initial;
+    width: initial;
+    height: initial;
   }
 
   .card:hover .card__circle {
@@ -2676,7 +2680,7 @@ canvas {
   opacity: 1;
   visibility: visible;
   transition: opacity 0, 5s ease;
-
+}
 .close-popup {
   font-size: 150%;
   position: absolute;
