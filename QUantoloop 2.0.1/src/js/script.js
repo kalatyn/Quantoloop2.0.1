@@ -1012,6 +1012,9 @@ window.addEventListener("DOMContentLoaded", function () {
     growthRight.style.display = "none";
     growthLeft.style.width = "100%";
     growth.style.justifyContent = "space-around";
+    growthItems.forEach((item) => {
+      item.style.width = "100%";
+    });
     itemPics.forEach((pic) => {
       pic.style.display = "block";
       pic.style.width = "500px";
