@@ -1713,15 +1713,12 @@ canvas {
     visibility: visible !important;
   }
   .card:hover {
-    transform: none;
+    transform: none !important;
   }
 
   .card:hover .card__bottom {
-    transform: none;
-    top: initial;
-    left: initial;
-    width: initial;
-    height: initial;
+    transform: none !important;
+    bottom: -100% !important;
   }
 
   .card:hover .card__circle {
@@ -1738,13 +1735,16 @@ canvas {
   }
 
   .card:hover .card__top h1 {
-    transform: none;
-    translate: none;
+    transform: none !important;
+    translate: none !important;
   }
 
   .card:hover .card__top p {
-    transform: none;
-    translate: none;
+    transform: none !important;
+    translate: none !important;
+  }
+  .latern {
+    display: none !important;
   }
 }
 
@@ -1805,6 +1805,7 @@ canvas {
   margin-left: 3vh;
   scroll-snap-align: center;
   cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 #card3 img {
   position: absolute;
@@ -3116,7 +3117,7 @@ textarea:focus {
   font-weight: 400;
   position: absolute;
   cursor: pointer;
-  bottom: 25%;
+  bottom: 15%;
   right: 7%;
   transition: transform 0.5s ease;
   &:hover {

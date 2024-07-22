@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let viewportHeight =
       window.innerHeight || document.documentElement.clientHeight;
     let bounding = container.getBoundingClientRect();
-    const triggerHeight = viewportHeight / 1.3;
+    const triggerHeight = viewportHeight / 2;
     let containerHeight = bounding.height;
 
     // Определение границ для масштабирования
