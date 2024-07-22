@@ -1706,6 +1706,43 @@ canvas {
     right: 30px;
   }
 }
+@media (hover: none) and (pointer: coarse) {
+  .mobile_plus {
+    width: 30px !important;
+    height: 30px !important;
+    visibility: visible !important;
+  }
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .card__bottom {
+    bottom: initial;
+  }
+
+  .card:hover .card__circle {
+    top: initial;
+    left: initial;
+    width: initial;
+    height: initial;
+    z-index: initial;
+    background: initial;
+  }
+
+  .card:hover .card__circle i {
+    font-size: initial;
+  }
+
+  .card:hover .card__top h1 {
+    transform: none;
+    translate: none;
+  }
+
+  .card:hover .card__top p {
+    transform: none;
+    translate: none;
+  }
+}
 
 #cardfield {
   height: 100vh;
@@ -2639,7 +2676,7 @@ canvas {
   opacity: 1;
   visibility: visible;
   transition: opacity 0, 5s ease;
-}
+
 .close-popup {
   font-size: 150%;
   position: absolute;
