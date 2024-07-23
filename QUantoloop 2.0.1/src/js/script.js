@@ -565,8 +565,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const popUpText = document.querySelector(".popup__text");
   const popUpImg = document.querySelector(".popup__img");
   const navbar = document.querySelector("#navbar");
-  const zoomIn = document.querySelector("#zoom_in");
-  const zoomOut = document.querySelector("#zoom_out");
 
   let scale = 1;
   let selectedLine = null;
@@ -812,12 +810,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lineElem.addEventListener("click", () => {
         lineElem.classList.remove("leftLine");
         popUp.classList.add("popup-show");
-        navbar.style.zIndex = "0";
+        // navbar.style.zIndex = "0";
         if (selectedLine) {
           selectedLine.classList.remove("selected");
         }
         if (navbar.style.zIndex === "0") {
-          document.body.classList.add("scroll-lock");
+          // document.body.classList.add("scroll-lock");
         }
 
         lineElem.classList.add("selected");
@@ -896,7 +894,7 @@ document.addEventListener("DOMContentLoaded", function () {
     radar.style.scale = "1";
     radar.style.left = "0";
     radar.style.transition = "all 0.5s ease";
-    navbar.style.zIndex = "100";
+    // navbar.style.zIndex = "100";
     scale = 1;
     updateAllLineClasses();
     updateStageClasses();
