@@ -715,7 +715,7 @@ canvas {
   height: 70%;
   object-fit: contain;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
   #content_container {
     width: 1200px !important;
   }
@@ -2173,6 +2173,7 @@ canvas {
 }
 
 .growth_item {
+  width: 100% !important;
   min-width: 400px;
   height: 100px;
   position: relative;
@@ -2185,7 +2186,7 @@ canvas {
   border-top: none;
 }
 .growth_item_full {
-  height: auto;
+  height: auto !important;
 }
 .item_top {
   width: 100%;
