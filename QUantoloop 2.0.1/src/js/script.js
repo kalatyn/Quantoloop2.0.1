@@ -98,14 +98,6 @@
 // animate();
 //end canvas
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  const pics = document.querySelectorAll("img");
-
-  pics.forEach((pic) => {
-    pic.setAttribute("loading", "lazy");
-  });
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   // Проверяем, что ширина окна браузера больше или равна 768 пикселям
   if (window.innerWidth >= 768) {
@@ -999,6 +991,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const growthItems = document.querySelectorAll(".growth_item");
     const growthTitle = document.querySelector(".growth_title");
     const itemPics = document.querySelectorAll(".item_bottom_img");
+    const cards = document.querySelectorAll(".card");
     const form = document.querySelector("form");
     const brand = document.querySelector(".brand");
     const slogen = document.querySelector(".slogen");
@@ -1021,6 +1014,9 @@ window.addEventListener("DOMContentLoaded", function () {
       pic.style.width = "500px";
       pic.style.height = "300px";
       pic.style.margin = "0 auto 20px auto";
+    });
+    cards.forEach((card) => {
+      card.style.height = "50%";
     });
     form.style.width = "70vw";
     brand.style.fontSize = "60px";
