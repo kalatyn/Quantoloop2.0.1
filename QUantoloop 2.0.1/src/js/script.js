@@ -264,23 +264,23 @@ function getElementWidthWithMargin() {
   return width + margin;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const cardfield = document.querySelector("#card_section");
-  const growthArea = document.querySelector("#growth_area");
-  const radarArea = document.querySelector("#radar__area");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const cardfield = document.querySelector("#card_section");
+//   const growthArea = document.querySelector("#growth_area");
+//   const radarArea = document.querySelector("#radar__area");
 
-  // const card = document.querySelector('.cards');
+//   // const card = document.querySelector('.cards');
 
-  cardfield.addEventListener("click", function () {
-    cardfield.scrollIntoView({ behavior: "instant" });
-  });
-  growthArea.addEventListener("click", function () {
-    growthArea.scrollIntoView({ behavior: "instant" });
-  });
-  radarArea.addEventListener("click", function () {
-    radarArea.scrollIntoView({ behavior: "smooth" });
-  });
-});
+//   cardfield.addEventListener("click", function () {
+//     cardfield.scrollIntoView({ behavior: "instant" });
+//   });
+//   growthArea.addEventListener("click", function () {
+//     growthArea.scrollIntoView({ behavior: "instant" });
+//   });
+//   radarArea.addEventListener("click", function () {
+//     radarArea.scrollIntoView({ behavior: "smooth" });
+//   });
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
   for (let i = 1; i <= 5; i++) {
@@ -991,7 +991,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const growthItems = document.querySelectorAll(".growth_item");
     const growthTitle = document.querySelector(".growth_title");
     const itemPics = document.querySelectorAll(".item_bottom_img");
-    const cards = document.querySelectorAll(".card");
+    const cardSection = document.querySelector("#cardfield");
     const form = document.querySelector("form");
     const brand = document.querySelector(".brand");
     const slogen = document.querySelector(".slogen");
@@ -1015,9 +1015,7 @@ window.addEventListener("DOMContentLoaded", function () {
       pic.style.height = "300px";
       pic.style.margin = "0 auto 20px auto";
     });
-    cards.forEach((card) => {
-      card.style.height = "50%";
-    });
+    cardSection.style.height = "60vh";
     form.style.width = "70vw";
     brand.style.fontSize = "60px";
     brand.style.marginBottom = "30px";
