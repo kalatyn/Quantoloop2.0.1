@@ -480,14 +480,12 @@ window.addEventListener("scroll", function () {
 
   // Рассчитаем начальную позицию скролла относительно viewport
   let startScrollPosition = bounding.top - windowHeight / 2;
-
+  const scrollPosition = Math.min(
+    ((windowHeight / 2 - bounding.top) / (windowHeight / 2)) * 1,
+    1
+  );
   // Изменим формулу расчета позиции скролла для более плавного перехода
   if (bounding.top <= windowHeight / 2 && window.innerWidth > 576) {
-    const scrollPosition = Math.min(
-      ((windowHeight / 2 - bounding.top) / (windowHeight / 2)) * 1,
-      1
-    );
-
     const newScale1 = 1 - scrollPosition * 0.2;
     const newRotation1 = -10 * scrollPosition;
     const newTranslateX1 = -8 * scrollPosition; // in vw
@@ -507,6 +505,22 @@ window.addEventListener("scroll", function () {
     card2.style.transform =
       "rotate(10deg) scale3d(0.9, 0.9, 0.9) translateX(0)";
     card3.style.transform = "scale3d(1, 1, 1) rotate(0deg) translateX(0)";
+  }
+  if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
+    const newScale1 = 1 - scrollPosition * 0.02;
+    const newRotation1 = -10 * scrollPosition;
+    const newTranslateX1 = -18 * scrollPosition; // in vw
+    const newScale2 = 1 - scrollPosition * 0.01;
+    const newRotation2 = 10 - 10 * scrollPosition;
+    const newTranslateX2 = -25 * scrollPosition; // in vw
+    const newScale3 = 1.1;
+    const newRotation3 = 10 * scrollPosition;
+    const newTranslateX3 = -28 * scrollPosition; // in vw
+    const newTranslateY3 = 5 * scrollPosition; // in vh
+
+    card1.style.transform = `scale3d(${newScale1}, ${newScale1}, ${newScale1}) rotate(${newRotation1}deg) translateX(${newTranslateX1}vw)`;
+    card2.style.transform = `scale3d(${newScale2}, ${newScale2}, ${newScale2}) rotate(${newRotation2}deg) translateX(${newTranslateX2}vw)`;
+    card3.style.transform = `scale3d(${newScale3}, ${newScale3}, ${newScale3}) rotate(${newRotation3}deg) translateX(${newTranslateX3}vw) translateY(${newTranslateY3}vh)`;
   }
 });
 
@@ -999,6 +1013,10 @@ window.addEventListener("DOMContentLoaded", function () {
     const radarArea = document.querySelector("#radar__area");
     const contactLinks = document.querySelectorAll(".jetzt_starten");
     const contactArea = document.querySelector("#contact_us");
+    const interSection2 = document.querySelector(".interactive_section2");
+    const interSection2Left = document.querySelector(
+      ".interactive_container_left"
+    );
 
     // infoSec.style.height = "25vh";
     growthRight.style.display = "none";
@@ -1029,6 +1047,8 @@ window.addEventListener("DOMContentLoaded", function () {
       link.style.left = "0";
       link.style.top = "20px";
     });
+    interSection2.style.height = "55vh";
+    interSection2Left.style.justifyContent = "space-around";
     contactArea.style.marginTop = "150px";
     interCards.forEach((card) => {
       card.style.padding = "3%";
