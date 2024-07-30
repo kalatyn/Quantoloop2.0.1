@@ -578,10 +578,7 @@ body {
 .mail_us_mini {
   cursor: pointer;
 }
-#network {
-  left: 27%;
-  display: block;
-}
+
 .scroll-lock {
   overflow: hidden;
 }
@@ -681,22 +678,45 @@ body {
   overflow-wrap: break-word;
   hyphens: auto;
 }
+.canvas {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: inherit;
+  object-fit: cover;
+  object-position: 0% 0%;
+  z-index: -1;
+  opacity: 0.7;
+}
 canvas {
   display: block;
   height: 100%;
   width: 100%;
-  position: absolute;
+
   z-index: -1;
 }
-#logo_slogan {
-  height: 350px;
+.logo_slogan_info {
+  height: 100%;
+  width: 600px;
+  min-width: 450px !important;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  padding: 0 10% 0 5%;
+  padding-left: 5%;
   overflow: hidden;
   scroll-snap-align: start;
+  position: relative;
+}
+#logo_slogan {
+  height: 350px;
+  display: flex;
+  /* flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 0 10% 0 5%;
+  overflow: hidden;
+  scroll-snap-align: start; */
 }
 
 .slogen {
@@ -947,6 +967,9 @@ canvas {
     display: none;
   }
   .navbar-brand {
+    display: none;
+  }
+  .canvas {
     display: none;
   }
   .mail_us_mini {
@@ -2926,10 +2949,6 @@ canvas {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-color: #00000091;
-  &:hover {
-    background-color: #00000000;
-  }
 }
 
 .contactBtn {
