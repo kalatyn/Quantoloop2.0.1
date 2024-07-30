@@ -1,6 +1,7 @@
 import { initUnserAnsatz } from "../module/ansatz.js";
 import { initCanvas } from "../module/canvas.js";
 import { initInsights } from "../module/insights.js";
+import { initResponsive } from "../module/responsive.js";
 import { initTransparent } from "../module/transparent.js";
 import { drawRadar } from "/module/Radar.js";
 
@@ -28,10 +29,13 @@ function initRadarObserver() {
 document.addEventListener("DOMContentLoaded", () => {
   initRadarObserver();
 });
-
 drawRadar();
 initCanvas();
 initUnserAnsatz();
+
+if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
+  initResponsive();
+}
 
 window.addEventListener("scroll", function () {
   initTransparent();
@@ -130,36 +134,71 @@ export function scrollright() {
     behavior: "smooth",
   });
 }
-let scrollSection2 = document.querySelector(".software_cards");
-function scrollleft2() {
-  let scrollAmount = Math.max(
-    scrollSection2.scrollLeft - getElementWidthWithMargin(),
+
+function getElementWidthWithMargin(element) {
+  const style = window.getComputedStyle(element);
+  const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+  return element.offsetWidth + margin;
+}
+
+// Функция для прокрутки секции на определенное количество пикселей
+function scrollSectionByAmount(scrollSection2, amount) {
+  scrollSection2.scrollTo({
+    left: amount,
+    behavior: "smooth",
+  });
+}
+function scrollLeft() {
+  const scrollSection2 = document.querySelector(".horizontal-scroll-section");
+  const card = scrollSection2.firstElementChild; // Получаем первый элемент в секции
+  const scrollAmount = Math.max(
+    scrollSection2.scrollLeft - getElementWidthWithMargin(card),
     0
   );
-  scrollSection2.scrollTo({
-    left: scrollAmount,
-    behavior: "smooth",
-  });
+  scrollSectionByAmount(scrollSection2, scrollAmount);
 }
 
-function scrollright2() {
-  let scrollAmount = Math.min(
-    scrollSection2.scrollLeft + getElementWidthWithMargin(),
-    scrollSection2.scrollWidth - scrollSection.clientWidth
+// Функция для прокрутки вправо
+function scrollRight() {
+  const scrollSection2 = document.querySelector(".horizontal-scroll-section");
+  const card = scrollSection2.firstElementChild; // Получаем первый элемент в секции
+  const scrollAmount = Math.min(
+    scrollSection2.scrollLeft + getElementWidthWithMargin(card),
+    scrollSection2.scrollWidth - scrollSection2.clientWidth
   );
-  scrollSection2.scrollTo({
-    left: scrollAmount,
-    behavior: "smooth",
-  });
+  scrollSectionByAmount(scrollSection2, scrollAmount);
+}
+// Функция для прокрутки влево
+function scrollLeft2() {
+  const scrollSection2 = document.querySelector(".software_cards");
+  const card = scrollSection2.firstElementChild; // Получаем первый элемент в секции
+  const scrollAmount = Math.max(
+    scrollSection2.scrollLeft - getElementWidthWithMargin(card),
+    0
+  );
+  scrollSectionByAmount(scrollSection2, scrollAmount);
 }
 
-function getElementWidthWithMargin() {
-  let element = scrollSection.firstElementChild;
-  let style = getComputedStyle(element);
-  let width = element.offsetWidth;
-  let margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-  return width + margin;
+// Функция для прокрутки вправо
+function scrollRight2() {
+  const scrollSection2 = document.querySelector(".software_cards");
+  const card = scrollSection2.firstElementChild; // Получаем первый элемент в секции
+  const scrollAmount = Math.min(
+    scrollSection2.scrollLeft + getElementWidthWithMargin(card),
+    scrollSection2.scrollWidth - scrollSection2.clientWidth
+  );
+  scrollSectionByAmount(scrollSection2, scrollAmount);
 }
+
+// Добавляем обработчики событий для кнопок
+document
+  .querySelector("#scrollLeftButton")
+  .addEventListener("click", scrollLeft);
+document
+  .querySelector("#scrollRightButton")
+  .addEventListener("click", scrollRight);
+document.querySelector(".scrollleft2").addEventListener("click", scrollLeft2);
+document.querySelector(".scrollright2").addEventListener("click", scrollRight2);
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   const cardfield = document.querySelector("#card_section");
@@ -371,102 +410,6 @@ if (window.innerWidth < 766) {
     });
   });
 }
-
-window.addEventListener("DOMContentLoaded", function () {
-  if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
-    const infoSec = document.querySelector("#info__section");
-    const growthRight = document.querySelector(".growth_right");
-    const growthLeft = document.querySelector(".growth_left");
-    const growthArea = document.querySelector("#growth_area");
-    const growth = document.querySelector("#growth");
-    const growthItems = document.querySelectorAll(".growth_item");
-    const growthTitle = document.querySelector(".growth_title");
-    const itemPics = document.querySelectorAll(".item_bottom_img");
-    const cardSection = document.querySelector("#cardfield");
-    const form = document.querySelector("form");
-    const brand = document.querySelector(".brand");
-    const slogen = document.querySelector(".slogen");
-    const interCards = document.querySelectorAll(".inter_card");
-    const interSec = document.querySelector("#interactive_section");
-    const radar = document.querySelector(".radar");
-    const radarArea = document.querySelector("#radar__area");
-    const contactLinks = document.querySelectorAll(".jetzt_starten");
-    const contactArea = document.querySelector("#contact_us");
-    const interSection2 = document.querySelector(".interactive_section2");
-    const interSection2Left = document.querySelector(
-      ".interactive_container_left"
-    );
-
-    // infoSec.style.height = "25vh";
-    growthRight.style.display = "none";
-    growthLeft.style.width = "100%";
-    growth.style.justifyContent = "space-around";
-    // growthItems.forEach((item) => {
-    //   item.style.width = "100%";
-    // });
-    itemPics.forEach((pic) => {
-      pic.style.display = "block";
-      pic.style.width = "500px";
-      pic.style.height = "300px";
-      pic.style.margin = "0 auto 20px auto";
-    });
-    cardSection.style.height = "60vh";
-    form.style.width = "70vw";
-    brand.style.fontSize = "60px";
-    brand.style.marginBottom = "30px";
-    slogen.style.fontSize = "20px";
-    radar.style.width = "30vw";
-    radar.style.height = "30vw";
-    growthArea.style.height = "1024px";
-    radarArea.style.height = "50vh";
-    interSec.style.height = "50vh";
-    contactLinks.forEach((link) => {
-      link.style.fontSize = "0.7rem";
-      link.style.position = "relative";
-      link.style.left = "0";
-      link.style.top = "20px";
-    });
-    interSection2.style.height = "55vh";
-    interSection2Left.style.justifyContent = "space-around";
-    contactArea.style.marginTop = "150px";
-    interCards.forEach((card) => {
-      card.style.padding = "3%";
-
-      const par = card.querySelector("p");
-      const header = card.querySelector("h3");
-      if (header) {
-        header.style.marginBottom = "5px";
-      }
-      if (par) {
-        par.style.overflowWrap = "break-word";
-      }
-    });
-
-    if (
-      window.innerHeight > window.innerWidth &&
-      window.innerWidth < 850 &&
-      window.innerWidth > 576
-    ) {
-      const interSec = document.querySelector("#interactive_section");
-      const radar = document.querySelector(".radar");
-      radar.style.width = "37vw";
-      radar.style.height = "37vw";
-      interSec.style.height = "50vh";
-      const items = document.querySelectorAll(".growth_item");
-      items.forEach((item) => {
-        item.style.width = "300px";
-        const num = item.querySelector("span");
-        if (num) {
-          num.style.fontSize = "2rem";
-        }
-        const titel = item.querySelector("h3");
-        if (titel) {
-          titel.style.setProperty("font-size", "2rem", "important");
-        }
-      });
-    }
-  }
-});
 
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.querySelector(".latern");
