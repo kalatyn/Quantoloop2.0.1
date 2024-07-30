@@ -3033,6 +3033,7 @@ canvas {
   align-items: center;
   width: 700px;
   height: 650px;
+  max-height: 98%;
   background-color: #dfe9f5;
   border-radius: 20px;
   padding: 3% 5%;

@@ -4,6 +4,31 @@ import { initInsights } from "../module/insights.js";
 import { initTransparent } from "../module/transparent.js";
 import { drawRadar } from "/module/Radar.js";
 
+function initRadarObserver() {
+  const radar = document.querySelector("#radar__area");
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          drawRadar();
+          observer.disconnect(radar);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      root: null,
+      rootMargin: "0px",
+    }
+  );
+
+  observer.observe(radar);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initRadarObserver();
+});
+
 drawRadar();
 initCanvas();
 initUnserAnsatz();
@@ -488,3 +513,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //send form
+
+document
+  .getElementById("formular")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var formData = new FormData(this);
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "contact.php", true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        document.getElementById("formular").reset();
+        alert("Das Formular wurde erfolgreich gesendet.");
+      } else {
+        alert("Es gab ein Problem beim Senden des Formulars.");
+      }
+    };
+
+    xhr.onerror = function () {
+      alert("Es gab ein Problem beim Senden des Formulars.");
+    };
+
+    xhr.send(formData);
+  });
