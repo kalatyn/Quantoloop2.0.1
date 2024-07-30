@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initRadarObserver();
 });
 drawRadar();
-initCanvas();
+// initCanvas();
 initUnserAnsatz();
 
 if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
