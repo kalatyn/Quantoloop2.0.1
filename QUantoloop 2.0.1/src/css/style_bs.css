@@ -1816,7 +1816,7 @@ canvas {
 
 #cardfield {
   height: 100vh;
-  padding-top: 60px;
+  padding: 60px 5%;
   width: 100vw;
   display: flex;
   align-items: start;
@@ -1918,10 +1918,7 @@ canvas {
 }
 
 .card:first-child {
-  margin-left: 5%;
-}
-.last-child {
-  margin-right: 5vh;
+  margin-left: 0;
 }
 
 .card__top {
@@ -1976,12 +1973,12 @@ canvas {
   box-shadow: 4px 4px 4px rgb(255, 255, 255);
 }
 .card__bottom h3 {
-  font-size: 1rem;
+  font-size: 1.3vh;
   text-align: justify;
   overflow-wrap: break-word;
   hyphens: auto;
   color: #3d3d3d;
-  line-height: 2rem;
+  line-height: 3vh;
   font-weight: 500;
 }
 
