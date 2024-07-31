@@ -1244,6 +1244,12 @@ canvas {
   }
 }
 @media screen and (max-width: 576px) {
+  .impressum_title {
+    min-width: 90% !important;
+  }
+  .impressum {
+    min-width: 90% !important;
+  }
   .navbar {
     padding-right: 20px;
     margin: 0 !important;
@@ -3192,14 +3198,14 @@ textarea:focus {
 }
 .impressum_title {
   width: 50vw;
-  min-width: 350px;
+  min-width: 500px;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 .impressum {
   width: 50vw;
-  min-width: 350px;
+  min-width: 500px;
   height: auto;
   display: flex;
   flex-direction: column;
