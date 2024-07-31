@@ -35,7 +35,7 @@ export function initInsights() {
     card3.style.transform = "scale3d(1, 1, 1) rotate(0deg) translateX(0)";
   }
   if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
-    scrollPosition = Math.min(
+    const scrollPosition = Math.min(
       ((windowHeight / 0.5 - bounding.top) / (windowHeight / 2)) * 2,
       1
     );

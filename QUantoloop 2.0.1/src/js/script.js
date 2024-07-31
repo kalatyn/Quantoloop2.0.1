@@ -1,9 +1,17 @@
 import { initUnserAnsatz } from "../module/ansatz.js";
 import { initCanvas } from "../module/canvas.js";
+import { initCards } from "../module/cards.js";
 import { initInsights } from "../module/insights.js";
+import { initLaptop } from "../module/laptop.js";
 import { initResponsive } from "../module/responsive.js";
 import { initTransparent } from "../module/transparent.js";
+import { initInfoWindow } from "../module/windowSize.js";
 import { drawRadar } from "/module/Radar.js";
+import {
+  handleScrollGrowth,
+  handleScrollRadarBorder,
+  handleScrollInteractiveContainer,
+} from "../module/scrollResize.js";
 
 function initRadarObserver() {
   const radar = document.querySelector("#radar__area");
@@ -32,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 drawRadar();
 // initCanvas();
 initUnserAnsatz();
+initCards();
 
 if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
   initResponsive();
@@ -40,6 +49,10 @@ if (window.innerHeight > window.innerWidth && window.innerWidth > 576) {
 window.addEventListener("scroll", function () {
   initTransparent();
   initInsights();
+  initLaptop();
+  handleScrollGrowth();
+  handleScrollRadarBorder();
+  handleScrollInteractiveContainer();
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -72,44 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(section);
     });
   }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const windowsInfo = document.querySelectorAll(".window_info");
-
-  // Функция для обновления высоты одного окна window_info в зависимости от его window_par
-  function updateWindowInfoHeight(windowInfo) {
-    const windowPar = windowInfo.querySelector(".window_par");
-    if (windowPar) {
-      windowInfo.style.height = `${windowPar.scrollHeight + 250}px`;
-    }
-  }
-
-  // Инициализация высоты всех окон при загрузке
-  windowsInfo.forEach((windowInfo) => {
-    updateWindowInfoHeight(windowInfo);
-  });
-
-  // Подписка на изменения размера окна
-  window.addEventListener("resize", () => {
-    windowsInfo.forEach((windowInfo) => {
-      updateWindowInfoHeight(windowInfo);
-    });
-  });
-
-  // Для более динамичного содержимого можно использовать MutationObserver
-  windowsInfo.forEach((windowInfo) => {
-    const windowPar = windowInfo.querySelector(".window_par");
-    if (windowPar) {
-      new MutationObserver(() => {
-        updateWindowInfoHeight(windowInfo);
-      }).observe(windowPar, {
-        childList: true,
-        subtree: true,
-        characterData: true,
-      });
-    }
-  });
 });
 
 let scrollSection = document.querySelector(".horizontal-scroll-section");
@@ -220,50 +195,13 @@ document.querySelector(".scrollright2").addEventListener("click", scrollRight2);
 
 document.addEventListener("DOMContentLoaded", function () {
   for (let i = 1; i <= 5; i++) {
-    const moreAbout = document.querySelectorAll(`.more__about${i}`);
-    const descriptions = document.querySelectorAll(`#card__disc${i}`);
-    const exits = document.querySelectorAll(`.exit__button${i}`);
-    const card = document.querySelectorAll(`#card${i}`);
-
-    card.forEach((element) => {
-      element.addEventListener("click", () => {
-        descriptions.forEach((desc) => {
-          desc.classList.toggle("show");
-        });
-
-        document.body.classList.add("scroll-lock");
-      });
-    });
-
-    exits.forEach((element) => {
-      element.addEventListener("click", () => {
-        descriptions.forEach((desc) => {
-          desc.classList.toggle("show");
-        });
-
-        document.body.classList.remove("scroll-lock");
-      });
-    });
-
-    descriptions.forEach((desc) => {
-      desc.addEventListener("click", (event) => {
-        if (event.target === desc) {
-          desc.classList.toggle("show");
-          document.body.classList.remove("scroll-lock");
-        }
-      });
-    });
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  for (let i = 1; i <= 5; i++) {
     const btn = document.querySelector(`#plus${i}`);
     const window = document.querySelector(`#plus_info${i}`);
 
     btn.addEventListener("click", function () {
       window.classList.add("show");
       document.body.classList.add("scroll-lock");
+      initInfoWindow();
     });
     const close = document.querySelector(`#wClose${i}`);
 
@@ -277,125 +215,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.remove("scroll-lock");
       }
     });
-  }
-});
-
-window.addEventListener("scroll", function () {
-  let element = document.querySelector("#growth");
-  let bounding = element.getBoundingClientRect();
-  let viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
-
-  let middleOfViewport = viewportHeight / 2;
-
-  if (bounding.top < viewportHeight && bounding.bottom > 0) {
-    if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
-      let percentScrolled =
-        (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
-      let newSize = 0.9 + percentScrolled * 0.1;
-      element.style.transform = `scale(${newSize})`;
-    } else if (
-      bounding.top < middleOfViewport &&
-      bounding.bottom > middleOfViewport
-    ) {
-      element.style.transform = `scale(1)`;
-    } else if (bounding.bottom <= middleOfViewport) {
-      let percentScrolled =
-        (middleOfViewport - bounding.bottom) / middleOfViewport;
-      let newSize = 1 - percentScrolled * 0.1;
-      element.style.transform = `scale(${newSize})`;
-    }
-  } else {
-    element.style.transform = `scale(0.9)`;
-  }
-});
-
-window.addEventListener("scroll", function () {
-  let element = document.querySelector("#radar_border");
-  let bounding = element.getBoundingClientRect();
-  let viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
-
-  let middleOfViewport = viewportHeight / 2;
-
-  if (bounding.top < viewportHeight && bounding.bottom > 0) {
-    if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
-      let percentScrolled =
-        (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
-      let newSize = 0.8 + percentScrolled * 0.2;
-      element.style.transform = `scale(${newSize})`;
-    } else if (
-      bounding.top < middleOfViewport &&
-      bounding.bottom > middleOfViewport
-    ) {
-      element.style.transform = `scale(1)`;
-    }
-  }
-});
-
-window.addEventListener("scroll", function () {
-  let element = document.querySelector(".interactive_container");
-  let bounding = element.getBoundingClientRect();
-  let viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
-
-  let middleOfViewport = viewportHeight / 2;
-
-  if (bounding.top < viewportHeight && bounding.bottom > 0) {
-    if (bounding.top <= viewportHeight && bounding.top >= middleOfViewport) {
-      let percentScrolled =
-        (viewportHeight - bounding.top) / (viewportHeight - middleOfViewport);
-      let newSize = 0.8 + percentScrolled * 0.2;
-      element.style.transform = `scale(${newSize})`;
-    } else if (
-      bounding.top < middleOfViewport &&
-      bounding.bottom > middleOfViewport
-    ) {
-      element.style.transform = `scale(1)`;
-    }
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {});
-
-let numbers = document.querySelectorAll(".info div");
-
-numbers.forEach(function (number) {
-  let numberTop = number.getBoundingClientRect().top;
-  let start = +number.innerHTML;
-  let end = +number.dataset.max;
-
-  window.addEventListener("scroll", function onScroll() {
-    if (window.pageYOffset > numberTop - window.innerHeight / 1.5) {
-      this.removeEventListener("scroll", onScroll);
-      let interval = setInterval(function () {
-        number.innerHTML = `${++start}%`;
-        if (start == end) {
-          clearInterval(interval);
-        }
-      }, 20);
-    }
-  });
-});
-
-// radar mobile zoom
-
-//laptop Animation
-window.addEventListener("scroll", function () {
-  let laptop_area = document.querySelector(".laptop_area");
-  let laptop = document.querySelector(".laptop");
-  let laptop_area_top = laptop_area.getBoundingClientRect().top;
-  let laptop_info = document.querySelector(".laptop_info");
-  if (laptop_area_top < window.innerHeight / 3) {
-    let scale =
-      1 -
-      (window.innerHeight / 2 - laptop_area_top) / (window.innerHeight / 0.3);
-    scale = Math.max(scale, 0.3);
-
-    let inverseScale = 1 + (1.2 - scale / 0.6);
-
-    laptop.style.transform = `scale(${scale})`;
-    laptop_info.style.transform = `scale(${inverseScale})`;
   }
 });
 

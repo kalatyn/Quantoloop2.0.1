@@ -1,3 +1,5 @@
+import { initInfoWindow } from "./windowSize.js";
+
 export function initUnserAnsatz() {
   let currentOpenIndex = 1;
   const growthItems = document.querySelectorAll(".growth_item");
