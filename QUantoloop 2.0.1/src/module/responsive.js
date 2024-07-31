@@ -21,6 +21,8 @@ export function initResponsive() {
   const interSection2Left = document.querySelector(
     ".interactive_container_left"
   );
+  const interCardSection = document.querySelector(".inter_cards");
+  const interInfo = document.querySelector(".inter_info");
 
   // infoSec.style.height = "25vh";
   growthRight.style.display = "none";
@@ -29,6 +31,8 @@ export function initResponsive() {
   // growthItems.forEach((item) => {
   //   item.style.width = "100%";
   // });
+  interCardSection.style.width = "60%";
+  interInfo.style.width = "40%";
   itemPics.forEach((pic) => {
     pic.style.display = "block";
     pic.style.width = "500px";
@@ -60,7 +64,7 @@ export function initResponsive() {
     const par = card.querySelector("p");
     const header = card.querySelector("h3");
     if (header) {
-      header.style.marginBottom = "5px";
+      header.style.marginBottom = "5%";
     }
     if (par) {
       par.style.overflowWrap = "break-word";

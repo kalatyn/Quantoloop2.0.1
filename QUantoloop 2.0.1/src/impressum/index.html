@@ -13,7 +13,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <script src="/js/script.js " type="module" defer></script>
+
     <style>
       main {
         width: 100vw;
@@ -163,6 +163,43 @@
           <a href="https://www.quantoloop.com">www.quantoloop.com</a>
         </h2>
       </div>
+      <div class="contact_form">
+        <div id="form2">
+          <h2>Contact us!</h2>
+          <h3>
+            <span
+              >„Innovation distinguishes between a leader and a follower.“ -
+              Steve Jobs
+            </span>
+            <br /><br />
+            Let’s move together to become a leader!
+          </h3>
+          <i class="bi bi-x exit__contact"></i>
+          <form id="formular2" action="/">
+            <div class="inputs_wrapper">
+              <div class="input_name input">
+                <label for="name">Name</label>
+                <input required type="text" name="name" />
+              </div>
+
+              <div class="input_email input">
+                <label for="email">E-Mail Address</label>
+                <input required type="email" />
+              </div>
+            </div>
+            <div class="input_message">
+              <label for="message">Message</label>
+              <textarea
+                placeholder="Your message goes here"
+                required
+                name="message"
+                id="message"
+              ></textarea>
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -174,30 +211,43 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
-    >
-
-      const buttons = document.querySelector(".openForm");
+    ></script>
+    <script>
+      const contactBtn = document.querySelector(".openForm");
       const contactForm = document.querySelector(".contact_form");
       const closeBtn = document.querySelector(".exit__contact");
-      const startenBtns = document.querySelectorAll(".jetzt_starten");
 
-      buttons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          contactForm.classList.add("visible");
-          document.body.classList.add("scroll-lock");
-        });
-      });
-      startenBtns.forEach(function (button) {
-        button.addEventListener("click", function () {
-          contactForm.classList.add("visible");
-          document.body.classList.add("scroll-lock");
-        });
+      contactBtn.addEventListener("click", () => {
+        contactForm.classList.add("visible");
       });
 
-      closeBtn.addEventListener("click", function () {
+      closeBtn.addEventListener("click", () => {
         contactForm.classList.remove("visible");
-        document.body.classList.remove("scroll-lock");
       });
+      document
+        .getElementById("formular2")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var formData = new FormData(this);
+          var xhr = new XMLHttpRequest();
+
+          xhr.open("POST", "contact.php", true);
+          xhr.onload = function () {
+            if (xhr.status === 200) {
+              document.getElementById("formular2").reset();
+              alert("Das Formular wurde erfolgreich gesendet.");
+            } else {
+              alert("Es gab ein Problem beim Senden des Formulars.");
+            }
+          };
+
+          xhr.onerror = function () {
+            alert("Es gab ein Problem beim Senden des Formulars.");
+          };
+
+          xhr.send(formData);
+        });
     </script>
   </body>
 </html>

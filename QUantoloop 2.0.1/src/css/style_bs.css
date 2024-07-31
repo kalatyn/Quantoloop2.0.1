@@ -593,7 +593,7 @@ body {
   position: relative;
   overflow: hidden;
   display: flex;
-  /* justify-content: center; */
+  justify-content: space-around;
 }
 .inter_cards {
   width: 50%;
@@ -603,7 +603,7 @@ body {
   flex-direction: column;
 }
 .inter_card {
-  width: 30vw;
+  width: 60%;
   height: 20vw;
   background-color: white;
   border-radius: 20px;
@@ -666,6 +666,7 @@ body {
   margin-bottom: 3rem;
   margin-top: 10%;
   color: rgb(0, 0, 0);
+  max-width: 90%;
 }
 
 .inter_info_container h3 {
@@ -677,6 +678,7 @@ body {
   text-align: justify;
   overflow-wrap: break-word;
   hyphens: auto;
+  max-width: 90%;
 }
 .canvas {
   height: 100%;
@@ -884,6 +886,9 @@ canvas {
   .growth_item {
     min-width: 300px !important;
   }
+  .interactive_container_right {
+    transform: scale(0.75) translateX(-25%);
+  }
 
   /* .software_cards {
     width: 100%;
@@ -1036,8 +1041,46 @@ canvas {
   .inter_info_container h3 {
     font-size: 2vw !important;
   }
-  #card_section {
-    height: 100vh !important;
+
+  .interactive_section2 {
+    height: auto !important;
+    flex-direction: column;
+  }
+  .interactive_container {
+    flex-direction: column;
+    height: auto;
+    padding-top: 30px !important;
+  }
+  .interactive_container_right {
+    flex-direction: column;
+    padding: 60px 0px;
+    width: 100% !important;
+    transform: scale(1) translateX(0%);
+  }
+  .icr_card {
+    width: 90% !important;
+    height: auto !important;
+    transform: rotate(0deg) scale3d(1, 1, 1) !important;
+    margin-bottom: 2rem !important;
+    aspect-ratio: auto !important;
+  }
+  .icr_card h3 {
+    font-size: 1rem !important;
+    margin-bottom: 1.3rem !important;
+  }
+  .icr_card h2 {
+    font-size: 3rem !important;
+    margin-bottom: 1.3rem !important;
+  }
+  .icr_card p {
+    font-size: 0.8rem !important;
+    line-height: 1.2rem !important;
+    letter-spacing: 0.02rem !important;
+  }
+  .icr_card img {
+    width: 13% !important;
+    height: 13% !important;
+    margin-bottom: 1.3rem !important;
   }
 
   .about {
@@ -1672,7 +1715,7 @@ canvas {
   .growth_right {
     display: none !important;
   }
-  .interactive_section2 {
+  /* .interactive_section2 {
     height: auto !important;
     flex-direction: column;
   }
@@ -1685,14 +1728,14 @@ canvas {
     flex-direction: column;
     padding-top: 60px;
     width: 100% !important;
-  }
-  .icr_card {
+  } */
+  /* .icr_card {
     width: 90% !important;
     height: auto !important;
     transform: rotate(0deg) scale3d(1, 1, 1) !important;
     margin-bottom: 2rem !important;
     aspect-ratio: auto !important;
-  }
+  } */
   .icr_card h3 {
     font-size: 1rem !important;
     margin-bottom: 1.3rem !important;
@@ -2474,6 +2517,7 @@ canvas {
   /* height: 66%; */
   aspect-ratio: 10 /13;
   width: 50%;
+  min-width: 260px;
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
