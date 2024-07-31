@@ -51,7 +51,7 @@
     "titelS": "Resilienz",
     "zIndex": "5",
     "textRot": "-90deg",
-    "img": "img/Trends/Resilienz/supply_chain_visibility.jpg"
+    "img": "/img/Trends/Resilienz/Supply_Chain_Visibility.jpg"
   },
   {
     "angle": 84,
@@ -60,7 +60,7 @@
     "titelS": "Resilienz",
     "zIndex": "7",
     "textRot": "-90deg",
-    "img": "img/Trends/Resilienz/predictive_analytics.jpg"
+    "img": "/img/Trends/Resilienz/predictive_analytics.jpg"
   },
   {
     "angle": 96,
