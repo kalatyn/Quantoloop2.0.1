@@ -98,6 +98,16 @@ export function scrollleft() {
     behavior: "smooth",
   });
 }
+document.querySelector(".footer_titel_icon").addEventListener("click", () => {
+  const popup = document.querySelector(".footer_title_popup");
+  popup.classList.add("footer_popup_visible");
+});
+document
+  .querySelector(".footer_title_popup_i")
+  .addEventListener("click", () => {
+    const popup = document.querySelector(".footer_title_popup");
+    popup.classList.remove("footer_popup_visible");
+  });
 
 export function scrollright() {
   let scrollAmount = Math.min(

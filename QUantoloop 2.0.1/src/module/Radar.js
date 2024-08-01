@@ -7,7 +7,7 @@ export function drawRadar() {
   const popUpText = document.querySelector(".popup__text");
   const popUpImg = document.querySelector(".popup__img");
   const navbar = document.querySelector("#navbar");
-
+  const footerPopup = document.querySelector(".footer_title_popup");
   let scale = 1;
   let selectedLine = null;
   let currentRotation = 0;
@@ -39,12 +39,10 @@ export function drawRadar() {
       lineElem.addEventListener("click", () => {
         lineElem.classList.remove("leftLine");
         popUp.classList.add("popup-show");
-        // navbar.style.zIndex = "0";
+
         if (selectedLine) {
           selectedLine.classList.remove("selected");
-        }
-        if (navbar.style.zIndex === "0") {
-          // document.body.classList.add("scroll-lock");
+          footerPopup.classList.remove("footer_popup_visible");
         }
 
         lineElem.classList.add("selected");
@@ -55,8 +53,11 @@ export function drawRadar() {
         }
 
         const targetAngle = 90;
-        const additionalRotation =
+        let additionalRotation =
           targetAngle - ((line.angle + currentRotation) % 360);
+        if (additionalRotation < 0) {
+          additionalRotation += 360;
+        }
         currentRotation += additionalRotation;
 
         radar.style.transform = `rotate(${currentRotation}deg)`;
@@ -65,6 +66,7 @@ export function drawRadar() {
         popUpTitleL.textContent = line.titel;
         popUpText.textContent = line.info;
         popUpImg.setAttribute("src", line.img);
+        popUpImg.setAttribute("alt", line.titelS);
 
         updateAllLineClasses();
         updateStageClasses();
@@ -74,13 +76,13 @@ export function drawRadar() {
   }
 
   function updateLineClass(lineElem, angle) {
-    if (
-      (angle + currentRotation) % 360 > 180 &&
-      (angle + currentRotation) % 360 < 360
-    ) {
+    const adjustedAngle = (angle + currentRotation) % 360;
+    if (adjustedAngle > 180 && adjustedAngle < 360) {
       lineElem.classList.add("leftLine");
+      lineElem.style.setProperty("--text-align", "end");
     } else {
       lineElem.classList.remove("leftLine");
+      lineElem.style.setProperty("--text-align", "start");
     }
   }
 
@@ -117,11 +119,11 @@ export function drawRadar() {
       selectedLine.classList.remove("selected");
     }
     popUp.classList.remove("popup-show");
+    footerPopup.classList.remove("footer_popup_visible");
     document.body.classList.remove("scroll-lock");
     radar.style.scale = "1";
     radar.style.left = "0";
     radar.style.transition = "all 0.5s ease";
-    // navbar.style.zIndex = "100";
     scale = 1;
     updateAllLineClasses();
     updateStageClasses();
