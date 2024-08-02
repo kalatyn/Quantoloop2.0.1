@@ -1773,7 +1773,11 @@ canvas {
     position: relative;
     right: 30px;
   }
+  .popup {
+    max-height: 100% !important;
+  }
 }
+
 @media (hover: none) and (pointer: coarse) {
   .mobile_plus {
     width: 30px !important;
@@ -2758,6 +2762,7 @@ canvas {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.5s ease;
+  z-index: 101 !important;
 }
 .close-popup {
   font-size: 150%;

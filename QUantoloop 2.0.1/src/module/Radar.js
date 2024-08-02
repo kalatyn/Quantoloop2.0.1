@@ -39,7 +39,7 @@ export function drawRadar() {
       lineElem.addEventListener("click", () => {
         lineElem.classList.remove("leftLine");
         popUp.classList.add("popup-show");
-
+        document.body.classList.add("scroll-lock");
         if (selectedLine) {
           selectedLine.classList.remove("selected");
           footerPopup.classList.remove("footer_popup_visible");
