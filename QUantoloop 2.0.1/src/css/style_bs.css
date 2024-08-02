@@ -1263,6 +1263,10 @@ canvas {
   .slogen {
     font-size: 1.1rem !important;
   }
+  .logo_slogan_info {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
   .interactive_section {
     flex-direction: column-reverse;
     align-items: center;
