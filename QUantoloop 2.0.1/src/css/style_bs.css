@@ -2815,23 +2815,11 @@ canvas {
   font-size: 12px;
   display: block;
 }
-
-.footer_titel_icon {
-  width: 20px;
-  display: block;
-  position: relative;
-  right: 0;
-  cursor: pointer;
-}
-
 .footer_title_popup {
   position: absolute;
   width: 95%;
-  height: 220%;
   top: -10%;
   left: 2.5%;
-  right: 0;
-  bottom: 0;
   background-color: #ffffff;
   visibility: hidden;
   opacity: 0;
@@ -2839,15 +2827,23 @@ canvas {
   padding: 1.5% 15% 1% 5%;
   line-height: 1rem;
   z-index: 2;
-  font-size: 12px;
-
   box-shadow: #929292 2px 2px 5px;
+  display: flex; /* Добавлено */
+  flex-direction: column; /* Добавлено */
 }
+
+.footer_title_popup h2 {
+  font-size: 12px;
+  display: block;
+  margin: 0; /* Добавлено */
+}
+
 .footer_popup_visible {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+
 .footer_title_popup_i {
   position: absolute;
   font-size: 24px;
@@ -3000,7 +2996,7 @@ canvas {
 
 #contact_us {
   width: 90vw;
-  height: 400px;
+  height: auto;
   background-color: var(--dark-blue);
   margin: 0 auto;
   border-radius: 20px;
@@ -3008,7 +3004,7 @@ canvas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 3rem;
+  padding: 3rem;
   position: relative;
   overflow: hidden;
   margin-bottom: 200px;
