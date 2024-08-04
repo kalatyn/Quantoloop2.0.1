@@ -36,42 +36,42 @@ function initRadarObserver() {
 
 //reloading by resize
 
-// const triggerWidths = [1400, 1200, 1024, 994, 767, 576];
+const triggerWidths = [1400, 1200, 1024, 994, 767, 576];
 
-// let previousWidth = window.innerWidth;
+let previousWidth = window.innerWidth;
 
-// function checkWidthChange() {
-//   let currentWidth = window.innerWidth;
+function checkWidthChange() {
+  let currentWidth = window.innerWidth;
 
-//   for (let width of triggerWidths) {
-//     if (
-//       (currentWidth <= width && previousWidth > width) ||
-//       (currentWidth > width && previousWidth <= width)
-//     ) {
-//       location.reload();
-//       break;
-//     }
-//   }
+  for (let width of triggerWidths) {
+    if (
+      (currentWidth <= width && previousWidth > width) ||
+      (currentWidth > width && previousWidth <= width)
+    ) {
+      location.reload();
+      break;
+    }
+  }
 
-//   previousWidth = currentWidth;
-// }
+  previousWidth = currentWidth;
+}
 
-// function checkOrientation() {
-//   const isTablet = /iPad|Android|Tablet|PlayBook/.test(navigator.userAgent);
+function checkOrientation() {
+  const isTablet = /iPad|Android|Tablet|PlayBook/.test(navigator.userAgent);
 
-//   if (isTablet) {
-//     window.addEventListener("orientationchange", function () {
-//       setTimeout(checkWidthChange, 500);
-//     });
-//   }
-// }
+  if (isTablet) {
+    window.addEventListener("orientationchange", function () {
+      setTimeout(checkWidthChange, 500);
+    });
+  }
+}
 
-// window.addEventListener("resize", function () {
-//   checkWidthChange();
-// });
+window.addEventListener("resize", function () {
+  checkWidthChange();
+});
 
-// checkOrientation();
-// checkWidthChange();
+checkOrientation();
+checkWidthChange();
 //reloading by resize
 
 document.addEventListener("DOMContentLoaded", () => {
