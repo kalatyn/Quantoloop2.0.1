@@ -34,6 +34,46 @@ function initRadarObserver() {
   observer.observe(radar);
 }
 
+//reloading by resize
+
+const triggerWidths = [1400, 1200, 1024, 994, 767, 576];
+
+let previousWidth = window.innerWidth;
+
+function checkWidthChange() {
+  let currentWidth = window.innerWidth;
+
+  for (let width of triggerWidths) {
+    if (
+      (currentWidth <= width && previousWidth > width) ||
+      (currentWidth > width && previousWidth <= width)
+    ) {
+      location.reload();
+      break;
+    }
+  }
+
+  previousWidth = currentWidth;
+}
+
+function checkOrientation() {
+  const isTablet = /iPad|Android|Tablet|PlayBook/.test(navigator.userAgent);
+
+  if (isTablet) {
+    window.addEventListener("orientationchange", function () {
+      setTimeout(checkWidthChange, 500);
+    });
+  }
+}
+
+window.addEventListener("resize", function () {
+  checkWidthChange();
+});
+
+checkOrientation();
+checkWidthChange();
+//reloading by resize
+
 document.addEventListener("DOMContentLoaded", () => {
   initRadarObserver();
 });
