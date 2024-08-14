@@ -21,7 +21,7 @@
       body {
         font-family: "DM sans", sans-serif;
         margin: 0;
-        padding: 7%;
+        padding: 7% 7% 0 7%;
         font-weight: 200;
         /* font-size: large; */
         line-height: 2rem;
@@ -51,10 +51,13 @@
       }
     </style>
   </head>
-  <body>
+  <body style="position: relative">
     <nav class="navbar-expand-md border-0">
       <div class="container-fluid navbar" id="navbar">
-        <a class="nav-link navbar-brand_mini" style="padding-top: 0px" href="#"
+        <a
+          class="nav-link navbar-brand_mini"
+          style="padding-top: 0px; top: 1px"
+          href="/index.html"
           ><img src="/icons/QL-Logo-Farbe.svg" alt=""
         /></a>
 
@@ -125,7 +128,9 @@
         </div>
       </div>
     </nav>
-    <div class="datenschutz"><strong>Datenschutz</strong></div>
+    <div class="datenschutz" style="margin-top: 60px">
+      <strong>Datenschutz</strong>
+    </div>
     <div><strong>1. Datenschutz auf einen Blick</strong></div>
     <div>&nbsp;</div>
     <div><strong>Allgemeine Hinweise</strong></div>
@@ -813,6 +818,11 @@
         </form>
       </div>
     </div>
+    <footer style="position: relative; bottom: 0; left: -8%">
+      <a href="/index.html">© Quantoloop 2024</a>
+      <a href="/impressum/index.html">Impressum</a>
+      <a href="/datenschutz/index.html">Datenschutz</a>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

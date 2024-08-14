@@ -2611,6 +2611,18 @@ canvas {
   justify-content: center;
   align-items: center;
   transition-property: property;
+  .radar {
+    height: 50vh;
+    width: 50vh;
+    transition: transform 0.3s ease-in-out;
+    float: left;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-property: property;
+    transform: rotate(90deg);
+  }
 }
 
 .circle__l {
