@@ -34,12 +34,8 @@ export function drawRadar() {
       lineElem.style.transform = `rotate(${line.angle}deg)`;
       lineElem.style.zIndex = `${line.zIndex}`;
       lineElem.setAttribute("data-titel", line.titel);
-      updateLineClass(lineElem, line.angle);
-
+      updateLineClass(lineElem, line.angle, true);
       lineElem.addEventListener("click", () => {
-        lineElem.classList.remove("leftLine");
-        popUp.classList.add("popup-show");
-        // document.body.classList.add("scroll-lock");
         if (selectedLine) {
           selectedLine.classList.remove("selected");
           footerPopup.classList.remove("footer_popup_visible");
@@ -47,35 +43,37 @@ export function drawRadar() {
 
         lineElem.classList.add("selected");
         selectedLine = lineElem;
+        popUp.classList.add("popup-show");
+
         if (window.innerWidth >= 576) {
           radar.style.scale = "1.7";
           radar.style.left = "-60%";
+
+          const targetAngle = 90;
+          let additionalRotation =
+            targetAngle - ((line.angle + currentRotation) % 360);
+          if (additionalRotation < 0) {
+            additionalRotation += 360;
+          }
+          currentRotation += additionalRotation;
+
+          radar.style.transform = `rotate(${currentRotation}deg)`;
+          radar.style.transition = "all 0.5s ease";
         }
 
-        const targetAngle = 90;
-        let additionalRotation =
-          targetAngle - ((line.angle + currentRotation) % 360);
-        if (additionalRotation < 0) {
-          additionalRotation += 360;
-        }
-        currentRotation += additionalRotation;
-
-        radar.style.transform = `rotate(${currentRotation}deg)`;
-        radar.style.transition = "all 0.5s ease";
         popUpTitleS.textContent = line.titelS;
         popUpTitleL.textContent = line.titel;
         popUpText.textContent = line.info;
         popUpImg.setAttribute("src", line.img);
         popUpImg.setAttribute("alt", line.titelS);
 
-        updateAllLineClasses();
         updateStageClasses();
       });
       radar.appendChild(lineElem);
     });
   }
 
-  function updateLineClass(lineElem, angle) {
+  function updateLineClass(lineElem, angle, initial = false) {
     const adjustedAngle = (angle + currentRotation) % 360;
     if (adjustedAngle > 180 && adjustedAngle < 360) {
       lineElem.classList.add("leftLine");
@@ -83,6 +81,10 @@ export function drawRadar() {
     } else {
       lineElem.classList.remove("leftLine");
       lineElem.style.setProperty("--text-align", "start");
+    }
+
+    if (!initial) {
+      return;
     }
   }
 
