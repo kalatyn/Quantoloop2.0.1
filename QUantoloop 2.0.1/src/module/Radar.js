@@ -34,7 +34,8 @@ export function drawRadar() {
       lineElem.style.transform = `rotate(${line.angle}deg)`;
       lineElem.style.zIndex = `${line.zIndex}`;
       lineElem.setAttribute("data-titel", line.titel);
-      updateLineClass(lineElem, line.angle, true);
+      updateLineClass(lineElem, line.angle, true); // Изначально устанавливаем правильный класс
+
       lineElem.addEventListener("click", () => {
         if (selectedLine) {
           selectedLine.classList.remove("selected");
@@ -46,6 +47,7 @@ export function drawRadar() {
         popUp.classList.add("popup-show");
 
         if (window.innerWidth >= 576) {
+          // Эта часть кода будет выполняться только на устройствах с шириной >= 576px
           radar.style.scale = "1.7";
           radar.style.left = "-60%";
 
@@ -59,6 +61,11 @@ export function drawRadar() {
 
           radar.style.transform = `rotate(${currentRotation}deg)`;
           radar.style.transition = "all 0.5s ease";
+
+          // Обновляем классы после завершения анимации поворота
+
+          updateAllLineClasses();
+          // Время совпадает с длительностью анимации
         }
 
         popUpTitleS.textContent = line.titelS;
@@ -67,7 +74,7 @@ export function drawRadar() {
         popUpImg.setAttribute("src", line.img);
         popUpImg.setAttribute("alt", line.titelS);
 
-        updateStageClasses();
+        updateStageClasses(); // Это оставляем, чтобы подсвечивались нужные этапы
       });
       radar.appendChild(lineElem);
     });
@@ -82,7 +89,7 @@ export function drawRadar() {
       lineElem.classList.remove("leftLine");
       lineElem.style.setProperty("--text-align", "start");
     }
-
+    // Если это не начальная установка, не обновляем стиль
     if (!initial) {
       return;
     }

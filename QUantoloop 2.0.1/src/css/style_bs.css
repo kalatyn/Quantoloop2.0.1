@@ -1410,7 +1410,7 @@ canvas {
   }
   .growth_left {
     min-width: 90% !important;
-    height: 750px !important;
+    /* height: 750px !important; */
   }
 
   .growth_item {
@@ -1481,11 +1481,11 @@ canvas {
     right: 30px !important;
   }
   #growth_area {
-    min-height: 750px !important;
+    /* min-height: 750px !important; */
     height: auto !important;
   }
   .titel_section {
-    height: 175px !important;
+    height: 105px !important;
   }
   .plus_info {
     position: fixed !important;
@@ -1728,7 +1728,7 @@ canvas {
   .growth_titel {
     font-size: 1.2rem !important;
     line-height: 1.5rem !important;
-    margin-bottom: 45px !important;
+    margin-bottom: 0px !important;
   }
   .growth_right {
     display: none !important;
